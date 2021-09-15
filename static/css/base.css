@@ -27,3 +27,13 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
       max-width: 80%;
     }
   }
+
+@media (min-width: 320px) {
+    .nav-link {
+        padding: 0px;
+    }
+    
+    ul {
+        padding: 0px;
+    }
+}

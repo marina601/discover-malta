@@ -61,18 +61,16 @@
               </div>
               <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                   <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                      <li class="list-inline-item dropdown">
-                          <div class="btn-group">
+                    <li class="nav-item dropdown list-inline-item">
+                        <a class="nav-link dropdown-toggle text-black" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div><i class="fas fa-user fa-lg"></i></div>
-                            <p class="my0 dropdown-toggle" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                              My Account
-                            </p>
-                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <li><a class="dropdown-item" href="#">Log In</a></li>
-                              <li><a class="dropdown-item" href="#">Register</a></li>
-                              <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
-                          </div>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="#">Login</a></li>
+                          <li><a class="dropdown-item" href="#">Register</a></li>
+                          <li><a class="dropdown-item" href="#">Profile</a></li>
+                          <li><a class="dropdown-item" href="#">Logout</a></li>
+                        </ul>
                       </li>
                       <!--Shopping bag link-->
                       <li class="list-inline-item">
@@ -81,20 +79,14 @@
                               <div class="text-center">
                                   <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
                                   <p class="my-0">
-                                      <!--If there is grand total should display and convert to 2 decimal in the bag item-->
-                                     <!-- {% if grand_total %}
-                                      ${{ grand_total|floatformat:2 }}-->
-                                      <!--otherwise show-->
-                                   <!--{% else %}-->
                                       $0.00
-                                     <!-- {% endif %} -->
                                   </p>
                               </div>
                           </a>
                       </li>
                       <!--favourite link-->
                       <li class="list-inline-item">
-                        <a class="nav-link"
+                        <a class="nav-link text-black"
                             href="">
                             <div class="text-center">
                                 <div><i class="fas fa-heart fa-lg"></i></div>
@@ -107,17 +99,22 @@
                   </ul>
               </div>
           </div>
-          <div class="row bg-white">
-              <div class="row bg-white">
-                  <nav class="navbar navbar-expand-lg navbar-light w-100">
-                      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
-                          aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-                          <span class="navbar-toggler-icon"></span>
+          <!--main navbar-->
+          <div class="row">
+              <div class="col">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
                       </button>
-                     
+                    {% include 'includes/mobile-nav.html' %}
+                    {% include 'includes/main-nav.html' %}
+                    </div>
                   </nav>
               </div>
           </div>
+          <!--main navbar-->
+          
       </header>
 
       {% if messages %}
