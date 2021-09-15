@@ -1,0 +1,29 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Oxygen', sans-seri;
+}
+
+/*font-family: 'Acme', sans-serif; - headings
+font-family: 'Oxygen', sans-seri  - paragraphs */
+
+/* from Bulma */
+/* css for fontawesome to create consistency */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
