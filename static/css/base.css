@@ -45,8 +45,7 @@ header,
 .nav-item a:hover,
 a:active,
 .main-logo-link:hover {
-    border-radius: 5%;
-    border: 3px solid #2576da;
+    border: 1px solid #2576da;
     transition: ease-in-out all .4s; 
     -moz-transition: ease-in-out all .4s;
     -webkit-transition: ease-in-out all .4s;
@@ -88,6 +87,71 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+/**********************Footer*/
+
+footer {
+    background: #000000;
+}
+
+.footer-links {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0px;
+}
+
+.footer-links li,
+.footer-links a {
+    color: #fafafa;
+    display: inline-block;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    text-decoration: none;
+    text-align: center;
+}
+
+.social-icons {
+  list-style-type: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 0.2rem;
+}
+
+.social-icons li {
+    display: inline-block;
+    position: relative;
+    padding: 0rem 0.8rem;
+    color:  #fafafa;
+    font-size: 1.5rem;
+    box-shadow:  1.5rem .5rem .8rem rgba(0, 0, 0, 0.8);
+}
+
+.social-icons li a {
+    color: #fafafa;
+}
+
+.social-icons li a:hover,
+.footer-links li:hover,
+.footer-links li a:hover {
+    color: #2576da;
+    background-color: rgba(97, 95, 95, 0.6);
+    border-radius: 10%;
+    padding: 1rem;
+    transition: ease-in-out all .4s; 
+    -moz-transition: ease-in-out all .4s;
+    -webkit-transition: ease-in-out all .4s;
+}
+    
+.copy-rights-text {
+    color: #fafafa;
+    font-size: .8rem;
+    margin: 1rem auto;
 }
 
 /* -------------------------------- Media Queries */
