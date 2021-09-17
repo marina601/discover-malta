@@ -13,8 +13,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class TripAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'provider',
-                    'duration', 'departure_location', 'family_friendly', 'price',
-                    'num_tickets', 'days_available')
+                    'duration', 'departure_location', 'family_friendly',
+                    'adult_price', 'child_price', 'num_tickets')
     prepopulated_fields = {'slug': ('name',)}
 
 
