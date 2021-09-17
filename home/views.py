@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from trips.models import Category
 
 # Create your views here.
 
@@ -6,4 +7,10 @@ from django.shortcuts import render
 def index(request):
     """ A view to return the index page"""
 
-    return render(request, 'home/index.html')
+    categories = Category.objects.all()
+
+    context = {
+        'categories': categories,
+    }
+
+    return render(request, 'home/index.html', context)

@@ -6,7 +6,7 @@ from django.db import models
 class Category (models.Model):
     category_name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
-    cat_image = models.ImageField(upload_to='media', blank=True)
+    cat_image = models.ImageField(upload_to='media/categories', blank=True)
 
     class Meta:
         verbose_name = 'category'
@@ -38,7 +38,7 @@ class Trip(models.Model):
     add_to_favourites = models.BooleanField(default=False, blank=True)
     adult_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     child_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
-    images = models.ImageField(upload_to='media')
+    images = models.ImageField(upload_to='media/trips')
     image_url = models.URLField(max_length=1024, blank=True)
     num_tickets = models.PositiveIntegerField(default=0)
     # checkbox for special offers

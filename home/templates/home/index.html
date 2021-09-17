@@ -66,10 +66,10 @@
          <div class="row">
              {% for category in categories %}
              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="card bg-dark text-white">
-                    <img src="{{ category.cat_img }}" class="card-img" alt="{{ category.category_name }}">
+                <div class="card bg-dark text-white m-2 p-2">
+                    <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
                     <div class="card-img-overlay">
-                      <h5 class="card-title text-center">{{ category.category_name }}</h5>
+                      <h5 class="card-title text-center">{{ category.category_name | capfirst }}</h5>
                     </div>
                   </div>
              </div>
