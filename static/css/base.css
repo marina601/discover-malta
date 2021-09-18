@@ -117,6 +117,13 @@ a:active,
     justify-content: center;
 }
 
+.testimony-div {
+    background-color: black;
+    border: 2px dotted white;
+    margin: 5px;
+}
+
+
 .category-heading {
     color: #da8925;
     font-weight: 700;
