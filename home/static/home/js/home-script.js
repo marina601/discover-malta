@@ -34,7 +34,7 @@ $(document).scroll(function() {
     if (y > 400) {
         $('.card-info:hidden').each(function(index) {
             setTimeout(function(el) {
-                el.toggle(2000);
+                el.toggle(1000);
             }, index * 1000, $(this));
         });
     } else {
