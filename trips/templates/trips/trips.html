@@ -4,20 +4,107 @@
 {% block extra_title %} Home {% endblock %}
 
 {% block content %}
-     <div class="container">
-         <div class="row">
-             <div class="col">
-                 
-             </div>
-         </div>
-         <!--heading-->
-         <div class="row">
-             <div class="col-s12">
-                 <h1 class="text-center">All Trips</h1>
-                 {{ trips }}
-             </div>
-         </div>
-        
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+
+            </div>
+        </div>
+        <!--heading-->
+        <div class="row">
+            <div class="col-s12 mt-1">
+                <h1 class="text-center heading">View All The Experiences</h1>
+                {{ trips }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12">
+                <form method="GET" action="#">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q"
+                            placeholder="Search our site">
+                        <div class="input-group-append">
+                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m-2 text-center">
+                <h2>Refine Your Search</h2>
+            </div>
+        </div>
+        <!--Here we will bring the categories and display all the category names -->
+        <!--Could also do filter by price and duration full day trips or half day trips-->
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-6 col-sm-6 offset-sm-6">
+                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                    <option selected>Choose Your Category</option>
+                    <option value="1">Water Activities</option>
+                    <option value="2">Food & Wine</option>
+                    <option value="3">Fishing</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</section>
+<!--display all the trips-->
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card" style="width: 18rem;">
+                    <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                        <i class="fas fa-heart"></i>
+                      </button>
+                    <img src="..." class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h4 class="card-title">Trip Name</h4>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <ul class="list-group">
+                          <li class="list-group-item"><i class="fas fa-hourglass-end"></i> 5 hrs</li>
+                          <li class="list-group-item"><i class="fas fa-euro-sign"></i> 30</li>
+                          <li class="list-group-item"><i class="fas fa-star"></i> 5/5 </li>
+                      </ul>
+                      <a href="#" class="btn ml-3 btn-more"><i class="fas fa-plus"></i>More Info
+                      </a>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="pagination-section">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                  </nav>
+            </div>
+        </div>
+    </div>
+</section>
       
 
 {% endblock %}

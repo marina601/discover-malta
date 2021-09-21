@@ -23,6 +23,11 @@ h6 {
     font-family: 'Acme', sans-serif;
 }
 
+section {
+    height: 50vh;
+    margin-top: 7rem;
+}
+
 
 /*************************Navigation*/
 
@@ -180,7 +185,8 @@ a:active,
     display: flex;
 }
 
-.btn-next {
+.btn-next,
+.btn-more {
     background-color: #da8925;
     border-radius: 0.5rem;
     color:#fafafa;
@@ -189,7 +195,8 @@ a:active,
     font-family: 'Acme', sans-serif;
 }
 
-.btn-next:hover {
+.btn-next:hover,
+.btn-more:hover {
     background-color: #2576da;
     color: #fafafa ;
     transition: ease-in-out all .4s;
@@ -199,8 +206,59 @@ a:active,
 }
 
 
+/***********************Trips Page*/
 
+.heading {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
 
+.main-content {
+    margin-top: 0px;
+    margin-bottom: 5rem;
+}
+
+.btn-more {
+    border-radius: 50%;
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-left: 70%;
+    padding: 0.2rem;
+}
+
+.btn-more i {
+    display: block;
+}
+
+.card-body .list-group-item {
+    border: none;
+}
+
+.card-body .list-group {
+    flex-direction: unset;
+}
+
+.add-to-favourites {
+    font-size: 2rem;
+    margin-left: 80%;
+    color: #000000;
+}
+
+.add-to-favourites:hover {
+    color: #ef1018;
+}
+
+.pagination {
+    background-color: #fafafa;
+}
+
+.page-link {
+    color: #000000;
+}
+
+.pagination-section {
+    height: fit-content;
+}
 
 
 
