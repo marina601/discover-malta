@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} Trips {% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <!--heading-->
+        <div class="row">
+            <div class="col-s12 mt-1">
+                <h1 class="text-center heading">{{ trip.name }}</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <ul class="list-group">
+                <li class="list-group-item"><i class="fas fa-hourglass-end"></i>{{ trip.duration }}hrs</li>
+                <li class="list-group-item"><i class="fas fa-euro-sign"></i>{{ trip.adult_price }}</li>
+                <li class="list-group-item"><i class="fas fa-star"></i> 5/5 </li>
+                {% if trip.family_friendly %}
+                <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
+                {% endif %}
+            </ul>
+        </div>
+        <!--Map-->
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <img src="" alt="">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h2>Full Description</h2>
+            <p>{{ trip.full_description }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>What is Included</h3>
+            <p>{{ trip.included }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h3>What to Bring</h3>
+            <p>{{ trip.what_to_bring }}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4>Cancellation Policy</h4>
+            <p>You may cancel your trip 24hrs in advance to get a full refund. 
+                Any trips cancelled less than 24hrs in advance will not qualify for a refund.
+            </p>
+        </div>
+    </div>
+    <!--Load Reviews Here and Star Rating-->
+    <!--Display Reveis only 3 on the page sorted by review date-->
+    <div class="row">
+        <div class="col">
+            <h4>Reviews</h4>   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="col btn-div">
+                <a href="#" class="btn btn-lg btn-next">Explore Latest Deals</a>
+                <a href="{% url 'trips' %}" class="btn btn-lg btn-next">Go Back to All Trips</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+      
+
+{% endblock %}
+
+{% block postloadjs %}
+
+{% endblock %}

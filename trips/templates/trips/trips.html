@@ -58,10 +58,14 @@
                 <div class="card card-trip">
                     <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
-                      </button>
-                    <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+                    </button>
+                    <a href="{% url 'trip_detail' trip.id %}">
+                       <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+                    </a>
                     <div class="card-body">
-                      <h4 class="card-title">{{ trip.name }}</h4>
+                        <a href="{% url 'trip_detail' trip.id %}">
+                            <h4 class="card-title">{{ trip.name }}</h4>
+                        </a>
                       <p class="card-text short-description">{{ trip.short_description }}</p>
                       <hr>
                       <ul class="list-group">
