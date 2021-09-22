@@ -5,6 +5,11 @@ from .models import Trip, Category
 
 
 def all_trips(request, category_slug=None):
+    """
+    Display all trips
+    Sort Trips by Categories
+    Show Trip cound upon query results
+    """
     categories = None
     trips = None
 
@@ -13,9 +18,6 @@ def all_trips(request, category_slug=None):
         trips = Trip.objects.filter(category=categories)
         result_count = trips.count()
     else:
-        """
-        Display all trips including sorting and searching queries
-        """
         trips = Trip.objects.all()
         result_count = trips.count()
 
@@ -28,14 +30,18 @@ def all_trips(request, category_slug=None):
     return render(request, 'trips/trips.html', context)
 
 
-# def trip_detail(request, trip_id):
-#     """
-#     Display a single trip by id
-#     """
-#     trip = get_object_or_404(Trip, pk=trip_id)
-
-#     context = {
-#         'trip': trip,
-#     }
-
-#     return render(request, 'trips/trip_detail.html', context)
+def trip_detail(request, category_slug, trip_slug):
+    """
+    Display a single trip by category_slug and trip slug
+    """
+    try:
+        trip = Trip.objects.get(category__slug=category_slug,
+                                             slug=trip_slug)
+    except Exception as e:
+        raise e
+    
+    context = {
+        'trip': trip,
+    }
+  
+    return render(request, 'trips/trip_detail.html', context)

@@ -74,25 +74,25 @@
                     <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
                     </button>
-                    
+                    <a href="{{ trip.get_url }}">
                        <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
-                    
+                    </a>
                     <div class="card-body">
-                       
+                        <a href="{{ trip.get_url }}">
                             <h4 class="card-title">{{ trip.name }}</h4>
-                    
-                      <p class="card-text short-description">{{ trip.short_description }}</p>
-                      <hr>
-                      <ul class="list-group">
-                          <li class="list-group-item"><i class="fas fa-hourglass-end"></i>{{ trip.duration }}hrs</li>
-                          <li class="list-group-item"><i class="fas fa-euro-sign"></i>{{ trip.adult_price }}</li>
-                          <li class="list-group-item"><i class="fas fa-star"></i> 5/5 </li>
-                          {% if trip.family_friendly %}
-                          <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
-                          {% endif %}
-                      </ul>
-                      <a href="#" class="btn ml-3 btn-more"><i class="fas fa-plus"></i>More Info
-                      </a>
+                        </a>
+                        <p class="card-text short-description">{{ trip.short_description }}</p>
+                        <hr>
+                        <ul class="list-group">
+                            <li class="list-group-item"><i class="fas fa-hourglass-end"></i>{{ trip.duration }}hrs</li>
+                            <li class="list-group-item"><i class="fas fa-euro-sign"></i>{{ trip.adult_price }}</li>
+                            <li class="list-group-item"><i class="fas fa-star"></i> 5/5 </li>
+                            {% if trip.family_friendly %}
+                            <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
+                            {% endif %}
+                        </ul>
+                        <a href="{{ trip.get_url }}" class="btn ml-3 btn-more"><i class="fas fa-plus"></i>More Info
+                        </a>
                     </div>
                   </div>
             </div>
