@@ -39,12 +39,18 @@
         <!--Could also do filter by price and duration full day trips or half day trips-->
         <div class="row">
             <div class="col-lg-6 offset-lg-3 col-md-6 offset-md-6 col-sm-6 offset-sm-6">
-                <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                    <option selected>Choose Your Category</option>
-                    {% for category in categories %}
-                    <option value="1">{{ category.category_name | capfirst }}</option>
-                    {% endfor %}
-                </select>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Choose Your Category
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <!--Get Category model function for category slack-->
+                        <li><a class="dropdown-item" href="{% url 'trips' %}">All Trips</a></li>
+                      {% for category in links %}
+                        <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name | capfirst }}</a></li>
+                      {% endfor %}
+                    </ul>
+                  </div>
             </div>
         </div>
     </div>
@@ -68,13 +74,13 @@
                     <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
                     </button>
-                    <a href="{% url 'trip_detail' trip.id %}">
+                    
                        <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
-                    </a>
+                    
                     <div class="card-body">
-                        <a href="{% url 'trip_detail' trip.id %}">
+                       
                             <h4 class="card-title">{{ trip.name }}</h4>
-                        </a>
+                    
                       <p class="card-text short-description">{{ trip.short_description }}</p>
                       <hr>
                       <ul class="list-group">

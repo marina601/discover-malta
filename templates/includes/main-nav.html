@@ -13,10 +13,10 @@
           Categories
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <li><a class="dropdown-item" href="#">Food & Wine</a></li>
-          <li><a class="dropdown-item" href="#">Fishing</a></li>
-          <li><a class="dropdown-item" href="#">Boat Trips</a></li>
-          <li><a class="dropdown-item" href="#">Adventures</a></li>
+          <!--Get Category model function for category slack-->
+          {% for category in links %}
+            <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a></li>
+          {% endfor %}
         </ul>
       </li>
       <li class="nav-item">
