@@ -15,6 +15,10 @@ body {
     flex-direction: column;
 }
 
+.spacing {
+    margin: 1rem;
+    padding: 1rem;
+}
 
 
 h1,
@@ -217,7 +221,6 @@ a:active,
 }
 
 .main-content {
-    margin-top: 0px;
     margin-bottom: 5rem;
     height: fit-content;
     flex: 1 0 auto;
@@ -291,6 +294,33 @@ a:active,
 
 .card-trip img {
     height: 220px;
+}
+
+/***********************Trip Details*/
+
+.btn-book {
+    position: fixed;
+    top: 20%;
+    left: 80%;
+    width: 10rem;
+    height: 5rem;
+    padding: 1.1rem;
+    font-size: 1.8rem;
+    z-index: 1;
+}
+
+.btn-favourite {
+    margin: 1rem;
+    position: absolute;
+    top: 19%;
+    width: 5rem;
+    height: 5rem;
+    z-index: 1;
+    border: 0.2rem solid #000000;
+}
+
+.btn-favourite i {
+    margin: 0px;
 }
 /*font-family: 'Acme', sans-serif; - headings
 font-family: 'Oxygen', sans-seri  - paragraphs */
