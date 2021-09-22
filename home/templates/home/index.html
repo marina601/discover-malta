@@ -98,10 +98,14 @@
     {% for category in categories %}
     <div class="col-lg-3 col-md-4 col-sm-6 p-2">
         <div class="card bg-dark h-100 m-1">
-            <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
+            <a href="{{ category.get_url }}">
+                <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
+            </a>
             <div class="card-img-overlay">
-                <h5 class="card-title text-center category-heading">{{ category.category_name | capfirst }}
-                </h5>
+                <a href="{{ category.get_url }}">
+                    <h5 class="card-title text-center category-heading">{{ category.category_name | capfirst }}
+                    </h5>
+                </a>
             </div>
         </div>
     </div>
