@@ -9,11 +9,13 @@ def all_trips(request):
     Display all trips including sorting and searching queries
     """
     trips = Trip.objects.all()
+    result_count = trips.count() 
     categoris = Category.objects.all()
 
     context = {
         'trips': trips,
         'categories': categoris,
+        'result_count': result_count
     }
 
     return render(request, 'trips/trips.html', context)
