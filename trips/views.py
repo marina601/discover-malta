@@ -78,6 +78,9 @@ def search(request):
         if keyword:
             trips = Trip.objects.order_by('-created_date').filter(Q(full_description__icontains=keyword) | Q(name__icontains=keyword))
             result_count = trips.count()
+        else:
+            messages.error(request, "You didn't enter any serach criteria! ")
+            return redirect(reverse('trips'))
     
     context = {
         'trips': trips,

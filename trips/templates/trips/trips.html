@@ -4,6 +4,7 @@
 {% block extra_title %} Trips {% endblock %}
 
 {% block content %}
+
 <section class="main-content">
     <div class="container">
         <!--heading-->
@@ -63,7 +64,9 @@
                 <p>
                    <span class="results">{{ result_count }}</span> Results Found
                 </p>
- 
+                {% if result_count == 0 %}
+                <p class="text-center">We do not have any trips with your search cretirea, please try again.</p>
+                {% endif %}
             </div>
         </div>
         <hr>
