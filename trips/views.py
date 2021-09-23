@@ -1,6 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Trip, Category
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
+from django.db.models import Q
+
+
+from .models import Trip, Category
 
 # Create your views here.
 
@@ -34,6 +38,7 @@ def all_trips(request, category_slug=None):
         # trip count
         result_count = trips.count()
 
+
     context = {
         'trips': paged_trips,
         'result_count': result_count,
@@ -58,3 +63,25 @@ def trip_detail(request, category_slug, trip_slug):
     }
   
     return render(request, 'trips/trip_detail.html', context)
+
+
+def search(request):
+    trips = None
+    trips_count = None
+    query = None
+    """
+    Search function, cheking if the method is GET
+    and the keyword=name in input, store the value
+    """
+    if 'q' in request.GET:
+        keyword = request.GET['q']
+        if keyword:
+            trips = Trip.objects.order_by('-created_date').filter(Q(full_description__icontains=keyword) | Q(name__icontains=keyword))
+            result_count = trips.count()
+    
+    context = {
+        'trips': trips,
+        'result_count': result_count,
+    }
+
+    return render(request, 'trips/trips.html', context)
