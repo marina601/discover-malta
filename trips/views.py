@@ -16,7 +16,29 @@ def all_trips(request, category_slug=None):
     Show Trip cound upon query results
     """
     categories = None
-    trips = None
+    trips = Trip.objects.all()
+    sort = None
+    direction = None
+
+    if request.GET:
+        """
+        Sorting trips
+        """
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                trips = trips.annotate(lower_name=Lower('name'))
+            
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            trips = trips.order_by(sortkey)
+    
+    current_sorting = f'{sort}_{direction}'
+
 
     if category_slug != None:
         # get all the trips by category slug
@@ -43,6 +65,7 @@ def all_trips(request, category_slug=None):
         'trips': paged_trips,
         'result_count': result_count,
         'categories': categories,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'trips/trips.html', context)
@@ -67,7 +90,7 @@ def trip_detail(request, category_slug, trip_slug):
 
 def search(request):
     trips = None
-    trips_count = None
+    result_count = 0
     query = None
     """
     Search function, cheking if the method is GET
