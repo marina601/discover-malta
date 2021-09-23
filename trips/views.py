@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Trip, Category
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 
@@ -14,15 +15,27 @@ def all_trips(request, category_slug=None):
     trips = None
 
     if category_slug != None:
+        # get all the trips by category slug
         categories = get_object_or_404(Category, slug=category_slug)
         trips = Trip.objects.filter(category=categories)
+        # pagination
+        paginator = Paginator(trips, 2)
+        page = request.GET.get('page')
+        paged_trips = paginator.get_page(page)
+        # trip count
         result_count = trips.count()
     else:
+        # get all the trips
         trips = Trip.objects.all()
+        # pagination
+        paginator = Paginator(trips, 8)
+        page = request.GET.get('page')
+        paged_trips = paginator.get_page(page)
+        # trip count
         result_count = trips.count()
 
     context = {
-        'trips': trips,
+        'trips': paged_trips,
         'result_count': result_count,
         'categories': categories,
     }
