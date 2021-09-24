@@ -17,28 +17,6 @@ def all_trips(request, category_slug=None):
     """
     categories = None
     trips = Trip.objects.all()
-    sort = None
-    direction = None
-
-    if request.GET:
-        """
-        Sorting trips
-        """
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                trips = trips.annotate(lower_name=Lower('name'))
-            
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            trips = trips.order_by(sortkey)
-    
-    current_sorting = f'{sort}_{direction}'
-
 
     if category_slug != None:
         # get all the trips by category slug
@@ -65,7 +43,6 @@ def all_trips(request, category_slug=None):
         'trips': paged_trips,
         'result_count': result_count,
         'categories': categories,
-        'current_sorting': current_sorting,
     }
 
     return render(request, 'trips/trips.html', context)
@@ -92,6 +69,36 @@ def search(request):
     trips = None
     result_count = 0
     query = None
+    sort = None
+    direction = None
+
+    if request.GET:
+        """
+        Sorting the trips by name
+        in descending or ascending order
+        """
+        if 'sort' in request.GET:
+            trips = Trip.objects.all()
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                trips = trips.annotate(lower_name=Lower('name'))
+            
+            
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            trips = trips.order_by(sortkey)
+        
+            paginator = Paginator(trips, 8)
+            page = request.GET.get('page')
+            paged_trips = paginator.get_page(page)
+            result_count = trips.count()
+            
+
+
     """
     Search function, cheking if the method is GET
     and the keyword=name in input, store the value
@@ -104,10 +111,13 @@ def search(request):
         else:
             messages.error(request, "You didn't enter any serach criteria! ")
             return redirect(reverse('trips'))
+
+    current_sorting = f'{sort}_{direction}'
     
     context = {
         'trips': trips,
         'result_count': result_count,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'trips/trips.html', context)
