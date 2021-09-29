@@ -18,7 +18,7 @@
             <button type="button" name="{{ trip.add_to_favourite }}" class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                 <i class="fas fa-heart"></i>
             </button>
-            <a href="#" class="btn btn-lg btn-next btn-book">Book Now</a>
+            <a href="{% url 'view_availability' %}" class="btn btn-lg btn-next btn-book">Book Now</a>
             <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
         </div>
     </div>

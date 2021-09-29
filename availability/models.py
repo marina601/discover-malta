@@ -17,9 +17,9 @@ class Ticket(models.Model):
         ('Sat', 'Sat'),
         ('Sun', 'Sun'),
     )
-   
+
     # comes from the trips
-    trip = models.ForeignKey('trips.Trip', on_delete=models.CASCADE)
+    trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     available_days = MultiSelectField(choices=DAYS_OF_THE_WEEK)
     start_time = models.TimeField(auto_now=False, auto_now_add=False)
     tickets_available = models.PositiveIntegerField(default=0)
