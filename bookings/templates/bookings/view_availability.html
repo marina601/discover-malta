@@ -3,17 +3,45 @@
 
 {% block extra_title %} Home {% endblock %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
+
 {% block content %}
+<section class="main-content">
 <div class="container">
     <div class="row">
         <div class="col">
+            <form action="">
+            {{ form.as_p }}
+            {% csrf_token %}
             <!--form-->
-        </div>
+            <p>Date: <input type="text" id="datepicker"></p>
+            <input type="Submit" value="Add booking">
+             </form>
+            </div>
     </div>
 </div>
+</section>
 
 {% endblock %}
 
+
+{% block postloadjs %}
+    {{ block.super %}
+    <script>
+        // Code taken from https://api.jqueryui.com/datepicker/
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+    </script>
+{% endblock %}
 
 
 
