@@ -27,6 +27,49 @@
              </form>
             </div>
     </div>
+    <!--booking form-->
+    <div class="row">
+      <div class="col-lg-8 offset-lg-2 col-md-8 offeset-md-2 col-sm-12">
+        <form action="" method="POST">
+          <div class="row">
+            <div class="col">
+              <label for="trip-name">Trip Name</label>
+              <input type="text" class="form-control" name="trip-name" placeholder="Trip Name" aria-label="Trip Name">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-4">
+              <label for="total_adults">Number of Adults:</label>
+              <input type="number" id="total_adults" name="total_adults" min="1" max="9">
+            </div>
+            <div class="col-lg-4">
+              <label for="num_of_children">Number of Children:</label>
+              <input type="number" id="num_of_children" name="num_of_children" min="1" max="9">
+            </div>
+            <div class="col-lg-4">
+              <p>Date: <input type="text" id="datepicker"></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="total_num_tickets">Number of Tickets</label>
+              <input type="number" id="total_num_tickets" name="total_num_tickets" min="1" max="9">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <label for="total_num_tickets">Total Price</label>
+              <input type="number" id="total_num_tickets" name="total_num_tickets" min="1" max="9">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button type="submit">Add to Suitcase</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 </div>
 </section>
 
