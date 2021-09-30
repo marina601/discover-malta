@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 
 # Create your models here.
 
@@ -45,6 +46,9 @@ class Trip(models.Model):
     images = models.ImageField(upload_to='media/trips')
     image_url = models.URLField(max_length=1024, blank=True)
     num_tickets = models.PositiveIntegerField(default=0)
+    start_time = models.TimeField(auto_now=False, auto_now_add=False)
+    from_date = models.DateField(default=timezone.now)
+    to_date = models.DateField(default=timezone.now)
     # checkbox for special offers
     special_offer = models.BooleanField(default=False, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)

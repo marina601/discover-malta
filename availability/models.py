@@ -1,5 +1,5 @@
 from django.db import models
-from multiselectfield import MultiSelectField
+from django.utils import timezone
 from trips.models import Trip
 
 
@@ -8,23 +8,16 @@ from trips.models import Trip
 
 
 class Ticket(models.Model):
-    DAYS_OF_THE_WEEK = (
-        ('Mon', 'Mon'),
-        ('Tue', 'Tue'),
-        ('Wed', 'Wed'),
-        ('Thur', 'Thur'),
-        ('Fri', 'Fri'),
-        ('Sat', 'Sat'),
-        ('Sun', 'Sun'),
-    )
 
     # comes from the trips
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
-    available_days = MultiSelectField(choices=DAYS_OF_THE_WEEK)
-    start_time = models.TimeField(auto_now=False, auto_now_add=False)
-    tickets_available = models.PositiveIntegerField(default=0)
-    # could be from the user model
-    provider = models.CharField(max_length=50, blank=True)
+    booking_date = models.DateField(default=timezone.now)
+    total_adults = models.PositiveIntegerField(default=0)
+    num_of_childen = models.PositiveIntegerField(default=0)
+    total_num_tickets = models.PositiveIntegerField(default=0)
+    total_price = models.PositiveIntegerField(default=0)
 
     def __str__(self):
-        return '{} {} {}'.format(self.available_days, self.start_time, self.start_time)
+        return '{} {} {} {} {}'.format(self.booking_date, self.total_num_tickets, 
+                                       self.total_price,
+                                       self.trip.adult_price, self.trip.child_price)

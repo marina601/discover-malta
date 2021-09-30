@@ -3,6 +3,7 @@ from .forms import AvailabilityForm
 
 # Create your views here.
 
+
 def view_availability(request):
     """
     View Availability for a trip
