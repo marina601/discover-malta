@@ -5,124 +5,121 @@
 
 {% block content %}
 <section class="main-content">
-    <div class="container">
+    <div class="container mb-2">
         <div class="row">
             <div class="col">
-
-                <h1>Bag</h1>
+                <hr>
+                <h2 class="logo-font mb-4">Your Travel Shopping Bag</h2>
+                <hr>
             </div>
         </div>
-        <div class="overlay"></div>
-        <div class="container mb-2">
-            <div class="row">
-                <div class="col">
-                    <hr>
-                    <h2 class="logo-font mb-4">Shopping Bag</h2>
-                    <hr>
+    </div>
+    <!--Bag-->
+    <div class="row">
+        <div class="col">
+            {% if bag_items %}
+            <!--Preview-->
+            <div class="d-block d-md-none">
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+
+                        <p class="text-muted mb-5">A summary of your bag contents is below</p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 col-sm-6 mb-2">
+
+                    </div>
+                    <div class="col-12 col-sm-6 mb-2">
+
+                    </div>
+                    <div class="col-12 col-sm-6 order-sm-last">
+                        <p class="my-0">Price Each: </p>
+                        <p><strong>Subtotal: </strong></p>
+                    </div>
+                    <div class="col-12 col-sm-6">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <hr>
+                    </div>
                 </div>
             </div>
+            <!--table heading-->
+            <div class="table-responsive rounded d-none d-md-block">
+                <table class="table table-sm table-borderless">
+                    <!--table heading-->
+                    <thead class="text-black">
+                        <tr>
+                            <th scope="col">Trip Info</th>
+                            <th scope="col"></th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Booking Date</th>
+                            <th scope="col">Number of Tickets</th>
+                            <th scope="col">Subtotal</th>
+                        </tr>
+                    </thead>
+                    {% for item in bag_items %}
+                    <tr>
+                        <!--Product image-->
+                        <td class="p-3 w-25">
+                            <img class="img-fluid" src="{{ item.trip.images.url }}" alt="{{ item.trip.name }}">
+                        </td>
+                        <td class="py-3">
+                            <p><strong>{{ item.trip.name }}</strong></p>
+                            <p class="text-muted">{{ item.trip.start_time }}</p>
+                        </td>
+                        <!--Product Price-->
+                        <td class="py-3">
+                            <p class="my-0">{{ item.total_price }}</p>
+                        </td>
+                        <!--Booking Date-->
+                        <td class="py-3">
+                            <p class="my-0">{{ item.ticket.booking_date }}</p>
+                        </td>
+                        <!--Tickets-->
+                        <td class="py-3">
+                            <p class="my-0">{{ item.ticket.total_adults }} <strong>Adults</strong></p>
+                            <!--check if there are any children tickets-->
+                            {% if item.ticket.num_of_childen > 0 %}
+                            <p class="my-0">{{ item.ticket.num_of_childen }} <strong>Children</strong></p>
+                            {% endif  %}
+                        </td>
+                        <!--subtotal-->
+                        <td class="py-3">
+                            <p class="my-0">{{ item.ticket.total_price }} <strong>Adults</strong></p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                     <!--Link to go back to the Products Page-->
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'trips' %}" class="btn btn-more">Keep Shopping</a>
+                            <a href="{% url 'trips' %}" class="btn btn-more">Check out</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            {% else %}
+            <!--else the message and the link to go back to the home page-->
+            <p class="lead mb-5">Your bag is empty</p>
+            <a href="{% url 'trips' %}" class="btn btn-more">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase">Discover More Trips</span>
+            </a>
+            {% endif %}
         </div>
-          <!--Bag-->
-         <div class="row">
-             <div class="col">
-                 {% if bag_items %}
-                
-                 <div class="d-block d-md-none">
-                     <div class="row">
-                         <div class="col">
-                             
-                         </div>
-                     </div>
-                     <div class="row">
-                         <div class="col">
-                             
-                             <p class="text-muted mb-5">A summary of your bag contents is below</p>
-                         </div>
-                     </div>
-                    
-                         <div class="row">
-                             <div class="col-12 col-sm-6 mb-2">
-                                
-                             </div>
-                             <div class="col-12 col-sm-6 mb-2">
-                                  
-                             </div>
-                             <div class="col-12 col-sm-6 order-sm-last">
-                                 <p class="my-0">Price Each: </p>
-                                 <p><strong>Subtotal: </strong></p>
-                             </div>
-                             <div class="col-12 col-sm-6">
-                                 
-                             </div>
-                         </div>
-                         <div class="row"><div class="col"><hr></div></div>
-                   
-                    
-                 </div>
-                 
-                     <div class="table-responsive rounded d-none d-md-block">
-                         <table class="table table-sm table-borderless">
-                             <!--table heading-->
-                             <thead class="text-black">
-                                 <tr>
-                                     <th scope="col">Trip Info</th>
-                                     <th scope="col"></th>
-                                     <th scope="col">Price</th>
-                                     <th scope="col">Number of Tickets</th>
-                                     <th scope="col">Subtotal</th>
-                                 </tr>
-                             </thead>
-                        
-                                 <tr>
-                                     <!--Product image-->
-                                     <td class="p-3 w-25">
-                                        {{ bag_items }}
-                                     </td>
-                                    
-                                     <td class="py-3">
-                                         
-                                     </td>
-                                     <!--Product Price-->
-                                     <td class="py-3">
-                                         <p class="my-0"></p>
-                                      </td>
-                                      <!--Product Quantity-->
-                                      <td class="py-3">
-                                          
-                                       </td>
-                                       <!--Product Total-->
-                                       <td class="py-3">
-                                          <p></p>
-                                       </td>
-                                 </tr>
-                             
-                             <tr>
-                                 <td colspan="5" class="pt-5 text-right">
-                                   
-                                 </td>
-                             </tr>
-                             <tr>
-                                 <!--Link to go back to the Products Page-->
-                                 <td colspan="5" class="text-right">
-                                     
-                                 </td>
-                             </tr>
-                         </table>
-                     </div>
-                  {% else %}
-                  <!--else the message and the link to go back to the home page-->
-                      <p class="lead mb-5">Your bag is empty</p>
-                      <a href="{% url 'trips' %}" class="btn btn-more">
-                          <span class="icon">
-                              <i class="fas fa-chevron-left"></i>
-                          </span>
-                          <span class="text-uppercase">Discover More Trips</span>
-                      </a>
-                 {% endif %}
-             </div>
-         </div>
+    </div>
     </div>
 </section>
 {% endblock %}
-
-
