@@ -15,7 +15,7 @@ def add_to_bag(request, trip_id):
     booking_date = request.POST.get('booking_date')
     redirect_url = request.POST.get('redirect_url')
     total_adults = int(request.POST.get('total_adults'))
-    num_of_childen = int(request.POST.get('num_of_children'))
+    num_of_childen = request.POST.get('num_of_children')
     bag = request.session.get('bag', {})
 
     if trip_id in list(bag.keys()):
@@ -24,7 +24,7 @@ def add_to_bag(request, trip_id):
         bag[trip_id] = total_adults
     
     request.session['bag'] = bag
-    print(request.session['bag'])
+
     return redirect(redirect_url)
 
     # Calculate
