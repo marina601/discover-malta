@@ -9,6 +9,7 @@ def bag_content(request):
     total_price = 0
     total_tickets = 0
     ticket = []
+    
     bag = request.session.get('bag', {})
 
     for trip_id, quantity in bag.items():
@@ -16,7 +17,7 @@ def bag_content(request):
         ticket = get_object_or_404(Ticket)
         adult_price = trip.adult_price * ticket.total_adults
         child_price = trip.child_price * ticket.num_of_childen
-        total_price += adult_price + child_price
+        total_price = adult_price + child_price 
         total_tickets += ticket.total_adults + ticket.num_of_childen
         bag_items.append({
             'trip_id': trip_id,

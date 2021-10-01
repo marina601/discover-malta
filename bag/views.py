@@ -20,11 +20,13 @@ def add_to_bag(request, trip_id):
 
     if trip_id in list(bag.keys()):
         bag[trip_id] += total_adults
+        booking_date = booking_date
+        num_of_childen = num_of_childen
     else:
         bag[trip_id] = total_adults
     
     request.session['bag'] = bag
-
+    
     return redirect(redirect_url)
 
     # Calculate

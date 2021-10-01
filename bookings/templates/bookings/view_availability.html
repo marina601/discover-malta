@@ -24,7 +24,7 @@
           <div class="row">
             <div class="col">
               <label for="trip-name">{{ trip_name }}</label>
-              <input type="text" class="form-control disabled" data-item_id="{{ trip.id }}" name="trip-name" placeholder="{{ trip.name }}" aria-label="Trip Name">
+              <input type="text" class="form-control disabled" name="trip-name" placeholder="{{ trip.name }}" aria-label="Trip Name">
             </div>
           </div>
           <div class="row">
@@ -36,12 +36,12 @@
             {% if trip.family_friendly %}
             <div class="col-lg-4">
               <label for="num_of_children">Select Number of Children:</label>
-              <input type="number" id="num_of_childen" class="from-control" name="num_of_childen" min="1" max="9">
+              <input type="number" id="num_of_children" class="from-control" name="num_of_childen" min="1" max="9">
               <p> @ {{ trip.child_price }}</p>
             </div>
             {% endif %}
             <div class="col-lg-4">
-              <p>Date: <input type="text" class="form-control" id="datepicker"></p>
+              <p>Date: <input type="text" class="form-control" name="booking_date" id="datepicker"></p>
             </div>
           </div>
           <div class="row">

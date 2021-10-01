@@ -95,15 +95,15 @@
                         </td>
                         <!--subtotal-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.ticket.total_price }} <strong>Adults</strong></p>
+                            <p class="my-0">{{ item.ticket.total_price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
                      <!--Link to go back to the Products Page-->
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'trips' %}" class="btn btn-more">Keep Shopping</a>
-                            <a href="{% url 'trips' %}" class="btn btn-more">Check out</a>
+                            <a href="{% url 'trips' %}" class="btn btn-next">Keep Shopping</a>
+                            <a href="{% url 'trips' %}" class="btn btn-next">Check out</a>
                         </td>
                     </tr>
                 </table>
