@@ -341,6 +341,28 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     width: 1.5rem;
 }
 
+/**********************View Availability*/
+
+.booking-form {
+    margin-top: 5rem;
+    border: 5px #2576da solid;
+    padding: 5rem;
+    background-color: #da8925;
+    border-radius: 5px;
+}
+
+.btn-div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-booking-btn {
+    background-color: blue;
+    color: white;
+    text-align: center;
+    border-radius: 10px;
+}
+
 /**********************Footer*/
 
 footer {
