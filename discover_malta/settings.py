@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'availability',
     'multiselectfield',
     'bookings',
+    'bag',
 ]
 
 MIDDLEWARE = [
