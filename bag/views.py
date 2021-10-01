@@ -3,5 +3,5 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def cart(request):
+def bag(request):
     return render(request, 'bag/bag.html',)
