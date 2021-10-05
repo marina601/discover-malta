@@ -17,6 +17,7 @@
     <!--Bag-->
     <div class="row">
         <div class="col">
+            {{ bag_items }}
             {% if bag_items %}
             <!--Preview-->
             <div class="d-block d-md-none">
@@ -79,23 +80,24 @@
                         </td>
                         <!--Product Price-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.total_price }}</p>
+                            <p class="my-0">{{ item.adult_price }}</p>
+                            <p class="my-0">{{ item.trip.child_price }}</p>
                         </td>
                         <!--Booking Date-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.ticket.booking_date }}</p>
+                            <p class="my-0">{{ item.booking_date }}</p>
                         </td>
                         <!--Tickets-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.ticket.total_adults }} <strong>Adults</strong></p>
+                            <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                             <!--check if there are any children tickets-->
-                            {% if item.ticket.num_of_childen > 0 %}
-                            <p class="my-0">{{ item.ticket.num_of_childen }} <strong>Children</strong></p>
-                            {% endif  %}
+                    
+                            <p class="my-0">{{ item.children_tickets }} <strong>Children</strong></p>
+                
                         </td>
                         <!--subtotal-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.ticket.total_price }}</p>
+                            <p class="my-0">{{ item.total_price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
