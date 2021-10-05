@@ -76,14 +76,14 @@
                                             min="1" max="9" value="1">
                                         <p> @ {{ trip.adult_price }}</p>
                                     </div>
-                                    {% if trip.family_friendly %}
+                                   <!-- {% if trip.family_friendly %} -->
                                     <div class="col-lg-4">
                                         <label for="children_tickets">Select Number of Children:</label>
                                         <input type="number" id="children_tickets" class="from-control"
                                             name="children_tickets" value="0" min="0" max="9">
                                         <p> @ {{ trip.child_price }}</p>
                                     </div>
-                                    {% endif %}
+                                   <!-- {% endif %} -->
                                     <div class="col-lg-4">
                                         <p>Date: <input type="text" class="form-control" name="booking_date"
                                                 id="datepicker">
