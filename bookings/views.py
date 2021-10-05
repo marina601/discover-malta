@@ -19,10 +19,4 @@ def view_availability(request, id):
     return render(request, 'bookings/view_availability.html', context)
 
 
-def ticket(request):
-    """
-    Creating a booking
-    """
 
-
-    return render(request, 'add_to_suitcase.html')
