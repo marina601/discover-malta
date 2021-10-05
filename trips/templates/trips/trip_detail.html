@@ -1,6 +1,16 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block extra_css %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
+
 {% block extra_title %} Trips {% endblock %}
 
 {% block content %}
@@ -18,7 +28,7 @@
             <button type="button" name="{{ trip.add_to_favourite }}" class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                 <i class="fas fa-heart"></i>
             </button>
-            <a href="{% url 'view_availability' trip.id %}" class="btn btn-lg btn-next btn-book">Book Now</a>
+           <!-- <a href="{% url 'view_availability' trip.id %}" class="btn btn-lg btn-next btn-book">Book Now</a> -->
             <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
         </div>
     </div>
@@ -38,9 +48,69 @@
                 {% endif %}
             </ul>
         </div>
-        <!--Map-->
+        <!--Modal-->
         <div class="col-lg-6 col-md-6 col-sm-12">
-            <img src="" alt="">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-lg btn-next btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Book Now
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!--form-->
+                        <form action="{% url 'add_to_bag' trip.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{ trip.name }}</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <label for="total_adults">Select Number of Adults:</label>
+                                        <input type="number" id="total_adults" class="from-control" name="adult_tickets"
+                                            min="1" max="9" value="1">
+                                        <p> @ {{ trip.adult_price }}</p>
+                                    </div>
+                                    {% if trip.family_friendly %}
+                                    <div class="col-lg-4">
+                                        <label for="children_tickets">Select Number of Children:</label>
+                                        <input type="number" id="children_tickets" class="from-control"
+                                            name="children_tickets" value="0" min="0" max="9">
+                                        <p> @ {{ trip.child_price }}</p>
+                                    </div>
+                                    {% endif %}
+                                    <div class="col-lg-4">
+                                        <p>Date: <input type="text" class="form-control" name="booking_date"
+                                                id="datepicker">
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Number of Tickets: </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <p>Total Price: </p>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-lg add-booking-btn">Add to Suitcase</button>
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row spacing">
@@ -91,5 +161,22 @@
 {% endblock %}
 
 {% block postloadjs %}
+   {{ block.super }}
+
+<script>
+    // Code taken from https://api.jqueryui.com/datepicker/
+    $( function() {
+      $( "#datepicker" ).datepicker();
+    } );
+
+
+// Modal
+    var myModal = document.getElementById('myModal')
+    var myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', function () {
+    myInput.focus()
+    })
+</script>
 
 {% endblock %}
