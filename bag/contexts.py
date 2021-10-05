@@ -3,6 +3,11 @@ from trips.models import Trip
 
 
 def bag_content(request):
+    """
+    Iterate through all the bag items
+    and calculate price and quantity
+    gettin the values from the booking form
+    """
 
     bag_items = []
     total_price = 0
@@ -12,49 +17,32 @@ def bag_content(request):
     child_price = 0
     bag = request.session.get('bag', {})
 
+    # print("BAG:   ", bag)
+    
     for key, values in bag.items():
         trip = get_object_or_404(Trip, pk=key)
         adult_tickets = bag[key]['adult_tickets']
         children_tickets = bag[key]['children_tickets']
-        total_tickets = bag[key]['adult_tickets'] + bag[key]['children_tickets']
         adult_price += trip.adult_price * bag[key]['adult_tickets']
-        # child_price += trip.child_price * bag[key['children_tickets']
-        # total_price += adult_price + child_price
         booking_date = bag[key]['booking_date']
         trip_count += bag[key]['quantity']
+        total_tickets += adult_tickets
+        children_tickets = bag[key]['children_tickets']
+        child_price += trip.child_price * children_tickets
+        total_price = adult_price + child_price
+        if children_tickets == 0:
+            total_price = adult_price
+        total_tickets = adult_tickets + children_tickets
         bag_items.append({
             'trip': trip,
             'total_tickets': total_tickets,
             'adult_price': adult_price,
-            'child_price': child_price,
             'total_price': total_price,
             'trip_count': trip_count,
             'booking_date': booking_date,
             'adult_tickets': adult_tickets,
             'children_tickets': children_tickets,
-        })
-
-        for key, values in bag.items():
-            if bag[key]['children_tickets']:
-                trip = get_object_or_404(Trip, pk=key)
-                adult_tickets = bag[key]['adult_tickets']
-                children_tickets = bag[key]['children_tickets']
-                total_tickets = bag[key]['adult_tickets'] + bag[key]['children_tickets']
-                adult_price += trip.adult_price * bag[key]['adult_tickets']
-                child_price += trip.child_price * bag[key['children_tickets']
-                total_price += adult_price + child_price
-                booking_date = bag[key]['booking_date']
-                trip_count += bag[key]['quantity']
-                bag_items.append({
-                    'trip': trip,
-                    'total_tickets': total_tickets,
-                    'adult_price': adult_price,
-                    'child_price': child_price,
-                    'total_price': total_price,
-                     'trip_count': trip_count,
-            'booking_date': booking_date,
-            'adult_tickets': adult_tickets,
-            'children_tickets': children_tickets,
+            'child_price': child_price,
         })
 
     context = {
@@ -62,5 +50,6 @@ def bag_content(request):
         'total_price': total_price,
         'total_tickets': total_tickets,
     }
+    # print("AFTER BAG _CONTEXT: ", context)
 
     return context
