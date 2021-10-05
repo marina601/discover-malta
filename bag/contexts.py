@@ -1,6 +1,5 @@
 from django.shortcuts import get_object_or_404
 from trips.models import Trip
-from availability.models import Ticket
 
 
 def bag_content(request):
@@ -8,26 +7,56 @@ def bag_content(request):
     bag_items = []
     total_price = 0
     total_tickets = 0
-    ticket = []
-    
+    trip_count = 0
+    adult_price = 0
+    child_price = 0
     bag = request.session.get('bag', {})
 
-    for trip_id, quantity in bag.items():
-        trip = get_object_or_404(Trip, pk=trip_id)
-        ticket = get_object_or_404(Ticket)
-        adult_price = trip.adult_price * ticket.total_adults
-        child_price = trip.child_price * ticket.num_of_childen
-        total_price = adult_price + child_price 
-        total_tickets += ticket.total_adults + ticket.num_of_childen
+    for key, values in bag.items():
+        trip = get_object_or_404(Trip, pk=key)
+        adult_tickets = bag[key]['adult_tickets']
+        children_tickets = bag[key]['children_tickets']
+        total_tickets = bag[key]['adult_tickets'] + bag[key]['children_tickets']
+        adult_price += trip.adult_price * bag[key]['adult_tickets']
+        # child_price += trip.child_price * bag[key['children_tickets']
+        # total_price += adult_price + child_price
+        booking_date = bag[key]['booking_date']
+        trip_count += bag[key]['quantity']
         bag_items.append({
-            'trip_id': trip_id,
-            'total_price': total_price,
-            'quantity': quantity,
-            'total_tickets': total_tickets,
             'trip': trip,
-            'ticket': ticket,
+            'total_tickets': total_tickets,
+            'adult_price': adult_price,
+            'child_price': child_price,
+            'total_price': total_price,
+            'trip_count': trip_count,
+            'booking_date': booking_date,
+            'adult_tickets': adult_tickets,
+            'children_tickets': children_tickets,
         })
-     
+
+        for key, values in bag.items():
+            if bag[key]['children_tickets']:
+                trip = get_object_or_404(Trip, pk=key)
+                adult_tickets = bag[key]['adult_tickets']
+                children_tickets = bag[key]['children_tickets']
+                total_tickets = bag[key]['adult_tickets'] + bag[key]['children_tickets']
+                adult_price += trip.adult_price * bag[key]['adult_tickets']
+                child_price += trip.child_price * bag[key['children_tickets']
+                total_price += adult_price + child_price
+                booking_date = bag[key]['booking_date']
+                trip_count += bag[key]['quantity']
+                bag_items.append({
+                    'trip': trip,
+                    'total_tickets': total_tickets,
+                    'adult_price': adult_price,
+                    'child_price': child_price,
+                    'total_price': total_price,
+                     'trip_count': trip_count,
+            'booking_date': booking_date,
+            'adult_tickets': adult_tickets,
+            'children_tickets': children_tickets,
+        })
+
     context = {
         'bag_items': bag_items,
         'total_price': total_price,
