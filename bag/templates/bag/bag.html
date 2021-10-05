@@ -81,7 +81,9 @@
                         <!--Product Price-->
                         <td class="py-3">
                             <p class="my-0">{{ item.adult_price }}</p>
+                           
                             <p class="my-0">{{ item.trip.child_price }}</p>
+                    
                         </td>
                         <!--Booking Date-->
                         <td class="py-3">
@@ -93,7 +95,7 @@
                             <!--check if there are any children tickets-->
                     
                             <p class="my-0">{{ item.children_tickets }} <strong>Children</strong></p>
-                
+                            <p class="my-0">{{ item.total_tickets }}</p>
                         </td>
                         <!--subtotal-->
                         <td class="py-3">
