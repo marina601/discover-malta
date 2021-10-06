@@ -105,7 +105,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm" 
+                                            <button class="decrease-quantity btn btn-sm" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
@@ -113,11 +113,11 @@
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="quantity" value="{{ item.adult_tickets }}" min="1" max="9"
+                                                name="quantity" value="{{ item.adult_tickets }}" 
                                                 data-item_id="{{ item.item_id }}"
                                                 id="id_qty_{{ item.item_id }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm"
+                                            <button class="add-quantity btn btn-sm"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
@@ -130,7 +130,7 @@
                                 <div class="form-group mt-1">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-sm" 
+                                            <button class="decrease-quantity btn btn-sm" 
                                                 data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
@@ -138,11 +138,11 @@
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="quantity" value="{{ item.children_tickets }}" min="1" max="9"
+                                                name="quantity" value="{{ item.children_tickets }}"
                                                 data-item_id="{{ item.item_id }}"
-                                                id="id_qty_{{ item.item_id }}">
+                                                id="id_qty_{{ item.item_id }}" class="child-input">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-sm"
+                                            <button class="add-quantity btn btn-sm"
                                                 data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
@@ -185,4 +185,60 @@
     </div>
     </div>
 </section>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+
+    <script type="text/javascript" src="{% static '/bag/js/quantity.js' %}"></script>
+
+    <script>
+    
+
+
+        // Loop through all the plus buttons and increment the quantity
+        const addQuantity = document.querySelectorAll('.add-quantity')
+        console.log(addQuantity)
+        for (var i = 0; i < addQuantity.length; i++) { 
+            $(addQuantity[i]).click(function(e) {
+                e.preventDefault();
+                let input = $(this).closest('.input-group').find('.qty_input')[0];
+                let value = parseInt($(input).val());
+                $(input).val(value + 1);
+                console.log($(input).val())
+                if ( $(input).val() > 8) {
+                    $(this).prop('disabled', true)
+                    alert("You cannot add more than 9 adults. Please get in touch for large group bookings")
+                }
+                let itemId = $(this).data('item_id');
+                
+
+            });
+        }
+        
+
+        // Remove quantity
+        const removeQuantity = document.querySelectorAll('.decrease-quantity')
+        for (var i = 0; i < removeQuantity.length; i++) { 
+            $(removeQuantity[i]).click(function(e) {
+                e.preventDefault();
+                let input = $(this).closest('.input-group').find('.qty_input')[0];
+                let value = parseInt($(input).val());
+                
+                if ( $(input).val() < 2) {
+                    $(this).prop('disabled', true)
+                    alert("You need to have at least 1 adult selected!")
+                }
+                else {
+                    $(input).val(value - 1);
+                }
+                
+                let itemId = $(this).data('item_id');
+                
+
+            });
+        }
+
+    </script>
+    
 {% endblock %}
