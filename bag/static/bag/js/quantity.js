@@ -8,10 +8,12 @@ for (var i = 0; i < addQuantity.length; i++) {
         let value = parseInt($(input).val());
         $(input).val(value + 1);
         console.log($(input).val())
-        if ( $(input).val() > 8) {
-            $(this).prop('disabled', true)
+        if ( $(input).val() > 7) {
+            $(this).fadeOut()
+            $(this).delay(5000).fadeIn()
             alert("You cannot add more than 9 adults. Please get in touch for large group bookings")
         }
+
         let itemId = $(this).data('item_id');
         
 
@@ -28,15 +30,17 @@ for (var i = 0; i < removeQuantity.length; i++) {
         let value = parseInt($(input).val());
         
         if ( $(input).val() < 2) {
-            $(this).prop('disabled', true)
+            $(this).fadeOut()
+            $(this).delay(5000).fadeIn()
             alert("You need to have at least 1 adult selected!")
         }
         else {
             $(input).val(value - 1);
         }
-        
-        let itemId = $(this).data('item_id');
-        
 
+        let itemId = $(this).data('item_id');
     });
 }
+
+
+
