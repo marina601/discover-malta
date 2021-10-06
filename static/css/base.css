@@ -266,6 +266,11 @@ a:active,
     padding: 0.2rem;
 }
 
+.btn-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
 .btn-more i {
     display: block;
 }
@@ -378,6 +383,58 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     width: 1.5rem;
 }
 
+.modal-btn {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-btn button {
+    display: inline-block;
+}
+
+.modal-btn .btn-secondary {
+    position: absolute;
+    left: 5%;
+}
+
+.modal-btn .btn-secondary {
+    background-color: #ef1018;
+    color: #fafafa;
+}
+
+.add-booking-btn {
+    background-color: #2576da;
+    color: #fafafa;
+    text-align: center;
+}
+
+.add-booking-btn:hover,
+.modal-btn .btn-secondary:hover {
+    background-color: #000000;
+    border-radius: 2px solid #2576da;
+    color: #fafafa;
+}
+
+.modal-header {
+    background-color: #da8925;
+    color: #fafafa;
+}
+
+.btn-close {
+    background-color: #fafafa;
+}
+
+.btn-left {
+    position: absolute;
+    left: 4%;
+}
+
+.btn-right {
+    position: absolute;
+    right: 5%;
+}
 /**********************View Availability*/
 
 .booking-form {
@@ -397,7 +454,6 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     background-color: blue;
     color: white;
     text-align: center;
-    border-radius: 10px;
 }
 
 /**********************Footer*/

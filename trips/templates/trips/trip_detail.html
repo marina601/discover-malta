@@ -72,16 +72,18 @@
                                 <div class="row">
                                     <div class="col-lg-4">
                                         <label for="total_adults">Select Number of Adults:</label>
+                                        <i class="fas fa-user-friends"></i>
                                         <input type="number" id="total_adults" class="from-control" name="adult_tickets"
                                             min="1" max="9" value="1">
-                                        <p> @ {{ trip.adult_price }}</p>
+                                        <p> @ <i class="fas fa-euro-sign"></i> {{ trip.adult_price }} <span class="text-muted "> per person</span></p>
                                     </div>
                                    {% if trip.family_friendly %}
                                     <div class="col-lg-4">
                                         <label for="children_tickets">Select Number of Children:</label>
+                                        <i class="fas fa-child"></i>
                                         <input type="number" id="children_tickets" class="from-control"
                                             name="children_tickets" value="0" min="0" max="9">
-                                        <p> @ {{ trip.child_price }}</p>
+                                        <p> @ <i class="fas fa-euro-sign"></i> {{ trip.child_price }} <span class="text-muted ">per child</span></p>
                                     </div>
                                     {% else %}
                                     <div class="col-lg-4 d-none">
@@ -91,26 +93,22 @@
                                     </div>
                                    {% endif %}
                                     <div class="col-lg-4">
-                                        <p>Date: <input type="text" class="form-control" name="booking_date"
+                                        <p>Date: <i class="far fa-calendar-alt"></i> <input type="text" class="form-control" name="booking_date"
                                                 id="datepicker">
                                         </p>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="modal-footer">
                                 <div class="row">
-                                    <div class="col">
-                                        <p>Number of Tickets: </p>
+                                    <div class="col modal-btn">
+                                        <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">
+                                            <i class="fas fa-times"></i> Close</button>
+                                        <button type="submit" class="btn btn-lg add-booking-btn">
+                                            Add to Suitcase <i class="fas fa-suitcase-rolling"></i>
+                                        </button>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Total Price: </p>
-                                    </div>
-                                </div>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-lg add-booking-btn">Add to Suitcase</button>
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </form>
@@ -153,11 +151,9 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-6">
-            <div class="col btn-div">
-                <a href="{% url 'trips' %}" class="btn btn-lg btn-next">Go Back to All Trips</a>
-                <a href="#" class="btn btn-lg btn-next">Explore Latest Deals</a>
-            </div>
+        <div class="col">
+                <a href="{% url 'trips' %}" class="btn btn-lg btn-next btn-left">Go Back to All Trips</a>
+                <a href="#" class="btn btn-lg btn-next btn-right">Explore Latest Deals</a>
         </div>
     </div>
 </section>
