@@ -100,6 +100,11 @@ a:active,
     color: #2576da;
 }
 
+.in-suitcase {
+    color: #da8925;
+    font-size: 1.3rem;
+}
+
 /***********************Index.html*/
 
 .card-info {

@@ -59,12 +59,16 @@
                       </li>
                       <!--Shopping bag link-->
                       <li class="list-inline-item nav-item">
-                          <a class="nav-link text-white"
+                          <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %}"
                               href="{% url 'bag' %}">
                               <div class="text-center">
                                   <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
                                   <p class="my-0">
-                                      $0.00
+                                      {% if total_price %}
+                                      <i class="fas fa-euro-sign"></i> {{ total_price|floatformat:2 }}
+                                      {% else %}
+                                      <i class="fas fa-euro-sign"></i> 0.00
+                                       {% endif %}
                                   </p>
                               </div>
                           </a>
