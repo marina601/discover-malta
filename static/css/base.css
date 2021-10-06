@@ -239,6 +239,25 @@ a:active,
     flex: 1 0 auto;
 }
 
+.btn-dropdown {
+    background-color: #2576da;
+    color: #fafafa;
+    text-transform: uppercase;
+    font-size: 1 rem;
+    font-weight: 600;
+    margin: 1rem;
+}
+
+.dropdown-item:hover {
+    transition: ease-in-out all .4s;
+    -moz-transition: ease-in-out all .4s;
+    -webkit-transition: ease-in-out all .4s;
+    background-color: rgba(97, 95, 95, 0.6);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
 .btn-more {
     border-radius: 50%;
     width: 4.5rem;
@@ -313,6 +332,11 @@ a:active,
     font-weight: 900;
     letter-spacing: 0.1rem;
     font-size: 2rem;
+}
+
+.page-item.active .page-link {
+    background-color: #000000;
+    border-color: #000000;
 }
 
 /***********************Trip Details*/
