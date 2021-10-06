@@ -460,7 +460,22 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     color: white;
     text-align: center;
 }
+/**********************Bag*/
 
+.decrease-quantity {
+    background-color:#ef1018;
+    color:#fafafa;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.add-quantity {
+    background-color:#039b2b;
+    color:#fafafa;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+    
 /**********************Footer*/
 
 footer {
