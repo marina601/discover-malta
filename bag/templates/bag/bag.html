@@ -17,7 +17,6 @@
     <!--Bag-->
     <div class="row">
         <div class="col">
-            {{ bag_items }}
             {% if bag_items %}
             <!--Preview-->
             <div class="d-block d-md-none">
@@ -65,6 +64,7 @@
                             <th scope="col">Price</th>
                             <th scope="col">Booking Date</th>
                             <th scope="col">Number of Tickets</th>
+                            <th scope="col">Quantity</th>
                             <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
@@ -94,10 +94,69 @@
                             <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                             <!--check if there are any children tickets-->
                     
-                            <p class="my-0">{{ item.children_tickets }} <strong>Children</strong></p>
-                            <p class="my-0">{{ item.total_tickets }}</p>
+                            <p class="my-0 mt-2">{{ item.children_tickets }} <strong>Children</strong></p>
+                            <p class="my-0">{{ item.total_tickets }} <strong>Total</strong></p>
                         </td>
-                        <!--subtotal-->
+                         <!--Update quantity form-->
+                        <td class="py-3 w-15">
+                            <form class="form update-form" action="" method="POST">
+                                {% csrf_token %}
+                                <!--Adult Quantity-->
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm" 
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control form-control-sm qty_input" type="number"
+                                                name="quantity" value="{{ item.adult_tickets }}" min="1" max="9"
+                                                data-item_id="{{ item.item_id }}"
+                                                id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Child Quantity-->
+                                <div class="form-group mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <button class="decrement-qty btn btn-sm" 
+                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-minus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                        <input class="form-control form-control-sm qty_input" type="number"
+                                                name="quantity" value="{{ item.children_tickets }}" min="1" max="9"
+                                                data-item_id="{{ item.item_id }}"
+                                                id="id_qty_{{ item.item_id }}">
+                                        <div class="input-group-append">
+                                            <button class="increment-qty btn btn-sm"
+                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                <span>
+                                                    <i class="fas fa-plus fa-sm"></i>
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <a class="update-link text-info"><small>Update</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" 
+                               data-product_size="{{ item.size }}"><small>Remove</small></a>
+                        </td>
+                        <!--Subtotal-->
                         <td class="py-3">
                             <p class="my-0">{{ item.total_price }}</p>
                         </td>
@@ -106,8 +165,8 @@
                      <!--Link to go back to the Products Page-->
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'trips' %}" class="btn btn-next">Keep Shopping</a>
-                            <a href="{% url 'trips' %}" class="btn btn-next">Check out</a>
+                            <a href="{% url 'trips' %}" class="btn btn-next btn-left">Keep Shopping</a>
+                            <a href="{% url 'trips' %}" class="btn btn-next btn-right">Check out</a>
                         </td>
                     </tr>
                 </table>
