@@ -15,7 +15,7 @@
         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <!--Get Category model function for category slack-->
           {% for category in links %}
-            <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name }}</a></li>
+            <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>
           {% endfor %}
         </ul>
       </li>
