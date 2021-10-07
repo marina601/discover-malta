@@ -99,26 +99,26 @@
                         </td>
                          <!--Update quantity form-->
                         <td class="py-3 w-15">
-                            <form class="form update-form" action="" method="POST">
+                            <form class="form update-form" action="{% url 'update_bag' item.trip.id %}" method="POST">
                                 {% csrf_token %}
                                 <!--Adult Quantity-->
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <button class="decrease-quantity btn btn-sm" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="quantity" value="{{ item.adult_tickets }}" 
-                                                data-item_id="{{ item.item_id }}"
-                                                id="id_qty_{{ item.item_id }}">
+                                                name="adult_tickets" value="{{ item.adult_tickets }}" 
+                                                data-item_id="{{ item.trip_id }}"
+                                                id="id_qty_{{ item.trip_id }}">
                                         <div class="input-group-append">
                                             <button class="add-quantity btn btn-sm"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                data-item_id="{{ item.trip_id }}" id="increment-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -130,20 +130,20 @@
                                 <div class="form-group mt-1">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-quantity btn btn-sm" 
-                                                data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                            <button class="decrease-quantity-child btn btn-sm" 
+                                                data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
                                                 </span>
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="quantity" value="{{ item.children_tickets }}"
-                                                data-item_id="{{ item.item_id }}"
-                                                id="id_qty_{{ item.item_id }}" class="child-input">
+                                                name="children_tickets" value="{{ item.children_tickets }}"
+                                                data-item_id="{{ item.trip_id }}"
+                                                id="id_qty_{{ item.trip_id }}" class="child-input">
                                         <div class="input-group-append">
                                             <button class="add-quantity btn btn-sm"
-                                                data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                data-item_id="{{ item.trip_id }}" id="increment-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -153,8 +153,8 @@
                                 </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" 
-                               data-product_size="{{ item.size }}"><small>Remove</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.trip_id }}" 
+                               ><small>Remove</small></a>
                         </td>
                         <!--Subtotal-->
                         <td class="py-3">
