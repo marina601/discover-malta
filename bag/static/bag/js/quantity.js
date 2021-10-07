@@ -14,7 +14,7 @@ for (var i = 0; i < addQuantity.length; i++) {
             alert("You cannot add more than 9 adults. Please get in touch for large group bookings")
         }
 
-        let itemId = $(this).data('item_id');
+        let itemId = $(this).data('trip_id');
         
 
     });
@@ -38,9 +38,49 @@ for (var i = 0; i < removeQuantity.length; i++) {
             $(input).val(value - 1);
         }
 
-        let itemId = $(this).data('item_id');
+        let itemId = $(this).data('trip_id');
     });
 }
 
+const removeChildQty = document.querySelectorAll('.decrease-quantity-child')
+for (var i = 0; i < removeChildQty.length; i++) { 
+    $(removeChildQty[i]).click(function(e) {
+        e.preventDefault();
+        let input = $(this).closest('.input-group').find('.qty_input')[0];
+        let value = parseInt($(input).val());
+        
+        if ( $(input).val() < 1) {
+            $(this).fadeOut()
+            $(this).delay(5000).fadeIn()
+            alert("You need to have at least 1 adult selected!")
+        }
+        else {
+            $(input).val(value - 1);
+        }
 
+        let itemId = $(this).data('trip_id');
+    });
+}
+
+// Update link
+$('.update-link').click(function(e) {
+    const form = $(this).prev('.update-form');
+    form.submit();
+});
+
+
+// Remove trips and reload the page on click
+$('.remove-item').click(function(e){
+    var csrfToken = "{{ csrf_token }}"
+    var itemId = $(this).attr('id').split('remove_')[1];
+    var size = $(this).data('product_size');
+    var url = `/bag/remove/${itemId}/`;
+    var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+    $.post(url, data)
+     .done(function() {
+         location.reload();
+     });
+
+});
 
