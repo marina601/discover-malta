@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} Home {% endblock %}
+{% block extra_title %} Bag {% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+{% endblock %}
+
+{% block extra_js %}
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+{% endblock %}
 
 {% block content %}
 <section class="main-content">
@@ -76,14 +86,20 @@
                         </td>
                         <td class="py-3">
                             <p><strong>{{ item.trip.name }}</strong></p>
-                            <p class="text-muted">{{ item.trip.start_time }}</p>
+                            <p><i class="fas fa-hourglass-end fa-lg"></i><strong> Duration: </strong> {{ item.trip.duration }}hrs</p>
+                            <p><i class="far fa-clock fa-lg"></i> <strong>Start Time: </strong> {{ item.trip.start_time }}</p>
+                            <p><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location: </strong> {{ item.trip.departure_location }}</p>
+                            <p><i class="fas fa-star fa-lg"></i> 5/5 </p>
+                            {% if trip.family_friendly %}
+                            <p><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></p>
+                            {% endif %}
                         </td>
                         <!--Product Price-->
                         <td class="py-3">
                             <p class="my-0">{{ item.adult_price }}</p>
-                           
+                            {% if item.trip.family_friendly %}
                             <p class="my-0">{{ item.trip.child_price }}</p>
-                    
+                            {% endif %}
                         </td>
                         <!--Booking Date-->
                         <td class="py-3">
@@ -96,7 +112,7 @@
                             {% if item.trip.family_friendly %}
                             <p class="my-0 mt-2">{{ item.children_tickets }} <strong>Children</strong></p>
                             {% endif %}
-                            <p class="my-0">{{ item.total_tickets }} <strong>Total</strong></p>
+                            <p class="my-0">{{ item.total_tickets }} <strong>Total Tickets</strong></p>
                         </td>
                          <!--Update quantity form-->
                         <td class="py-3 w-15">
@@ -153,12 +169,17 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% else %}
-                                <input class="form-control form-control-sm qty_input" type="number"
-                                                name="children_tickets" value="0"
-                                                data-item_id="{{ item.trip_id }}"
-                                                id="id_qty_{{ item.trip_id }}" class="child-input">
                                 {% endif %}
+                                <div class="form-group mt-1">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <p>Date: <i class="far fa-calendar-alt"></i> 
+                                                <input type="text" class="form-control" name="booking_date"
+                                                value="{{ item.booking_date }}" id="datepicker">
+                                             </p>
+                                        </div>
+                                    </div>
+                                </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
                             <a href="{% url 'remove_from_bag' item.trip.id %}" class="remove-item text-danger float-right">
@@ -199,5 +220,12 @@
     {{ block.super }}
 
     <script type="text/javascript" src="{% static '/bag/js/quantity.js' %}"></script>
+    <script>
+        // Code taken from https://api.jqueryui.com/datepicker/
+        $( function() {
+          $( "#datepicker" ).datepicker();
+        } );
+    </script>
+    
     
 {% endblock %}

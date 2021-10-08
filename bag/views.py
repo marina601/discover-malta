@@ -53,6 +53,7 @@ def update_bag(request, trip_id):
     """
     adult_tickets = int(request.POST.get('adult_tickets'))
     children_tickets = int(0)
+    booking_date = request.POST.get('booking_date')
    
     # Check it the children tickets are in the request
     # check if adult_tickets exist
@@ -61,6 +62,9 @@ def update_bag(request, trip_id):
     if 'children_tickets' in request.POST:
         children_tickets = int(request.POST['children_tickets'])
     bag = request.session.get('bag', {})
+
+    if booking_date:
+        bag[trip_id]['booking_date'] = booking_date
 
     if adult_tickets:
         if adult_tickets > 0:
