@@ -29,7 +29,7 @@ for (var i = 0; i < removeQuantity.length; i++) {
         let input = $(this).closest('.input-group').find('.qty_input')[0];
         let value = parseInt($(input).val());
         
-        if ( $(input).val() < 2) {
+        if ( $(input).val() < 1) {
             $(this).fadeOut()
             $(this).delay(5000).fadeIn()
             alert("You need to have at least 1 adult selected!")
@@ -66,20 +66,5 @@ for (var i = 0; i < removeChildQty.length; i++) {
 $('.update-link').click(function(e) {
     const form = $(this).prev('.update-form');
     form.submit();
-});
-
-
-// Remove trips and reload the page on click
-$('.remove-item').click(function(e){
-    var csrfToken = "{{ csrf_token }}"
-    var itemId = $(this).attr('id').split('remove_')[1];
-    var url = `/bag/remove/${itemId}/`;
-    var data = {'csrfmiddlewaretoken': csrfToken };
-
-    $.post(url, data)
-     .done(function() {
-         location.reload();
-     });
-
 });
 
