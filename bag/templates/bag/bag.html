@@ -4,13 +4,13 @@
 {% block extra_title %} Bag {% endblock %}
 
 {% block extra_css %}
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/resources/demos/style.css">
 {% endblock %}
 
 {% block extra_js %}
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -29,7 +29,7 @@
         <div class="col">
             {% if bag_items %}
             <!--Preview-->
-            <div class="d-block d-md-none">
+            <!-- <div class="d-block d-md-none">
                 <div class="row">
                     <div class="col">
 
@@ -62,7 +62,7 @@
                         <hr>
                     </div>
                 </div>
-            </div>
+            </div> -->
             <!--table heading-->
             <div class="table-responsive rounded d-none d-md-block">
                 <table class="table table-sm table-borderless">
@@ -71,11 +71,9 @@
                         <tr>
                             <th scope="col">Trip Info</th>
                             <th scope="col"></th>
+                            <th scope="col">Tickets</th>
+                            <th scope="col">Quantity and Booking Date</th>
                             <th scope="col">Price</th>
-                            <th scope="col">Booking Date</th>
-                            <th scope="col">Number of Tickets</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Subtotal</th>
                         </tr>
                     </thead>
                     {% for item in bag_items %}
@@ -86,26 +84,18 @@
                         </td>
                         <td class="py-3">
                             <p><strong>{{ item.trip.name }}</strong></p>
-                            <p><i class="fas fa-hourglass-end fa-lg"></i><strong> Duration: </strong> {{ item.trip.duration }}hrs</p>
-                            <p><i class="far fa-clock fa-lg"></i> <strong>Start Time: </strong> {{ item.trip.start_time }}</p>
-                            <p><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location: </strong> {{ item.trip.departure_location }}</p>
+                            <p><i class="fas fa-hourglass-end fa-lg"></i><strong> Duration: </strong>
+                                {{ item.trip.duration }}hrs</p>
+                            <p><i class="far fa-clock fa-lg"></i> <strong>Start Time: </strong>
+                                {{ item.trip.start_time }}</p>
+                            <p><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location: </strong>
+                                {{ item.trip.departure_location }}</p>
                             <p><i class="fas fa-star fa-lg"></i> 5/5 </p>
                             {% if trip.family_friendly %}
                             <p><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></p>
                             {% endif %}
                         </td>
-                        <!--Product Price-->
-                        <td class="py-3">
-                            <p class="my-0">{{ item.adult_price }}</p>
-                            {% if item.trip.family_friendly %}
-                            <p class="my-0">{{ item.trip.child_price }}</p>
-                            {% endif %}
-                        </td>
-                        <!--Booking Date-->
-                        <td class="py-3">
-                            <p class="my-0">{{ item.booking_date }}</p>
-                        </td>
-                        <!--Tickets-->
+                        <!--Ticket Quantity-->
                         <td class="py-3">
                             <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                             <!--check if there are any children tickets-->
@@ -114,7 +104,7 @@
                             {% endif %}
                             <p class="my-0">{{ item.total_tickets }} <strong>Total Tickets</strong></p>
                         </td>
-                         <!--Update quantity form-->
+                        <!--Update quantity form-->
                         <td class="py-3 w-15">
                             <form class="form update-form" action="{% url 'update_bag' item.trip.id %}" method="POST">
                                 {% csrf_token %}
@@ -122,7 +112,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-quantity btn btn-sm" 
+                                            <button class="decrease-quantity btn btn-sm"
                                                 data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
@@ -130,12 +120,11 @@
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="adult_tickets" value="{{ item.adult_tickets }}" 
-                                                data-item_id="{{ item.trip_id }}"
-                                                id="id_qty_{{ item.trip_id }}">
+                                            name="adult_tickets" value="{{ item.adult_tickets }}"
+                                            data-item_id="{{ item.trip_id }}" id="id_qty_{{ item.trip_id }}">
                                         <div class="input-group-append">
-                                            <button class="add-quantity btn btn-sm"
-                                                data-item_id="{{ item.trip_id }}" id="increment-qty_{{ item.trip_id }}">
+                                            <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}"
+                                                id="increment-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -148,7 +137,7 @@
                                 <div class="form-group mt-1">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrease-quantity-child btn btn-sm" 
+                                            <button class="decrease-quantity-child btn btn-sm"
                                                 data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-minus fa-sm"></i>
@@ -156,12 +145,12 @@
                                             </button>
                                         </div>
                                         <input class="form-control form-control-sm qty_input" type="number"
-                                                name="children_tickets" value="{{ item.children_tickets }}"
-                                                data-item_id="{{ item.trip_id }}"
-                                                id="id_qty_{{ item.trip_id }}" class="child-input">
+                                            name="children_tickets" value="{{ item.children_tickets }}"
+                                            data-item_id="{{ item.trip_id }}" id="id_qty_{{ item.trip_id }}"
+                                            class="child-input">
                                         <div class="input-group-append">
-                                            <button class="add-quantity btn btn-sm"
-                                                data-item_id="{{ item.trip_id }}" id="increment-qty_{{ item.trip_id }}">
+                                            <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}"
+                                                id="increment-qty_{{ item.trip_id }}">
                                                 <span>
                                                     <i class="fas fa-plus fa-sm"></i>
                                                 </span>
@@ -170,28 +159,30 @@
                                     </div>
                                 </div>
                                 {% endif %}
-                                <div class="form-group mt-1">
+                                <!--Date Picker-->
+                                <div class="form-group mt-2">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <p>Date: <i class="far fa-calendar-alt"></i> 
-                                                <input type="text" class="form-control" name="booking_date"
-                                                value="{{ item.booking_date }}" id="datepicker">
-                                             </p>
+                                            <strong class="text-black">Date: <i class="far fa-calendar-alt"></i>
+                                                <input type="text" class="form-control datepicker" name="booking_date"
+                                                    value="{{ item.booking_date }}" id="datepicker">
+                                            </strong>
                                         </div>
                                     </div>
                                 </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a href="{% url 'remove_from_bag' item.trip.id %}" class="remove-item text-danger float-right">
+                            <a href="{% url 'remove_from_bag' item.trip.id %}"
+                                class="remove-item text-danger float-right">
                                 <small>Remove</small></a>
                         </td>
-                        <!--Subtotal-->
                         <td class="py-3">
-                            <p class="my-0">{{ item.total_price }}</p>
+                        <!--Total Price-->
+                            <p class="my-0"><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p>
                         </td>
                     </tr>
                     {% endfor %}
-                     <!--Link to go back to the Products Page-->
+                    <!--Link to go back to the Products Page-->
                     <tr>
                         <td colspan="5" class="text-right">
                             <a href="{% url 'trips' %}" class="btn btn-next btn-left">Keep Shopping</a>
@@ -212,20 +203,19 @@
             {% endif %}
         </div>
     </div>
-    </div>
 </section>
 {% endblock %}
 
 {% block postloadjs %}
-    {{ block.super }}
+{{ block.super }}
 
-    <script type="text/javascript" src="{% static '/bag/js/quantity.js' %}"></script>
-    <script>
-        // Code taken from https://api.jqueryui.com/datepicker/
-        $( function() {
-          $( "#datepicker" ).datepicker();
-        } );
-    </script>
-    
-    
+<script type="text/javascript" src="{% static '/bag/js/quantity.js' %}"></script>
+<script>
+    // Code taken from https://api.jqueryui.com/datepicker/
+    $(function () {
+        $(".datepicker").datepicker();
+    });
+</script>
+
+
 {% endblock %}
