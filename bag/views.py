@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect, reverse, HttpResponse
-from django.shortcuts import get_object_or_404
-from trips.models import Trip
+from django.shortcuts import render, redirect, reverse
+# from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -76,11 +75,22 @@ def update_bag(request, trip_id):
 
 def remove_from_bag(request, trip_id):
     """
-    Remove all the tickets from bag
+    Remove all the trip by trip_id from the bag
+    Decrease the trip quantity
+    Check the quantity if less than 0
+    delete the trip from the bag
     """
     bag = request.session.get('bag', {})
+    quantity = bag[trip_id]['quantity'] - 1
 
-    bag.pop(trip_id)
-
+    if quantity > 0:
+        bag[id] = quantity
+    else:
+        del bag[trip_id]
     request.session['bag'] = bag
-    return HttpResponse(status=200)
+
+    if not bag:
+        return redirect(reverse('trips'))
+
+    return redirect(reverse('bag'))
+
