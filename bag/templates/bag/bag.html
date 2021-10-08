@@ -93,8 +93,9 @@
                         <td class="py-3">
                             <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                             <!--check if there are any children tickets-->
-                    
+                            {% if item.trip.family_friendly %}
                             <p class="my-0 mt-2">{{ item.children_tickets }} <strong>Children</strong></p>
+                            {% endif %}
                             <p class="my-0">{{ item.total_tickets }} <strong>Total</strong></p>
                         </td>
                          <!--Update quantity form-->
@@ -127,6 +128,7 @@
                                     </div>
                                 </div>
                                 <!--Child Quantity-->
+                                {% if item.trip.family_friendly %}
                                 <div class="form-group mt-1">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
@@ -151,10 +153,16 @@
                                         </div>
                                     </div>
                                 </div>
+                                {% else %}
+                                <input class="form-control form-control-sm qty_input" type="number"
+                                                name="children_tickets" value="0"
+                                                data-item_id="{{ item.trip_id }}"
+                                                id="id_qty_{{ item.trip_id }}" class="child-input">
+                                {% endif %}
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.trip_id }}" 
-                               ><small>Remove</small></a>
+                            <a href="{% url 'remove_from_bag' item.trip.id %}" class="remove-item text-danger float-right">
+                                <small>Remove</small></a>
                         </td>
                         <!--Subtotal-->
                         <td class="py-3">
