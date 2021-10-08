@@ -475,6 +475,15 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     border-radius: 5px;
     border: 1px solid black;
 }
+
+/*****************Toasts*/
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 999999999999;
+}
     
 /**********************Footer*/
 

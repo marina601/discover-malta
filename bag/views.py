@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, reverse
-# from django.shortcuts import get_object_or_404
+from django.contrib import messages
+
+from trips.models import Trip
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -17,7 +20,7 @@ def add_to_bag(request, trip_id):
     adult_tickets = int(request.POST.get('adult_tickets'))
     children_tickets = int(0)
     redirect_url = request.POST.get('redirect_url')
-    # trip = get_object_or_404(Trip, pk=trip_id)
+    trip = get_object_or_404(Trip, pk=trip_id)
 
     # Check it the children tickets are in the request
     if 'children_tickets' in request.POST:
@@ -38,6 +41,7 @@ def add_to_bag(request, trip_id):
             'adult_tickets': adult_tickets,
             'children_tickets': children_tickets,
         }
+        messages.success(request, f'Added {trip.name} to your suitcase')
 
     request.session['bag'] = bag
     # del request.session['bag']

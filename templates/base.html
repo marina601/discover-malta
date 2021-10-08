@@ -2,137 +2,161 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     {% block meta %}
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     {% endblock %}
 
     {% block extra_meta %}
     {% endblock %}
 
     {% block corecss %}
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Acme&family=Oxygen:wght@300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Oxygen:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
 
     {% block extra_css %}
     {% endblock %}
 
     {% block corejs %}
-        <script src="https://kit.fontawesome.com/fa9ed30322.js" crossorigin="anonymous"></script>  
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/fa9ed30322.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     {% endblock %}
 
     {% block extra_js %}
     {% endblock %}
 
     <title>Discover Malta {% block extra_title %}{% endblock %}</title>
-  </head>
-  <body>
-      <header class="container-fluid fixed-top">
-          <!--Logo-->
-          <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-              <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                  <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                      <h2 class="logo-front text-white my-0"><strong class='brand-logo'>Discover</strong> Malta</h2>
-                  </a>
-              </div>
-              <!--Profile-->
-              <div class="col-12 col-lg-2 offset-lg-6 my-auto py-1 py-lg-0">
-                  <ul class="list-inline list-unstyled text-lg-right my-0">
+</head>
+
+<body>
+    <header class="container-fluid fixed-top">
+        <!--Logo-->
+        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-front text-white my-0"><strong class='brand-logo'>Discover</strong> Malta</h2>
+                </a>
+            </div>
+            <!--Profile-->
+            <div class="col-12 col-lg-2 offset-lg-6 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-lg-right my-0">
                     <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <div><i class="fas fa-user fa-lg"></i></div>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                          <li><a class="dropdown-item" href="#">Login</a></li>
-                          <li><a class="dropdown-item" href="#">Register</a></li>
-                          <li><a class="dropdown-item" href="#">Profile</a></li>
-                          <li><a class="dropdown-item" href="#">Logout</a></li>
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                            <li><a class="dropdown-item" href="#">Register</a></li>
+                            <li><a class="dropdown-item" href="#">Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Logout</a></li>
                         </ul>
-                      </li>
-                      <!--Shopping bag link-->
-                      <li class="list-inline-item nav-item">
-                          <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %}"
-                              href="{% url 'bag' %}">
-                              <div class="text-center">
-                                  <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
-                                  <p class="my-0">
-                                      {% if total_price %}
-                                      <i class="fas fa-euro-sign"></i> {{ total_price|floatformat:2 }}
-                                      {% else %}
-                                      <i class="fas fa-euro-sign"></i> 0.00
-                                       {% endif %}
-                                  </p>
-                              </div>
-                          </a>
-                      </li>
-                      <!--favourite link-->
-                      <li class="list-inline-item nav-item">
-                        <a class="nav-link text-white"
-                            href="">
+                    </li>
+                    <!--Shopping bag link-->
+                    <li class="list-inline-item nav-item">
+                        <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %}"
+                            href="{% url 'bag' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-heart fa-lg"></i></div>
+                                <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
                                 <p class="my-0">
-                                 1
+                                    {% if total_price %}
+                                    <i class="fas fa-euro-sign"></i> {{ total_price|floatformat:2 }}
+                                    {% else %}
+                                    <i class="fas fa-euro-sign"></i> 0.00
+                                    {% endif %}
                                 </p>
                             </div>
                         </a>
                     </li>
-                  </ul>
-              </div>
-          </div>
-          <!--main navbar-->
-          <div class="row main-nav">
-              <div class="col">
+                    <!--favourite link-->
+                    <li class="list-inline-item nav-item">
+                        <a class="nav-link text-white" href="">
+                            <div class="text-center">
+                                <div><i class="fas fa-heart fa-lg"></i></div>
+                                <p class="my-0">
+                                    1
+                                </p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--main navbar-->
+        <div class="row main-nav">
+            <div class="col">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">
-                      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
-                      </button>
-                    {% include 'includes/mobile-nav.html' %}
-                    {% include 'includes/main-nav.html' %}
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                            aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
+                        </button>
+                        {% include 'includes/mobile-nav.html' %}
+                        {% include 'includes/main-nav.html' %}
                     </div>
-                  </nav>
-              </div>
-          </div>
-          <!--main navbar-->
-          
-      </header>
+                </nav>
+            </div>
+        </div>
+        <!--main navbar-->
 
-      {% if messages %}
-      <div class="message-container"></div>
-      {% endif %}
+    </header>
 
-      {% block page_header %}
-      {% endblock %}
+    <!--Messages include toasts to display custom messages-->
+   {% if messages %}
+   <div class="message-container">
+       {% for message in messages %}
+           {% with message.level as level %}
+               {% if level == 40 %}
+                   {% include 'includes/toasts/toast_error.html'%}
+               {% elif level == 30 %}
+                   {% include 'includes/toasts/toast_warning.html'%}
+               {% elif level == 25 %}
+                   {% include 'includes/toasts/toast_success.html'%}
+               {% else %}
+                   {% include 'includes/toasts/toast_info.html'%}
+               {% endif %}
+           {% endwith %}
+       {% endfor %}
+    </div>
+    {% endif %}
 
-      {% block content %}
-      {% endblock %}
-
-      {% block postloadjs %}
-      {% endblock %}
     
-      <footer class="container-fluid">
+
+    {% block page_header %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    
+
+    <footer class="container-fluid">
         <div class="row">
             <div class="col">
                 <ul class="w-auto mx-auto footer-links">
                     <li>
-                      <a class="nav-link text-white" href="#">About</a>
+                        <a class="nav-link text-white" href="#">About</a>
                     </li>
                     <li class="text-white">
-                      Follow Us
+                        Follow Us
                     </li>
                     <li>
-                      <a class="nav-link text-white" href="#">Contact</a>
+                        <a class="nav-link text-white" href="#">Contact</a>
                     </li>
-                  </ul>
+                </ul>
             </div>
         </div>
         <div class="row">
@@ -165,5 +189,12 @@
             </div>
         </div>
     </footer>
-  </body>
+
+    {% block postloadjs %}
+    <script>
+        $(".toast").show();
+    </script>
+    {% endblock %}
+</body>
+
 </html>

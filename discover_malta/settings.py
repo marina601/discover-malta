@@ -83,6 +83,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 WSGI_APPLICATION = 'discover_malta.wsgi.application'
 
 # Setting for custom user model
