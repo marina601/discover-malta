@@ -35,6 +35,8 @@ def add_to_bag(request, trip_id):
         bag[trip_id]['booking_date'] = booking_date
         bag[trip_id]['adult_tickets'] = adult_tickets
         bag[trip_id]['children_tickets'] = children_tickets
+        messages.success(request,
+                                (f'Updated your suitcase with {trip.name}'))
     else:
         bag[trip_id] = {
             'quantity': 1, 'booking_date': booking_date,
@@ -84,21 +86,13 @@ def update_bag(request, trip_id):
 def remove_from_bag(request, trip_id):
     """
     Remove all the trip by trip_id from the bag
-    Decrease the trip quantity
-    Check the quantity if less than 0
-    delete the trip from the bag
     """
-    bag = request.session.get('bag', {})
-    quantity = bag[trip_id]['quantity'] - 1
+    bag = request.session.get('bag', {})  
+    del bag[trip_id]
 
-    if quantity > 0:
-        bag[id] = quantity
-    else:
-        del bag[trip_id]
     request.session['bag'] = bag
 
     if not bag:
         return redirect(reverse('trips'))
 
     return redirect(reverse('bag'))
-
