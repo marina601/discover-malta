@@ -191,9 +191,10 @@
     </footer>
 
     {% block postloadjs %}
+    
+    <script type="text/javascript" src="{% static '/js/datepicker.js' %}"></script>
     <script type="text/javascript">
-        $(document).ready(function(){  
-           // $('.toast').show()
+        
             let toastElList = [].slice.call(document.querySelectorAll('.toast'))
             let toastList = toastElList.map(function (toastEl) {
                 let option = {
@@ -204,7 +205,6 @@
             let bsToast = new bootstrap.Toast(toastEl, option)
             bsToast.show();
             });
-        });
     </script>
     {% endblock %}
 </body>

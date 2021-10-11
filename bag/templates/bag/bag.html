@@ -165,7 +165,7 @@
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <strong class="text-black">Date: <i class="far fa-calendar-alt"></i>
-                                                <input type="text" class="form-control datepicker" name="booking_date"
+                                                <input type="text" class="calendar form-control datepicker" name="booking_date"
                                                     value="{{ item.booking_date }}" id="datepicker">
                                             </strong>
                                         </div>
@@ -212,12 +212,5 @@
 {{ block.super }}
 
 <script type="text/javascript" src="{% static '/bag/js/quantity.js' %}"></script>
-<script>
-    // Code taken from https://api.jqueryui.com/datepicker/
-    $(function () {
-        $(".datepicker").datepicker();
-    });
-</script>
-
 
 {% endblock %}

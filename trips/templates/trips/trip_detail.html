@@ -93,7 +93,7 @@
                                     </div>
                                    {% endif %}
                                     <div class="col-lg-4">
-                                        <p>Date: <i class="far fa-calendar-alt"></i> <input type="text" class="form-control" name="booking_date"
+                                        <p>Date: <i class="far fa-calendar-alt"></i> <input type="text" class="calendar form-control" name="booking_date"
                                                 id="datepicker">
                                         </p>
                                     </div>
@@ -166,18 +166,14 @@
    {{ block.super }}
 
 <script>
-    // Code taken from https://api.jqueryui.com/datepicker/
-    $( function() {
-      $( "#datepicker" ).datepicker();
-    } );
-
+   
 
 // Modal
-    var myModal = document.getElementById('myModal')
-    var myInput = document.getElementById('myInput')
+    var myModal = document.getElementById('exampleModal')
+    var myInput = document.getElementById('total_adults')
 
     myModal.addEventListener('shown.bs.modal', function () {
-    myInput.focus()
+        myInput.focus()
     })
 </script>
 
