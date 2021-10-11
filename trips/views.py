@@ -1,3 +1,4 @@
+# pylint: disable=no-member
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
@@ -38,7 +39,6 @@ def all_trips(request, category_slug=None):
         # trip count
         result_count = trips.count()
 
-
     context = {
         'trips': paged_trips,
         'result_count': result_count,
@@ -56,6 +56,7 @@ def trip_detail(request, category_slug, trip_slug):
         trip = Trip.objects.get(category__slug=category_slug,
                                              slug=trip_slug)
     except Exception as e:
+        messages.error(request, f'Error has occured processing your request, please try again')
         raise e
     
     context = {
@@ -109,8 +110,8 @@ def search(request):
             trips = Trip.objects.order_by('-created_date').filter(Q(full_description__icontains=keyword) | Q(name__icontains=keyword))
             result_count = trips.count()
         else:
-            messages.error(request, "You didn't enter any serach criteria! ")
             return redirect(reverse('trips'))
+    messages.error(request, 'You did not enter any search creteria!')
 
     current_sorting = f'{sort}_{direction}'
     

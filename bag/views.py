@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
 
 from trips.models import Trip
@@ -37,7 +37,7 @@ def add_to_bag(request, trip_id):
             bag[trip_id]['adult_tickets'] += adult_tickets
             bag[trip_id]['children_tickets'] += children_tickets
             messages.success(request,
-                             (f'we Have updated your suitcase for {trip.name}'
+                             (f' Updated suitcase for {trip.name}'
                               f' and {booking_date} date with {adult_tickets}'
                               f' adult tickets'
                               f' and {children_tickets} children tickets'))
@@ -47,7 +47,8 @@ def add_to_bag(request, trip_id):
             'adult_tickets': adult_tickets,
             'children_tickets': children_tickets,
         }
-        messages.success(request, (f'You added {trip.name}, on {booking_date} date to your suitcase'))
+        messages.success(request, (f'Added {trip.name},'
+                                   f' on {booking_date} date to your'))
 
     request.session['bag'] = bag
     # del request.session['bag']
@@ -58,16 +59,12 @@ def add_to_bag(request, trip_id):
 
 def update_bag(request, trip_id):
     """
-    Add a quantity of the specific trip
-    to the shopping bag
+    Update ticket quantity and booking date
     """
     adult_tickets = int(request.POST.get('adult_tickets'))
     children_tickets = int(0)
     booking_date = request.POST.get('booking_date')
-   
-    # Check it the children tickets are in the request
-    # check if adult_tickets exist
-    # else delete the trip
+    trip = get_object_or_404(Trip, pk=trip_id)
 
     if 'children_tickets' in request.POST:
         children_tickets = int(request.POST['children_tickets'])
@@ -80,8 +77,12 @@ def update_bag(request, trip_id):
         if adult_tickets > 0:
             bag[trip_id]['adult_tickets'] = int(adult_tickets)
             bag[trip_id]['children_tickets'] = int(children_tickets)
+            messages.success(request, (f'Updated your booking requirements'
+                                       f' for {trip.name}'))
     else:
         del bag[trip_id]
+        messages.success(request, (f'Removed {trip.name},'
+                                   f'from your suitcase'))
 
     request.session['bag'] = bag
     return redirect(reverse('bag'))
@@ -91,12 +92,22 @@ def remove_from_bag(request, trip_id):
     """
     Remove all the trip by trip_id from the bag
     """
-    bag = request.session.get('bag', {})  
-    del bag[trip_id]
 
-    request.session['bag'] = bag
+    try:
+        trip = get_object_or_404(Trip, pk=trip_id)
+        bag = request.session.get('bag', {})
 
-    if not bag:
-        return redirect(reverse('trips'))
+        del bag[trip_id]
+        messages.success(request, (f'Removed {trip.name},'
+                                 f'from your suitcase'))
 
-    return redirect(reverse('bag'))
+        request.session['bag'] = bag
+
+        if not bag:
+            return redirect(reverse('trips'))
+
+        return redirect(reverse('bag'))
+
+    except Exception as e:
+        messages.error(request, f'Error has occured when removing {trip.name} from your suitcase')
+        return HttpResponse(status=500, e=e)

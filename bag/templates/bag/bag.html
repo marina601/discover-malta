@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
+
 {% block extra_title %} Bag {% endblock %}
 
 {% block extra_css %}
@@ -179,6 +180,7 @@
                         <td class="py-3">
                         <!--Total Price-->
                             <p class="my-0"><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p>
+                            
                         </td>
                     </tr>
                     {% endfor %}
