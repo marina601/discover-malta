@@ -51,7 +51,7 @@
         <!--Modal-->
         <div class="col-lg-6 col-md-6 col-sm-12">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-lg btn-next btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <button type="button" class="btn btn-md btn-next btn-book" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Book Now
             </button>
 
@@ -71,15 +71,16 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-lg-4">
-                                        <label for="total_adults">Select Number of Adults:</label>
+                                        <label for="total_adults"><strong>Number of Adults:</strong></label>
                                         <i class="fas fa-user-friends"></i>
                                         <input type="number" id="total_adults" class="from-control" name="adult_tickets"
-                                            min="1" max="9" value="1">
+                                            min="1" max="9" value="1" oninput="this.setCustomValidity('')"
+                                            oninvalid="this.setCustomValidity('At least 1 adult ticket is required to purchase a trip')" required>
                                         <p> @ <i class="fas fa-euro-sign"></i> {{ trip.adult_price }} <span class="text-muted "> per person</span></p>
                                     </div>
                                    {% if trip.family_friendly %}
                                     <div class="col-lg-4">
-                                        <label for="children_tickets">Select Number of Children:</label>
+                                        <label for="children_tickets"><strong>Number of Children:</strong></label>
                                         <i class="fas fa-child"></i>
                                         <input type="number" id="children_tickets" class="from-control"
                                             name="children_tickets" value="0" min="0" max="9">
@@ -93,8 +94,10 @@
                                     </div>
                                    {% endif %}
                                     <div class="col-lg-4">
-                                        <p>Date: <i class="far fa-calendar-alt"></i> <input type="text" class="calendar form-control" name="booking_date"
-                                                id="datepicker">
+                                        <p><strong>Select the Date: </strong><i class="far fa-calendar-alt"></i>
+                                             <input type="text" class="calendar form-control" name="booking_date"
+                                                id="datepicker" oninput="this.setCustomValidity('')"
+                                                oninvalid="this.setCustomValidity('Please select the date for your trip')"required>
                                         </p>
                                     </div>
                                 </div>
@@ -105,7 +108,7 @@
                                         <button type="button" class="btn btn-lg btn-secondary" data-bs-dismiss="modal">
                                             <i class="fas fa-times"></i> Close</button>
                                         <button type="submit" class="btn btn-lg add-booking-btn">
-                                            Add to Suitcase <i class="fas fa-suitcase-rolling"></i>
+                                            Add to <i class="fas fa-suitcase-rolling"></i>
                                         </button>
                                     </div>
                                 </div>
@@ -151,9 +154,8 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
-                <a href="{% url 'trips' %}" class="btn btn-lg btn-next btn-left">Go Back to All Trips</a>
-                <a href="#" class="btn btn-lg btn-next btn-right">Explore Latest Deals</a>
+        <div class="col justify-content-center btn-div">
+                <a href="{% url 'trips' %}" class="btn btn-lg btn-next">Go Back to All Trips</a>
         </div>
     </div>
 </section>
