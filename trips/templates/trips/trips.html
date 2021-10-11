@@ -21,7 +21,7 @@
                         <input class="form-control border border-black rounded-0" type="text" name="q"
                             placeholder="Search our site">
                         <div class="input-group-append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <button class="form-control search-btn" type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search"></i>
                                 </span>
@@ -39,8 +39,8 @@
         <!--Here we will bring the categories and display all the category names -->
         <!--Could also do filter by price and duration full day trips or half day trips-->
         <div class="row">
-            <div class="col-lg-6">
-                <div class="btn-group">
+            <div class="col">
+                <div class="btn-group btn-left">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Choose Your Category
@@ -54,10 +54,9 @@
                         {% endfor %}
                     </ul>
                 </div>
-            </div>
+            
             <!--Sorting-->
-            <div class="col-lg-6">
-                <div class="btn-group">
+                <div class="btn-group btn-right">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
@@ -115,8 +114,10 @@
                             <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
                             {% endif %}
                         </ul>
-                        <a href="{{ trip.get_url }}" class="btn ml-3 btn-more btn-bottom"><i class="fas fa-plus"></i>More Info
+                        <div class="mr-4">
+                        <a href="{{ trip.get_url }}" class="btn btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
                         </a>
+                        </div>
                     </div>
                   </div>
             </div>

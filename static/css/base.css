@@ -252,36 +252,49 @@ a:active,
     flex: 1 0 auto;
 }
 
-.btn-dropdown {
+.search-btn {
+    background-color: #000000;
+    color: #fafafa;
+}
+
+.search-btn:hover,
+.btn-dropdown:hover {
     background-color: #2576da;
+    color: #fafafa;
+}
+
+.btn-dropdown {
+    background-color: #000000;
     color: #fafafa;
     text-transform: uppercase;
     font-size: 1 rem;
     font-weight: 600;
     margin: 1rem;
+    width: 15rem;
 }
 
 .dropdown-item:hover {
-    transition: ease-in-out all .4s;
-    -moz-transition: ease-in-out all .4s;
-    -webkit-transition: ease-in-out all .4s;
     background-color: rgba(97, 95, 95, 0.6);
-    text-decoration: none;
-    font-weight: bold;
+    border-radius: 5%;
+    padding: 1rem;
+    transition: ease-in-out all .2s;
+    -moz-transition: ease-in-out all .2s;
+    -webkit-transition: ease-in-out all .2s;
 }
 
 
-.btn-more {
+/* .btn-more {
     border-radius: 50%;
     width: 4.5rem;
     height: 4.5rem;
     margin-left: 70%;
     padding: 0.2rem;
-}
+} */
 
 .btn-bottom {
     position: absolute;
     bottom: 0;
+    right: 10px;
 }
 
 .btn-more i {
@@ -346,10 +359,15 @@ a:active,
     height: 220px;
 }
 
+.container {
+    margin-top: 4rem;
+}
+
 .results {
     font-weight: 900;
     letter-spacing: 0.1rem;
     font-size: 2rem;
+    padding-left: 1rem;
 }
 
 .page-item.active .page-link {
@@ -597,6 +615,7 @@ footer {
     color: #fafafa;
 }
 
+
 .category-heading:hover,
 .nav-item a:hover,
 .main-logo-link:hover,
@@ -652,6 +671,10 @@ footer {
 
     .carousel-img {
         height: 18rem;
+    }
+
+    .btn-dropdown {
+        width: auto;
     }
 
 }
