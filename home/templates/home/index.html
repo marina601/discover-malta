@@ -11,13 +11,13 @@
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="media/catamaran.jpg" class="d-block w-100" alt="catamaran sailing in the sea">
+                        <img src="media/catamaran.jpg" class="d-block w-100 carousel-img" alt="catamaran sailing in the sea">
                     </div>
                     <div class="carousel-item">
-                        <img src="media/gozo.jpg" class="d-block w-100" alt="gozo island">
+                        <img src="media/gozo.jpg" class="d-block w-100 carousel-img" alt="gozo island">
                     </div>
                     <div class="carousel-item">
-                        <img src="media/marsaxlokk.jpg" class="d-block w-100" alt="marsaxlokk village in Malta">
+                        <img src="media/marsaxlokk.jpg" class="d-block w-100 carousel-img" alt="marsaxlokk village in Malta">
                     </div>
                 </div>
             </div>
@@ -98,9 +98,9 @@
     {% for category in categories %}
     <div class="col-lg-3 col-md-4 col-sm-6 p-2">
         <div class="card bg-dark h-100 m-1">
-            
+            <a href="{{ category.get_url }}">
                 <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
-            
+            </a>
             <div class="card-img-overlay">
                 <a href="{{ category.get_url }}" class="category-link">
                     <h5 class="card-title text-center category-heading">{{ category.category_name | capfirst }}

@@ -67,7 +67,7 @@ header,
     padding-top: 5px;
 }
 
-.nav-item a:hover,
+/* .nav-item a:hover,
 a:active,
 .main-logo-link:hover {
     border: 1px solid #2576da;
@@ -77,15 +77,15 @@ a:active,
     background-color: rgba(97, 95, 95, 0.6);
     text-decoration: none;
     font-weight: bold;
-}
+} */
 
-.navbar-toggler:hover {
+/* .navbar-toggler:hover {
     border-radius: 5%;
     border: 3px solid #2576da;
     transition: ease-in-out all .4s;
     -moz-transition: ease-in-out all .4s;
     -webkit-transition: ease-in-out all .4s;
-}
+} */
 
 .dropdown-item:hover {
     color: #fafafa;
@@ -132,6 +132,14 @@ a:active,
     bottom: -15px;
     border: white 2px solid;
     border-radius: 50%;
+}
+
+.carousel-inner {
+    margin-top: 5rem;
+}
+
+.carousel-img {
+    height: 40rem;
 }
 
 .card-info p {
@@ -589,16 +597,19 @@ footer {
     color: #fafafa;
 }
 
+.category-heading:hover,
+.nav-item a:hover,
+.main-logo-link:hover,
+.navbar-toggler:hover,
 .social-icons li a:hover,
 .footer-links li:hover,
 .footer-links li a:hover {
-    color: #2576da;
     background-color: rgba(97, 95, 95, 0.6);
-    border-radius: 10%;
+    border-radius: 5%;
     padding: 1rem;
-    transition: ease-in-out all .4s;
-    -moz-transition: ease-in-out all .4s;
-    -webkit-transition: ease-in-out all .4s;
+    transition: ease-in-out all .2s;
+    -moz-transition: ease-in-out all .2s;
+    -webkit-transition: ease-in-out all .2s;
 }
 
 .copy-rights-text {
@@ -639,6 +650,10 @@ footer {
         height: fit-content !important;
     }
 
+    .carousel-img {
+        height: 18rem;
+    }
+
 }
 
 @media (max-width: 420px) {
@@ -649,7 +664,9 @@ footer {
 
 @media (max-width: 768px) {
     .testimony-div {
-        height: 450px;
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px
     }
     
 }
