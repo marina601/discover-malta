@@ -484,6 +484,26 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     right: 15px;
     z-index: 999999999999;
 }
+
+.toast-success {
+    background-color: #039b2b;
+    color: #fafafa;
+}
+
+.toast-error {
+    background-color: #ef1018;
+    color: #fafafa;
+}
+
+.toast-info {
+    background-color: #2576da;
+    color: #fafafa;
+}
+
+.toast-warning {
+    background-color: #da8925;
+    color: #fafafa;
+}
     
 /**********************Footer*/
 
