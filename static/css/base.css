@@ -489,6 +489,7 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 }
 /**********************Bag*/
 
+.decrease-quantity-child,
 .decrease-quantity {
     background-color:#ef1018;
     color:#fafafa;
@@ -566,7 +567,25 @@ a.ui-button:active, .ui-button:active,
     background: #2576da !important;
 }
 
+.update-link {
+    background-color: #039b2b;
+    padding: 3px;
+    border-radius: 5%;
+    color: #fafafa;
+}
 
+.remove-item {
+    background-color: #ef1018;
+    padding: 3px;
+    border-radius: 5%;
+    color: #fafafa;
+}
+
+.remove-item:hover,
+.update-link:hover {
+    background-color: #000000;
+    color: #fafafa;
+}
 /**********************Footer*/
 
 footer {
@@ -696,6 +715,8 @@ footer {
         height: 3rem;
     }
 
+    
+
 }
 
 @media (max-width: 420px) {
@@ -719,6 +740,10 @@ footer {
     .btn-favourite {
         top: 21.5%;
         margin-left: 0px;
+    }
+
+    .form-group {
+        width: 12rem;
     }
     
 }
