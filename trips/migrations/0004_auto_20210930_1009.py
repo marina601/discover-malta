@@ -21,9 +21,9 @@ class Migration(migrations.Migration):
             name='to_date',
             field=models.DateField(default=django.utils.timezone.now),
         ),
-        migrations.AlterField(
-            model_name='trip',
-            name='start_time',
-            field=models.TimeField(),
-        ),
+        # migrations.AlterField(
+        #     model_name='trip',
+        #     name='start_time',
+        #     field=models.TimeField(),
+        # ),
     ]

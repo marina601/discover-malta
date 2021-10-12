@@ -48,9 +48,9 @@ class Migration(migrations.Migration):
             name='short_description',
             field=models.TextField(help_text='Enter a short descriptionmax 150 characters', max_length=300),
         ),
-        migrations.AlterField(
-            model_name='trip',
-            name='start_time',
-            field=models.TimeField(default=True),
-        ),
+        # migrations.AlterField(
+        #     model_name='trip',
+        #     name='start_time',
+        #     field=models.TimeField(default=True),
+        # ),
     ]
