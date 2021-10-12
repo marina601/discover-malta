@@ -22,11 +22,21 @@ class Category (models.Model):
 
 
 class Trip(models.Model):
+
+    START_TIME = [
+        ('6 AM', '6 AM'),
+        ('7 AM', '7 AM'),
+        ('8 AM', '8 AM'),
+        ('9 AM', '9 AM'),
+        ('10 AM', '10 AM'),
+        ('12 PM', '12 PM'),
+        ('1 PM', '1 PM'),
+        ('6 PM', '6 PM'),
+    ]
+
     name = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    # cascade will delete all the products if the category is deleted
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    # possible foregain key
     provider = models.CharField(max_length=50, blank=True)
     short_description = models.TextField(max_length=300,
                                          help_text='Enter a short description'
@@ -35,21 +45,19 @@ class Trip(models.Model):
     included = models.TextField(max_length=800, blank=True)
     what_to_bring = models.TextField(max_length=800, blank=True)
     duration = models.IntegerField()
-    start_time = models.TimeField(default=True)
+    start_time = models.CharField(
+        max_length=5,
+        choices=START_TIME, default='8AM',
+    )
     departure_location = models.TextField(max_length=800)
-    # foregain key for tickets
     family_friendly = models.BooleanField(default=True)
-    # foregain key for profile
     add_to_favourites = models.BooleanField(default=False, blank=True)
     adult_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     child_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     images = models.ImageField(upload_to='media/trips')
-    image_url = models.URLField(max_length=1024, blank=True)
     num_tickets = models.PositiveIntegerField(default=0)
-    start_time = models.TimeField(auto_now=False, auto_now_add=False)
     from_date = models.DateField(default=timezone.now)
     to_date = models.DateField(default=timezone.now)
-    # checkbox for special offers
     special_offer = models.BooleanField(default=False, blank=True)
     created_date = models.DateTimeField(auto_now_add=True)
     modified_date = models.DateTimeField(auto_now=True)
