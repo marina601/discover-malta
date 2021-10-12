@@ -345,9 +345,13 @@ a:active,
     margin: 0px;
 }
 
+.results {
+    margin-bottom: 4rem;
+}
+
 .card-trip {
     height: 48rem;
-    margin:  3rem 0rem;
+    margin:  1rem;
     width: 21rem;
     border: 2px solid #000000;
 }

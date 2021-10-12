@@ -38,8 +38,8 @@
         </div>
         <!--Here we will bring the categories and display all the category names -->
         <!--Could also do filter by price and duration full day trips or half day trips-->
-        <div class="row">
-            <div class="col">
+        <div class="row results">
+            <div class="col-6">
                 <div class="btn-group btn-left">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false">
@@ -54,6 +54,8 @@
                         {% endfor %}
                     </ul>
                 </div>
+            </div>
+            <div class="col-6">
             
             <!--Sorting-->
                 <div class="btn-group btn-right">
@@ -74,11 +76,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    
 
 <!--display all the trips-->
 
-    <div class="container">
+    
         <div class="row">
             <div class="col">
                 <p>
@@ -92,7 +94,7 @@
         <hr>
         <div class="row">
             {% for trip in trips %}
-            <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card card-trip">
                     <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
@@ -123,11 +125,11 @@
             </div>
             {% endfor %}
         </div>
-    </div>
+ 
 
 <!--Pagination-->
 
-    <div class="container">
+    
         <div class="row">
             <div class="col">
                 <nav aria-label="Page navigation example">
