@@ -7,11 +7,11 @@ def register(request):
     """
     Register function
     """
-    return render(request, 'register.html')
+    return render(request, 'accounts/register.html')
 
 
 def login(request):
     """
     Login function
     """
-    return render(request, 'login.html')
+    return render(request, 'accounts/login.html')
