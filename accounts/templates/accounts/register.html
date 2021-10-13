@@ -44,12 +44,15 @@
                       <button type="submit" class="btn btn-next">Register</button>
                     </div>
                   </div>
+                  <!--print form errors-->
+                  {{ form.email.errors }}
+                  {{ form.non_field_errors }}
                 </form>
             </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <p> Already registered ?</p><a class="btn" href="{% url 'login' %}"></a>
+            <p> Already registered ?</p><a class="btn btn-dropdown" href="{% url 'login' %}">Login</a>
           </div>
         </div>
     </div>
