@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt, csrf_protect
+from django.shortcuts import render, redirect
+from django.contrib import messages
+# from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 from .forms import RegistraionForm
 from .models import Account
@@ -7,7 +8,7 @@ from .models import Account
 # Create your views here.
 
 
-@csrf_exempt
+# @csrf_exempt
 def register(request):
     """
     Register function
@@ -28,6 +29,9 @@ def register(request):
                                                password=password,)
             user.phone_number = phone_number
             user.save()
+            messages.success(request, "Your account has successfully created!")
+            form = RegistraionForm()
+            return redirect('register')
     else:
         form = RegistraionForm()
 
