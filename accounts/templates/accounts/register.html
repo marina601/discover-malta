@@ -11,6 +11,42 @@
                 <h2>Register</h2>
             </div>
         </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <form class="row g-3" action="{% url 'register' %}" method="POST">
+                    {{ csrf_tocket }}
+                    <div class="col-md-6">
+                      <label for="first_name" class="form-label">First Name:</label>
+                      {{ form.first_name }}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="last_name" class="form-label">Last Name:</label>
+                      {{ form.last_name }}
+                    </div>
+                    <div class="form-row col-md-6">
+                      <label for="email" class="form-label">Email Address:</label>
+                      {{ form.email }}
+                    </div>
+                    <div class="col-md-6">
+                      <label for="phone_number" class="form-label">Phone Number:</label>
+                      {{ form.phone_number }}
+                    </div>
+                    <div class="form-row col-md-6">
+                        <label for="email" class="form-label">Create Password:</label>
+                        {{ form.password }}
+                      </div>
+                      <div class="col-md-6">
+                        <label for="phone_number" class="form-label">Repeat Password:</label>
+                        {{ form.confirm_password }}
+                    </div>
+                    <div class="form-row">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-next">Register</button>
+                        </div>
+                    </div>
+                  </form>
+            </div>
+        </div>
     </div>
 </section>
 
