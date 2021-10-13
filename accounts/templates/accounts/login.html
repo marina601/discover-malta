@@ -11,6 +11,50 @@
                 <h2>Login</h2>
             </div>
         </div>
+        {% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} Register {% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Register Here</h2>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <form class="row g-3" action="{% url 'login' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address:</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                  </div>
+                  <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                  </div>
+                  <button type="submit" class="btn btn-next">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <p>Do not have an account ?</p><a class="btn btn-dropdown" href="{% url 'register' %}">Register</a>
+          </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+
+
     </div>
 </section>
 
