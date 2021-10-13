@@ -13,8 +13,8 @@ class MyAccountManager(BaseUserManager):
         if not email:
             raise ValueError('User must have an email address')
 
-        if not username:
-            raise ValueError('User must have an username')
+        # if not username:
+        #     raise ValueError('User must have an username')
 
         user = self.model(
             # if entered a capital letter that it will convert to lowcase
