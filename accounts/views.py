@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
 
 # from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
@@ -61,3 +62,10 @@ def login(request):
             return redirect('login')
 
     return render(request, 'accounts/login.html')
+
+
+@login_required(login_url = 'login')
+def logout(request):
+    auth.logout(request)
+    messages.success(request, "You have logged out!")
+    return redirect('home')
