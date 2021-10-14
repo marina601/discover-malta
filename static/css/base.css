@@ -586,6 +586,19 @@ a.ui-button:active, .ui-button:active,
     background-color: #000000;
     color: #fafafa;
 }
+
+/****************Login Page*/
+
+.verification-div {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.verification-div p strong {
+    color: #2576da;
+}
+
+
 /**********************Footer*/
 
 footer {

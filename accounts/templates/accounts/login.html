@@ -6,11 +6,30 @@
 {% block content %}
 <section class="main-content">
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>Register Here</h2>
+      {% if request.GET.command == 'verification' %}
+      <div class="row justify-content-md-center verification-div">
+        <div class="col-lg-6 mt-5 ">
+          <p> Thank you for creating an account with us.
+            We have send a verification link to your email address <strong>{{request.GET.email}}</strong>.
+            Please click on the link and activate your account.
+          </p>
+          <hr>
+          <p>
+            If you have activated you account already.</p>
+            <p>
+          
+             Please 
+            <a class="btn btn-dropdown d-inline" href="{% url 'login'%}">Login</a>
+          </p>
+        </div>
+      </div>
+      {% else %}
+        <div class="row justify-content-center">
+            <div class="col-md-auto mt-3">
+                <h2>Login Here</h2>
             </div>
         </div>
+        
         <div class="row justify-content-md-center">
             <div class="col-lg-8 col-md-8 col-sm-12">
                 <form class="row g-3" action="{% url 'login' %}" method="POST">
@@ -27,11 +46,12 @@
                 </form>
             </div>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <p>Do not have an account ?</p><a class="btn btn-dropdown" href="{% url 'register' %}">Register</a>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-4 col-md-8 mt-5">
+            <p class="d-inline">Do not have an account ?</p><a class="btn btn-dropdown d-inline" href="{% url 'register' %}">Register</a>
           </div>
         </div>
+      {% endif %}
     </div>
 </section>
 {% endblock %}

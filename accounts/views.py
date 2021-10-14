@@ -61,7 +61,7 @@ def register(request):
                                       f' verification link.'
                                       f' Please verify your account')
             form = RegistraionForm()
-            return redirect('register')
+            return redirect('/accounts/login/?command=verification&email='+email)
     else:
         form = RegistraionForm()
 
