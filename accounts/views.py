@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
@@ -44,7 +44,7 @@ def register(request):
             # Account activation
             current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
-            message = render_to_string('accounts/account_activation.html', {
+            message = render_to_string('accounts/emails/account_activation.html', {
                 'user': user,
                 'domain': current_site,
                 # encoding user id
@@ -123,3 +123,42 @@ def activate(request, uidb64, token):
 def profile(request):
     """User Profile"""
     return render(request, 'accounts/profile.html')
+
+
+def forgot_password(request):
+    """
+    Forgot password, checks if there is a POST
+    request, if the user email is identified
+    and sends an email with a link to reset password
+    """
+    if request.method == 'POST':
+        email = request.POST['email']
+        if Account.objects.filter(email=email).exists():
+            user = Account.objects.get(email__exact=email)
+            # Reset password email
+            current_site = get_current_site(request)
+            mail_subject = 'Reset Your Password'
+            message = render_to_string('accounts/emails/reset_password_email.html', {
+                'user': user,
+                'domain': current_site,
+                # encoding user id
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'token': default_token_generator.make_token(user),
+            })
+            to_email = email
+            send_email = EmailMessage(mail_subject, message, to=[to_email])
+            send_email.send()
+
+            messages.success(request, f'Password reset link has been send to {to_email}')
+            return redirect('login')
+        else:
+            messages.error(request, "The email address you have entered does not match any account")
+            return redirect('forgot_password')
+
+    return render(request, 'accounts/forgot_password.html')
+
+
+def validate_new_password(request, uidb64, token):
+    """Validate new password request"""
+    return HttResponse('ok')
+
