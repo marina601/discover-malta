@@ -47,14 +47,19 @@ def register(request):
             message = render_to_string('accounts/account_activation.html', {
                 'user': user,
                 'domain': current_site,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),  # encoding user id
+                # encoding user id
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user),
             })
             to_email = email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            messages.success(request, "Your account has successfully created!")
+            messages.success(request, f'Thank you {user.first_name} for'
+                                      f' registering,'
+                                      f' we have send you an email with'
+                                      f' verification link.'
+                                      f' Please verify your account')
             form = RegistraionForm()
             return redirect('register')
     else:
@@ -95,5 +100,20 @@ def logout(request):
     return redirect('home')
 
 
-def activate(request):
-    return
+def activate(request, uidb64, token):
+    """Activate New User Account"""
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Account._default_manager.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, f'Congratulations {user.first_name} your'
+                                  f' account has been activated')
+        return redirect('login')
+    else:
+        messages.error(request, "Invalid activation link")
+        return redirect('register')
