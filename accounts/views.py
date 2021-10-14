@@ -97,7 +97,7 @@ def logout(request):
     """Logout function"""
     auth.logout(request)
     messages.success(request, "You have logged out!")
-    return redirect('home')
+    return redirect('profile')
 
 
 def activate(request, uidb64, token):
@@ -117,3 +117,9 @@ def activate(request, uidb64, token):
     else:
         messages.error(request, "Invalid activation link")
         return redirect('register')
+
+
+@login_required(login_url='login')
+def profile(request):
+    """User Profile"""
+    return render(request, 'accounts/profile.html')
