@@ -159,6 +159,19 @@ def forgot_password(request):
 
 
 def validate_new_password(request, uidb64, token):
-    """Validate new password request"""
-    return HttResponse('ok')
+    """Validate new password request link"""
+    try:
+        uid = urlsafe_base64_decode(uidb64).decode()
+        user = Account._default_manager.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
+        user = None
+    
+    if user is not None and default_token_generator.check_token(user, token):
+        request.session['uid'] = uid
+        messages.success(request, f'Please {user.first_name} you'
+                                  f' can now reset your password')
+        return redirect('reset_password')
+    else:
+        messages.error(request, "This link has expired, please request a new link")
+        return redirect('forgot_password')
 
