@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect, HttpResponse
+# pylint: disable=no-member
+from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
@@ -165,7 +166,7 @@ def validate_new_password(request, uidb64, token):
         user = Account._default_manager.get(pk=uid)
     except(TypeError, ValueError, OverflowError, Account.DoesNotExist):
         user = None
-    
+
     if user is not None and default_token_generator.check_token(user, token):
         request.session['uid'] = uid
         messages.success(request, f'Please {user.first_name} you'
@@ -175,3 +176,27 @@ def validate_new_password(request, uidb64, token):
         messages.error(request, "This link has expired, please request a new link")
         return redirect('forgot_password')
 
+
+def reset_password(request):
+    """
+    Reset user password by
+    checking if two passwords match
+    and getting uid in session,
+    updating user password
+    """
+    if request.method == 'POST':
+        password = request.POST['password-1']
+        confirm_password = request.POST['password-2']
+
+        if password == confirm_password:
+            uid = request.session.get('uid')
+            user = Account.objects.get(pk=uid)
+            user.set_password(password)
+            user.save()
+            messages.success(request, f'Your {user.first_name} password has been reset!')
+            return redirect('login')
+        else:
+            messages.warning(request, 'Please ensure your new password and confirm password match')
+            return redirect('reset_passord')
+    else:
+        return render(request, 'accounts/reset_password.html')
