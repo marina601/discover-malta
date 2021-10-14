@@ -2,6 +2,15 @@ from django.shortcuts import render, redirect
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
+# Verification email
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+from django.core.mail import EmailMessage
+
+
 # from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
 from .forms import RegistraionForm
@@ -31,6 +40,20 @@ def register(request):
                                                password=password,)
             user.phone_number = phone_number
             user.save()
+
+            # Account activation
+            current_site = get_current_site(request)
+            mail_subject = 'Please activate your account'
+            message = render_to_string('accounts/account_activation.html', {
+                'user': user,
+                'domain': current_site,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),  # encoding user id
+                'token': default_token_generator.make_token(user),
+            })
+            to_email = email
+            send_email = EmailMessage(mail_subject, message, to=[to_email])
+            send_email.send()
+
             messages.success(request, "Your account has successfully created!")
             form = RegistraionForm()
             return redirect('register')
@@ -64,8 +87,13 @@ def login(request):
     return render(request, 'accounts/login.html')
 
 
-@login_required(login_url = 'login')
+@login_required(login_url='login')
 def logout(request):
+    """Logout function"""
     auth.logout(request)
     messages.success(request, "You have logged out!")
     return redirect('home')
+
+
+def activate(request):
+    return
