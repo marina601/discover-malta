@@ -50,9 +50,11 @@ INSTALLED_APPS = [
     'multiselectfield',
     'bookings',
     'bag',
+    'checkout',
 
     # other
     'storages',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
