@@ -22,12 +22,12 @@ def bag_content(request):
         trip = get_object_or_404(Trip, pk=key)
         if "adult_tickets" in bag[key]:
             adult_tickets = bag[key]['adult_tickets']
-            adult_price += trip.adult_price * bag[key]['adult_tickets']
+            adult_price = trip.adult_price * bag[key]['adult_tickets']
             booking_date = bag[key]['booking_date']
             trip_count += bag[key]['quantity']
-            total_tickets += adult_tickets
+            total_tickets = adult_tickets
             children_tickets = bag[key]['children_tickets']
-            child_price += trip.child_price * children_tickets
+            child_price = trip.child_price * children_tickets
             total_price = adult_price + child_price
             total_tickets = adult_tickets + children_tickets
             bag_items.append({
