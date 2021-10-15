@@ -151,14 +151,30 @@
             </div>
             <hr>
             {% endfor %}
-            <div class="row">
+            <div class="row m-1">
                 <div class="col">
                     <div class="float-end">
                        <h4>Grand Total</h4>
                        <p><i class="fas fa-euro-sign"></i> {{ total_price }}</p>
+                       <!--submit button-->
+                       <a href="{% url 'checkout' %}" class="btn btn-dropdown">
+                        <span class="font-weight-bold">Proceed to Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                    </div>
+                    <div class="float-start">
+                        <a href="{% url 'trips' %}" class="btn btn-more">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
                     </div>
                 </div>
             </div>
+            
             {% else %}
             <!--else the message and the link to go back to the home page-->
             <p class="lead mb-5">Your bag is empty</p>
