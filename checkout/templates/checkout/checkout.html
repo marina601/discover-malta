@@ -85,8 +85,8 @@
                                 checked>
                             {% else %}
                             <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                                <a class="text-info" href="{% url 'register' %}">Create an account</a> or
+                                <a class="text-info" href="{% url 'login' %}">login</a> to save this information
                             </label>
                             {% endif %}
                         </div>
@@ -121,7 +121,7 @@
                                 <i class="fas fa-exclamation-circle"></i>
                             </span>
                             <span>Your card will be charged <strong><i
-                                        class="fas fa-euro-sign"></i>{{ total_price|floatformat:2 }}</strong></span>
+                                        class="fas fa-euro-sign"></i>{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
                 </form>
             </div>

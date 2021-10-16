@@ -2,11 +2,12 @@
 {% load static %}
 
 
+
 {% block extra_title %} Bag {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 {% endblock %}
 
 {% block extra_js %}
@@ -26,7 +27,7 @@
         </div>
     </div>
     <!--Bag-->
-    <div class="row">
+    <div class="row m-1">
         <div class="col">
             {% if bag_items %}
             {% for item in bag_items %}
@@ -155,7 +156,7 @@
                 <div class="col">
                     <div class="float-end">
                        <h4>Grand Total</h4>
-                       <p><i class="fas fa-euro-sign"></i> {{ total_price }}</p>
+                       <p><i class="fas fa-euro-sign"></i> {{ grand_total }}</p>
                        <!--submit button-->
                        <a href="{% url 'checkout' %}" class="btn btn-dropdown">
                         <span class="font-weight-bold">Proceed to Secure Checkout</span>

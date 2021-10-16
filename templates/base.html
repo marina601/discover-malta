@@ -74,8 +74,8 @@
                             <div class="text-center">
                                 <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
                                 <p class="my-0">
-                                    {% if total_price %}
-                                    <i class="fas fa-euro-sign"></i> {{ total_price|floatformat:2 }}
+                                    {% if grand_total %}
+                                    <i class="fas fa-euro-sign"></i> {{ grand_total|floatformat:2 }}
                                     {% else %}
                                     <i class="fas fa-euro-sign"></i> 0.00
                                     {% endif %}
