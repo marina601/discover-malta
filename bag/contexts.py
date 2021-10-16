@@ -15,6 +15,7 @@ def bag_content(request):
     trip_count = 0
     adult_price = 0
     child_price = 0
+    grand_total = 0
     bag = request.session.get('bag', {})
     print("ADDED BY JO: bag in contexts.py: ", bag)
 
@@ -29,6 +30,7 @@ def bag_content(request):
             children_tickets = bag[key]['children_tickets']
             child_price = trip.child_price * children_tickets
             total_price = adult_price + child_price
+            grand_total += total_price
             total_tickets = adult_tickets + children_tickets
             bag_items.append({
                 'trip': trip,
@@ -40,12 +42,14 @@ def bag_content(request):
                 'adult_tickets': adult_tickets,
                 'children_tickets': children_tickets,
                 'child_price': child_price,
+                'grand_total': grand_total
             })
 
     context = {
         'bag_items': bag_items,
         'total_price': total_price,
         'total_tickets': total_tickets,
+        'grand_total': grand_total,
     }
 
     print(context)
