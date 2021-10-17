@@ -36,7 +36,7 @@
                     {{ form.password }}
                   </div>
                   <div class="col-md-6">
-                    <label for="password class="form-label">Repeat Password:</label>
+                    <label for="password" class="form-label">Repeat Password:</label>
                     {{ form.confirm_password }}
                   </div>
                   <button type="submit" class="btn btn-next">Register</button>
@@ -48,8 +48,8 @@
         </div>
         <div class="row justify-content-md-center">
           <div class="col-lg-4 col-md-8 col-sm-12 mt-5">
-            <p class="d-inline"> Already registered ?</p>
-            <a class="btn btn-dropdown d-inline" href="{% url 'login' %}">Login</a>
+            <p class="d-md-inline"> Already registered ?</p>
+            <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
           </div>
         </div>
     </div>
