@@ -598,6 +598,9 @@ a.ui-button:active, .ui-button:active,
     color: #2576da;
 }
 
+.reset-password a {
+    color:#2576da;
+}
 
 /**********************Footer*/
 

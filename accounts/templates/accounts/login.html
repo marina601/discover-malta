@@ -43,16 +43,16 @@
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                   </div>
                   <button type="submit" class="btn btn-next">Login</button>
-                  <div class="mb-3">
-                    <p class="d-inline">Forgot password?</p>
-                    <a class="btn d-inline" href="{% url 'forgot_password' %}">Reset your password here</a>
+                  <div class="mb-3 reset-password">
+                    <p class="d-md-inline text-muted">Forgot password ?</p>
+                    <a class="btn d-md-inline" href="{% url 'forgot_password' %}">Click here to reset your passowrd</a>
                   </div>
                 </form>
             </div>
         </div>
         <div class="row justify-content-md-center">
           <div class="col-lg-4 col-md-8 mt-5">
-            <p class="d-inline">Do not have an account ?</p><a class="btn btn-dropdown d-inline" href="{% url 'register' %}">Register</a>
+            <p class="d-md-inline">Do not have an account ?</p><a class="btn btn-dropdown d-md-inline" href="{% url 'register' %}">Register</a>
           </div>
         </div>
       {% endif %}
