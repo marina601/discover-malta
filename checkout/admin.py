@@ -8,7 +8,8 @@ class OrderTicketItemAdminInline(admin.TabularInline):
     Lets the admin to edit the order
     """
     model = OrderTicketItem
-    readonly_fields = ('adult_tickets', 'children_tickets', 'ticketitem_total',)
+    readonly_fields = ('adult_tickets', 'children_tickets',
+                       'ticketitem_total', 'quantity')
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderTicketItemAdminInline,)

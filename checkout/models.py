@@ -1,15 +1,17 @@
 # pylint: disable=no-member
 import uuid
-
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
+from django.utils import timezone
+
 
 from trips.models import Trip
 # Create your models here.
 
 
 class Order(models.Model):
+    """Order model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
@@ -40,7 +42,9 @@ class Order(models.Model):
         """
         Update total price for the order
         """
-        self.order_total = self.ticketitems.aggregate(Sum('ticketitem_total'))['ticketitem_total__sum'] or 0
+        self.order_total = self.ticketitems.aggregate(Sum
+                                                      ('ticketitem_total')
+                                                      )['ticketitem_total__sum'] or 0
         self.grand_total = self.order_total
         self.save()
 
@@ -58,14 +62,21 @@ class Order(models.Model):
 
 
 class OrderTicketItem(models.Model):
-    order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='ticketitems')
-    trip = models.ForeignKey(Trip, null=False, blank=False, on_delete=models.CASCADE)
+    """Ticke Item Model"""
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='ticketitems')
+    trip = models.ForeignKey(Trip, null=False, blank=False,
+                             on_delete=models.CASCADE)
+    booking_date = models.DateField(default=timezone.now)
     children_tickets = models.IntegerField(null=True, blank=True, default=0)
     child_quantity = models.IntegerField(null=True, blank=True, default=0)
     adult_tickets = models.IntegerField(null=False, blank=False, default=0)
     adult_quantity = models.IntegerField(null=False, blank=False, default=0)
     quantity = models.IntegerField(null=False, blank=False, default=0)
-    ticketitem_total = models.DecimalField(max_digits=6, decimal_places=2, null=False, blank=False, editable=False)
+    ticketitem_total = models.DecimalField(max_digits=6, decimal_places=2,
+                                           null=False, blank=False,
+                                           editable=False)
 
     def save(self, *args, **kwargs):
         """
