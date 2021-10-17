@@ -152,20 +152,19 @@
             </div>
             <hr>
             {% endfor %}
+            <!--grand total-->
             <div class="row m-1">
                 <div class="col">
                     <div class="float-end">
-                       <h4>Grand Total</h4>
-                       <p><i class="fas fa-euro-sign"></i> {{ grand_total }}</p>
-                       <!--submit button-->
-                       <a href="{% url 'checkout' %}" class="btn btn-dropdown">
-                        <span class="font-weight-bold">Proceed to Secure Checkout</span>
-                        <span class="icon">
-                            <i class="fas fa-lock"></i>
-                        </span>
-                    </a>
+                       <h4 class="d-inline">Grand Total</h4>
+                       <p class="d-inline"><i class="fas fa-euro-sign"></i>  {{ grand_total }}</p>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-12">
                     <div class="float-start">
+                        <!--back to trips button-->
                         <a href="{% url 'trips' %}" class="btn btn-more">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
@@ -174,8 +173,18 @@
                         </a>
                     </div>
                 </div>
+                <div class="col-lg-6 col-sm-12">
+                    <div class="float-end">
+                        <!--checkout button-->
+                        <a href="{% url 'checkout' %}" class="btn btn-dropdown">
+                            <span class="font-weight-bold">Proceed to Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
             </div>
-            
             {% else %}
             <!--else the message and the link to go back to the home page-->
             <p class="lead mb-5">Your bag is empty</p>
