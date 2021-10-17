@@ -33,7 +33,7 @@ class OrderForm(forms.ModelForm):
 
 # Autofocus attribute on the full_name field as true
 # The cursor will start on this field when the user loads the page
-        self.fields['full_name'].widget.attrs['autofocus'] = True
+        self.fields['first_name'].widget.attrs['autofocus'] = True
         """
         Iterate through form fields and add * if
         the fields are required on the model
