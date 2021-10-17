@@ -65,7 +65,8 @@
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
                         <legend class="fieldset-label px-2 w-auto">Personal Details</legend>
-                        {{ order_form.full_name }}
+                        {{ order_form.first_name }}
+                        {{ order_form.last_name }}
                         {{ order_form.email }}
                         {{ order_form.phone_number }}
                     </fieldset>
