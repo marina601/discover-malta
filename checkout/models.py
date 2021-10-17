@@ -13,7 +13,8 @@ from trips.models import Trip
 class Order(models.Model):
     """Order model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    full_name = models.CharField(max_length=50, null=False, blank=False)
+    first_name = models.CharField(max_length=50, null=False, blank=False, default="")
+    last_name = models.CharField(max_length=50, null=False, blank=False, default="")
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
@@ -62,7 +63,7 @@ class Order(models.Model):
 
 
 class OrderTicketItem(models.Model):
-    """Ticke Item Model"""
+    """Ticke Item"""
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='ticketitems')
