@@ -2,6 +2,7 @@
     margin: 0.3rem;
 }
 
+
 .form-control:focus {
     border-color: #2576da;
 }
@@ -58,4 +59,10 @@ select option[value=""] {
 
 #card-errors {
     color: #ef1018;
+}
+
+@media (max-width: 768px) {
+  .order-confirmation-wrapper {
+    overflow: auto;
+  }
 }
