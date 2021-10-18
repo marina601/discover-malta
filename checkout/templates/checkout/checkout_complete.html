@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block extra_title %} Checkout {% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <hr>
+                <h2 class="logo-font mb-4">Thank you! </h2>
+                <hr>
+                <p>Your order information is below. A confirmation email will be sent to
+                    <strong>{{ order.email }}</strong>
+                </p>
+            </div>
+        </div>
+         <!--Items in the bag-->
+        {% for item in bag_items %}
+        <div class="row m-1">
+            <div class="col-lg-3 col-md-6">
+                <img class="img-fluid" src="{{ item.trip.images.url }}" alt="{{ item.trip.name }}">
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <p><strong>{{ item.trip.name }}</strong></p>
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h4><i class="fas fa-ticket-alt"></i> Tickets :</h4>
+                <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
+                <!--check if there are any children tickets-->
+                {% if item.trip.family_friendly %}
+                <p class="my-0 mt-2">{{ item.children_tickets }} <strong>Children</strong></p>
+                {% endif %}
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h4>Price :</h4>
+                <p class="my-0"><i class="fas fa-euro-sign"></i> {{ item.adult_price }} <strong>Adults</strong></p>
+                <!--check if there are any children tickets-->
+                {% if item.trip.family_friendly %}
+                <p class="my-0 mt-2"><i class="fas fa-euro-sign"></i> {{ item.child_price }} <strong>Children</strong>
+                </p>
+                {% endif %}
+            </div>
+            <div class="col-lg-2 col-md-4">
+                <h4><i class="fas fa-calendar-alt"></i> Booking Date :</h4>
+                <p>{{ item.booking_date }}</p>
+            </div>
+            <div class="col-lg-1 col-md-4">
+                <h4>Total Price</h4>
+                <p><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p>
+            </div>
+        </div>
+         <hr>  
+        {% endfor %}
+        
+    </div>
+</section>
+{% endblock %}
+
