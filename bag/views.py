@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from django.contrib import messages
+from django.shortcuts import get_object_or_404
 
 from trips.models import Trip
-from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 
@@ -25,6 +26,7 @@ def add_to_bag(request, trip_id):
     # Check it the children tickets are in the request
     if 'children_tickets' in request.POST:
         children_tickets = int(request.POST['children_tickets'])
+
     bag = request.session.get('bag', {})
 
     if trip_id in list(bag.keys()):
@@ -68,6 +70,7 @@ def update_bag(request, trip_id):
 
     if 'children_tickets' in request.POST:
         children_tickets = int(request.POST['children_tickets'])
+
     bag = request.session.get('bag', {})
 
     if booking_date:
@@ -99,7 +102,7 @@ def remove_from_bag(request, trip_id):
 
         del bag[trip_id]
         messages.success(request, (f'Removed {trip.name},'
-                                 f'from your suitcase'))
+                                   f'from your suitcase'))
 
         request.session['bag'] = bag
 
@@ -109,5 +112,6 @@ def remove_from_bag(request, trip_id):
         return redirect(reverse('bag'))
 
     except Exception as e:
-        messages.error(request, f'Error has occured when removing {trip.name} from your suitcase')
+        messages.error(request, f'Error has occured when removing'
+                                f' {trip.name} from your suitcase')
         return HttpResponse(status=500, e=e)
