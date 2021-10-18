@@ -23,43 +23,169 @@
                 </p>
             </div>
         </div>
-         <!--Items in the bag-->
-        {% for item in bag_items %}
-        <div class="row m-1">
-            <div class="col-lg-3 col-md-6">
-                <img class="img-fluid" src="{{ item.trip.images.url }}" alt="{{ item.trip.name }}">
-            </div>
-            <div class="col-lg-2 col-md-6">
-                <p><strong>{{ item.trip.name }}</strong></p>
-            </div>
-            <div class="col-lg-2 col-md-4">
-                <h4><i class="fas fa-ticket-alt"></i> Tickets :</h4>
-                <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
-                <!--check if there are any children tickets-->
-                {% if item.trip.family_friendly %}
-                <p class="my-0 mt-2">{{ item.children_tickets }} <strong>Children</strong></p>
-                {% endif %}
-            </div>
-            <div class="col-lg-2 col-md-4">
-                <h4>Price :</h4>
-                <p class="my-0"><i class="fas fa-euro-sign"></i> {{ item.adult_price }} <strong>Adults</strong></p>
-                <!--check if there are any children tickets-->
-                {% if item.trip.family_friendly %}
-                <p class="my-0 mt-2"><i class="fas fa-euro-sign"></i> {{ item.child_price }} <strong>Children</strong>
-                </p>
-                {% endif %}
-            </div>
-            <div class="col-lg-2 col-md-4">
-                <h4><i class="fas fa-calendar-alt"></i> Booking Date :</h4>
-                <p>{{ item.booking_date }}</p>
-            </div>
-            <div class="col-lg-1 col-md-4">
-                <h4>Total Price</h4>
-                <p><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="order-confirmation-wrapper p-2 border">
+                    <div class="row">
+                        <div class="col">
+                            <small class="text-muted">Tickets Info:</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4">
+                            <p class="mb-0 font-weight-bold"><strong>Ticket Number:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.order_number }}</p>
+                            <p class="text-muted">Please present this ticket number to the trip provider on your arrival
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 mt-3">
+                            <p><strong>Order Details:</strong></p>
+                        </div>
+                    </div>
+                    {% for item in order.ticketitems.all %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p><strong>Trip Name:</strong></p>
+                            <p class="small mb-0 text-black font-weight-bold">
+                                {{ item.trip.name }}
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-3 text-md-right mt-3">
+                            <p><strong><i class="fas fa-ticket-alt"></i> Tickets Purchased : </strong></p>
+                            <p class="small mb-0">{{ item.adult_quantity }} adults @ ${{ item.trip.adult_price }} each
+                            </p>
+                            {% if item.child_quantity > 0 %}
+                            <p class="small mb-0">{{ item.child_quantity }} children @ ${{ item.trip.child_price }} each
+                            </p>
+                            {% endif %}
+                        </div>
+                        <div class="col-12 col-md-3 text-md-right mt-3">
+                            <p><strong><i class="fas fa-calendar-alt"></i> Booking Date :</strong></p>
+                            <p class="small mb-0">{{ item.booking_date }}</p>
+                        </div>
+                        <div class="col-12 col-md-2 text-md-right mt-3">
+                            <p><strong><i class="fas fa-money-bill-wave"></i> Total Cost :</strong></p>
+                            <p class="small mb-0"><i class="fas fa-euro-sign"></i> {{ item.ticketitem_total }}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                    <!--Billing info-->
+                    <div class="row">
+                        <div class="col">
+                            <small class="text-muted">Billing Info:</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-user"></i> Full Name:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-6 text-md-right">
+                            <p class="mb-0 d-inline">{{ order.first_name }}</p>
+                            <p class="mb-0 d-inline">{{ order.last_name }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-map-marked-alt"></i> Address:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-6 text-md-right">
+                            <p class="mb-0">{{ order.street_address1|title }}</p>
+                        </div>
+                    </div>
+                    {% if order.street_address2 %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-map-marked-alt"></i>Address:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-6 text-md-right">
+                            <p class="mb-0">{{ order.street_address2|title }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if order.county %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-home"></i>County:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.county|capfirst }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-city"></i> Town or City:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.town_or_city|capfirst }}</p>
+                        </div>
+                    </div>
+                    {% if order.postcode %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-home"></i> Postal Code:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.postcode|upper }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-globe"></i> Country:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.country }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-mobile-alt"></i> Phone Number:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.phone_number }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-at"></i> Email Address:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0">{{ order.email }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-md-4 mt-3">
+                            <p class="mb-0"><strong><i class="fas fa-euro-sign"></i> Order Total:</strong></p>
+                        </div>
+                        <div class="col-12 col-md-8 text-md-right">
+                            <p class="mb-0"><i class="fas fa-euro-sign"></i> {{ order.order_total }}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-         <hr>  
-        {% endfor %}
+        <!--Profile link-->
+        <div class="row">
+            <div class="col-12 col-lg-7 text-right">
+                {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}" class="btn btn-dropdown">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase">Back to Profile</span>
+                </a>
+                {% endif %}
+                </div>
+            </div>
+        </div>
+      
+    
         
     </div>
 </section>
