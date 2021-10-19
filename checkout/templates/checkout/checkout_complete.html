@@ -56,10 +56,10 @@
                         </div>
                         <div class="col-12 col-md-3 text-md-right mt-3">
                             <p><strong><i class="fas fa-ticket-alt"></i> Tickets Purchased : </strong></p>
-                            <p class="small mb-0">{{ item.adult_quantity }} adults @ ${{ item.trip.adult_price }} each
+                            <p class="small mb-0">{{ item.adult_quantity }} adults @ <i class="fas fa-euro-sign"></i>{{ item.trip.adult_price }} each
                             </p>
                             {% if item.child_quantity > 0 %}
-                            <p class="small mb-0">{{ item.child_quantity }} children @ ${{ item.trip.child_price }} each
+                            <p class="small mb-0">{{ item.child_quantity }} children @ <i class="fas fa-euro-sign"></i>{{ item.trip.child_price }} each
                             </p>
                             {% endif %}
                         </div>
