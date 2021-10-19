@@ -142,12 +142,11 @@ TIME_ZONE = 'Europe/Malta'
 
 USE_I18N = True
 
-USE_L10N = False
+USE_L10N = True
 
 USE_TZ = True
 
-# format the date input
-DATE_INPUT_FORMATS = ['%d-%m-%Y']
+
 
 
 # Static files (CSS, JavaScript, Images)
