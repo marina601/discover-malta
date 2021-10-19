@@ -1,4 +1,12 @@
+# pylint: disable=no-member
+import json
+import time
+
 from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
+
+from trips.models import Trip
+from .models import Order, OrderTicketItem
 
 
 class StripeWH_Handler:
@@ -20,10 +28,89 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
-        print(intent)
-        
+        pid = intent.id
+        bag = intent.metadata.bag
+        save_info = intent.metadata.save_info
+
+        billing_details = intent.charges.data[0].billing_details
+        grand_total = round(intent.charges.data[0].amount / 100, 2)
+
+        # Clean data in the billing address details
+        for field, value in billing_details.address.items():
+            if value == " ":
+                billing_details.address[field] = None
+     
+        # If does not exist, get all the details from the form
+        order_exists = False
+        attempt = 1
+        while attempt <= 5:
+            try:
+                order = Order.objects.get(
+                        first_name__iexact=billing_details.name.split(' ')[0],
+                        last_name__iexact=billing_details.name.split(' ')[-1],
+                        email__iexact=billing_details.email,
+                        phone_number__iexact=billing_details.phone,
+                        country__iexact=billing_details.address.country,
+                        postcode__iexact=billing_details.address.postal_code,
+                        town_or_city__iexact=billing_details.address.city,
+                        street_address1__iexact=billing_details.address.line1,
+                        street_address2__iexact=billing_details.address.line2,
+                        county__iexact=billing_details.address.state,
+                        grand_total=grand_total,
+                        original_bag=bag,
+                        stripe_pid=pid,
+                    )
+                # If order exist send a response to Stripe
+                order_exists = True
+                break
+            except Order.DoesNotExist:
+                attempt += 1
+                time.sleep(1)
+        if order_exists:
+            return HttpResponse(
+                content=f'Webhook received: {event["type"]} | Success:'
+                        f' Verified order already in the database',
+                status=200)
+        else:
+            # If order does not exists get all the values from the form
+            # Iterate through bag items
+            # Create an order in the database
+            order = None
+            try:
+                order = Order.objects.create(
+                    first_name=billing_details.name.split(' ')[0],
+                    last_name=billing_details.name.split,
+                    email=billing_details.email,
+                    phone_number=billing_details.phone,
+                    country=billing_details.address.country,
+                    postcode=billing_details.address.postal_code,
+                    town_or_city=billing_details.address.city,
+                    street_address1=billing_details.address.line1,
+                    street_address2=billing_details.address.line2,
+                    county=billing_details.address.state,
+                    original_bag=bag,
+                    stripe_pid=pid,
+                )
+                for key, values in json.loads(bag).items():
+                    trip = get_object_or_404(Trip, pk=key)
+                    order_ticket_item = OrderTicketItem(
+                        order=order,
+                        trip=trip,
+                        child_quantity=bag[key]['children_tickets'],
+                        adult_quantity=bag[key]['adult_tickets'],
+                        booking_date=bag[key]['booking_date'],
+                        quantity=bag[key]['quantity'],
+                    )
+                    order_ticket_item.save()
+            except Exception as e:
+                if order:
+                    order.delete()
+                return HttpResponse(
+                        content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                        status=500)
+
         return HttpResponse(
-            content=f'Webhook received: {event["type"]}',
+            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
