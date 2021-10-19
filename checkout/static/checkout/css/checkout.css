@@ -61,6 +61,17 @@ select option[value=""] {
     color: #ef1018;
 }
 
+#loading {
+	display: none;
+	position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(37,118,218, 0.8);
+  z-index: 9999;
+}
+
 @media (max-width: 768px) {
   .order-confirmation-wrapper {
     overflow: auto;
