@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} Edite Profile {% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto mt-3">
+                <h2>Edit Your Profile</h2>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mb-1 mt-1">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <form class="row g-3" action="{% url 'register' %}" method="POST">
+                  {% csrf_token %}
+                  <div class="col-md-6">
+                    <label for="first_name" class="form-label">First Name:</label>
+                    {{ user_form.first_name }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="last_name" class="form-label">Last Name:</label>
+                    {{ user_form.last_name }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="email" class="form-label">Email Address:</label>
+                    {{ user_form.email }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="phone_number" class="form-label">Phone Number:</label>
+                    {{ user_form.phone_number }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="street-address1" class="form-label">Street Address 1:</label>
+                    {{ profile_form.street_address1 }}
+                  </div>
+                  <div class="col-12">
+                    <label for="street-address2" class="form-label">Street Address 2:</label>
+                    {{ profile_form.street_address2 }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="town_or_city" class="form-label">Town or City:</label>
+                    {{ profile_form.town_or_city }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="county" class="form-label">County:</label>
+                    {{ profile_form.county }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="post-code" class="form-label">Post Code:</label>
+                    {{ profile_form.postcode }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="country" class="form-label">Country:</label>
+                    {{ profile_form.country }}
+                  </div>
+                  <div class="col-12">
+                    <label for="phone_number" class="form-label">Profile Img:</label>
+                    {{ profile_form.profile_img }}
+                  </div>
+                  <button type="submit" class="btn btn-next">Update my Info</button>
+                  <!--print form errors-->
+                  {{ form.email.errors }}
+                  {{ form.non_field_errors }}
+                </form>
+            </div>
+        </div>
+        <div class="row justify-content-md-center">
+          <div class="col-lg-4 col-md-8 col-sm-12 mt-5">
+            <p class="d-md-inline"> Already registered ?</p>
+            <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
+          </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+
