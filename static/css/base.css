@@ -602,6 +602,13 @@ a.ui-button:active, .ui-button:active,
     color:#2576da;
 }
 
+/**************Update Personal Info*/
+
+.img-thumbnail {
+    width: 10rem;
+    height: 10rem;
+}
+
 /**********************Footer*/
 
 footer {
