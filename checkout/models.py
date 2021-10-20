@@ -1,20 +1,25 @@
 # pylint: disable=no-member
 import uuid
+
 from django.db import models
 from django.db.models import Sum
 from django_countries.fields import CountryField
 from django.utils import timezone
 
-
 from trips.models import Trip
+from accounts.models import UserProfile
 # Create your models here.
 
 
 class Order(models.Model):
     """Order model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    first_name = models.CharField(max_length=50, null=False, blank=False, default="")
-    last_name = models.CharField(max_length=50, null=False, blank=False, default="")
+    user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                                     null=True, blank=True, related_name='orders')
+    first_name = models.CharField(max_length=50, null=False,
+                                  blank=False, default="")
+    last_name = models.CharField(max_length=50,
+                                 null=False, blank=False, default="")
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
@@ -35,7 +40,8 @@ class Order(models.Model):
                                       decimal_places=2,
                                       null=False, default=0)
     original_bag = models.TextField(null=False, blank=False, default='')
-    stripe_pid = models.CharField(max_length=254, null=False, blank=False, default='')
+    stripe_pid = models.CharField(max_length=254, null=False,
+                                  blank=False, default='')
 
     def _generate_order_number(self):
         """Generate unique ticket number"""
