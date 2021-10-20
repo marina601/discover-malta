@@ -90,6 +90,8 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
+    profile_img = forms.ImageField(required=False, error_messages={'invalid': ("Image files only")},
+                                                                   widget=forms.FileInput())
     class Meta:
         model = UserProfile
         fields = ('street_address1', 'street_address2', 'town_or_city',
