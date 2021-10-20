@@ -1,5 +1,5 @@
 # pylint: disable=no-member
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
@@ -14,8 +14,8 @@ from django.core.mail import EmailMessage
 
 # from django.views.decorators.csrf import csrf_exempt, csrf_protect
 
-from .forms import RegistraionForm
-from .models import Account
+from .forms import RegistraionForm, UserProfileForm, UserForm
+from .models import Account, UserProfile
 
 # Create your views here.
 
@@ -62,7 +62,8 @@ def register(request):
                                       f' verification link.'
                                       f' Please verify your account')
             form = RegistraionForm()
-            return redirect('/accounts/login/?command=verification&email='+email)
+            return redirect('/accounts/login/?command=verification&email='
+                            + email)  # check if this link will work now
     else:
         form = RegistraionForm()
 
@@ -150,10 +151,12 @@ def forgot_password(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            messages.success(request, f'Password reset link has been send to {to_email}')
+            messages.success(request, f'Password reset link has been'
+                                      f'send to {to_email}')
             return redirect('login')
         else:
-            messages.error(request, "The email address you have entered does not match any account")
+            messages.error(request, "The email address you have entered does"
+                                    "not match any account")
             return redirect('forgot_password')
 
     return render(request, 'accounts/forgot_password.html')
@@ -173,7 +176,8 @@ def validate_new_password(request, uidb64, token):
                                   f' can now reset your password')
         return redirect('reset_password')
     else:
-        messages.error(request, "This link has expired, please request a new link")
+        messages.error(request, "This link has expired, please"
+                                " request a new link")
         return redirect('forgot_password')
 
 
@@ -193,10 +197,34 @@ def reset_password(request):
             user = Account.objects.get(pk=uid)
             user.set_password(password)
             user.save()
-            messages.success(request, f'Your {user.first_name} password has been reset!')
+            messages.success(request, f'Your {user.first_name}'
+                                      f' password has been reset!')
             return redirect('login')
         else:
-            messages.warning(request, 'Please ensure your new password and confirm password match')
+            messages.warning(request, 'Please ensure your new password'
+                                      ' and confirm password match')
             return redirect('reset_passord')
     else:
         return render(request, 'accounts/reset_password.html')
+
+
+def edit_profile(request):
+    """Update user profile"""
+    userprofile = get_object_or_404(UserProfile, user=request.user)
+    if request.method == 'POST':
+        user_form = UserForm(request.POST, instance=request.user)
+        profile_form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_form.save()
+            messages.success(request, 'Your profile has been updated!')
+            return redirect('edit_profile')
+    else:
+        user_form = UserForm(instance=request.user)
+        profile_form = UserProfileForm(instance=userprofile)
+
+    context = {
+        'user_form': user_form,
+        'profile_form': profile_form,
+    }
+    return render(request, 'accounts/edit_profile.html', context)
