@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
 
-from .models import Account
+from .models import Account, UserProfile
 
 
 class RegistraionForm(forms.ModelForm):
@@ -67,5 +67,40 @@ class RegistraionForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             # set auto focus
             self.fields['first_name'].widget.attrs['autofocus'] = True
+            # set bootstrap class to input fields
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+class UserForm(forms.ModelForm):
+    class Meta:
+        model = Account
+        fields = ('first_name', 'last_name', 'phone_number', 'email')
+    
+    def __init__(self, *args, **kwargs):
+        """Add bootstrap classes
+        and placeholders to all the input fields
+        """
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
+            # set auto focus
+            self.fields['first_name'].widget.attrs['autofocus'] = True
+            # set bootstrap class to input fields
+            self.fields[field].widget.attrs['class'] = 'form-control'
+
+
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ('street_address1', 'street_address2', 'town_or_city',
+                  'county', 'postcode', 'country', 'profile_img')
+    
+    def __init__(self, *args, **kwargs):
+        """Add bootstrap classes
+        and placeholders to all the input fields
+        """
+        super().__init__(*args, **kwargs)
+
+        for field in self.fields:
             # set bootstrap class to input fields
             self.fields[field].widget.attrs['class'] = 'form-control'
