@@ -29,11 +29,12 @@ class RegistraionForm(forms.ModelForm):
             )
 
     def get_help_text(self, password):
+        """Show the error message to the user on validation"""
         return _(
             "Your password must contain at least %(min_length)d characters."
             % {'min_length': password.min_length}
         )
-    
+
     def clean(self):
         """Check the passwords match"""
         cleaned_data = super(RegistraionForm, self).clean()
@@ -72,16 +73,16 @@ class RegistraionForm(forms.ModelForm):
 
 
 class UserForm(forms.ModelForm):
+    """User form"""
     class Meta:
         model = Account
         fields = ('first_name', 'last_name', 'phone_number', 'email')
-    
-    def __init__(self, *args, **kwargs):
-        """Add bootstrap classes
-        and placeholders to all the input fields
-        """
-        super().__init__(*args, **kwargs)
 
+    def __init__(self, *args, **kwargs):
+        """Add bootstrap classes to
+        all the input fields
+        """
+        super(UserForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             # set auto focus
             self.fields['first_name'].widget.attrs['autofocus'] = True
@@ -90,18 +91,21 @@ class UserForm(forms.ModelForm):
 
 
 class UserProfileForm(forms.ModelForm):
-    profile_img = forms.ImageField(required=False, error_messages={'invalid': ("Image files only")},
-                                                                   widget=forms.FileInput())
+    """User Profile Form"""
+    profile_img = forms.ImageField(required=False,
+                                   error_messages={'invalid': ("Image files only")},
+                                   widget=forms.FileInput())
+
     class Meta:
         model = UserProfile
         fields = ('street_address1', 'street_address2', 'town_or_city',
                   'county', 'postcode', 'country', 'profile_img')
-    
+
     def __init__(self, *args, **kwargs):
         """Add bootstrap classes
         and placeholders to all the input fields
         """
-        super().__init__(*args, **kwargs)
+        super(UserProfileForm, self).__init__(*args, **kwargs)
 
         for field in self.fields:
             # set bootstrap class to input fields
