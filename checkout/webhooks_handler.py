@@ -30,6 +30,7 @@ class StripeWH_Handler:
         intent = event.data.object
         pid = intent.id
         bag = intent.metadata.bag
+        bag_dict = json.loads(bag)
         save_info = intent.metadata.save_info
 
         billing_details = intent.charges.data[0].billing_details
@@ -57,7 +58,7 @@ class StripeWH_Handler:
                         street_address2__iexact=billing_details.address.line2,
                         county__iexact=billing_details.address.state,
                         grand_total=grand_total,
-                        original_bag=bag,
+                        original_bag=bag_dict,
                         stripe_pid=pid,
                     )
                 # If order exist send a response to Stripe
@@ -79,7 +80,7 @@ class StripeWH_Handler:
             try:
                 order = Order.objects.create(
                     first_name=billing_details.name.split(' ')[0],
-                    last_name=billing_details.name.split,
+                    last_name=billing_details.name.split(" ")[1],
                     email=billing_details.email,
                     phone_number=billing_details.phone,
                     country=billing_details.address.country,
@@ -88,18 +89,19 @@ class StripeWH_Handler:
                     street_address1=billing_details.address.line1,
                     street_address2=billing_details.address.line2,
                     county=billing_details.address.state,
-                    original_bag=bag,
+                    grand_total=grand_total,
+                    original_bag=bag_dict,
                     stripe_pid=pid,
                 )
-                for key, values in json.loads(bag).items():
+                for key, values in bag_dict.items():
                     trip = get_object_or_404(Trip, pk=key)
                     order_ticket_item = OrderTicketItem(
                         order=order,
                         trip=trip,
-                        child_quantity=bag[key]['children_tickets'],
-                        adult_quantity=bag[key]['adult_tickets'],
-                        booking_date=bag[key]['booking_date'],
-                        quantity=bag[key]['quantity'],
+                        child_quantity=bag_dict[key]['children_tickets'],
+                        adult_quantity=bag_dict[key]['adult_tickets'],
+                        booking_date=bag_dict[key]['booking_date'],
+                        quantity=bag_dict[key]['quantity'],
                     )
                     order_ticket_item.save()
             except Exception as e:
