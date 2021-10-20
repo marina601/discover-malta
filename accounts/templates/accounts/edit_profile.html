@@ -11,18 +11,23 @@
                 <h2>Edit Your Profile</h2>
             </div>
         </div>
-        <div class="row justify-content-end mt-3">
+        <div class="row justify-content-end mt-5">
           <!--Add a defaul picture here-->
           <div class="col-lg-4">
             {% if userprofile.profile_img %}
           <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid img-thumbnail rounded-circle">
-          {% endif %}
+            {% else %}
+            <img src="{{ 'user_profile/default_user.png' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
+            {% endif %}
+            {% if user.is_admin %}
+            <img src="{{ 'user_profile.url' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
+            {% endif %}
           </div>
         </div>
         <div class="row justify-content-md-center mb-1 mt-1">
             <div class="col-lg-8 col-md-8 col-sm-12">
                 <form class="row g-3" action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
-                  {% csrf_token %}
+                   {% csrf_token %}
                   <div class="col-md-6">
                     <label for="first_name" class="form-label">First Name:</label>
                     {{ user_form.first_name }}
