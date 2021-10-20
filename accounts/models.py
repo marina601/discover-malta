@@ -8,11 +8,12 @@ from django.dispatch import receiver
 
 
 class MyAccountManager(BaseUserManager):
+    """
+    Using base user manager to create a user
+    """
     def create_user(self, first_name, last_name,
                     username, email, password=None):
-        """
-        Creating a normal user
-        """
+        """Create a user"""
         if not email:
             raise ValueError('User must have an email address')
 
