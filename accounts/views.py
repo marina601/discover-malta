@@ -11,9 +11,6 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 
-
-# from django.views.decorators.csrf import csrf_exempt, csrf_protect
-
 from .forms import RegistraionForm, UserProfileForm, UserForm
 from .models import Account, UserProfile
 
@@ -41,7 +38,7 @@ def register(request):
                                                password=password,)
             user.phone_number = phone_number
             user.save()
-
+            
             # Account activation
             current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
@@ -72,6 +69,22 @@ def register(request):
     }
     return render(request, 'accounts/register.html', context)
 
+
+# def create_profile(request):
+#     """Create a default user profile"""
+#     default_profile = get_object_or_404(UserProfile, user=request.user)
+#     user = get_object_or_404(Account, user=request.user)
+
+#     if default_profile.DoesNotExist():
+#         new_profile = default_profile
+#         new_profile.user_id = user.id
+#         new_profile.country = "Malta"
+#         new_profile.save()
+        
+#         context = {
+#             'defaul_profile': default_profile
+#         }
+#     return render(request, 'profile', context)
 
 def login(request):
     """
@@ -213,7 +226,8 @@ def edit_profile(request):
     userprofile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         user_form = UserForm(request.POST, instance=request.user)
-        profile_form = UserProfileForm(request.POST, request.FILES, instance=userprofile)
+        profile_form = UserProfileForm(request.POST, request.FILES,
+                                       instance=userprofile)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
