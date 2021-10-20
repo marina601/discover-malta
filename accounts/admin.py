@@ -24,9 +24,10 @@ class UserProfileAdmin(admin.ModelAdmin):
     """Register User Profile"""
     def thumbnail(self, object):
         """Create a thumbnail image"""
-        return format_html('<img scr="{}" width="30" style="border-radius:50%">'.format(object.profile_img.url))
+        return format_html('<img src="{}" width="30" style="border-radius:50%">'.format(object.profile_img.url))
     thumbnail.short_description = "Procfile Picture"
-    list_display = ('thumbnail', 'user', 'town_or_city', 'country')
+    list_display = ('user', 'town_or_city', 'country')
+
 
 admin.site.register(Account, AccountAdmin)
 admin.site.register(UserProfile, UserProfileAdmin)
