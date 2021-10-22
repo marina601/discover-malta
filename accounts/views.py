@@ -37,14 +37,13 @@ def register(request):
                                                password=password,)
             user.phone_number = phone_number
             user.save()
-         
-            # Account activation
+
+            # Account activation email
             current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
             message = render_to_string('accounts/emails/account_activation.html', {
                 'user': user,
                 'domain': current_site,
-                # encoding user id
                 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 'token': default_token_generator.make_token(user),
             })
@@ -238,6 +237,7 @@ def edit_profile(request):
 
 
 def order_history(request, order_number):
+    """View past order history"""
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
