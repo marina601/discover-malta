@@ -5,13 +5,9 @@ import time
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
-from django.core.mail import send_mail
-from django.template.loader import render_to_string
-from django.conf import settings
-
 from trips.models import Trip
-from .models import Order, OrderTicketItem
 from accounts.models import UserProfile
+from .models import Order, OrderTicketItem
 
 
 class StripeWH_Handler:
@@ -19,22 +15,6 @@ class StripeWH_Handler:
 
     def __init__(self, request):
         self.request = request
-    
-    def _send_confirmation_email(self, order):
-
-        """Send the user a confirmation email"""
-        cust_email = order.email
-        subject = render_to_string(
-            'Your order confirmation',
-            {'order': order})
-        body = render_to_string('checkout/emails/confirmation_email.txt',
-            {'order': order, 'contact_email': settings.DEFAULT_FROM_EMAIL})
-        send_mail(
-            subject,
-            body,
-            settings.DEFAULT_FROM_EMAIL,
-            [cust_email]
-         )
 
     def handle_event(self, event):
         """
@@ -61,7 +41,7 @@ class StripeWH_Handler:
         for field, value in billing_details.address.items():
             if value == " ":
                 billing_details.address[field] = None
-        
+
         # Update profile information if the save_info was checked
         profile = None
         username = intent.metadata.username
@@ -76,7 +56,7 @@ class StripeWH_Handler:
                 profile.street_address2 = billing_details.address.line2
                 profile.county = billing_details.address.state
                 profile.save()
-     
+
         # If does not exist, get all the details from the form
         order_exists = False
         attempt = 1
@@ -105,7 +85,6 @@ class StripeWH_Handler:
                 attempt += 1
                 time.sleep(1)
         if order_exists:
-            self._send_confirmation_email(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | Success:'
                         f' Verified order already in the database',
@@ -146,11 +125,12 @@ class StripeWH_Handler:
                 if order:
                     order.delete()
                 return HttpResponse(
-                        content=f'Webhook received: {event["type"]} | ERROR: {e}',
+                        content=f'Webhook received: '
+                                f'{event["type"]} | ERROR: {e}',
                         status=500)
-        self._send_confirmation_email(order)
         return HttpResponse(
-            content=f'Webhook received: {event["type"]} | SUCCESS: Created order in webhook',
+            content=f'Webhook received: {event["type"]} | SUCCESS: '
+                    f'Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
