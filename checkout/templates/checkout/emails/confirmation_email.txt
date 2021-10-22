@@ -1,0 +1,60 @@
+Hello {{ order.first_name }}!
+        
+Your order confirmation is below.
+       
+
+Ticket Number: {{ order.order_number }}
+
+Please present this ticket number to the trip provider on your arrival
+
+Order Details:
+{% for item in order.ticketitems.all %}
+Trip Name: {{ item.trip.name }}
+                   
+Tickets Purchased : {{ item.adult_quantity }} adults 
+        
+{% if item.child_quantity > 0 %}
+{{ item.child_quantity }} children
+{% endif %}
+               
+Booking Date : {{ item.booking_date }}
+            
+Total Cost : {{ item.ticketitem_total }} 
+              
+{% endfor %}
+
+Billing Info:
+
+Full Name: {{ order.first_name }} {{ order.last_name }}
+
+Address:
+{{ order.street_address1|title }}</p>
+               
+{% if order.street_address2 %}
+    {{ order.street_address2|title }}
+{% endif %}
+{% if order.county %}
+County: {{ order.county|capfirst }}</p>
+                
+{% endif %}
+Town or City: {{ order.town_or_city|capfirst }}
+                
+{% if order.postcode %}
+Postal Code: {{ order.postcode|upper }}
+                
+{% endif %}
+Country: {{ order.country }}</p>
+
+Phone Number: {{ order.phone_number }}
+
+Email Address: {{ order.email }}
+
+Order Total: {{ order.order_total }}
+
+You may view this order in your profile page 
+
+If you need to cancel the order or make any adjusments, please do not hesitate to get in touch.
+
+Best Wishes,
+
+Team @ Discover Malta
