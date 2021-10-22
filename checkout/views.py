@@ -1,18 +1,18 @@
+# pylint: disable=no-member
+import json
 from django.shortcuts import render, reverse, redirect, HttpResponse
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
-from datetime import datetime
-
+from django.conf import settings
+import stripe
+from accounts.models import UserProfile
+from trips.models import Trip
+from accounts.forms import UserProfileForm
+from bag.contexts import bag_content
 from .models import Order, OrderTicketItem
 from .forms import OrderForm
-from bag.contexts import bag_content
-from django.conf import settings
-from trips.models import Trip
-# Create your views here.
 
-import stripe
-import json
 
 
 @require_POST
@@ -95,9 +95,10 @@ def checkout(request):
         # if the bag is empty
         bag = request.session.get('bag', {})
         if not bag:
-            messages.error(request, "You do not have any items in your bag at the moment")
+            messages.error(request, "You do not have any items in your"
+                                    " bag at the moment")
             return redirect(reverse('trips'))
-        
+
         current_bag = bag_content(request)
         total = current_bag['grand_total']
         stripe_total = round(total * 100)
@@ -106,12 +107,30 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        # print(intent)
-        order_form = OrderForm()
+        # Pre fill the form if the user is authenticated
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                order_form = OrderForm(initial={
+                    'first_name': profile.user.first_name,
+                    'last_name': profile.user.last_name,
+                    'email': profile.user.email,
+                    'phone_number': profile.user.phone_number,
+                    'country': profile.country,
+                    'postcode': profile.postcode,
+                    'town_or_city': profile.town_or_city,
+                    'street_address1': profile.street_address1,
+                    'street_address2': profile.street_address2,
+                    'county': profile.county,
+                })
+            except UserProfile.DoesNotExist:
+                order_form = OrderForm()
+        else:
+            order_form = OrderForm()
 
     if not stripe_public_key:
         messages.warning(request, 'Set up your public key')
-    
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -120,20 +139,42 @@ def checkout(request):
     }
 
     return render(request, template, context)
-    
+
 
 def checkout_complete(request, order_number):
     """Handle successful checkout"""
 
-    save_info = request.session.get('save-info')
     order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        userprofile = get_object_or_404(UserProfile, user=request.user)
+        order.user_profile = userprofile
+        order.save()
+
+        # Save the user's info if the checkbox is ticked 
+        profile_data = {
+            'country': order.country,
+            'postcode': order.postcode,
+            'town_or_city': order.town_or_city,
+            'street_address1': order.street_address1,
+            'street_address2': order.street_address2,
+            'county': order.county,
+        }
+        print(profile_data)
+        profile_form = UserProfileForm(profile_data, instance=userprofile)
+        # Not to overwrite the user image field
+        profile_form.profile_img = userprofile.profile_img
+        if profile_form.is_valid():
+            profile_form.save()
+
     messages.success(request, f'Your order has been successfuly prcessed! \
-                              Your ticket number is {order_number}. A confirmation \
+                              Your ticket number is {order_number}. \
+                                   A confirmation \
                               email will be sent to {order.email}.')
     # delete the shopping bag from this session
     if 'bag' in request.session:
         del request.session['bag']
-    
+
     template = 'checkout/checkout_complete.html'
     context = {
         'order': order,
