@@ -53,9 +53,10 @@ def trip_detail(request, category_slug, trip_slug):
     """
     try:
         trip = Trip.objects.get(category__slug=category_slug,
-                                             slug=trip_slug)
+                                slug=trip_slug)
     except Exception as e:
-        messages.error(request, f'Error has occured processing your request, please try again')
+        messages.error(request, 'Error has occured processing your request,'
+                                ' please try again')
         raise e
     
     context = {
@@ -84,8 +85,7 @@ def search(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 trips = trips.annotate(lower_name=Lower('name'))
-            
-            
+    
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
@@ -96,8 +96,6 @@ def search(request):
             page = request.GET.get('page')
             paged_trips = paginator.get_page(page)
             result_count = trips.count()
-            
-
 
     """
     Search function, cheking if the method is GET
@@ -125,7 +123,18 @@ def search(request):
 
 def add_trip(request):
     """Add a trip to the database"""
-    form = TripForm()
+    if request.method == 'POST':
+        form = TripForm()
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added a new trip!')
+            return redirect(reverse('add_trip'))
+        else:
+            messages.error(request, 'Failed to add a trip. Please ensure the'
+                           ' all the required fields are completed!')
+    else:
+        form = TripForm()
+
     template = 'trips/add_trip.html'
     context = {
         'form': form,
