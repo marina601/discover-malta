@@ -7,6 +7,7 @@ from django.shortcuts import get_object_or_404
 
 from trips.models import Trip
 from .models import Order, OrderTicketItem
+from accounts.models import UserProfile
 
 
 class StripeWH_Handler:
@@ -40,6 +41,21 @@ class StripeWH_Handler:
         for field, value in billing_details.address.items():
             if value == " ":
                 billing_details.address[field] = None
+        
+        # Update profile information if the save_info was checked
+        profile = None
+        username = intent.metadata.username
+        if username != 'AnonymousUser':
+            profile = UserProfile.objects.get(user__username=username)
+            if save_info:
+                profile.username_phone_number = billing_details.phone
+                profile.country = billing_details.address.country
+                profile.postcode = billing_details.address.postal_code
+                profile.town_or_city = billing_details.address.city
+                profile.street_address1 = billing_details.address.line1
+                profile.street_address2 = billing_details.address.line2
+                profile.county = billing_details.address.state
+                profile.save()
      
         # If does not exist, get all the details from the form
         order_exists = False
@@ -49,6 +65,7 @@ class StripeWH_Handler:
                 order = Order.objects.get(
                         first_name__iexact=billing_details.name.split(' ')[0],
                         last_name__iexact=billing_details.name.split(' ')[-1],
+                        user_profile=profile,
                         email__iexact=billing_details.email,
                         phone_number__iexact=billing_details.phone,
                         country__iexact=billing_details.address.country,
