@@ -4,9 +4,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.db.models import Q
 
-
 from .models import Trip, Category
-
+from .forms import TripForm
 # Create your views here.
 
 
@@ -122,3 +121,14 @@ def search(request):
     }
 
     return render(request, 'trips/trips.html', context)
+
+
+def add_trip(request):
+    """Add a trip to the database"""
+    form = TripForm()
+    template = 'trips/add_trip.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
