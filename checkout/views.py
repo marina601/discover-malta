@@ -5,10 +5,15 @@ from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from django.conf import settings
+from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
+
 import stripe
+
 from accounts.models import UserProfile
-from trips.models import Trip
 from accounts.forms import UserProfileForm
+from trips.models import Trip
 from bag.contexts import bag_content
 from .models import Order, OrderTicketItem
 from .forms import OrderForm
@@ -84,8 +89,21 @@ def checkout(request):
                                    " us for assistance")
                     order.delete()
                     return redirect(reverse('bag'))
+
             # Check if the check box was ticked
             request.session['save_info'] = 'save-info' in request.POST
+
+            # Send confirmation email
+            current_site = get_current_site(request)
+            mail_subject = 'Your order confirmation'
+            message = render_to_string('checkout/emails/confirmation_email.txt', {
+                'order': order,
+                'domain': current_site,
+            })
+            to_email = order.email
+            send_email = EmailMessage(mail_subject, message, to=[to_email])
+            send_email.send()
+
             return redirect(reverse('checkout_complete', args=[order.order_number]))
         else:
             # if form is not valid
@@ -151,7 +169,7 @@ def checkout_complete(request, order_number):
         order.user_profile = userprofile
         order.save()
 
-        # Save the user's info if the checkbox is ticked 
+        # Save the user's info if the checkbox is ticked
         profile_data = {
             'country': order.country,
             'postcode': order.postcode,
