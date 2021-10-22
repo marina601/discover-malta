@@ -173,20 +173,25 @@
         <!--Profile link-->
         <div class="row">
             <div class="col-12 col-lg-7 text-right">
-                {% if user.is_authenticated %}
+                {% if from_profile %}
+                <!--User is viewing past order history-->
                 <a href="{% url 'profile' %}" class="btn btn-dropdown">
                     <span class="icon mr-2">
                         <i class="fas fa-angle-left"></i>
                     </span>
                     <span class="text-uppercase">Back to Profile</span>
                 </a>
+                {% else %}
+                <a href="{% url 'trips' %}" class="btn btn-dropdown">
+                    <span class="icon mr-2">
+                        <i class="fas fa-angle-left"></i>
+                    </span>
+                    <span class="text-uppercase">Discover more Trips</span>
+                </a>
                 {% endif %}
                 </div>
             </div>
         </div>
-      
-    
-        
     </div>
 </section>
 {% endblock %}
