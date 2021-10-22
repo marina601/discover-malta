@@ -10,14 +10,13 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
-
+from checkout.models import Order
 from .forms import RegistraionForm, UserProfileForm, UserForm
 from .models import Account, UserProfile
 
 # Create your views here.
 
 
-# @csrf_exempt
 def register(request):
     """
     Register function
@@ -38,7 +37,7 @@ def register(request):
                                                password=password,)
             user.phone_number = phone_number
             user.save()
-            
+         
             # Account activation
             current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
@@ -69,22 +68,6 @@ def register(request):
     }
     return render(request, 'accounts/register.html', context)
 
-
-# def create_profile(request):
-#     """Create a default user profile"""
-#     default_profile = get_object_or_404(UserProfile, user=request.user)
-#     user = get_object_or_404(Account, user=request.user)
-
-#     if default_profile.DoesNotExist():
-#         new_profile = default_profile
-#         new_profile.user_id = user.id
-#         new_profile.country = "Malta"
-#         new_profile.save()
-        
-#         context = {
-#             'defaul_profile': default_profile
-#         }
-#     return render(request, 'profile', context)
 
 def login(request):
     """
@@ -137,7 +120,16 @@ def activate(request, uidb64, token):
 @login_required(login_url='login')
 def profile(request):
     """User Profile"""
-    return render(request, 'accounts/profile.html')
+    userprofile = get_object_or_404(UserProfile, user=request.user)
+
+    orders = userprofile.orders.all()
+
+    context = {
+        'userprofile': userprofile,
+        'orders': orders,
+    }
+
+    return render(request, 'accounts/profile.html', context)
 
 
 def forgot_password(request):
@@ -243,3 +235,20 @@ def edit_profile(request):
         'userprofile': userprofile,
     }
     return render(request, 'accounts/edit_profile.html', context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(request, (
+        f'This is a past confirmation for order number {order_number}. '
+        f'A confirmation email was send on the order date {order.date}'
+    ))
+
+    template = 'checkout/checkout_complete.html'
+    context = {
+        'order': order,
+        'from_profile': True,
+    }
+
+    return render(request, template, context)
