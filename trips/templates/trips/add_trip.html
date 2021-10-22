@@ -16,7 +16,74 @@
             <div class="col-lg-8 col-md-8 col-sm-12">
                 <form class="row g-3" action="{% url 'add_trip' %}" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
-                   {{ form }}
+                   <div class="form-row col-12">
+                    <label for="name" class="form-label">Title:</label>
+                    {{ form.name }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="category" class="form-label">Category:</label>
+                    {{ form.category }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="category" class="form-label">Provider:</label>
+                    {{ form.provider }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="short_description" class="form-label">Short Description:</label>
+                    {{ form.short_description }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="full_description" class="form-label">Full Description:</label>
+                    {{ form.full_description }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="included" class="form-label">What is included:</label>
+                    {{ form.included }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="what_to_bring" class="form-label">What to bring:</label>
+                    {{ form.what_to_bring }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="start_time" class="form-label">Duration:</label>
+                    {{ form.duration }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="start_time" class="form-label">Start Time:</label>
+                    {{ form.start_time }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="departure_location" class="form-label">Departure Location:</label>
+                    {{ form.departure_location }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="from_date" class="form-label">Availability from date:</label>
+                    {{ form.from_date }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="to_date" class="form-label">Availability to date:</label>
+                    {{ form.to_date }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="adult_price" class="form-label">Adult Price:</label>
+                    {{ form.adult_price }}
+                  </div>
+                  <div class="col-md-6">
+                    <label for="child_price" class="form-label">Child Price:</label>
+                    {{ form.child_price }}
+                  </div>
+                  <div class="form-row col-12">
+                    <label for="image" class="form-label">Image:</label>
+                    {{ form.images }}
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="special_offers" class="form-label">Special Offers:</label>
+                    <input type="checkbox" name="{{ form.special_offers }}" id="special_offers">
+                  </div>
+                  <div class="form-row col-md-6">
+                    <label for="special_offers" class="form-label">Family Friendly:</label>
+                    <input type="checkbox" name='{{ form.family_friendly }}' id="family_friendly checked>
+                  </div>
                     <!--link back to the trips-->
                     <div class="submit-button text-right mt-5 mb-2">
                         <a href="{% url 'trips' %}" class="btn btn-dropdown">
@@ -33,6 +100,8 @@
                             </span>
                         </button>
                     </div>
+                    {{ form.email.errors }}
+                    {{ form.non_field_errors }}
                 </form>
             </div>
         </div>
