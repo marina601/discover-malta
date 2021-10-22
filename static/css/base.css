@@ -55,6 +55,11 @@ header,
     text-shadow: 2px 2px #000000;
 }
 
+.nav-link img {
+    width: 3rem;
+    height: 3rem;
+}
+
 .navbar-toggler {
     background-color: #fafafa;
 }
