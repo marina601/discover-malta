@@ -224,6 +224,9 @@ def edit_profile(request):
             profile_form.save()
             messages.success(request, 'Your profile has been updated!')
             return redirect('edit_profile')
+        else:
+            messages.error(request, 'We wer not able to update your profile.'
+                                    'Please ensure all the rquired fields are filled')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=userprofile)
