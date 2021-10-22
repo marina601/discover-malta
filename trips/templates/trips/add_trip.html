@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} Add Trip {% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto mt-3">
+                <h2>Trip Managment</h2>
+                <h4>Add a new Trip here</h4>
+            </div>
+        </div>
+        <div class="row justify-content-md-center mb-1 mt-1">
+            <div class="col-lg-8 col-md-8 col-sm-12">
+                <form class="row g-3" action="{% url 'add_trip' %}" method="POST" enctype="multipart/form-data">
+                   {% csrf_token %}
+                   {{ form }}
+                    <!--link back to the trips-->
+                    <div class="submit-button text-right mt-5 mb-2">
+                        <a href="{% url 'trips' %}" class="btn btn-dropdown">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="font-weight-bold">Cancel</span>
+                        </a>
+                        <!--submit button-->
+                        <button id="submit-button" class="btn add-quantity">
+                            <span class="font-weight-bold">Add Trip</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+
+{% endblock %}
+
+
+
+
