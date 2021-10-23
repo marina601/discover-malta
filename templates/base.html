@@ -58,11 +58,11 @@
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if user.is_authenticated %}
-                                {% if userprofile.profile_img %}
-                                <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture"
+                                {% if user_profile.profile_img %}
+                                <img src="{{ user_profile.profile_img.url }}" alt="Profile Picture"
                                 class="img-fluid img-thumbnail rounded-circle d-block">
                                 {% else %}
-                                 <img src="{{ 'user_profile/default_user.png' }}" alt="Default Profile Image"
+                                 <img src="{{ 'default_user.png.url' }}" alt="Default Profile Image"
                                 class="img-fluid img-thumbnail rounded-circle d-block">
                                 {% endif %}
                             {% else %}
@@ -119,6 +119,7 @@
                             aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
                         </button>
+                        <div class="text-white">{{ user_profile. }}</div>
                         {% include 'includes/mobile-nav.html' %}
                         {% include 'includes/main-nav.html' %}
                     </div>
