@@ -152,7 +152,7 @@
         <!--Display Reveis only 3 on the page sorted by review date-->
         <div class="row spacing">
         <!--User Reviews-->
-        <form action="" method="POST" class="col-lg-8 offset-lg-2 col-md-8 col-sm-12 border">
+        <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 col-sm-12 border">
             {% csrf_token %}
             <h4 class="text-center m-2">Review this Trip</h4>
             <p>How would you rate this trip?</p>
