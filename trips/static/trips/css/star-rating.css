@@ -1,0 +1,43 @@
+.rating {
+    display: inline-block;
+    color: #000000;
+}
+
+.rating > label {
+    float: right;
+}
+
+/*******Display the stars********/
+
+.rating > label::before {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-family: FontAwesome;
+    content: "\f006";
+    margin: 0;
+    padding: 0.3rem 0.2rem;
+    cursor: pointer;
+}
+
+/*******Half Stars ********/
+
+.rating .half:before {
+    content: "\f089";
+    position: absolute;
+    padding-right: 0;
+}
+
+/*******Click and hover ********/
+
+input:checked ~ label, label:hover ~ label {
+    color: #ffb503;
+}
+
+/*******hover and highlight ********/
+
+input:checked + label:hover, 
+input:checked ~ labe:hover,
+input:checked ~ label:hover ~ label,
+label:hover ~ input:checked ~ label {
+    color: #cc9000;
+}
