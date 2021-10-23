@@ -18,6 +18,11 @@ class TripAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+
+class ReviewRatingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'rating', 'trip')
+
+
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Trip, TripAdmin)
-admin.site.register(ReviewRating)
+admin.site.register(ReviewRating, ReviewRatingAdmin)
