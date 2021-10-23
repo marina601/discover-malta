@@ -4,11 +4,11 @@
         <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="text-center">
                 {% if user.is_authenticated %}
-                    {% if user_profile.profile_img %}
-                     <img src="{{ user_profile.profile_img.url }}" alt="Profile Picture"
+                    {% if userprofile.profile_img %}
+                     <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture"
                     class="img-fluid img-thumbnail rounded-circle d-block">
                      {% else %}
-                    <img src="{{ 'default_user.png.url' }}" alt="Default Profile Image"
+                    <img src="{{ 'user_profile/default_user.png' }}" alt="Default Profile Image"
                     class="img-fluid img-thumbnail rounded-circle d-block">
                     {% endif %}
                 {% else %}
