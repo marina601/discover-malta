@@ -4,8 +4,10 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.db.models import Q
 
-from .models import Trip, Category
-from .forms import TripForm
+from accounts.models import Account
+
+from .models import Trip, Category, ReviewRating
+from .forms import TripForm, ReviewForm
 # Create your views here.
 
 
@@ -58,15 +60,16 @@ def trip_detail(request, category_slug, trip_slug):
         messages.error(request, 'Error has occured processing your request,'
                                 ' please try again')
         raise e
-    
+
     context = {
         'trip': trip,
     }
-  
+
     return render(request, 'trips/trip_detail.html', context)
 
 
 def search(request):
+    """Search and sort functionality"""
     trips = None
     result_count = 0
     query = None
@@ -85,13 +88,13 @@ def search(request):
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 trips = trips.annotate(lower_name=Lower('name'))
-    
+
             if 'direction' in request.GET:
                 direction = request.GET['direction']
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             trips = trips.order_by(sortkey)
-        
+
             paginator = Paginator(trips, 8)
             page = request.GET.get('page')
             paged_trips = paginator.get_page(page)
@@ -111,7 +114,7 @@ def search(request):
     messages.error(request, 'You did not enter any search creteria!')
 
     current_sorting = f'{sort}_{direction}'
-    
+
     context = {
         'trips': trips,
         'result_count': result_count,
@@ -141,3 +144,38 @@ def add_trip(request):
     }
 
     return render(request, template, context)
+
+
+def submit_review(request, trip_id, user_id):
+    """
+    Check if the review already exists
+    and update, 
+    otherwise create a new review
+    """
+    trip = get_object_or_404(Trip, pk=trip_id)
+    user = get_object_or_404(Account, pk=user_id)
+    url = request.META.get('HTTP_REFERER')
+
+    if request.method == "POST":
+        try:
+            reviews = ReviewRating.objects.get(user__id=user_id,
+                                               trip__id=trip_id)
+            form = ReviewForm(request.POST, instance=reviews)
+            form.save()
+            messages.success(request, 'Thank you! Your review has'
+                             ' been updated.')
+            return redirect(url)
+        except ReviewRating.DoesNotExist:
+            form = ReviewForm(request.POST)
+            if form.is_valid():
+                data = ReviewRating()
+                data.subject = form.cleaned_data['subject']
+                data.review = form.cleaned_data['review']
+                data.rating = form.cleaned_data['rating']
+                data.ip = request.META.get('REMOTE_ADDR')  # will store ip address
+                data.trip = trip
+                data.user = user
+                data.save()
+                messages.success(request, 'Thank you, your review has'
+                                          'been submited')
+                return redirect(url)
