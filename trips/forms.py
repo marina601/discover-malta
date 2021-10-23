@@ -19,7 +19,7 @@ class TripForm(forms.ModelForm):
             field.widget.attrs['class'] = 'form-control'
 
 
-class ReviwForm(forms.ModelForm):
+class ReviewForm(forms.ModelForm):
     class Meta:
         models = ReviewRating
         fields = ['subject', 'review', 'rating']
