@@ -21,5 +21,5 @@ class TripForm(forms.ModelForm):
 
 class ReviewForm(forms.ModelForm):
     class Meta:
-        models = ReviewRating
+        model = ReviewRating
         fields = ['subject', 'review', 'rating']
