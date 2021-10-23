@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Trip
+from .models import Category, Trip, ReviewRating
 
 # Register your models here.
 
@@ -20,3 +20,4 @@ class TripAdmin(admin.ModelAdmin):
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Trip, TripAdmin)
+admin.site.register(ReviewRating)
