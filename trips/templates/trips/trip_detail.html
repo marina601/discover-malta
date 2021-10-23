@@ -150,6 +150,8 @@
         </div>
         <!--Load Reviews Here and Star Rating-->
         <!--Display Reveis only 3 on the page sorted by review date-->
+        {% if user.is_authenticated %}
+           {% if ticket_purchase %}
         <div class="row spacing">
         <!--User Reviews-->
         <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 col-sm-12 border">
@@ -158,6 +160,8 @@
             <p>How would you rate this trip?</p>
             <div class="rating">
                 <!--Star Rating-->
+                <label for="rating10" title="5" class="d-none"></label>
+                <input type="radio" name="rating" id="rating10" value="5" class="d-none" required />
                 <label for="rating10" title="5"></label>
                 <input type="radio" name="rating" id="rating10" value="5" class="d-none" required />
                 <label for="rating9" title="4.5" class="half"></label>
@@ -190,6 +194,15 @@
             <div class="col float-end">
                 <button type="submit" class="btn btn-next">Submit Review</button>
             </div>
+               {% endif %}
+            {% else %}
+            <div class="row justify-content-md-center">
+                <div class="col">
+                  <p class="d-md-inline"> Have you been on this trip, please rate your experience</p>
+                  <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
+                </div>
+              </div>
+            {% endif %}
         </form>
         </div>
         <div class="row">
