@@ -151,7 +151,6 @@
         <!--Load Reviews Here and Star Rating-->
         <!--Display Reveis only 3 on the page sorted by review date-->
         {% if user.is_authenticated %}
-           {% if ticket_purchase %}
         <div class="row spacing">
         <!--User Reviews-->
         <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 col-sm-12 border">
@@ -191,20 +190,66 @@
                 <label for="review" class="form-label">Review:</label>
                 <textarea name="review" id="review" rows="10" class="form-control"></textarea>
             </div>
+            
             <div class="col float-end">
                 <button type="submit" class="btn btn-next">Submit Review</button>
             </div>
-               {% endif %}
+                
             {% else %}
             <div class="row justify-content-md-center">
                 <div class="col">
                   <p class="d-md-inline"> Have you been on this trip, please rate your experience</p>
                   <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
                 </div>
-              </div>
+             </div>
             {% endif %}
         </form>
         </div>
+        <div class="row">
+            <div class="col">
+                <h3 class="text-center">Customer Reviews</h3>
+            </div>
+        </div>
+        {% if reviews %}
+        <div class="row">
+            {% for review in reviews %}
+            <div class="col">
+                <div class="card mb-3">
+                    <div class="col-md-10">
+                        <div class="card-body">
+                          <h5 class="card-title">{{ review.subject }}</h5>
+                          <div class="star-rating">
+                            <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
+                            <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
+                            <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
+                            <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
+                            <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
+                          </div>
+                          <p class="card-text">{{ review.review }}</p>
+                        </div>
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="..." class="img-fluid img-thumbnail rounded-circle" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <h6 class="d-inline"><span class="text-muted">by</span> {{ review.user.first_name|capfirst }}</h6>
+                                {% if review.updated_at %}
+                                <p class="card-text d-inline"><small class="text-muted">Updated on: {{ review.updated_at }}</small></p>
+                                {% else %}
+                                <p class="card-text d-inline"><small class="text-muted">Created on: {{ review.created_at }}</small></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="col">
+                <p class="text-center">This Trip does not have any reviews yet.</p>
+            </div>
+        {% endif %}
         <div class="row">
         <div class="col justify-content-center btn-div">
                 <a href="{% url 'trips' %}" class="btn btn-lg btn-next">Go Back to All Trips</a>
