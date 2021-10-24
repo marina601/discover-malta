@@ -61,10 +61,10 @@ def trip_detail(request, category_slug, trip_slug):
         messages.error(request, 'Error has occured processing your request,'
                                 ' please try again')
         raise e
-    
+
     # Show all the reviews on the page 
     reviews = ReviewRating.objects.filter(trip_id=trip.id, status=True)
-    
+
     context = {
         'trip': trip,
         'reviews': reviews,
@@ -153,6 +153,7 @@ def add_trip(request):
 
 def submit_review(request, trip_id, user_id):
     """
+    Allow the review only if the user already purchased the trip
     Check if the review already exists
     and update, 
     otherwise create a new review
@@ -160,27 +161,34 @@ def submit_review(request, trip_id, user_id):
     trip = get_object_or_404(Trip, pk=trip_id)
     user = get_object_or_404(Account, pk=user_id)
     url = request.META.get('HTTP_REFERER')
+    ticket_purchase = OrderTicketItem.objects.filter(trip=trip.id, order__user_profile__user=request.user)
+
 
     if request.method == "POST":
-        try:
-            reviews = ReviewRating.objects.get(user__id=user_id,
-                                               trip__id=trip_id)
-            form = ReviewForm(request.POST, instance=reviews)
-            form.save()
-            messages.success(request, 'Thank you! Your review has'
-                             ' been updated.')
-            return redirect(url)
-        except ReviewRating.DoesNotExist:
-            form = ReviewForm(request.POST)
-            if form.is_valid():
-                data = ReviewRating()
-                data.subject = form.cleaned_data['subject']
-                data.review = form.cleaned_data['review']
-                data.rating = form.cleaned_data['rating']
-                data.ip = request.META.get('REMOTE_ADDR')  # will store ip address
-                data.trip = trip
-                data.user = user
-                data.save()
-                messages.success(request, 'Thank you, your review has'
-                                          'been submited')
+        if ticket_purchase:
+            try:
+                reviews = ReviewRating.objects.get(user__id=user_id,
+                                                   trip__id=trip_id)
+                form = ReviewForm(request.POST, instance=reviews)
+                form.save()
+                messages.success(request, 'Thank you! Your review has'
+                                 ' been updated.')
                 return redirect(url)
+            except ReviewRating.DoesNotExist:
+                form = ReviewForm(request.POST)
+                if form.is_valid():
+                    data = ReviewRating()
+                    data.subject = form.cleaned_data['subject']
+                    data.review = form.cleaned_data['review']
+                    data.rating = form.cleaned_data['rating']
+                    data.ip = request.META.get('REMOTE_ADDR')  # will store ip address
+                    data.trip = trip
+                    data.user = user
+                    data.save()
+                    messages.success(request, 'Thank you, your review has'
+                                              'been submited')
+                    return redirect(url)
+        else:
+            messages.error(request, "You must purchase the trip befor submitting your review")
+            return redirect(url)
+    
