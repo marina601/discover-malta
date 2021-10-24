@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.db.models import Q
 
 from accounts.models import Account
+from checkout.models import Order, OrderTicketItem
 
 from .models import Trip, Category, ReviewRating
 from .forms import TripForm, ReviewForm
@@ -60,9 +61,13 @@ def trip_detail(request, category_slug, trip_slug):
         messages.error(request, 'Error has occured processing your request,'
                                 ' please try again')
         raise e
-
+    
+    # Show all the reviews on the page 
+    reviews = ReviewRating.objects.filter(trip_id=trip.id, status=True)
+    
     context = {
         'trip': trip,
+        'reviews': reviews,
     }
 
     return render(request, 'trips/trip_detail.html', context)
