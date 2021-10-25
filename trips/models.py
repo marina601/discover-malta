@@ -1,5 +1,5 @@
 from django.db import models
-from django.db.models import Avg
+from django.db.models import Avg, Count
 from django.urls import reverse
 from django.utils import timezone
 
@@ -79,6 +79,14 @@ class Trip(models.Model):
             avg = float(reviews['average'])
         return avg
     
+    def totalReviews(self):
+        # Calculate total reviews
+        reviews = ReviewRating.objects.filter(trip=self, status=True).aggregate(count=Count('id'))
+        count = 0
+        if reviews['count'] is not None:
+            count = int(reviews['count'])
+        return count
+
 
 
 class ReviewRating(models.Model):
