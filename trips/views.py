@@ -26,7 +26,7 @@ def all_trips(request, category_slug=None):
         categories = get_object_or_404(Category, slug=category_slug)
         trips = Trip.objects.filter(category=categories)
         # pagination
-        paginator = Paginator(trips, 2)
+        paginator = Paginator(trips, 3)
         page = request.GET.get('page')
         paged_trips = paginator.get_page(page)
         # trip count
@@ -76,8 +76,6 @@ def trip_detail(request, category_slug, trip_slug):
 def search(request):
     """Search and sort functionality"""
     trips = None
-    result_count = 0
-    query = None
     sort = None
     direction = None
 
@@ -100,11 +98,6 @@ def search(request):
                     sortkey = f'-{sortkey}'
             trips = trips.order_by(sortkey)
 
-            paginator = Paginator(trips, 8)
-            page = request.GET.get('page')
-            paged_trips = paginator.get_page(page)
-            result_count = trips.count()
-
     """
     Search function, cheking if the method is GET
     and the keyword=name in input, store the value
@@ -116,7 +109,6 @@ def search(request):
             result_count = trips.count()
         else:
             return redirect(reverse('trips'))
-    messages.error(request, 'You did not enter any search creteria!')
 
     current_sorting = f'{sort}_{direction}'
 
