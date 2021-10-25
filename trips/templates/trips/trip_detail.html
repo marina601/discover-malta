@@ -45,10 +45,11 @@
                 <li class="list-group-item"><i class="fas fa-euro-sign fa-lg"></i> {{ trip.child_price }} <strong>per child  above 4yrs</strong></li>
                 {% endif %}
                 {% if trip.averageRating > 0 %}
-                <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating }} /5 </li>
+                <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating }} /5 {{ trip.totalReviews }}</li>
                 {% else %}
-                <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No reviews yet </li>
+                <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No rating yet </li>
                 {% endif %}
+                <li class="list-group-item"><i class="fas fa-comments"></i> {{ trip.totalReviews }} reviews</li>
                 {% if trip.family_friendly %}
                 <li class="list-group-item"><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></li>
                 {% endif %}
@@ -209,9 +210,12 @@
             {% endif %}
         </form>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="row m-2">
+            <div class="col text-center">
                 <h3 class="text-center">Customer Reviews</h3>
+                {% if trip.totalReviews > 0 %}
+                <span class="text-muted">There are {{ trip.totalReviews }} reviews for this trip</span>
+                {% endif %}
             </div>
         </div>
         {% if reviews %}
