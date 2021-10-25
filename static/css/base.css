@@ -34,9 +34,19 @@ h6 {
 
 /*************************Navigation*/
 
-nav,
-.main-nav {
+.menu-icons-div {
+    position: relative;
+    left: 48%;
+}
+
+nav {
     background-color: #000000;
+}
+
+.main-nav {
+    position: absolute;
+    top: 20%;
+    left: 30%;
 }
 
 header,
@@ -56,8 +66,8 @@ header,
 }
 
 .nav-link img {
-    width: 3rem;
-    height: 3rem;
+    width: 2rem;
+    height: 2rem;
 }
 
 .navbar-toggler {
@@ -743,6 +753,11 @@ footer {
         height: 3rem;
     }
 
+    .mobile-icon-menu {
+        top: 21% !important;
+        left: 51% !important;
+    }
+
     
 
 }
@@ -750,6 +765,18 @@ footer {
 @media (max-width: 420px) {
     .category-heading {
         font-size: 2rem;
+    }
+
+    .mobile-icon-menu {
+        display: inline-block;
+        position: absolute;
+        padding: 0;
+        top: 5%;
+        left: 31%;
+    }
+
+    header {
+        height: 15vh;
     }
 }
 
@@ -772,6 +799,11 @@ footer {
 
     .form-group {
         width: 12rem;
+    }
+
+    .main-nav {
+        position: unset;
+        width: 100%;
     }
     
 }
