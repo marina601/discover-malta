@@ -31,22 +31,20 @@
                 </form>
             </div>
         </div>
-        <div class="row">
+        <div class="row mt-2">
             <div class="col m-2 text-center">
                 <h2>Refine Your Search</h2>
             </div>
         </div>
-        <!--Here we will bring the categories and display all the category names -->
-        <!--Could also do filter by price and duration full day trips or half day trips-->
+        <!--Filter by Category-->
         <div class="row results">
-            <div class="col-6">
-                <div class="btn-group btn-left">
+            <div class="col-md-6 col-sm-12">
+                <div class="btn-group">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Choose Your Category
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <!--Get Category model function for category slack-->
                         <li><a class="dropdown-item" href="{% url 'trips' %}">All Trips</a></li>
                         {% for category in links %}
                         <li><a class="dropdown-item"
@@ -55,10 +53,9 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-6">
-            
             <!--Sorting-->
-                <div class="btn-group btn-right">
+            <div class="col-md-6 col-sm-12 sort-div">
+                <div class="btn-group">
                     <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Sort By
@@ -75,12 +72,8 @@
                     </ul>
                 </div>
             </div>
-        </div>
-    
-
+        </di>
 <!--display all the trips-->
-
-    
         <div class="row">
             <div class="col">
                 <p>
@@ -125,11 +118,7 @@
             </div>
             {% endfor %}
         </div>
- 
-
 <!--Pagination-->
-
-    
         <div class="row">
             <div class="col">
                 <nav aria-label="Page navigation example">
@@ -178,10 +167,5 @@
         </div>
     </div>
 </section>
-      
-
-{% endblock %}
-
-{% block postloadjs %}
-
+    
 {% endblock %}
