@@ -78,6 +78,7 @@ def search(request):
     trips = None
     sort = None
     direction = None
+    result_count = 0
 
     if request.GET:
         """
@@ -97,6 +98,7 @@ def search(request):
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             trips = trips.order_by(sortkey)
+            result_count = trips.count()
 
     """
     Search function, cheking if the method is GET
