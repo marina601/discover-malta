@@ -55,3 +55,11 @@ label:hover ~ input:checked ~ label {
     right: 0.2rem;
     padding-bottom: 0.3rem;
 }
+
+.review-form {
+    border: 1px solid #000000 !important;
+    border-radius: 5px;
+    box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+}
