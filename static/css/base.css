@@ -378,6 +378,11 @@ a:active,
     font-size: 1rem;
 }
 
+.card-body a {
+    color: #000000;
+    text-decoration: none;
+}
+
 .card-body ul {
     font-size: 1rem;
 }
@@ -407,10 +412,8 @@ a:active,
 .btn-book {
     position: fixed;
     top: 20%;
-    left: 90%;
+    left: 79%;
     width: 10rem;
-    height: 5rem;
-    padding: 1.1rem;
     font-size: 1.8rem;
     z-index: 1;
 }
@@ -418,9 +421,7 @@ a:active,
 .btn-favourite {
     margin: 1rem;
     position: absolute;
-    top: 19%;
     width: 5rem;
-    height: 5rem;
     z-index: 1;
     border: 0.2rem solid #000000;
 }
@@ -805,12 +806,12 @@ footer {
     }
 
     .btn-book {
-        top: 22%;
-        left: 78%;
+        top: 17%;
+        left: 73%;
     }
 
     .btn-favourite {
-        top: 21.5%;
+        top: 17%;
         margin-left: 0px;
     }
 
