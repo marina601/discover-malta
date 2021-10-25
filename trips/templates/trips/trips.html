@@ -66,7 +66,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <li><a class="dropdown-item" href="{% url 'search' %}?sort=adult_price&direction=asc">By
                                 Price</a></li>
-                        <li><a class="dropdown-item" href="{% url 'search' %}?sort=adult_price&direction=asc">By
+                        <li><a class="dropdown-item" href="{% url 'search' %}?sort=reviewrating&direction=desc">By
                                 Rating</a></li>
                         <li><a class="dropdown-item" href="{% url 'search' %}?sort=duration&direction=asc">By
                                 Duration</a></li>
@@ -111,7 +111,7 @@
                         <ul class="list-group">
                             <li class="list-group-item"><i class="fas fa-hourglass-end"></i>{{ trip.duration }}hrs</li>
                             <li class="list-group-item"><i class="fas fa-euro-sign"></i>{{ trip.adult_price }}</li>
-                            <li class="list-group-item"><i class="fas fa-star"></i> 5/5 </li>
+                            <li class="list-group-item"><i class="fas fa-star"></i> {{ trip.averageRating }}/5 </li>
                             {% if trip.family_friendly %}
                             <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
                             {% endif %}
