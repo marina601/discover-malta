@@ -219,9 +219,9 @@
             </div>
         </div>
         {% if reviews %}
-        <div class="row">
+        <div class="row m-1">
             {% for review in reviews %}
-            <div class="col">
+            <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card mb-3">
                     <div class="col-md-10">
                         <div class="card-body">
@@ -236,15 +236,17 @@
                           <p class="card-text">{{ review.review }}</p>
                         </div>
                         <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="..." class="img-fluid img-thumbnail rounded-circle" alt="...">
+                            <div class="col-md-2">
+                               
+                                <img src="{{ review.user.userprofile.profile_img.url }}" class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
+                        
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-10 user-div">
                                 <h6 class="d-inline"><span class="text-muted">by</span> {{ review.user.first_name|capfirst }}</h6>
                                 {% if review.updated_at %}
-                                <p class="card-text d-inline"><small class="text-muted">Updated on: {{ review.updated_at }}</small></p>
+                                <p class="card-text d-inline"><small class="text-muted">Updated on: {{ review.updated_at|date:"M d, Y" }}</small></p>
                                 {% else %}
-                                <p class="card-text d-inline"><small class="text-muted">Created on: {{ review.created_at }}</small></p>
+                                <p class="card-text d-inline"><small class="text-muted">Created on: {{ review.created_at|date:"M d, Y" }}</small></p>
                                 {% endif %}
                             </div>
                         </div>

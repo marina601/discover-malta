@@ -43,3 +43,15 @@ input:checked ~ label:hover ~ label,
 label:hover ~ input:checked ~ label {
     color: #cc9000;
 }
+
+.img-thumbnail {
+    width: 4rem;
+    height: 4rem;
+}
+
+.user-div {
+    position: absolute;
+    bottom: 0px;
+    right: 0.2rem;
+    padding-bottom: 0.3rem;
+}
