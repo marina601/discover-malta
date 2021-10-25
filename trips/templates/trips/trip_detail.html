@@ -44,7 +44,11 @@
                 {% if trip.child_price > 0 %}
                 <li class="list-group-item"><i class="fas fa-euro-sign fa-lg"></i> {{ trip.child_price }} <strong>per child  above 4yrs</strong></li>
                 {% endif %}
-                <li class="list-group-item"><i class="fas fa-star fa-lg"></i> 5/5 </li>
+                {% if trip.averageRating > 0 %}
+                <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating }} /5 </li>
+                {% else %}
+                <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No reviews yet </li>
+                {% endif %}
                 {% if trip.family_friendly %}
                 <li class="list-group-item"><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></li>
                 {% endif %}

@@ -29,6 +29,7 @@
 
 /*******Click and hover ********/
 
+.fa-star,
 .star-rating i,
 input:checked ~ label, label:hover ~ label {
     color: #ffb503;
