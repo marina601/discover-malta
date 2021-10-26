@@ -162,7 +162,7 @@ a:active,
     left: -15px;
     right: -15px;
     bottom: -15px;
-    border: white 2px solid;
+    border: 2px solid rgba(0, 0, 0, .425);
     border-radius: 50%;
 }
 
@@ -172,6 +172,7 @@ a:active,
 
 .carousel-img {
     height: 40rem;
+    object-fit: cover;
 }
 
 .card-info p {
@@ -209,7 +210,7 @@ a:active,
     justify-content: center;
 }
 
-.testimony-div {
+/* .testimony-div {
     background-color: black;
     border: 2px dotted white;
     margin: 2rem;
@@ -217,7 +218,7 @@ a:active,
     width: 100%;
     height: auto;
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-}
+} */
 
 .category-link {
     text-decoration: none !important;
@@ -756,13 +757,10 @@ footer {
         padding: 0px;
     }
 
-    .testimony-div {
+    /* .testimony-div {
         height: fit-content !important;
-    }
+    } */
 
-    .carousel-img {
-        height: 18rem;
-    }
 
     .btn-dropdown {
         width: auto;
@@ -803,6 +801,10 @@ footer {
         display: block;
     }
 
+    .carousel-img {
+        height: 20rem !important;
+    }
+
 }
 
 @media (max-width: 420px) {
@@ -824,14 +826,19 @@ footer {
     .sort-div {
         display: block;
     }
+
+    .carousel-img {
+        height: 30rem;
+        object-fit: cover;
+    }
 }
 
 @media (max-width: 768px) {
-    .testimony-div {
+    /* .testimony-div {
         width: 100%;
         margin-left: 0px;
         margin-right: 0px
-    }
+    } */
 
     .btn-book {
         top: 17%;
