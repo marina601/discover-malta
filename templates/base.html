@@ -45,14 +45,37 @@
 <body>
     <header class="container-fluid fixed-top">
         <!--Logo-->
-        <div id="topnav" class="row pt-lg-2 d-none d-lg-flex">
-            <div class="col-12 col-lg-4">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-front text-white my-0"><strong class='brand-logo'>Discover</strong> Malta</h2>
+        <div id="topnav" class="row pt-lg-3 pb-lg-3 d-none d-lg-flex">
+            <div class="col-lg-3 p-0 d-lg-flex justify-content-lg-start logo-div">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link p-0">
+                    <h2 class="text-white"><strong class='brand-logo'>Discover</strong> Malta</h2>
                 </a>
             </div>
+            <div class="col-lg-6 d-lg-flex justify-content-lg-center align-items-lg-base">
+                <ul class="navbar-nav nav-links-ul">
+                    <li class="nav-item text-white">
+                      <a class="logo-font font-weight-bold nav-link text-white" href="{% url 'home' %}" id="home-link">
+                          Home
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link text-white" href="{% url 'trips' %}">All Trips</a>
+                    </li>
+                    <li class="nav-item dropdown ">
+                      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Categories
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <!--Get Category model function for category slack-->
+                        {% for category in links %}
+                          <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>
+                        {% endfor %}
+                      </ul>
+                    </li>
+                  </ul>
+            </div>
             <!--Profile-->
-            <div class="col-12 col-lg-4 menu-icons-div">
+            <div class="col-lg-3 d-lg-flex justify-content-lg-end icon-div">
                 <ul class="list-inline list-unstyled text-lg-right my-0">
                     <li class="nav-item dropdown list-inline-item">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
@@ -110,7 +133,7 @@
             </div>
         </div>
         <!--main navbar-->
-        <div class="row main-nav">
+        <div class="row main-nav d-lg-none">
             <div class="col">
                 <nav class="navbar navbar-expand-lg">
                     <div class="container-fluid">

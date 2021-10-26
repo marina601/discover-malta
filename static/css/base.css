@@ -43,11 +43,30 @@ nav {
     background-color: #000000;
 }
 
-.main-nav {
-    position: absolute;
-    top: 20%;
-    left: 30%;
+.nav-links-ul {
+    flex-direction: initial;
+    align-self: end;
 }
+
+.nav-links-ul li {
+    padding-left: 1.2rem;
+}
+
+.icon-div {
+    padding-right: 1.5rem;
+}
+
+.logo-div {
+    padding-left: 1rem !important;
+    height: 3rem;
+}
+
+/* .main-nav {
+    position: absolute;
+    top: 10%;
+    left: 35%;
+    width: 100%;
+} */
 
 header,
 .dropdown-menu {
@@ -63,11 +82,13 @@ header,
     font-weight: 600;
     font-size: 1.2rem;
     text-shadow: 2px 2px #000000;
+    padding: 0.5rem;
 }
 
 .nav-link img {
     width: 2rem;
     height: 2rem;
+    border: none;
 }
 
 .navbar-toggler {
@@ -103,9 +124,9 @@ a:active,
     font-weight: bold;
 }
 
-.fas:hover {
+/* .fas:hover {
     padding: 10px;
-}
+} */
 
 .brand-logo:hover {
     color: #2576da;
@@ -685,7 +706,6 @@ footer {
     color: #fafafa;
 }
 
-
 .category-heading:hover,
 .nav-item a:hover,
 .main-logo-link:hover,
@@ -695,7 +715,7 @@ footer {
 .footer-links li a:hover {
     background-color: rgba(97, 95, 95, 0.6);
     border-radius: 5%;
-    padding: 1rem;
+    padding: 0.5rem !important;
     transition: ease-in-out all .2s;
     -moz-transition: ease-in-out all .2s;
     -webkit-transition: ease-in-out all .2s;
