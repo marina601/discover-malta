@@ -34,12 +34,13 @@ $(document).scroll(function() {
     if (y > 400) {
         $('.card-info:hidden').each(function(index) {
             setTimeout(function(el) {
-                el.toggle(1000);
-            }, index * 1000, $(this));
+                el.show(2000);
+            }, index * 1500, $(this));
         });
     } else {
         $('.card-info').hide()
     }
 });
+
     
     
