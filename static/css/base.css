@@ -485,19 +485,18 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 .modal-btn .btn-secondary {
     background-color: #ef1018;
     color: #fafafa;
+    border: 2px solid #000000;
 }
 
-.add-booking-btn {
-    background-color: #2576da;
-    color: #fafafa;
-    text-align: center;
-}
 
 .add-booking-btn:hover,
 .modal-btn .btn-secondary:hover {
-    background-color: #000000;
-    border-radius: 2px solid #2576da;
+    background-color: #2576da;
     color: #fafafa;
+}
+
+.list-group-item {
+    border: none;
 }
 
 .modal-header {
@@ -534,9 +533,10 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 }
 
 .add-booking-btn {
-    background-color: blue;
-    color: white;
+    background-color: #039b2b;
+    color: #fafafa;
     text-align: center;
+    border: 2px solid #000000;
 }
 /**********************Bag*/
 

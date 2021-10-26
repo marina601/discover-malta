@@ -53,7 +53,7 @@
                     {% endif %}
                     {% if trip.averageRating > 0 %}
                     <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating }} /5
-                        {{ trip.totalReviews }}</li>
+                    </li>
                     {% else %}
                     <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No rating yet </li>
                     {% endif %}
@@ -74,7 +74,7 @@
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content review-form">
                             <!--form-->
                             <form action="{% url 'add_to_bag' trip.id %}" method="POST">
                                 {% csrf_token %}
@@ -203,7 +203,7 @@
             </div>
             <div class="col">
                 <label for="subject" class="form-label">Review Title:</label>
-                <input type="text" name="subject" id="subject" class="form-control">
+                <input type="text" name="subject" id="subject" class="form-control" autofocus>
             </div>
             <div class="col">
                 <label for="review" class="form-label">Review:</label>
