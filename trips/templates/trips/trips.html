@@ -6,10 +6,10 @@
 {% block content %}
 
 <section class="main-content">
-    <div class="container">
+    <div class="container p-0">
         <!--heading-->
         <div class="row">
-            <div class="col-s12 mt-1">
+            <div class="col-s12 mt-4">
                 <h1 class="text-center heading">View All The Experiences</h1>
             </div>
         </div>
@@ -76,7 +76,7 @@
 <!--display all the trips-->
         <div class="row">
             <div class="col">
-                <p>
+                <p class="result-count">
                    <span class="results">{{ result_count }}</span> Results Found
                 </p>
                 {% if result_count == 0 %}
@@ -101,17 +101,29 @@
                         </a>
                         <p class="card-text short-description">{{ trip.short_description }}</p>
                         <hr>
-                        <ul class="list-group">
-                            <li class="list-group-item"><i class="fas fa-hourglass-end"></i>{{ trip.duration }}hrs</li>
-                            <li class="list-group-item"><i class="fas fa-euro-sign"></i>{{ trip.adult_price }}</li>
-                            <li class="list-group-item"><i class="fas fa-star"></i> {{ trip.averageRating }}/5 </li>
-                            {% if trip.family_friendly %}
-                            <li class="list-group-item"><i class="fas fa-child"></i>Family</li>
-                            {% endif %}
-                        </ul>
-                        <div class="mr-4">
-                        <a href="{{ trip.get_url }}" class="btn btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
-                        </a>
+                        <div class="row">
+                            <div class="col">
+                                <p>
+                                    <i class="fas fa-hourglass-end d-block"></i>{{ trip.duration }}hrs
+                                </p>
+                            </div>
+                            <div class="col">
+                                <p><i class="fas fa-euro-sign d-block"></i>{{ trip.adult_price }}</p>
+                            </div>
+                            <div class="col">
+                                <p><i class="fas fa-star d-block"></i> {{ trip.averageRating }}/5 </p>
+                            </div>
+                            <div class="col">
+                                {% if trip.family_friendly %}
+                                <p><i class="fas fa-child d-block"></i>Family</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col">
+                                <a href="{{ trip.get_url }}" class="btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
+                                </a>
+                            </div>
                         </div>
                     </div>
                   </div>
@@ -119,7 +131,7 @@
             {% endfor %}
         </div>
 <!--Pagination-->
-        <div class="row">
+        <div class="row mt-3">
             <div class="col">
                 <nav aria-label="Page navigation example">
                     <!--Check if the trips has more pages and display dynamically-->
