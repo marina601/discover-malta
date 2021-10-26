@@ -785,9 +785,17 @@ footer {
         height: 3rem;
     }
 
-    .mobile-icon-menu {
+    /* .mobile-icon-menu {
         top: 21% !important;
         left: 51% !important;
+    } */
+
+    .mobile-icon-menu {
+        padding-left: 1rem;
+    }
+
+    .mobile-icon-menu li {
+        padding-left: 10px;
     }
 
     .sort-div {
@@ -801,13 +809,12 @@ footer {
         font-size: 2rem;
     }
 
-    .mobile-icon-menu {
+    /* .mobile-icon-menu {
         display: inline-block;
         position: absolute;
-        padding: 0;
         top: 5%;
         left: 31%;
-    }
+    } */
 
     header {
         height: 15vh;
