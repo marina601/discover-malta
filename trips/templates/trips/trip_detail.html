@@ -172,48 +172,46 @@
         {% if user.is_authenticated %}
         <div class="row spacing">
         <!--User Reviews-->
-        <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form">
+        <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
             {% csrf_token %}
             <h4 class="text-center m-2">Review this Trip</h4>
             <p>How would you rate this trip?</p>
             <div class="rating">
                 <!--Star Rating-->
                 <label for="rating10" title="5" class="d-none"></label>
-                <input type="radio" name="rating" id="rating10" value="5" class="d-none" required />
+                <input type="radio" name="rating" id="rating10" value="5" class="d"/>
                 <label for="rating10" title="5"></label>
-                <input type="radio" name="rating" id="rating10" value="5" class="d-none" required />
+                <input type="radio" name="rating" id="rating10" value="5" class="d"/>
                 <label for="rating9" title="4.5" class="half"></label>
-                <input type="radio" name="rating" id="rating9" value="4.5" class="d-none" required />
+                <input type="radio" name="rating" id="rating9" value="4.5" class="d"/>
                 <label for="rating8" title="4"></label>
-                <input type="radio" name="rating" id="rating8" value="4" class="d-none" required />
+                <input type="radio" name="rating" id="rating8" value="4" class="d"/>
                 <label for="rating7" title="3.5" class="half"></label>
-                <input type="radio" name="rating" id="rating7" value="3.5" class="d-none" required />
+                <input type="radio" name="rating" id="rating7" value="3.5" class="d"/>
                 <label for="rating6" title="3"></label>
-                <input type="radio" name="rating" id="rating6" value="3" class="d-none" required />
+                <input type="radio" name="rating" id="rating6" value="3" class="d" />
                 <label for="rating5" title="2.5" class="half"></label>
-                <input type="radio" name="rating" id="rating5" value="2.5" class="d-none" required />
+                <input type="radio" name="rating" id="rating5" value="2.5" class="d"/>
                 <label for="rating4" title="2"></label>
-                <input type="radio" name="rating" id="rating4" value="2" class="d-none" required />
+                <input type="radio" name="rating" id="rating4" value="2" class="d"/>
                 <label for="rating3" title="1.5" class="half"></label>
-                <input type="radio" name="rating" id="rating3" value="1.5" class="d-none" required />
+                <input type="radio" name="rating" id="rating3" value="1.5" class="d"/>
                 <label for="rating2" title="1"></label>
-                <input type="radio" name="rating" id="rating2" value="1" class="d-none" required />
+                <input type="radio" name="rating" id="rating2" value="1" class="d"/>
                 <label for="rating1" title="0.5" class="half"></label>
-                <input type="radio" name="rating" id="rating1" value="0.5" class="d-none" required />
+                <input type="radio" name="rating" id="rating1" value="0.5" class="d" required/>
             </div>
             <div class="col">
                 <label for="subject" class="form-label">Review Title:</label>
-                <input type="text" name="subject" id="subject" class="form-control" autofocus>
+                <input type="text" name="subject" id="subject" class="form-control" required autofocus>
             </div>
             <div class="col">
                 <label for="review" class="form-label">Review:</label>
                 <textarea name="review" id="review" rows="10" class="form-control"></textarea>
             </div>
-            
             <div class="col float-end">
-                <button type="submit" class="btn btn-next">Submit Review</button>
+                <button type="submit" class="btn btn-next" id="btn-submit">Submit Review</button>
             </div>
-                
             {% else %}
             <div class="row justify-content-md-center">
                 <div class="col">
@@ -291,15 +289,29 @@
    {{ block.super }}
 
 <script>
-   
 
-// Modal
+    // Modal
     var myModal = document.getElementById('exampleModal')
     var myInput = document.getElementById('total_adults')
 
     myModal.addEventListener('shown.bs.modal', function () {
         myInput.focus()
     })
+
+    // Validate star rating
+    const submit = document.getElementById('btn-submit')
+    const rating = document.getElementById('rating1')
+    
+    submit.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (rating < 0) {
+            rating.removeAttribute("required");
+        }   
+    });
+
+
 </script>
+
+
 
 {% endblock %}

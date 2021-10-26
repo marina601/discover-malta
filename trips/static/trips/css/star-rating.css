@@ -7,6 +7,10 @@
     float: right;
 }
 
+.d {
+    opacity: 0;
+}
+
 /*******Display the stars********/
 
 .rating > label::before {
@@ -38,7 +42,7 @@ input:checked ~ label, label:hover ~ label {
 /*******hover and highlight ********/
 
 input:checked + label:hover, 
-input:checked ~ labe:hover,
+input:checked ~ label:hover,
 input:checked ~ label:hover ~ label,
 label:hover ~ input:checked ~ label {
     color: #cc9000;
