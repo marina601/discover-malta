@@ -27,11 +27,11 @@
        <!--Add to favourite link-->
         <div class="row">
             <div class="col">
-                <button type="button" name="{{ trip.add_to_favourite }}"
+                <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
                     class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Add to favourites" name="add-to-favourites">
                     <i class="fas fa-heart"></i>
-                </button>
+                 </a>
                 <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
             </div>
         </div>
