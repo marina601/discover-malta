@@ -22,7 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
     path('trips/', include('trips.urls')),
-    path('bookings/', include('bookings.urls')),
     path('bag/', include('bag.urls')),
     path('accounts/', include('accounts.urls')),
     path('checkout/', include('checkout.urls')),
