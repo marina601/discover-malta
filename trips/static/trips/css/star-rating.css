@@ -7,7 +7,8 @@
     float: right;
 }
 
-.d {
+.rating > input {
+    position: absolute;
     opacity: 0;
 }
 
@@ -15,11 +16,11 @@
 
 .rating > label::before {
     display: inline-block;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-family: FontAwesome;
     content: "\f005";
     margin: 0;
-    padding: 0.3rem 0.2rem;
+    padding: 0.3rem 0.3rem;
     cursor: pointer;
 }
 
