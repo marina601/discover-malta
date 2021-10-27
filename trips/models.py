@@ -54,7 +54,9 @@ class Trip(models.Model):
     )
     departure_location = models.TextField(max_length=800)
     family_friendly = models.BooleanField(default=True)
-    add_to_favourites = models.BooleanField(default=False, blank=True)
+    add_to_favourites = models.ManyToManyField(Account,
+                                               related_name='favourites',
+                                               default=None, blank=True)
     adult_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     child_price = models.DecimalField(max_digits=6, decimal_places=2, default=0.0)
     images = models.ImageField(upload_to='media/trips')
