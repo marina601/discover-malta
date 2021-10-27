@@ -48,9 +48,7 @@ INSTALLED_APPS = [
     'accounts',
     'home',
     'trips',
-    'availability',
     'multiselectfield',
-    'bookings',
     'bag',
     'checkout',
 
