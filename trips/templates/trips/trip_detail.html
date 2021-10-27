@@ -170,7 +170,7 @@
         </div>
        
         {% if user.is_authenticated %}
-        <div class="row spacing">
+        <div class="row md-spacing">
         <!--User Reviews-->
         <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
             {% csrf_token %}
@@ -179,27 +179,27 @@
             <div class="rating">
                 <!--Star Rating-->
                 <label for="rating10" title="5" class="d-none"></label>
-                <input type="radio" name="rating" id="rating10" value="5" class="d"/>
+                <input type="radio" name="rating" id="rating10" value="5"/>
                 <label for="rating10" title="5"></label>
-                <input type="radio" name="rating" id="rating10" value="5" class="d"/>
+                <input type="radio" name="rating" id="rating10" value="5"/>
                 <label for="rating9" title="4.5" class="half"></label>
-                <input type="radio" name="rating" id="rating9" value="4.5" class="d"/>
+                <input type="radio" name="rating" id="rating9" value="4.5"/>
                 <label for="rating8" title="4"></label>
-                <input type="radio" name="rating" id="rating8" value="4" class="d"/>
+                <input type="radio" name="rating" id="rating8" value="4"/>
                 <label for="rating7" title="3.5" class="half"></label>
-                <input type="radio" name="rating" id="rating7" value="3.5" class="d"/>
+                <input type="radio" name="rating" id="rating7" value="3.5"/>
                 <label for="rating6" title="3"></label>
-                <input type="radio" name="rating" id="rating6" value="3" class="d" />
+                <input type="radio" name="rating" id="rating6" value="3"/>
                 <label for="rating5" title="2.5" class="half"></label>
-                <input type="radio" name="rating" id="rating5" value="2.5" class="d"/>
+                <input type="radio" name="rating" id="rating5" value="2.5"/>
                 <label for="rating4" title="2"></label>
-                <input type="radio" name="rating" id="rating4" value="2" class="d"/>
+                <input type="radio" name="rating" id="rating4" value="2"/>
                 <label for="rating3" title="1.5" class="half"></label>
-                <input type="radio" name="rating" id="rating3" value="1.5" class="d"/>
+                <input type="radio" name="rating" id="rating3" value="1.5"/>
                 <label for="rating2" title="1"></label>
-                <input type="radio" name="rating" id="rating2" value="1" class="d"/>
+                <input type="radio" name="rating" id="rating2" value="1"/>
                 <label for="rating1" title="0.5" class="half"></label>
-                <input type="radio" name="rating" id="rating1" value="0.5" class="d" required/>
+                <input type="radio" name="rating" id="rating1" value="0.5" required/>
             </div>
             <div class="col">
                 <label for="subject" class="form-label">Review Title:</label>
@@ -302,11 +302,11 @@
     const submit = document.getElementById('btn-submit')
     const rating = document.getElementById('rating1')
     
-    submit.addEventListener('submit', function(e) {
+    submit.addEventListener('sumbmit', function(e) {
         e.preventDefault();
-        if (rating < 0) {
+        if (rating1 < 0) {
             rating.removeAttribute("required");
-        }   
+        } 
     });
 
 
