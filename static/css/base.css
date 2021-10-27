@@ -453,6 +453,10 @@ a:active,
 .btn-favourite i {
     margin: 0px;
 }
+
+.btn-submit {
+    background-color: #039b2b;
+}
 /*font-family: 'Acme', sans-serif; - headings
 font-family: 'Oxygen', sans-seri  - paragraphs */
 
@@ -773,15 +777,10 @@ footer {
     }
 
     .btn-book {
-        height: 3rem;
-        padding-top: 0px;
-        padding-bottom: 0px;
-        margin-top: 1rem;
-        font-size: 1.5rem;
-        width: 10rem;
-        left: 50% !important;
-        top: 13% !important;
-    
+        left: 57% !important;
+        width: 7rem;
+        font-size: 1rem;
+        top: 37% !important;
     }
 
     .btn-favourite {
@@ -829,13 +828,6 @@ footer {
         font-size: 2rem;
     }
 
-    /* .mobile-icon-menu {
-        display: inline-block;
-        position: absolute;
-        top: 5%;
-        left: 31%;
-    } */
-
     header {
         height: 15vh;
     }
@@ -852,6 +844,30 @@ footer {
     .result-count {
         font-size: 1rem;
     }
+
+    .main-nav {
+        width: auto !important;
+    }
+
+    .btn-favourite {
+        top: 22%!important;
+        left: 3% !important;
+        background-color: transparent;
+        border: none;
+    }
+
+    .btn-favourite i {
+        font-size: 1.5rem;
+        position: relative;
+    }
+    
+    .btn-book {
+        left: 70% !important;
+        width: 7rem;
+        font-size: 1rem;
+        top: 20% !important;
+    }
+    
 }
 
 @media (max-width: 768px) {
