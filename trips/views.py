@@ -40,11 +40,24 @@ def all_trips(request, category_slug=None):
         paged_trips = paginator.get_page(page)
         # trip count
         result_count = trips.count()
+    
+    fav_trips = bool
+
+    fav_trips = Trip.objects.filter(add_to_favourites=request.user.id)
+
+    if fav_trips:
+        fav_trips = True
+
+        print(fav_trips)
+
+    # if trips.add_to_favourites.filter(id=request.user.id).exists():
+    #     fav_trips = True
 
     context = {
         'trips': paged_trips,
         'result_count': result_count,
         'categories': categories,
+        'fav_trips': fav_trips,
     }
 
     return render(request, 'trips/trips.html', context)
