@@ -273,4 +273,17 @@ def add_to_favourite(request, trip_id):
         messages.success(request, f"You have added {trip.name} to your favourites")
         return redirect(url)
 
+@login_required
+def favourites(request):
+    """Display favourite trips"""
+    # Model.objects.filter(field_name=some_param)
+    fav_trips = Trip.objects.filter(add_to_favourites=request.user)
+    result_count = fav_trips.count()
     
+    template = 'accounts/favourites.html'
+    context = {
+        'fav_trips': fav_trips,
+        'result_count': result_count,
+    }
+
+    return render(request, template, context)
