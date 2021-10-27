@@ -89,9 +89,23 @@
             {% for trip in trips %}
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card card-trip">
-                    <button type="button" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                {% if user.is_authenticated %}
+                    
+                       {% if trip.fav_trips %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
-                    </button>
+                    </a>
+                      {% endif %}
+                    
+                {% else %}
+                    <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                {% endif %}
                     <a href="{{ trip.get_url }}">
                        <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
                     </a>
