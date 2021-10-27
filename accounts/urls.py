@@ -13,4 +13,5 @@ urlpatterns = [
     path('reset_password', views.reset_password, name='reset_password'),
     path('edit_profile', views.edit_profile, name='edit_profile'),
     path('order_history/<order_number>', views.order_history, name='order_history'),
+    path('add_to_favourite/<trip_id>', views.add_to_favourite, name='add_to_favourite'),
 ]

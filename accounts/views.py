@@ -1,5 +1,5 @@
 # pylint: disable=no-member
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
@@ -11,6 +11,7 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from checkout.models import Order
+from trips.models import Trip
 from .forms import RegistraionForm, UserProfileForm, UserForm
 from .models import Account, UserProfile
 
@@ -255,3 +256,21 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
+
+
+@login_required
+def add_to_favourite(request, trip_id):
+    """Adding Favourites to Users"""
+    trip = get_object_or_404(Trip, id=trip_id)
+    url = request.META.get('HTTP_REFERER')
+
+    if trip.add_to_favourites.filter(id=request.user.id).exists():
+        trip.add_to_favourites.remove(request.user)
+        messages.success(request, f"Remove {trip.name} from your favourites")
+        return redirect(url)
+    else:
+        trip.add_to_favourites.add(request.user)
+        messages.success(request, f"You have added {trip.name} to your favourites")
+        return redirect(url)
+
+    
