@@ -137,6 +137,9 @@ a:active,
     font-size: 1.3rem;
 }
 
+.user-favourites {
+    color: #ef1018;
+}
 /***********************Index.html*/
 
 .card-info {
