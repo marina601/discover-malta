@@ -168,22 +168,23 @@ def checkout_complete(request, order_number):
         userprofile = get_object_or_404(UserProfile, user=request.user)
         order.user_profile = userprofile
         order.save()
-
+    
         # Save the user's info if the checkbox is ticked
-        profile_data = {
-            'country': order.country,
-            'postcode': order.postcode,
-            'town_or_city': order.town_or_city,
-            'street_address1': order.street_address1,
-            'street_address2': order.street_address2,
-            'county': order.county,
-        }
-        print(profile_data)
-        profile_form = UserProfileForm(profile_data, instance=userprofile)
-        # Not to overwrite the user image field
-        profile_form.profile_img = userprofile.profile_img
-        if profile_form.is_valid():
-            profile_form.save()
+        save_info = request.session['save_info']
+        if save_info:
+            profile_data = {
+                'country': order.country,
+                'postcode': order.postcode,
+                'town_or_city': order.town_or_city,
+                'street_address1': order.street_address1,
+                'street_address2': order.street_address2,
+                'county': order.county,
+            }
+            profile_form = UserProfileForm(profile_data, instance=userprofile)
+            # Not to overwrite the user image field
+            profile_form.profile_img = userprofile.profile_img
+            if profile_form.is_valid():
+                profile_form.save()
 
     messages.success(request, f'Your order has been successfuly prcessed! \
                               Your ticket number is {order_number}. \
