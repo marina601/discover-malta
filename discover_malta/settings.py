@@ -84,7 +84,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'trips.context_processors.menu_links',
                 'bag.contexts.bag_content',
-                #'accounts.contexts.userprofile',
+                'accounts.contexts.favourites_list',
             ],
         },
     },

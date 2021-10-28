@@ -1,13 +1,15 @@
-# from django.shortcuts import render, get_object_or_404
-# from .models import UserProfile
+from trips.models import Trip
 
 
-# def userprofile(request):
-#     """User Profile"""
-#     user_profile = get_object_or_404(UserProfile, user=request.user)
+def favourites_list(request):
+    """Getting the favourites count"""
 
-#     context = {
-#         'user_profile': user_profile,
-#     }
+    fav_trips = Trip.objects.filter(add_to_favourites=request.user.id)
+    fav_result_count = fav_trips.count()
 
-#     return context
+    context = {
+        'fav_trips': fav_trips,
+        'fav_result_count': fav_result_count,
+    }
+
+    return context
