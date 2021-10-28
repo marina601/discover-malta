@@ -28,15 +28,31 @@
     </li>
     <!--favourites-->
     <li class="list-inline-item nav-item">
-        <a class="nav-link text-white d-block d-lg-none"
-            href="">
+        {% if user.is_authenticated %}
+        <a class="nav-link d-block d-lg-none {% if fav_result_count > 0 %} user-favourites {% else %} text-white {% endif %}" href="{% url 'favourites' %}">
+            <div class="text-center">
+                <div><i class="fas fa-heart fa-lg"></i></div>
+                {% if fav_result_count > 0%}
+                <p class="my-0">
+                    {{ fav_result_count }}
+                </p>
+                {% else %}
+                <p class="my-0">
+                    0
+                </p>
+                {% endif %}
+            </div>
+        </a>
+        {% else %}
+        <a class="nav-link text-white" href="{% url 'login' %}">
             <div class="text-center">
                 <div><i class="fas fa-heart fa-lg"></i></div>
                 <p class="my-0">
-                 1
+                    0
                 </p>
             </div>
         </a>
+        {% endif %}
     </li>
     <!--access to the shopping bag-->
     <li class="list-inline-item nav-item">
