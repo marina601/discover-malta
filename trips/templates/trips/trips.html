@@ -87,23 +87,16 @@
         <hr>
         <div class="row">
             {% for trip in trips %}
+            
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card card-trip">
                 {% if user.is_authenticated %}
-                    
-                       {% if trip.fav_trips %}
-                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                    {% else %}
-                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                         <i class="fas fa-heart"></i>
                     </a>
-                      {% endif %}
-                    
                 {% else %}
-                    <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
-                        <i class="fas fa-trash"></i>
+                    <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Login to add this trip to favourites">
+                        <i class="fas fa-heart"></i>
                     </a>
                 {% endif %}
                     <a href="{{ trip.get_url }}">
@@ -142,9 +135,10 @@
                     </div>
                   </div>
             </div>
+            
             {% endfor %}
         </div>
-<!--Pagination-->
+        <!--Pagination-->
         <div class="row mt-3">
             <div class="col">
                 <nav aria-label="Page navigation example">
@@ -195,3 +189,4 @@
 </section>
     
 {% endblock %}
+
