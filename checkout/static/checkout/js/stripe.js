@@ -12,6 +12,7 @@ var stripe = Stripe(stripePublicKey);
 var elements = stripe.elements();
 var style = {
     base: {
+        iconColor: '#666EE8',
         color: '#000',
         fontFamily: '"Oxygen", sans-seri',
         fontSmoothing: 'antialiased',
@@ -23,9 +24,9 @@ var style = {
     invalid: {
         color: '#ef1018',
         iconColor: '#ef1018'
-    }
+    },
 };
-var card = elements.create('card', {style: style});
+var card = elements.create('card', {hidePostalCode: true, style: style});
 card.mount('#card_elements');
 
 // Handle realtime validation errors on the card element
