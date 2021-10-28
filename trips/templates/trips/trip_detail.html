@@ -27,11 +27,28 @@
        <!--Add to favourite link-->
         <div class="row">
             <div class="col">
-                <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
+                {% if user.is_authenticated %}
+
+                    {% if favourites %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
+                        class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Remove this trip from favourites" name="add-to-favourites">
+                        <i class="fas fa-trash"></i>
+                     </a>
+                     {% else %}
+                     <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
+                        class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
+                        title="Add to favourites" name="add-to-favourites">
+                        <i class="fas fa-heart"></i>
+                     </a>
+                    {% endif %}
+                 {% else %}
+                 <a href="{% url 'login' %}" name="{{ trip.add_to_favourite }}"
                     class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
-                    title="Add to favourites" name="add-to-favourites">
+                    title="Please login to add this trip to your favourites" name="add-to-favourites">
                     <i class="fas fa-heart"></i>
                  </a>
+                 {% endif %}
                 <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
             </div>
         </div>
