@@ -276,14 +276,14 @@ def add_to_favourite(request, trip_id):
 @login_required
 def favourites(request):
     """Display favourite trips"""
-    # Model.objects.filter(field_name=some_param)
-    fav_trips = Trip.objects.filter(add_to_favourites=request.user)
-    result_count = fav_trips.count()
-    
+
+    fav_trips = Trip.objects.filter(add_to_favourites=request.user.id)
+    fav_result_count = fav_trips.count()
+
     template = 'accounts/favourites.html'
     context = {
         'fav_trips': fav_trips,
-        'result_count': result_count,
+        'fav_result_count': fav_result_count,
     }
 
     return render(request, template, context)
