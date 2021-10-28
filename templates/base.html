@@ -81,15 +81,10 @@
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if user.is_authenticated %}
-                                {% if request.user.userprofile.profile_img %}
                                 <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
                                 class="img-fluid img-thumbnail rounded-circle d-block">
-                                {% else %}
-                                <img src="{{ 'media/user_profile/default_user.png' }}" alt="Default Profile Image"
-                                class="img-fluid img-thumbnail rounded-circle d-block">
-                                {% endif %}
                             {% else %}
-                            <i class="fas fa-user fa-lg d-block"></i>
+                                <i class="fas fa-user fa-lg d-block"></i>
                             {% endif %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
