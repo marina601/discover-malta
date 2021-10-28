@@ -91,7 +91,7 @@ class UserProfile(models.Model):
     """Creating a user profile"""
     user = models.OneToOneField(Account, on_delete=models.CASCADE)
     profile_img = models.ImageField(blank=True, upload_to='user_profile/',
-                                    default='user_profile/default_user.png')
+                                    default='default_user.png')
     street_address1 = models.CharField(max_length=80, null=False, blank=True)
     street_address2 = models.CharField(max_length=80, null=True, blank=True)
     town_or_city = models.CharField(max_length=40, null=False, blank=True)
