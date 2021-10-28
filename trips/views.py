@@ -21,7 +21,7 @@ def all_trips(request, category_slug=None):
     categories = None
     trips = Trip.objects.all()
 
-    if category_slug != None:
+    if category_slug:
         # get all the trips by category slug
         categories = get_object_or_404(Category, slug=category_slug)
         trips = Trip.objects.filter(category=categories)
@@ -40,26 +40,13 @@ def all_trips(request, category_slug=None):
         paged_trips = paginator.get_page(page)
         # trip count
         result_count = trips.count()
-    
-    fav_trips = bool
-
-    fav_trips = Trip.objects.filter(add_to_favourites=request.user.id)
-
-    if fav_trips:
-        fav_trips = True
-
-        print(fav_trips)
-
-    # if trips.add_to_favourites.filter(id=request.user.id).exists():
-    #     fav_trips = True
 
     context = {
         'trips': paged_trips,
         'result_count': result_count,
         'categories': categories,
-        'fav_trips': fav_trips,
     }
-
+   
     return render(request, 'trips/trips.html', context)
 
 
@@ -78,13 +65,20 @@ def trip_detail(request, category_slug, trip_slug):
     # Show all the reviews on the page 
     reviews = ReviewRating.objects.filter(trip_id=trip.id, status=True)
 
+    # Check if the trip is added to favourites
+    favourites = bool
+
+    if trip.add_to_favourites.filter(id=request.user.id).exists():
+        favourites = True
+
     context = {
         'trip': trip,
         'reviews': reviews,
+        'favourites': favourites,
     }
 
     return render(request, 'trips/trip_detail.html', context)
-
+    
 
 def search(request):
     """Search and sort functionality"""
@@ -198,4 +192,3 @@ def submit_review(request, trip_id, user_id):
         else:
             messages.error(request, "You must purchase the trip befor submitting your review")
             return redirect(url)
-    
