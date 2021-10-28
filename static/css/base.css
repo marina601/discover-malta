@@ -282,6 +282,7 @@ a:active,
 }
 
 .main-content {
+    margin-top: 3rem;
     margin-bottom: 1rem;
     height: fit-content;
     flex: 1 0 auto;
@@ -358,6 +359,7 @@ a:active,
     background-color: #da8925;
     border: none;
     border-radius: none;
+    border: 2px solid #000000;
 }
 
 .add-to-favourites:hover {
@@ -446,11 +448,11 @@ a:active,
 }
 
 .btn-favourite {
-    margin: 1rem;
+    /* margin: 1rem; */
     position: absolute;
-    width: 5rem;
+    /* width: 5rem;
     z-index: 1;
-    border: 0.2rem solid #000000;
+    border: 0.2rem solid #000000; */
 }
 
 .btn-favourite i {
@@ -742,9 +744,9 @@ footer {
 
 /* Slightly larger container on xl screens */
 @media (max-width: 1200px) {
-    .container {
+    /* .container {
         max-width: 90%;
-    }
+    } */
 
     .card-trip {
         height: 45rem;
@@ -786,11 +788,11 @@ footer {
         top: 37% !important;
     }
 
-    .btn-favourite {
+    /* .btn-favourite {
         top: 14% !important;
         left: 3px;
         height: 3rem;
-    }
+    } */
 
     /* .mobile-icon-menu {
         top: 21% !important;
@@ -852,12 +854,12 @@ footer {
         width: auto !important;
     }
 
-    .btn-favourite {
+    /* .btn-favourite {
         top: 22%!important;
         left: 3% !important;
         background-color: transparent;
         border: none;
-    }
+    } */
 
     .btn-favourite i {
         font-size: 1.5rem;
@@ -885,10 +887,10 @@ footer {
         left: 73%;
     }
 
-    .btn-favourite {
+    /* .btn-favourite {
         top: 17%;
         margin-left: 0px;
-    }
+    } */
 
     .form-group {
         width: 12rem;
