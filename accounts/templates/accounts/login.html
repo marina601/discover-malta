@@ -6,6 +6,7 @@
 {% block content %}
 <section class="main-content">
     <div class="container">
+      <!--message once the form is submitted-->
       {% if request.GET.command == 'verification' %}
       <div class="row justify-content-md-center verification-div">
         <div class="col-lg-6 mt-5 ">
@@ -17,7 +18,6 @@
           <p>
             If you have activated you account already.</p>
             <p>
-          
              Please 
             <a class="btn btn-dropdown d-inline" href="{% url 'login'%}">Login</a>
           </p>
@@ -29,10 +29,10 @@
                 <h2>Login Here</h2>
             </div>
         </div>
-        
-        <div class="row justify-content-md-center">
-            <div class="col-lg-8 col-md-8 col-sm-12">
-                <form class="row g-3" action="{% url 'login' %}" method="POST">
+        <!--login form-->
+        <div class="row justify-content-md-center mt-4">
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <form class="row g-3 login-form" action="{% url 'login' %}" method="POST">
                   {% csrf_token %}
                   <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address:</label>
@@ -42,7 +42,9 @@
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword1" name="password">
                   </div>
-                  <button type="submit" class="btn btn-next">Login</button>
+                  <div class="mb-3">
+                    <button type="submit" class="btn btn-next w-100">Login</button>
+                  </div>
                   <div class="mb-3 reset-password">
                     <p class="d-md-inline text-muted">Forgot password ?</p>
                     <a class="btn d-md-inline" href="{% url 'forgot_password' %}">Click here to reset your passowrd</a>
