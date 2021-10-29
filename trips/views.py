@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 from django.db.models import Q
+from django.utils.text import slugify
 
 from accounts.models import Account
 from checkout.models import Order, OrderTicketItem
@@ -132,10 +133,15 @@ def search(request):
 
 def add_trip(request):
     """Add a trip to the database"""
+    form = TripForm()
     if request.method == 'POST':
-        form = TripForm()
+        form = TripForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            # create a new trip object but don't save to database yet
+            new_trip = form.save(commit=False)
+            # populate the slug value
+            new_trip.slug = slugify(new_trip.name)
+            new_trip.save()
             messages.success(request, 'Successfully added a new trip!')
             return redirect(reverse('add_trip'))
         else:
@@ -148,6 +154,7 @@ def add_trip(request):
     context = {
         'form': form,
     }
+    print(form)
 
     return render(request, template, context)
 
