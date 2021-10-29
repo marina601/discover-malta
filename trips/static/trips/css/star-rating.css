@@ -54,12 +54,6 @@ label:hover ~ input:checked ~ label {
     height: 4rem;
 }
 
-.user-div {
-    position: absolute;
-    bottom: 0px;
-    right: 0.2rem;
-    padding-bottom: 0.3rem;
-}
 
 .review-form {
     border: 1px solid #000000 !important;
