@@ -11,9 +11,9 @@
                 <h2>Register Here</h2>
             </div>
         </div>
-        <div class="row justify-content-md-center mb-1 mt-1">
+        <div class="row justify-content-md-center mb-1 mt-4 p-1">
             <div class="col-lg-8 col-md-8 col-sm-12">
-                <form class="row g-3" action="{% url 'register' %}" method="POST">
+                <form class="row g-3 login-form" action="{% url 'register' %}" method="POST">
                   {% csrf_token %}
                   <div class="col-md-6">
                     <label for="first_name" class="form-label">First Name:</label>
@@ -39,7 +39,9 @@
                     <label for="password" class="form-label">Repeat Password:</label>
                     {{ form.confirm_password }}
                   </div>
-                  <button type="submit" class="btn btn-next">Register</button>
+                  <div class="col">
+                    <button type="submit" class="btn btn-next w-100">Register</button>
+                  </div>
                   <!--print form errors-->
                   {{ form.email.errors }}
                   {{ form.non_field_errors }}
