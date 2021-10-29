@@ -17,7 +17,7 @@ Tickets Purchased : {{ item.adult_quantity }} adults
 {{ item.child_quantity }} children
 {% endif %}
                
-Booking Date : {{ item.booking_date }}
+Trip Booking Date : {{ item.booking_date }}
             
 Total Cost : {{ item.ticketitem_total }} 
               
@@ -28,22 +28,19 @@ Billing Info:
 Full Name: {{ order.first_name }} {{ order.last_name }}
 
 Address:
-{{ order.street_address1|title }}</p>
+{{ order.street_address1|title }}
                
 {% if order.street_address2 %}
     {{ order.street_address2|title }}
 {% endif %}
 {% if order.county %}
-County: {{ order.county|capfirst }}</p>
-                
+County: {{ order.county|capfirst }}           
 {% endif %}
-Town or City: {{ order.town_or_city|capfirst }}
-                
+Town or City: {{ order.town_or_city|capfirst }}          
 {% if order.postcode %}
-Postal Code: {{ order.postcode|upper }}
-                
+Postal Code: {{ order.postcode|upper }}           
 {% endif %}
-Country: {{ order.country }}</p>
+Country: {{ order.country }}
 
 Phone Number: {{ order.phone_number }}
 
