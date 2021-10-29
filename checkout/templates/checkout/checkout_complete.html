@@ -85,8 +85,8 @@
                             <p class="mb-0"><strong><i class="fas fa-user"></i> Full Name:</strong></p>
                         </div>
                         <div class="col-12 col-md-6 text-md-right">
-                            <p class="mb-0 d-inline">{{ order.first_name }}</p>
-                            <p class="mb-0 d-inline">{{ order.last_name }}</p>
+                            <p class="mb-0 d-inline">{{ order.first_name|capfirst}}</p>
+                            <p class="mb-0 d-inline">{{ order.last_name|capfirst }}</p>
                         </div>
                     </div>
                     <div class="row">
