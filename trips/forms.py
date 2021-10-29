@@ -6,10 +6,13 @@ class TripForm(forms.ModelForm):
     """
     Creating a form to add trips to the database
     """
-
     class Meta:
         model = Trip
-        fields = '__all__'
+        fields = ['name', 'category', 'short_description', 'full_description',
+                  'included', 'what_to_bring',
+                  'duration', 'start_time', 'departure_location',
+                  'family_friendly',
+                  'adult_price', 'child_price', 'images', 'num_tickets']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
