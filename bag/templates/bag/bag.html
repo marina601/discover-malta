@@ -26,8 +26,8 @@
                 </div>
             </div>
             
-            <div class="row">
-                <div class="col-lg-3 col-md-6">
+            <div class="row p-md-2">
+                <div class="col-lg-3 col-md-6 spacing-md">
                     <img class="img-fluid" src="{{ item.trip.images.url }}" alt="{{ item.trip.name }}">
                 </div>
                 <div class="col-lg-2 col-md-6">
@@ -38,13 +38,15 @@
                         {{ item.trip.start_time }}</p>
                     <p><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location: </strong>
                         {{ item.trip.departure_location }}</p>
-                    <p><i class="fas fa-star fa-lg"></i> 5/5 </p>
+                    {% if item.trip.averageRating > 0 %}
+                    <p><i class="fas fa-star fa-lg"></i> {{ item.trip.averageRating|floatformat:1 }}/5 </p>
+                    {% endif %}
                     {% if trip.family_friendly %}
                     <p><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></p>
                     {% endif %}
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <h4>Tickets</h4>
+                    <h4>Tickets <i class="fas fa-ticket-alt"></i></h4>
                     <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                     <!--check if there are any children tickets-->
                     {% if item.trip.family_friendly %}
@@ -132,10 +134,10 @@
                         class="remove-item float-right btn">
                         <small>Remove <i class="fas fa-trash"></i></small></a>
                 </div>
-                <div class="col-lg col-md">
+                <div class="col-lg col-md mt-4">
                     <div class="float-end">
-                        <h4>Sub Total</h4>
-                        <p><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p> 
+                        <h4 class="d-inline">Sub Total</h4>
+                        <p class="d-inline"><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p> 
                     </div>
                 </div>
             </div>
@@ -151,7 +153,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12 mt-4">
                     <div class="float-start">
                         <!--back to trips button-->
                         <a href="{% url 'trips' %}" class="btn btn-more">
@@ -162,7 +164,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-sm-12">
+                <div class="col-lg-6 col-md-6 col-sm-12">
                     <div class="float-end">
                         <!--checkout button-->
                         <a href="{% url 'checkout' %}" class="btn btn-dropdown">
