@@ -30,6 +30,15 @@ h6 {
     font-family: 'Acme', sans-serif;
 }
 
+#purchase-form,
+.login-form {
+    border: 1px solid #000000 !important;
+    border-radius: 5px;
+    box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+    -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+    -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+}
+
 
 
 /*************************Navigation*/
@@ -804,9 +813,9 @@ footer {
         left: 51% !important;
     } */
 
-    .mobile-icon-menu {
+    /* .mobile-icon-menu {
         padding-left: 1rem;
-    }
+    } */
 
     .mobile-icon-menu li {
         padding-left: 10px;
