@@ -1,6 +1,7 @@
 # pylint: disable=no-member
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 from django.utils.text import slugify
@@ -131,22 +132,26 @@ def search(request):
     return render(request, 'trips/trips.html', context)
 
 
+@login_required
 def add_trip(request):
     """Add a trip to the database"""
     form = TripForm()
     if request.method == 'POST':
-        form = TripForm(request.POST, request.FILES)
-        if form.is_valid():
-            # create a new trip object but don't save to database yet
-            new_trip = form.save(commit=False)
-            # populate the slug value
-            new_trip.slug = slugify(new_trip.name)
-            new_trip.save()
-            messages.success(request, 'Successfully added a new trip!')
-            return redirect(reverse('add_trip'))
+        if request.user.is_superadmin:
+            form = TripForm(request.POST, request.FILES)
+            if form.is_valid():
+                # create a new trip object but don't save to database yet
+                new_trip = form.save(commit=False)
+                # populate the slug value
+                new_trip.slug = slugify(new_trip.name)
+                new_trip.save()
+                messages.success(request, 'Successfully added a new trip!')
+                return redirect(reverse('add_trip'))
+            else:
+                messages.error(request, 'Failed to add a trip. Please ensure the'
+                               ' all the required fields are completed!')
         else:
-            messages.error(request, 'Failed to add a trip. Please ensure the'
-                           ' all the required fields are completed!')
+            messages.error(request, "You do not have admin previlieges to add a new trip")
     else:
         form = TripForm()
 
@@ -199,7 +204,6 @@ def submit_review(request, trip_id, user_id):
         else:
             messages.error(request, "You must purchase the trip befor submitting your review")
             return redirect(url)
-
 
 
 def delete_review(request, review_id):
