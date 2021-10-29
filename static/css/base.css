@@ -577,6 +577,20 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     border-radius: 5px;
     border: 1px solid black;
 }
+/*****************Add_to_bag*/
+
+.cancel-btn {
+    background-color: #ef1018;
+}
+
+.add-btn {
+    background-color: #039b2b;
+}
+
+.add-btn:hover,
+.cancel-btn:hover {
+    background-color: #000000;
+}
 
 /*****************Toasts*/
 
@@ -887,6 +901,10 @@ footer {
         top: 25% !important;
     }
     
+    .cancel-btn,
+    .add-btn {
+        width: 9rem;
+    }
 }
 
 @media (max-width: 768px) {
