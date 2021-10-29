@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} Trips {% endblock %}
+{% block extra_title %} {{ trip.name }} {% endblock %}
 
 {% block content %}
 <section class="main-content">
     <div class="container">
         <!--heading-->
-        <div class="row spacing">
+        <div class="row">
             <div class="col-s12 mt-1">
                 <h1 class="text-center heading">{{ trip.name }}</h1>
             </div>
@@ -57,7 +57,7 @@
                         <strong>per child above 4yrs</strong></li>
                     {% endif %}
                     {% if trip.averageRating > 0 %}
-                    <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating }} /5
+                    <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating|floatformat:2 }} /5
                     </li>
                     {% else %}
                     <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No rating yet </li>
@@ -176,58 +176,60 @@
        
         {% if user.is_authenticated %}
         <div class="row mt-3">
-        <!--User Reviews-->
-        <form action="{% url 'submit_review' trip.id  user.id %}" method="POST" class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
-            {% csrf_token %}
-            <h4 class="text-center m-2">Review this Trip</h4>
-            <p>How would you rate this trip?</p>
-            <div class="rating">
-                <!--Star Rating-->
-                <label for="rating10" title="5" class="d-none"></label>
-                <input type="radio" name="rating" id="rating10" value="5"/>
-                <label for="rating10" title="5"></label>
-                <input type="radio" name="rating" id="rating10" value="5"/>
-                <label for="rating9" title="4.5" class="half"></label>
-                <input type="radio" name="rating" id="rating9" value="4.5"/>
-                <label for="rating8" title="4"></label>
-                <input type="radio" name="rating" id="rating8" value="4"/>
-                <label for="rating7" title="3.5" class="half"></label>
-                <input type="radio" name="rating" id="rating7" value="3.5"/>
-                <label for="rating6" title="3"></label>
-                <input type="radio" name="rating" id="rating6" value="3"/>
-                <label for="rating5" title="2.5" class="half"></label>
-                <input type="radio" name="rating" id="rating5" value="2.5"/>
-                <label for="rating4" title="2"></label>
-                <input type="radio" name="rating" id="rating4" value="2"/>
-                <label for="rating3" title="1.5" class="half"></label>
-                <input type="radio" name="rating" id="rating3" value="1.5"/>
-                <label for="rating2" title="1"></label>
-                <input type="radio" name="rating" id="rating2" value="1"/>
-                <label for="rating1" title="0.5" class="half"></label>
-                <input type="radio" name="rating" id="rating1" value="0.5" required/>
-            </div>
-            <div class="col">
-                <label for="subject" class="form-label">Review Title:</label>
-                <input type="text" name="subject" id="subject" class="form-control" required autofocus>
-            </div>
-            <div class="col">
-                <label for="review" class="form-label">Review:</label>
-                <textarea name="review" id="review" rows="10" class="form-control"></textarea>
-            </div>
-            <div class="col float-end">
-                <button type="submit" class="btn btn-next btn-submit" id="btn-submit">Submit Review</button>
-            </div>
-            {% else %}
-            <div class="row justify-content-md-center">
-                <div class="col">
-                  <p class="d-md-inline"> Have you been on this trip, please rate your experience</p>
-                  <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
+            <!--User Reviews-->
+            <form action="{% url 'submit_review' trip.id  user.id %}" method="POST"
+                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
+                {% csrf_token %}
+                <h4 class="text-center m-2">Review this Trip</h4>
+                <p>How would you rate this trip?</p>
+                <div class="rating">
+                    <!--Star Rating-->
+                    <label for="rating10" title="5" class="d-none"></label>
+                    <input type="radio" name="rating" id="rating10" value="5" />
+                    <label for="rating10" title="5"></label>
+                    <input type="radio" name="rating" id="rating10" value="5" />
+                    <label for="rating9" title="4.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating9" value="4.5" />
+                    <label for="rating8" title="4"></label>
+                    <input type="radio" name="rating" id="rating8" value="4" />
+                    <label for="rating7" title="3.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating7" value="3.5" />
+                    <label for="rating6" title="3"></label>
+                    <input type="radio" name="rating" id="rating6" value="3" />
+                    <label for="rating5" title="2.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating5" value="2.5" />
+                    <label for="rating4" title="2"></label>
+                    <input type="radio" name="rating" id="rating4" value="2" />
+                    <label for="rating3" title="1.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating3" value="1.5" />
+                    <label for="rating2" title="1"></label>
+                    <input type="radio" name="rating" id="rating2" value="1" />
+                    <label for="rating1" title="0.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating1" value="0.5" required />
                 </div>
-             </div>
-            {% endif %}
-        </form>
+                <div class="col">
+                    <label for="subject" class="form-label">Review Title:</label>
+                    <input type="text" name="subject" id="subject" class="form-control" required>
+                </div>
+                <div class="col">
+                    <label for="review" class="form-label">Review:</label>
+                    <textarea name="review" id="review" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="col float-end">
+                    <button type="submit" class="btn btn-next btn-submit" id="btn-submit">Submit Review</button>
+                </div>
+            </form>
         </div>
-        <div class="row m-2">
+        {% else %}
+        <hr>
+        <div class="row spacing">
+            <div class="col-">
+                <h4 class="d-md-inline"> Have you been on this trip? Please rate your experience</h4>
+                <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row spacing">
             <div class="col text-center">
                 <h3 class="text-center">Customer Reviews</h3>
                 {% if trip.totalReviews > 0 %}
@@ -239,7 +241,7 @@
         <div class="row m-1">
             {% for review in reviews %}
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="card mb-3">
+                <div class="card mb-3 review-card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
@@ -263,18 +265,30 @@
                         </div>
                         </div>
                         <div class="row">
-                        <div class="col-md-4 col-sm-12 mb-1">
-                            <img src="{{ review.user.userprofile.profile_img.url }}" class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
+                            <div class="col-md-4 col-sm-12 mb-1">
+                                <img src="{{ review.user.userprofile.profile_img.url }}"
+                                    class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
+                            </div>
+                            <div class="col-md-8 col-sm-8 mt-1">
+                                <h6 class="d-inline"><span class="text-muted">by</span>
+                                    {{ review.user.first_name|capfirst }}</h6>
+                                {% if review.updated_at %}
+                                <p class="card-text d-inline"><small class="text-muted">Updated on:
+                                        {{ review.updated_at|date:"M d, Y" }}</small></p>
+                                {% else %}
+                                <p class="card-text d-inline"><small class="text-muted">Created on:
+                                        {{ review.created_at|date:"M d, Y" }}</small></p>
+                                {% endif %}
+                            </div>
                         </div>
-                        <div class="col-md-8 col-sm-12 user-div mt-1">
-                            <h6 class="d-inline"><span class="text-muted">by</span> {{ review.user.first_name|capfirst }}</h6>
-                            {% if review.updated_at %}
-                            <p class="card-text d-inline"><small class="text-muted">Updated on: {{ review.updated_at|date:"M d, Y" }}</small></p>
-                            {% else %}
-                            <p class="card-text d-inline"><small class="text-muted">Created on: {{ review.created_at|date:"M d, Y" }}</small></p>
+                        <div class="row d-flex justify-content-md-end">
+                            {% if user == review.user %}
+                            <div class="col-md-4 col-lg-4">
+                                <a href="{% url 'delete_review' review.id %}" class="float-left remove-item btn delete">
+                                    <small>Delete <i class="fas fa-trash"></i></small></a></a>
+                            </div>
                             {% endif %}
                         </div>
-                         </div>
                     </div>
                 </div>
             </div>
@@ -320,7 +334,6 @@
             rating.removeAttribute("required");
         } 
     });
-
 
 </script>
 
