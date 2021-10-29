@@ -192,3 +192,20 @@ def submit_review(request, trip_id, user_id):
         else:
             messages.error(request, "You must purchase the trip befor submitting your review")
             return redirect(url)
+
+
+
+def delete_review(request, review_id):
+    """
+    Delete user review
+    """
+    review = get_object_or_404(ReviewRating, id=review_id)
+    url = request.META.get('HTTP_REFERER')
+
+    if review.user == request.user:
+        review.delete()
+        messages.success(request, "Your review has been deleted!")
+        return redirect(url)
+    else:
+        messages.error(request, "Something has gone wrong, please try again later")
+        return redirect(url)
