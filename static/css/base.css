@@ -249,6 +249,11 @@ a:active,
     -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
 }
 
+.review-card {
+    max-height: 20rem;
+    overflow: auto;
+}
+
 .btn-div {
     display: flex;
 }
@@ -638,7 +643,7 @@ a.ui-button:active, .ui-button:active,
     background-color: #ef1018;
     padding: 3px;
     border-radius: 5%;
-    color: #fafafa;
+    color: #fafafa !important;
 }
 
 .remove-item:hover,
@@ -663,11 +668,11 @@ a.ui-button:active, .ui-button:active,
 }
 
 /**************Update Personal Info*/
-
+/* 
 .img-thumbnail {
     width: 10rem;
     height: 10rem;
-}
+} */
 
 /**********************Footer*/
 
@@ -781,12 +786,12 @@ footer {
         width: auto;
     }
 
-    .btn-book {
+    /* .btn-book {
         left: 57% !important;
         width: 7rem;
         font-size: 1rem;
         top: 37% !important;
-    }
+    } */
 
     /* .btn-favourite {
         top: 14% !important;
@@ -870,7 +875,7 @@ footer {
         left: 70% !important;
         width: 7rem;
         font-size: 1rem;
-        top: 20% !important;
+        top: 25% !important;
     }
     
 }
@@ -882,10 +887,10 @@ footer {
         margin-right: 0px
     } */
 
-    .btn-book {
+    /* .btn-book {
         top: 17%;
         left: 73%;
-    }
+    } */
 
     /* .btn-favourite {
         top: 17%;
