@@ -57,7 +57,7 @@
                         <strong>per child above 4yrs</strong></li>
                     {% endif %}
                     {% if trip.averageRating > 0 %}
-                    <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating|floatformat:2 }} /5
+                    <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating|floatformat:1 }} /5
                     </li>
                     {% else %}
                     <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No rating yet </li>

@@ -118,7 +118,7 @@
                                 <p><i class="fas fa-euro-sign d-block"></i>{{ trip.adult_price }}</p>
                             </div>
                             <div class="col">
-                                <p><i class="fas fa-star d-block"></i> {{ trip.averageRating }}/5 </p>
+                                <p><i class="fas fa-star d-block"></i> {{ trip.averageRating|floatformat:1 }}/5 </p>
                             </div>
                             <div class="col">
                                 {% if trip.family_friendly %}
