@@ -171,11 +171,20 @@
                 <p>You may cancel your trip 24hrs in advance to get a full refund.
                     Any trips cancelled less than 24hrs in advance will not qualify for a refund.
                 </p>
-                <a href="{% url 'update_trip' trip.id %}" class="btn">
-                    <i class="fas fa-plus"></i>Update Trip
-                </a>
             </div>
         </div>
+        {% if user.is_superadmin %}
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-end">
+                <a href="{% url 'delete_trip' trip.id %}" class="btn remove-item m-1">
+                    <i class="fas fa-trash"></i> Delete Trip
+                </a>
+                <a href="{% url 'update_trip' trip.id %}" class="btn update-link m-1">
+                    <i class="fas fa-sync"></i> Update Trip
+                </a>
+            </div>
+        </div>    
+        {% endif %}
        
         {% if user.is_authenticated %}
         <div class="row mt-3">

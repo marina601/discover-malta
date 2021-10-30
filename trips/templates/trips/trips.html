@@ -126,18 +126,24 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <div class="row mt-4">
+                    </div>
+                    <div class="card-footer">
+                        <div class="row mt-2 mb-2">
                             <div class="col">
-                                <a href="{{ trip.get_url }}" class="btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
+                                {% if user.is_superadmin %}
+                                <a href="{% url 'delete_trip' trip.id %}" class=" d-inline btn remove-item m-1">
+                                    <i class="fas fa-trash"></i>
                                 </a>
-                                <a href="{% url 'update_trip' trip.id %}" class="btn">
-                                    <i class="fas fa-plus"></i>Update Trip
+                                <a href="{% url 'update_trip' trip.id %}" class="d-inline btn update-link m-1">
+                                    <i class="fas fa-sync"></i>
+                                </a>
+                                {% endif %}
+                                <a href="{{ trip.get_url }}" class="d-inline btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
                                 </a>
                             </div>
                         </div>
-                        
                     </div>
-                  </div>
+                </div>
             </div>
             
             {% endfor %}
