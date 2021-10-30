@@ -410,7 +410,7 @@ a:active,
 } */
 
 .card-trip {
-    height: 42rem;
+    height: 45rem;
     margin:  1rem;
     /* width: 21rem; */
     border: 2px solid #000000;
@@ -777,7 +777,7 @@ footer {
     } */
 
     .card-trip {
-        height: 45rem;
+        height: 48rem;
     }
 }
 
