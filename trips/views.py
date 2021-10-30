@@ -197,6 +197,18 @@ def update_trip(request, trip_id):
     return render(request, template, context)
 
 
+@login_required
+def delete_trip(request, trip_id):
+    """Delete Trip"""
+    trip = get_object_or_404(Trip, pk=trip_id)
+    if request.user.is_superadmin:
+        trip.delete()
+        messages.success(request, f"You have successfully deleted {trip.name}")
+    else:
+        messages.error(request, "You do not have admin previlieges to delete this trip")
+
+    return redirect('trips')
+
 
 def submit_review(request, trip_id, user_id):
     """
