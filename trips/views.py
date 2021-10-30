@@ -148,7 +148,7 @@ def add_trip(request):
                 messages.success(request, 'Successfully added a new trip!')
                 return redirect(reverse('add_trip'))
             else:
-                messages.error(request, 'Failed to add a trip. Please ensure the'
+                messages.error(request, 'Failed to add a trip. Please ensure'
                                ' all the required fields are completed!')
         else:
             messages.error(request, "You do not have admin previlieges to add a new trip")
@@ -162,6 +162,35 @@ def add_trip(request):
     print(form)
 
     return render(request, template, context)
+
+
+def update_trip(request, trip_id):
+    """Update Trip"""
+
+    trip = get_object_or_404(Trip, pk=trip_id)
+    if request.method == 'POST':
+        form = TripForm(request.POST, request.FILES, instance=trip)
+        if form.is_valid():
+            form.save()
+            messages.success(request, f'Succesfully updated {trip.name}!')
+            return redirect('trips')
+        else:
+            messages.error(request,
+                           f'Failed to update {trip.name}.'
+                           f' Please ensure the form is valid.'
+                           )
+    else:
+        form = TripForm(instance=trip)
+        messages.info(request, f'You are editing {trip.name}')
+
+    template = 'trips/update_trip.html'
+    context = {
+        'form': form,
+        'trip': trip,
+    }
+
+    return render(request, template, context)
+
 
 
 def submit_review(request, trip_id, user_id):
