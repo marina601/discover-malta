@@ -130,8 +130,12 @@
                             <div class="col">
                                 <a href="{{ trip.get_url }}" class="btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
                                 </a>
+                                <a href="{% url 'update_trip' trip.id %}" class="btn">
+                                    <i class="fas fa-plus"></i>Update Trip
+                                </a>
                             </div>
                         </div>
+                        
                     </div>
                   </div>
             </div>
