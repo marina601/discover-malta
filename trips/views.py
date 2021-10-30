@@ -164,21 +164,26 @@ def add_trip(request):
     return render(request, template, context)
 
 
+@login_required
 def update_trip(request, trip_id):
     """Update Trip"""
 
     trip = get_object_or_404(Trip, pk=trip_id)
+    form = TripForm(instance=trip)
     if request.method == 'POST':
-        form = TripForm(request.POST, request.FILES, instance=trip)
-        if form.is_valid():
-            form.save()
-            messages.success(request, f'Succesfully updated {trip.name}!')
-            return redirect('trips')
+        if request.user.is_superadmin:
+            form = TripForm(request.POST, request.FILES, instance=trip)
+            if form.is_valid():
+                form.save()
+                messages.success(request, f'Succesfully updated {trip.name}!')
+                return redirect('trips')
+            else:
+                messages.error(request,
+                               f'Failed to update {trip.name}.'
+                               f' Please ensure the form is valid.'
+                               )
         else:
-            messages.error(request,
-                           f'Failed to update {trip.name}.'
-                           f' Please ensure the form is valid.'
-                           )
+            messages.error(request, "You do not have admin previlieges to update this trip")
     else:
         form = TripForm(instance=trip)
         messages.info(request, f'You are editing {trip.name}')
