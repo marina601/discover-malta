@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} favourites {% endblock %}
+
+{% block content %}
+
+<section class="main-content">
+    <div class="container p-0">
+        <!--heading-->
+        {% if user.is_authenticated %}
+        <div class="row">
+            <div class="col-s12 mt-4">
+                <h1 class="text-center heading">{{ user.first_name|capfirst }}'s reviews</h1>
+            </div>
+        </div>
+        {% endif %}
+<!--display user reviews -->
+{% if reviews %}
+        <div class="row m-1">
+            {% for review in reviews %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card mb-3 review-card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">{{ review.trip }}</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <h5 class="card-title">{{ review.subject }}</h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <div class="star-rating">
+                                <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
+                                <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
+                                <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
+                                <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
+                                <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
+                            </div>
+                        </div>
+                        </div>
+                        <div class="row">
+                        <div class="col">
+                            <p class="card-text">{{ review.review }}</p>
+                        </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 col-sm-12 mb-1">
+                                <img src="{{ review.user.userprofile.profile_img.url }}"
+                                    class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
+                            </div>
+                            <div class="col-md-8 col-sm-8 mt-1">
+                                <h6 class="d-inline"><span class="text-muted">by</span>
+                                    {{ review.user.first_name|capfirst }}</h6>
+                                {% if review.updated_at %}
+                                <p class="card-text d-inline"><small class="text-muted">Updated on:
+                                        {{ review.updated_at|date:"M d, Y" }}</small></p>
+                                {% else %}
+                                <p class="card-text d-inline"><small class="text-muted">Created on:
+                                        {{ review.created_at|date:"M d, Y" }}</small></p>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="row d-flex justify-content-md-end">
+                            {% if user == review.user %}
+                            <div class="col-md-4 col-lg-4">
+                                <a href="{% url 'delete_review' review.id %}" class="float-left remove-item btn delete">
+                                    <small>Delete <i class="fas fa-trash"></i></small></a></a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+            <div class="col">
+                <p class="text-center">This Trip does not have any reviews yet.</p>
+            </div>
+        {% endif %}
+     
+        <!--Button to return to profile-->
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                {% if fav_result_count == 0 %}
+                <h4 class="text-center">You have not added any trips to your favourites yet.</h4>
+                <h5 class="d-inline">Checkout our experiences</h5>
+                <!--button to go to the all trips-->
+                {% endif %}
+                <a href="{% url 'trips' %}" class="btn-next btn d-inline">Here</a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+{% endblock %}
