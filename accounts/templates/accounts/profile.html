@@ -4,71 +4,84 @@
 {% block extra_title %} Profile {% endblock %}
 
 {% block content %}
-<section class="main-content mt-3">
+<section class="main-content">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col-md-8 col-sm-12 text-center">
                 <h2>Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
             </div>
+            <div class="col-md-4 col-sm-12 text-center">
+                <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid profile-img rounded-circle">
+            </div>
         </div>
-        <div class="row justify-content-start">
-          <!--Add a defaul picture here-->
-          <div class="col-lg-4">
-            {% if userprofile.profile_img %}
-          <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid img-thumbnail rounded-circle">
-            {% else %}
-            <img src="{{ 'user_profile/default_user.png' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <a class="btn btn-dropdown w-100" href="#order-history">View Order History</a>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <a class="btn btn-dropdown w-100" href="{% url 'edit_profile' %}">Edit Your Profile</a>
+            </div>
+            {% if user.is_superadmin %}
+            <div class="col-md-6 col-sm-12">
+                <a class="btn btn-dropdown w-100" href="{% url 'add_trip' %}">Add Trip</a>
+            </div>
             {% endif %}
-            {% if user.is_admin %}
-            <img src="{{ 'user_profile.url' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
-            {% endif %}
-          </div>
+            <div class="col-md-6 col-sm-6">
+                <a class="btn btn-dropdown w-100" href="{% url 'favourites' %}">View Favourites</a>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
+            </div>
         </div>
-        <a class="btn btn-more" href="{% url 'edit_profile' %}">Edit Your Profile</a>
-        <a class="btn btn-more" href="{% url 'add_trip' %}">Add Trip</a>
-        <a class="btn btn-more" href="{% url 'favourites' %}">Favourites</a>
-        <a class="btn btn-more" href="{% url 'view_reviews' %}">Your Reviews</a>
-    </div>
-    <div class="row">
-        <div class="col-12 col-lg-6">
-            <p class="text-muted">Order History</p>
-            <div class="order-history table-responsive">
-                <table class="table table-sm table-borderless">
-                    <thead>
-                        <tr>
-                            <th>Order Number</th>
-                            <th>Date</th>
-                            <th>Items</th>
-                            <th>Order Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for order in orders %}
-                        <tr>
-                            <td>
-                                <a href="{% url 'order_history' order.order_number %}"
-                                   title="{{ order.order_number }}">
-                                    {{ order.order_number|truncatechars:6 }}
-                                </a>
-                            </td>
-                            <td>{{ order.date }}</td>
-                            <td>
-                                <ul class="list-unstyled">
-                                    {% for item in order.ticketitems.all %}
+        <hr>
+        <div class="row">
+            {% if orders %}
+            <div class="col-12" id="order-history">
+                <p class="text-muted">Order History</p>
+                <div class="order-history table-responsive">
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                        title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.ticketitems.all %}
                                         <li class="small">
-                                            
+
                                             {{ item.trip.name }} x {{ item.quantity }}
                                         </li>
-                                    {% endfor %}
-                                </ul>
-                            </td>
-                            <td>${{ order.grand_total }}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>${{ order.grand_total }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
-          
+            {% else %}
+            <div class="col">
+                <p>Your order history will be displayed here once you place your first order</p>
+            </div>
+            {% endif %}
+        </div>
+    
     </div>
 </section>
 
