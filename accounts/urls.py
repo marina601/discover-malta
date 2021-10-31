@@ -16,4 +16,5 @@ urlpatterns = [
     path('add_to_favourite/<trip_id>', views.add_to_favourite, name='add_to_favourite'),
     path('favourites/', views.favourites, name='favourites'),
     path('view_reviews/', views.view_reviews, name='view_reviews'),
+    path('edit_review/<int:review_id>', views.edit_review, name='edit_review'),
 ]

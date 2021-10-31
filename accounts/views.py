@@ -12,6 +12,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from checkout.models import Order
 from trips.models import Trip, ReviewRating
+from trips.forms import ReviewForm
 from .forms import RegistraionForm, UserProfileForm, UserForm
 from .models import Account, UserProfile
 
@@ -289,8 +290,9 @@ def favourites(request):
     return render(request, template, context)
 
 
+@login_required
 def view_reviews(request):
-
+    """Display All user reviews"""
     reviews = ReviewRating.objects.filter(user=request.user.id)
 
     template = 'accounts/view_reviews.html'
@@ -299,3 +301,38 @@ def view_reviews(request):
     }
 
     return render(request, template, context)
+
+
+def edit_review(request, review_id):
+    """Edit user review"""
+    review = get_object_or_404(ReviewRating, pk=review_id)
+    form = ReviewForm(instance=review)
+    url = request.META.get('HTTP_REFERER')
+
+    if request.method == 'POST':
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            form = ReviewForm(request.POST, instance=review)
+            form.save()
+            messages.success(request, 'Thank you! Your review has'
+                            ' been updated.')
+            return redirect('view_reviews')
+        else:
+            messages.error(request,
+                               f'Failed to update {review.trip}.'
+                               f' Please ensure the form is valid.'
+                               )
+            return redirect(url)
+    else:
+        form = ReviewForm(instance=review)
+        messages.info(request, f'You are editing {review.trip}')
+    
+    template = 'accounts/edit_review.html'
+    context = {
+        'form': form,
+        'review': review,
+    }
+
+    return render(request, template, context)
+
+
