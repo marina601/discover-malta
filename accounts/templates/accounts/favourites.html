@@ -70,20 +70,19 @@
             </div>
             {% endfor %}
         </div>
-        <!--Button to return to profile-->
-        <div class="row">
-            <div class="col text-center">
-                <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
-            </div>
-        </div>
         <div class="row">
             <div class="col text-center">
                 {% if fav_result_count == 0 %}
                 <h4 class="text-center">You have not added any trips to your favourites yet.</h4>
                 <h5 class="d-inline">Checkout our experiences</h5>
-                <!--button to go to the all trips-->
-                {% endif %}
                 <a href="{% url 'trips' %}" class="btn-next btn d-inline">Here</a>
+                {% endif %}
+            </div>
+        </div>
+        <!--Button to return to profile-->
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
             </div>
         </div>
     </div>
