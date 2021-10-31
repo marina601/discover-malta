@@ -11,7 +11,7 @@ from django.utils.encoding import force_bytes
 from django.contrib.auth.tokens import default_token_generator
 from django.core.mail import EmailMessage
 from checkout.models import Order
-from trips.models import Trip
+from trips.models import Trip, ReviewRating
 from .forms import RegistraionForm, UserProfileForm, UserForm
 from .models import Account, UserProfile
 
@@ -284,6 +284,18 @@ def favourites(request):
     context = {
         'fav_trips': fav_trips,
         'fav_result_count': fav_result_count,
+    }
+
+    return render(request, template, context)
+
+
+def view_reviews(request):
+
+    reviews = ReviewRating.objects.filter(user=request.user.id)
+
+    template = 'accounts/view_reviews.html'
+    context = {
+        'reviews': reviews
     }
 
     return render(request, template, context)
