@@ -19,30 +19,12 @@
                 class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
                 {% csrf_token %}
                 <p>How would you rate this trip?</p>
-                <div class="rating">
-                    <!--Star Rating-->
-                    <label for="rating10" title="5" class="d-none"></label>
-                    <input type="radio" name="rating" id="rating10" value="5" />
-                    <label for="rating10" title="5"></label>
-                    <input type="radio" name="rating" id="rating10" value="5" />
-                    <label for="rating9" title="4.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating9" value="4.5" />
-                    <label for="rating8" title="4"></label>
-                    <input type="radio" name="rating" id="rating8" value="4" />
-                    <label for="rating7" title="3.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating7" value="3.5" />
-                    <label for="rating6" title="3"></label>
-                    <input type="radio" name="rating" id="rating6" value="3" />
-                    <label for="rating5" title="2.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating5" value="2.5" />
-                    <label for="rating4" title="2"></label>
-                    <input type="radio" name="rating" id="rating4" value="2" />
-                    <label for="rating3" title="1.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating3" value="1.5" />
-                    <label for="rating2" title="1"></label>
-                    <input type="radio" name="rating" id="rating2" value="1" />
-                    <label for="rating1" title="0.5" class="half"></label>
-                    <input type="radio" name="rating" id="rating1" value="0.5" required />
+                <div class="star-rating">
+                    <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
+                    <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
+                    <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
+                    <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
+                    <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
                 </div>
                 <div class="col">
                     <label for="subject" class="form-label">Rating:</label>
@@ -61,12 +43,10 @@
                 </div>
             </form>
         </div>
-
-     
         <!--Button to return to profile-->
         <div class="row">
             <div class="col text-center">
-                <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
+                <a href="{% url 'view_reviews' %}" class="btn-next btn">Go back to Reviews</a>
             </div>
         </div>
     </div>
