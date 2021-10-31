@@ -659,7 +659,7 @@ a.ui-button:active, .ui-button:active,
     background-color: #039b2b;
     padding: 3px;
     border-radius: 5%;
-    color: #fafafa;
+    color: #fafafa !important;
 }
 
 .remove-item {
