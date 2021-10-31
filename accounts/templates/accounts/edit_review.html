@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} favourites {% endblock %}
+
+{% block content %}
+
+<section class="main-content">
+    <div class="container p-0">
+        <!--heading-->
+        <div class="row">
+            <div class="col-s12 mt-4">
+                <h1 class="text-center heading">You can now update your review</h1>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <!--User Reviews-->
+            <form action="{% url 'edit_review' review.id %}" method="POST"
+                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
+                {% csrf_token %}
+                <p>How would you rate this trip?</p>
+                <div class="rating">
+                    <!--Star Rating-->
+                    <label for="rating10" title="5" class="d-none"></label>
+                    <input type="radio" name="rating" id="rating10" value="5" />
+                    <label for="rating10" title="5"></label>
+                    <input type="radio" name="rating" id="rating10" value="5" />
+                    <label for="rating9" title="4.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating9" value="4.5" />
+                    <label for="rating8" title="4"></label>
+                    <input type="radio" name="rating" id="rating8" value="4" />
+                    <label for="rating7" title="3.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating7" value="3.5" />
+                    <label for="rating6" title="3"></label>
+                    <input type="radio" name="rating" id="rating6" value="3" />
+                    <label for="rating5" title="2.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating5" value="2.5" />
+                    <label for="rating4" title="2"></label>
+                    <input type="radio" name="rating" id="rating4" value="2" />
+                    <label for="rating3" title="1.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating3" value="1.5" />
+                    <label for="rating2" title="1"></label>
+                    <input type="radio" name="rating" id="rating2" value="1" />
+                    <label for="rating1" title="0.5" class="half"></label>
+                    <input type="radio" name="rating" id="rating1" value="0.5" required />
+                </div>
+                <div class="col">
+                    <label for="subject" class="form-label">Rating:</label>
+                    {{ form.rating }}
+                </div>
+                <div class="col">
+                    <label for="subject" class="form-label">Review Title:</label>
+                    {{ form.subject}}
+                </div>
+                <div class="col">
+                    <label for="review" class="form-label">Review:</label>
+                    {{ form.review }}
+                </div>
+                <div class="col float-end">
+                    <button type="submit" class="btn btn-next btn-submit" id="btn-submit">Submit Review</button>
+                </div>
+            </form>
+        </div>
+
+     
+        <!--Button to return to profile-->
+        <div class="row">
+            <div class="col text-center">
+                <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
+            </div>
+        </div>
+    </div>
+</section>
+    
+{% endblock %}
