@@ -8,24 +8,19 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-auto mt-3">
-                <h2>Edit Your Profile</h2>
+                <h2>{{ user.first_name }} Edit Your Profile</h2>
             </div>
         </div>
-        <div class="row justify-content-end mt-5">
+        <div class="row">
           <!--Add a defaul picture here-->
-          <div class="col-lg-4">
+          <div class="col text-center">
             {% if userprofile.profile_img %}
-          <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid img-thumbnail rounded-circle">
-            {% else %}
-            <img src="{{ 'user_profile/default_user.png' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
-            {% endif %}
-            {% if user.is_admin %}
-            <img src="{{ 'user_profile.url' }}" alt="Default Profile Image" class="img-fluid img-thumbnail rounded-circle">
-            {% endif %}
+          <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid profile-img rounded-circle">
+           {% endif %}
           </div>
         </div>
         <div class="row justify-content-md-center mb-1 mt-1">
-            <div class="col-lg-8 col-md-8 col-sm-12">
+            <div class="col-lg-8 col-md-8 col-sm-12 login-form pt-1">
                 <form class="row g-3" action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
                   <div class="col-md-6">
@@ -72,19 +67,20 @@
                     <label for="phone_number" class="form-label">Profile Img:</label>
                     {{ profile_form.profile_img }}
                   </div>
-                  <button type="submit" class="btn btn-next">Update my Info</button>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-next w-100">Update my Info</button>
+                  </div>
                   <!--print form errors-->
                   {{ form.email.errors }}
                   {{ form.non_field_errors }}
                 </form>
             </div>
         </div>
-        <div class="row justify-content-md-center">
-          <div class="col-lg-4 col-md-8 col-sm-12 mt-5">
-            <p class="d-md-inline"> Already registered ?</p>
-            <a class="btn btn-dropdown d-md-inline" href="{% url 'login' %}">Login</a>
+        <div class="row mt-2">
+          <div class="col text-center">
+              <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
           </div>
-        </div>
+      </div>
     </div>
 </section>
 
