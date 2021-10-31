@@ -768,6 +768,14 @@ footer {
     margin: 1rem auto;
 }
 
+/************************Profile*/
+
+.profile-img {
+    width: 10rem;
+    height: 10rem;
+    margin: 1rem auto;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
