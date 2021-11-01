@@ -239,7 +239,7 @@ a:active,
 }
 
 .category-heading {
-    color: #da8925;
+    color: #fafafa;
     font-weight: 700;
     text-shadow: 2px 2px black;
     cursor: pointer;
@@ -896,6 +896,20 @@ footer {
         background-color: transparent;
         border: none;
     } */
+    .card-info {
+        width: 6rem;
+        height: 5rem;
+        padding: 0.4rem;
+        margin: 1rem;
+    }
+
+    .card-body p {
+        font-size: 0.6rem;
+    }
+
+    .card-body {
+        padding: 0rem;
+    }
 
     .btn-favourite i {
         font-size: 1.5rem;
