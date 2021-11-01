@@ -50,47 +50,51 @@
 
 <body>
     <header class="container-fluid fixed-top">
-        <!--Logo-->
         <div id="topnav" class="row pt-lg-3 pb-lg-3 d-none d-lg-flex">
+            <!--Logo-->
             <div class="col-lg-3 p-0 d-lg-flex justify-content-lg-start logo-div">
                 <a href="{% url 'home' %}" class="nav-link main-logo-link p-0">
                     <h2 class="text-white"><strong class='brand-logo'>Discover</strong> Malta</h2>
                 </a>
             </div>
+            <!--main navigation-->
             <div class="col-lg-6 d-lg-flex justify-content-lg-center align-items-lg-base">
                 <ul class="navbar-nav nav-links-ul">
                     <li class="nav-item text-white">
-                      <a class="logo-font font-weight-bold nav-link text-white" href="{% url 'home' %}" id="home-link">
-                          Home
-                      </a>
+                        <a class="logo-font font-weight-bold nav-link text-white" href="{% url 'home' %}">
+                            Home
+                        </a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link text-white" href="{% url 'trips' %}">All Trips</a>
+                        <a class="nav-link text-white" href="{% url 'trips' %}">All Trips</a>
                     </li>
                     <li class="nav-item dropdown ">
-                      <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Categories
-                      </a>
-                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <!--Get Category model function for category slack-->
-                        {% for category in links %}
-                          <li><a class="dropdown-item" href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>
-                        {% endfor %}
-                      </ul>
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
+                            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <!--Get Category model function for category slack-->
+                            {% for category in links %}
+                            <li><a class="dropdown-item"
+                                    href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>
+                            {% endfor %}
+                        </ul>
                     </li>
-                  </ul>
+                </ul>
             </div>
             <!--Profile-->
             <div class="col-lg-3 d-lg-flex justify-content-lg-end icon-div">
                 <ul class="list-inline list-unstyled text-lg-right my-0">
                     <li class="nav-item dropdown list-inline-item">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink"
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink-2"
                             role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% if user.is_authenticated %}
-                                <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
+                            <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
                                 class="img-fluid img-thumbnail rounded-circle d-block">
                             {% else %}
-                                <i class="fas fa-user fa-lg d-block"></i>
+                            <i class="fas fa-user fa-lg d-block" aria-hidden="true"></i>
+                            <span class="sr-only">user <menu></menu></span>
                             {% endif %}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -108,12 +112,17 @@
                         <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %}"
                             href="{% url 'bag' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
+                                <div>
+                                    <i class="fas fa-suitcase-rolling fa-lg" aria-hidden="true"></i>
+                                    <span class="sr-only">suitcase</span>
+                                </div>
                                 <p class="my-0">
                                     {% if grand_total %}
-                                    <i class="fas fa-euro-sign"></i> {{ grand_total|floatformat:2 }}
+                                    <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ grand_total|floatformat:2 }}
+                                    <span class="sr-only">grand total</span>
                                     {% else %}
-                                    <i class="fas fa-euro-sign"></i> 0.00
+                                    <i class="fas fa-euro-sign" aria-hidden="true"></i> 0.00
+                                    <span class="sr-only">grand total</span>
                                     {% endif %}
                                 </p>
                             </div>
@@ -122,9 +131,13 @@
                     <!--favourite link-->
                     <li class="list-inline-item nav-item">
                         {% if user.is_authenticated %}
-                        <a class="nav-link {% if fav_result_count > 0 %} user-favourites {% else %} text-white {% endif %}" href="{% url 'favourites' %}">
+                        <a class="nav-link {% if fav_result_count > 0 %} user-favourites {% else %} text-white {% endif %}"
+                            href="{% url 'favourites' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-heart fa-lg"></i></div>
+                                <div>
+                                    <i class="fas fa-heart fa-lg" aria-hidden="true"></i>
+                                    <span class="sr-only">user favourites</span>
+                                </div>
                                 {% if fav_result_count > 0%}
                                 <p class="my-0">
                                     {{ fav_result_count }}
@@ -139,7 +152,10 @@
                         {% else %}
                         <a class="nav-link text-white" href="{% url 'login' %}">
                             <div class="text-center">
-                                <div><i class="fas fa-heart fa-lg"></i></div>
+                                <div>
+                                    <i class="fas fa-heart fa-lg" aria-hidden="true"></i>
+                                    <span class="sr-only">user favourites</span>
+                                </div>
                                 <p class="my-0">
                                     0
                                 </p>
@@ -158,16 +174,16 @@
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
                             aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"></i></span>
+                            <span class="navbar-toggler-icon"><i class="fas fa-bars fa-lg"
+                                    aria-hidden="true"></i></span>
                         </button>
+                        <!--mobile navbar-->
                         {% include 'includes/mobile-nav.html' %}
                         {% include 'includes/main-nav.html' %}
                     </div>
                 </nav>
             </div>
         </div>
-        <!--main navbar-->
-
     </header>
 
     <!--Messages include toasts to display custom messages-->
@@ -189,35 +205,37 @@
     </div>
     {% endif %}
 
-    
-
     {% block page_header %}
     {% endblock %}
 
     {% block content %}
     {% endblock %}
-
+   
     <!--Footer-->
+    {% block footer %}
     {% include 'includes/footer.html' %}
+    {% endblock %}
 
     {% block postloadjs %}
     
-    <script type="text/javascript" src="{% static 'js/datepicker.js' %}"></script>
+    <script src="{% static 'js/datepicker.js' %}"></script>
 
-    <script type="text/javascript">
-            //Initiates the toasts and hides the contentent within 5 seconds
-            let toastElList = [].slice.call(document.querySelectorAll('.toast'))
-            let toastList = toastElList.map(function (toastEl) {
-                let option = {
-                    animation: true,
-                    autohide: true,
-                    delay: 5000,
-                }
-            let bsToast = new bootstrap.Toast(toastEl, option)
-            bsToast.show();
-            });
+    <script>
+        //Initiates the toasts and hides the contentent within 5 seconds
+        let toastElList = [].slice.call(document.querySelectorAll('.toast'))
+        let toastList = toastElList.map(function (toastEl) {
+            let option = {
+                animation: true,
+                autohide: true,
+                delay: 5000,
+            }
+        let bsToast = new bootstrap.Toast(toastEl, option)
+        bsToast.show();
+        });
     </script>
+
     {% endblock %}
+
 </body>
 
 </html>
