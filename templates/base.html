@@ -221,15 +221,16 @@
     <script src="{% static 'js/datepicker.js' %}"></script>
 
     <script>
+        //jshint esversion: 6
         //Initiates the toasts and hides the contentent within 5 seconds
-        let toastElList = [].slice.call(document.querySelectorAll('.toast'))
-        let toastList = toastElList.map(function (toastEl) {
+        let toastElList = [].slice.call(document.querySelectorAll('.toast'));
+        toastElList.map(function (toastEl) {
             let option = {
                 animation: true,
                 autohide: true,
                 delay: 5000,
-            }
-        let bsToast = new bootstrap.Toast(toastEl, option)
+            };
+        let bsToast = new bootstrap.Toast(toastEl, option);
         bsToast.show();
         });
     </script>
