@@ -1,7 +1,7 @@
 <ul class="mobile-icon-menu d-flex">
     <!--access to the account menu-->
     <li class="nav-item dropdown list-inline-item nav-item">
-        <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="text-center">
                 {% if user.is_authenticated %}
                     <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
@@ -54,7 +54,7 @@
         <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %} d-block d-lg-none"
             href="{% url 'bag' %}">
             <div class="text-center">
-                <div><i class="fas fa-suitcase-rolling fa-lg"></i></i></div>
+                <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
                 <p class="my-0">
                     {% if grand_total %}
                     <i class="fas fa-euro-sign"></i> {{ grand_total|floatformat:2 }}
