@@ -5,7 +5,7 @@
 
 {% block content %}
 <section class="main-content">
-    <div class="container">
+    <div class="container mt-0">
         <div class="row">
             <div class="col">
                 <!---carousel-->
@@ -51,38 +51,38 @@
         </div>
         <!--Reasons for signing up-->
         <div class="row justify-content-center">
-            <div class="card-info card-1 col-lg-2 col-md-4 col-sm-2">
+            <div class="card-info card-1 col-lg-2 col-md-4 col-sm-4">
                 <div class="card-body text-center">
-                    <i class="fas fa-envelope-open-text"></i>
+                    <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
                     <p>Instant Email Confirmation</p>
                 </div>
             </div>
-            <div class="card-info card-2 col-lg-2 col-md-4 col-sm-2">
+            <div class="card-info card-2 col-lg-2 col-md-4 col-sm-4">
                 <div class="card-body text-center">
-                    <i class="fas fa-mobile-alt"></i>
+                    <i class="fas fa-mobile-alt" aria-hidden="true"></i>
                     <p>Mobile Tickets</p>
                 </div>
             </div>
-            <div class="card-info card-3 col-lg-2 col-md-4 col-sm-2">
+            <div class="card-info card-3 col-lg-2 col-md-4 col-sm-4">
                 <div class="card-body text-center">
-                    <i class="fas fa-file-alt"></i>
+                    <i class="fas fa-file-alt" aria-hidden="true"></i>
                     <p>Cancellation Policy</p>
                 </div>
             </div>
-            <div class="card-info card-4 col-lg-2 col-md-6 col-sm-2">
+            <div class="card-info card-4 col-lg-2 col-md-6 col-sm-6">
                 <div class="card-body text-center">
-                    <i class="fab fa-cc-stripe"></i>
+                    <i class="fab fa-cc-stripe" aria-hidden="true"></i>
                     <p>Fast ＆ Secure Online Payments</p>
                 </div>
             </div>
-            <div class="card-info card-5 col-lg-2 col-lg-2 col-md-6 col-sm-2">
+            <div class="card-info card-5 col-lg-2  col-md-6 col-sm-6">
                 <div class="card-body text-center">
-                    <i class="fas fa-comment-dots"></i>
+                    <i class="fas fa-comment-dots" aria-hidden="true"></i>
                     <p>Rate ＆ Review Your Experience</p>
                 </div>
             </div>
         </div>
-        <div class="row spacing">
+        <div class="row">
             <div class="col-12">
                 <p class="text-center">
                     So what are you waiting for?
@@ -90,35 +90,34 @@
                 </p>
             </div>
         </div>
-    </div>
-    <!--Category Display-->
-    <div class="row spacing">
-        <div class="col">
-            <h3 class="text-center">Choose Your Category</h3>
-        </div>
-    </div>
-    <!--Display of Categories name and image with a link to category pages-->
-    <div class="row category-div spacing">
-        {% for category in categories %}
-        <div class="col-lg-3 col-md-4 col-sm-6 p-2">
-            <div class="card bg-dark h-100 m-1">
-                <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
-                <div class="card-img-overlay">
-                    <a href="{{ category.get_url }}" class="category-link">
-                        <h5 class="card-title text-center category-heading">{{ category.category_name | capfirst }}
-                        </h5>
-                    </a>
-                </div>
+        <!--Category Display-->
+        <div class="row spacing">
+            <div class="col">
+                <h3 class="text-center">Choose Your Category</h3>
             </div>
         </div>
-        {% endfor %}
-    </div>
-    <div class="row">
-        <!--link to all trips page-->
-        <div class="col justify-content-center btn-div">
-            <a href="{% url 'trips' %}" class="btn btn-lg btn-next">View All Trips</a>
+    <!--Display of Categories name and image with a link to category pages-->
+        <div class="row category-div spacing">
+            {% for category in categories %}
+            <div class="col-lg-3 col-md-4 col-sm-6 p-2">
+                <div class="card bg-dark h-100 m-1">
+                    <img src="{{ category.cat_image.url }}" class="card-img" alt="{{ category.category_name }}">
+                    <div class="card-img-overlay">
+                        <a href="{{ category.get_url }}" class="category-link">
+                            <h5 class="card-title text-center category-heading">{{ category.category_name | capfirst }}
+                            </h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-    </div>
+        <div class="row">
+            <!--link to all trips page-->
+            <div class="col justify-content-center btn-div">
+                <a href="{% url 'trips' %}" class="btn btn-lg btn-next">View All Trips</a>
+            </div>
+        </div>
     </div>
 </section>
 {% endblock %}
