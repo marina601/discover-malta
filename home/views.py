@@ -1,7 +1,6 @@
+# pylint: disable=no-member
 from django.shortcuts import render
 from trips.models import Category
-
-# Create your views here.
 
 
 def index(request):
