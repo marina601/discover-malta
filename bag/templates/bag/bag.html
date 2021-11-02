@@ -34,21 +34,24 @@
                     <a href="{{ item.trip.get_url }}" class="trip-link">
                        <h5>{{ item.trip.name }}</h5>
                     </a>
-                    <p><i class="fas fa-hourglass-end fa-lg"></i><strong> Duration: </strong>
+                    <p><i class="fas fa-hourglass-end fa-lg" aria-hidden="true"></i><strong> Duration: </strong>
                         {{ item.trip.duration }}hrs</p>
-                    <p><i class="far fa-clock fa-lg"></i> <strong>Start Time: </strong>
+                    <p><i class="far fa-clock fa-lg" aria-hidden="true"></i> <strong>Start Time: </strong>
                         {{ item.trip.start_time }}</p>
-                    <p><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location: </strong>
+                    <p><i class="fas fa-map-marked-alt fa-lg" aria-hidden="true"></i> <strong> Departure Location: </strong>
                         {{ item.trip.departure_location }}</p>
                     {% if item.trip.averageRating > 0 %}
-                    <p><i class="fas fa-star fa-lg"></i> {{ item.trip.averageRating|floatformat:1 }}/5 </p>
+                    <p>
+                        <i class="fas fa-star fa-lg" aria-hidden="true"></i> {{ item.trip.averageRating|floatformat:1 }}/5
+                        <span class="sr-only">rating</span>
+                    </p>
                     {% endif %}
                     {% if trip.family_friendly %}
-                    <p><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong></p>
+                    <p><i class="fas fa-child fa-lg" aria-hidden="true"></i> <strong>Friendly Friendly</strong></p>
                     {% endif %}
                 </div>
                 <div class="col-lg-2 col-md-4">
-                    <h4>Tickets <i class="fas fa-ticket-alt"></i></h4>
+                    <h4>Tickets <i class="fas fa-ticket-alt" aria-hidden="true"></i></h4>
                     <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
                     <!--check if there are any children tickets-->
                     {% if item.trip.family_friendly %}
@@ -58,10 +61,16 @@
                     </div>
                 <div class="col-lg-1 col-md-4">
                     <h4>Price</h4>
-                    <p class="my-0"><i class="fas fa-euro-sign"></i> {{ item.adult_price }} <strong>Adults</strong></p>
+                    <p class="my-0">
+                        <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ item.adult_price }} <strong>Adults</strong>
+                        <span class="sr-only">euro</span>
+                    </p>
                     <!--check if there are any children tickets-->
                     {% if item.trip.family_friendly %}
-                    <p class="my-0 mt-2"><i class="fas fa-euro-sign"></i> {{ item.child_price }} <strong>Children</strong></p>
+                    <p class="my-0 mt-2">
+                        <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ item.child_price }} <strong>Children</strong>
+                        <span class="sr-only">euro</span>
+                    </p>
                     {% endif %}
                 </div>
                 <div class="col-lg-3 col-md-4">
@@ -75,7 +84,8 @@
                                     <button class="decrease-quantity btn btn-sm"
                                         data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                         <span>
-                                            <i class="fas fa-minus fa-sm"></i>
+                                            <i class="fas fa-minus fa-sm" aria-hidden="true"></i>
+                                            <span class="sr-only">minus</span>
                                         </span>
                                     </button>
                                 </div>
@@ -86,7 +96,8 @@
                                     <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}"
                                         id="increment-qty_{{ item.trip_id }}">
                                         <span>
-                                            <i class="fas fa-plus fa-sm"></i>
+                                            <i class="fas fa-plus fa-sm" aria-hidden="true"></i>
+                                            <span class="sr-only">plus</span>
                                         </span>
                                     </button>
                                 </div>
@@ -100,7 +111,8 @@
                                     <button class="decrease-quantity-child btn btn-sm"
                                         data-item_id="{{ item.trip_id }}" id="decrement-qty_{{ item.trip_id }}">
                                         <span>
-                                            <i class="fas fa-minus fa-sm"></i>
+                                            <i class="fas fa-minus fa-sm" aria-hidden="true"></i>
+                                            <span class="sr-only">minus</span>
                                         </span>
                                     </button>
                                 </div>
@@ -112,7 +124,8 @@
                                     <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}"
                                         id="increment-qty_{{ item.trip_id }}">
                                         <span>
-                                            <i class="fas fa-plus fa-sm"></i>
+                                            <i class="fas fa-plus fa-sm" aria-hidden="true"></i>
+                                            <span class="sr-only">plus</span>
                                         </span>
                                     </button>
                                 </div>
@@ -123,7 +136,7 @@
                         <div class="form-group mt-2">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <h4>Booking Date: <i class="far fa-calendar-alt"></i>
+                                    <h4>Booking Date: <i class="far fa-calendar-alt" aria-hidden="true"></i>
                                         <input type="text" class="calendar form-control datepicker" name="booking_date"
                                             value="{{ item.booking_date }}" id="{{ item.trip_id }}">
                                     </h4>
@@ -134,12 +147,14 @@
                     <a class="update-link btn"><small><i class="fas fa-sync"></i> Update</small></a>
                     <a href="{% url 'remove_from_bag' item.trip.id %}"
                         class="remove-item float-right btn">
-                        <small>Remove <i class="fas fa-trash"></i></small></a>
+                        <small>Remove <i class="fas fa-trash" aria-hidden="true"></i></small></a>
                 </div>
                 <div class="col-lg col-md mt-4">
                     <div class="float-end">
-                        <h4 class="d-inline">Sub Total</h4>
-                        <p class="d-inline"><i class="fas fa-euro-sign"></i> {{ item.total_price }}</p> 
+                        <h4>Sub Total</h4>
+                        <p class="d-inline"><i class="fas fa-euro-sign d-inline" aria-hidden="true"></i> {{ item.total_price }}
+                            <span class="sr-only">euro</span>
+                        </p> 
                     </div>
                 </div>
             </div>
@@ -150,7 +165,10 @@
                 <div class="col">
                     <div class="float-end">
                        <h4 class="d-inline">Grand Total</h4>
-                       <p class="d-inline"><i class="fas fa-euro-sign"></i>  {{ grand_total }}</p>
+                       <p class="d-inline">
+                           <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ grand_total }}
+                           <span class="sr-only">euro</span>
+                       </p>
                     </div>
                 </div>
             </div>
@@ -160,7 +178,7 @@
                         <!--back to trips button-->
                         <a href="{% url 'trips' %}" class="btn btn-more">
                             <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
+                                <i class="fas fa-chevron-left" aria-hidden="true"></i>
                             </span>
                             <span class="text-uppercase">Keep Shopping</span>
                         </a>
@@ -172,7 +190,7 @@
                         <a href="{% url 'checkout' %}" class="btn btn-dropdown">
                             <span class="font-weight-bold">Proceed to Secure Checkout</span>
                             <span class="icon">
-                                <i class="fas fa-lock"></i>
+                                <i class="fas fa-lock" aria-hidden="true"></i>
                             </span>
                         </a>
                     </div>
@@ -185,7 +203,7 @@
                     <p class="lead mb-5">Your bag is empty</p>
                     <a href="{% url 'trips' %}" class="btn btn-more">
                         <span class="icon">
-                            <i class="fas fa-chevron-left"></i>
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
                         </span>
                         <span class="text-uppercase">Discover More Trips</span>
                     </a>
