@@ -1,13 +1,15 @@
 <ul class="mobile-icon-menu d-flex">
-    <!--access to the account menu-->
+    <!--Profile-->
     <li class="nav-item dropdown list-inline-item nav-item">
-        <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink4" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <a class="nav-link dropdown-toggle text-white d-block d-lg-none" href="#" id="navbarDropdownMenuLink4"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <div class="text-center">
                 {% if user.is_authenticated %}
-                    <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
+                <img src="{{ request.user.userprofile.profile_img.url }}" alt="Profile Picture"
                     class="img-fluid img-thumbnail rounded-circle d-block">
                 {% else %}
-                <i class="fas fa-user fa-lg d-block"></i>
+                <i class="fas fa-user fa-lg d-block" aria-hidden="true"></i>
+                <span class="sr-only">user</span>
                 {% endif %}
             </div>
         </a>
@@ -21,49 +23,54 @@
         {% endif %}
         </ul>
     </li>
-    <!--favourites-->
+    <!--Shopping bag link-->
+    <li class="list-inline-item nav-item">
+        <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %} d-block d-lg-none"
+            href="{% url 'bag' %}">
+            <div class="text-center">
+                <div>
+                    <i class="fas fa-suitcase-rolling fa-lg" aria-hidden="true"></i>
+                    <span class="sr-only">suitcase</span>
+                </div>
+                <p class="my-0">
+                    {% if grand_total %}
+                    <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ grand_total|floatformat:2 }}
+                    <span class="sr-only">grand total</span>
+                    {% else %}
+                    <i class="fas fa-euro-sign" aria-hidden="true"></i> 0.00
+                    <span class="sr-only">grand total</span>
+                    {% endif %}
+                </p>
+            </div>
+        </a>
+    </li>
+    <!--Favourites link-->
     <li class="list-inline-item nav-item">
         {% if user.is_authenticated %}
         <a class="nav-link d-block d-lg-none {% if fav_result_count > 0 %} user-favourites {% else %} text-white {% endif %}" href="{% url 'favourites' %}">
             <div class="text-center">
-                <div><i class="fas fa-heart fa-lg"></i></div>
+                <div>
+                    <i class="fas fa-heart fa-lg" aria-hidden="true"></i>
+                    <span class="sr-only">user favourites</span>
+                </div>
                 {% if fav_result_count > 0%}
-                <p class="my-0">
-                    {{ fav_result_count }}
-                </p>
+                <p class="my-0">{{ fav_result_count }}</p>
                 {% else %}
-                <p class="my-0">
-                    0
-                </p>
+                <p class="my-0">0</p>
                 {% endif %}
             </div>
         </a>
         {% else %}
         <a class="nav-link text-white" href="{% url 'login' %}">
             <div class="text-center">
-                <div><i class="fas fa-heart fa-lg"></i></div>
-                <p class="my-0">
-                    0
-                </p>
+                <div>
+                    <i class="fas fa-heart fa-lg" aria-hidden="true"></i>
+                    <span class="sr-only">user favourites</span>
+                </div>
+                <p class="my-0">0</p>
             </div>
         </a>
         {% endif %}
-    </li>
-    <!--access to the shopping bag-->
-    <li class="list-inline-item nav-item">
-        <a class="nav-link {% if total_price %} in-suitcase {% else %} text-white {% endif %} d-block d-lg-none"
-            href="{% url 'bag' %}">
-            <div class="text-center">
-                <div><i class="fas fa-suitcase-rolling fa-lg"></i></div>
-                <p class="my-0">
-                    {% if grand_total %}
-                    <i class="fas fa-euro-sign"></i> {{ grand_total|floatformat:2 }}
-                    {% else %}
-                    <i class="fas fa-euro-sign"></i> 0.00
-                    {% endif %}
-                </p>
-            </div>
-        </a>
     </li>
 </ul>
 
