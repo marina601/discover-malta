@@ -25,8 +25,8 @@
                     <h4>Trip Info</h4>
                 </div>
             </div>
-            <!--trip image-->
-            <div class="row p-md-2">
+            <div class="row m-1">
+                <!--trip image-->
                 <div class="col-lg-3 col-md-6 spacing-md">
                     <img class="img-fluid" src="{{ item.trip.images.url }}" alt="{{ item.trip.name }}">
                 </div>
@@ -53,6 +53,7 @@
                     <p><i class="fas fa-child fa-lg" aria-hidden="true"></i> <strong>Friendly Friendly</strong></p>
                     {% endif %}
                 </div>
+                <!--Number of tickets-->
                 <div class="col-lg-2 col-md-4">
                     <h4>Tickets <i class="fas fa-ticket-alt" aria-hidden="true"></i></h4>
                     <p class="my-0">{{ item.adult_tickets }} <strong>Adults</strong></p>
@@ -62,24 +63,23 @@
                     {% endif %}
                     <p class="my-0">{{ item.total_tickets }} <strong>Total Tickets</strong></p>
                 </div>
+                <!--Price-->
                 <div class="col-lg-1 col-md-4">
                     <h4>Price</h4>
                     <p class="my-0">
                         <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ item.adult_price }}
-                        <strong>Adults</strong>
                         <span class="sr-only">euro</span>
                     </p>
                     <!--check if there are any children tickets-->
                     {% if item.trip.family_friendly %}
                     <p class="my-0 mt-2">
                         <i class="fas fa-euro-sign" aria-hidden="true"></i> {{ item.child_price }}
-                        <strong>Children</strong>
                         <span class="sr-only">euro</span>
                     </p>
                     {% endif %}
                 </div>
                 <!--Update quantity form-->
-                <div class="col-lg-3 col-md-4">
+                <div class="col-lg-2 col-md-4">
                     <h4>Quantity</h4>
                     <form class="form update-form" action="{% url 'update_bag' item.trip.id %}" method="POST">
                         {% csrf_token %}
@@ -111,7 +111,8 @@
                         <div class="form-group mt-1">
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <button class="decrease-quantity-child btn btn-sm" data-item_id="{{ item.trip.id }}">
+                                    <button class="decrease-quantity-child btn btn-sm"
+                                        data-item_id="{{ item.trip.id }}">
                                         <span>
                                             <i class="fas fa-minus fa-sm" aria-hidden="true"></i>
                                             <span class="sr-only">minus</span>
@@ -144,11 +145,19 @@
                             </div>
                         </div>
                     </form>
-                    <a class="update-link btn"><small><i class="fas fa-sync"></i> Update</small></a>
-                    <a href="{% url 'remove_from_bag' item.trip.id %}" class="remove-item float-right btn">
-                        <small>Remove <i class="fas fa-trash" aria-hidden="true"></i></small></a>
+                    <!--Update/Remove buttons-->
+                    <div class="row">
+                        <div class="col">
+                            <a class="update-link btn d-inline"><small><i class="fas fa-sync" aria-hidden="true"></i>
+                                    Update</small></a>
+                            <a href="{% url 'remove_from_bag' item.trip.id %}"
+                                class="remove-item float-right btn d-inline">
+                                <small>Remove <i class="fas fa-trash" aria-hidden="true"></i></small></a>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg col-md mt-4">
+                <!--Sub btotal-->
+                <div class="col-lg-2 col-md-12">
                     <div class="float-end">
                         <h4>Sub Total</h4>
                         <p class="d-inline"><i class="fas fa-euro-sign d-inline" aria-hidden="true"></i>
