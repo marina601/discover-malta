@@ -797,6 +797,11 @@ footer {
     .card-trip {
         height: 48rem;
     }
+
+    .update-link,
+    .remove-item {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 320px) {
