@@ -27,14 +27,14 @@ class Category (models.Model):
 class Trip(models.Model):
 
     START_TIME = [
-        ('6 AM', '6 AM'),
-        ('7 AM', '7 AM'),
-        ('8 AM', '8 AM'),
-        ('9 AM', '9 AM'),
-        ('10 AM', '10 AM'),
-        ('12 PM', '12 PM'),
-        ('1 PM', '1 PM'),
-        ('6 PM', '6 PM'),
+        ('06:00', '06:00'),
+        ('07:00', '07:00'),
+        ('08:00', '08:00'),
+        ('09:00', '09:00'),
+        ('10:00', '10:00'),
+        ('12:00', '12:00'),
+        ('13:00', '13:00'),
+        ('18:00', '18:00'),
     ]
 
     name = models.CharField(max_length=200, unique=True)
