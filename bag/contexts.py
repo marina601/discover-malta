@@ -6,7 +6,7 @@ def bag_content(request):
     """
     Iterate through all the bag items
     and calculate price and quantity
-    gettin the values from the booking form
+    getting the values from the booking form
     """
 
     bag_items = []
@@ -17,7 +17,6 @@ def bag_content(request):
     child_price = 0
     grand_total = 0
     bag = request.session.get('bag', {})
-    print("ADDED BY JO: bag in contexts.py: ", bag)
 
     for key, values in bag.items():
         trip = get_object_or_404(Trip, pk=key)
@@ -42,7 +41,8 @@ def bag_content(request):
                 'adult_tickets': adult_tickets,
                 'children_tickets': children_tickets,
                 'child_price': child_price,
-                'grand_total': grand_total
+                'grand_total': grand_total,
+                'values': values,
             })
 
     context = {
@@ -51,7 +51,5 @@ def bag_content(request):
         'total_tickets': total_tickets,
         'grand_total': grand_total,
     }
-
-    print(context)
 
     return context
