@@ -6,6 +6,16 @@
 .form-control:focus {
     border-color: #2576da;
 }
+
+.btn-next {
+  width: 15rem !important;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.trip-link strong:hover {
+  color: #fafafa;
+}
 /**************Stripe*/
 
 input,
