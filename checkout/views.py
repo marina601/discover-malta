@@ -19,7 +19,6 @@ from .models import Order, OrderTicketItem
 from .forms import OrderForm
 
 
-
 @require_POST
 def cache_checkout_data(request):
     """Handling save info checkbox"""
@@ -79,6 +78,7 @@ def checkout(request):
                         adult_quantity=bag[key]['adult_tickets'],
                         booking_date=bag[key]['booking_date'],
                         quantity=bag[key]['quantity'],
+                        values=values,
                     )
                     order_ticket_item.save()
                 except Trip.DoesNotExist:
@@ -96,15 +96,17 @@ def checkout(request):
             # Send confirmation email
             current_site = get_current_site(request)
             mail_subject = 'Your order confirmation'
-            message = render_to_string('checkout/emails/confirmation_email.txt', {
-                'order': order,
-                'domain': current_site,
-            })
+            message = render_to_string(
+                'checkout/emails/confirmation_email.txt', {
+                    'order': order,
+                    'domain': current_site,
+                })
             to_email = order.email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            return redirect(reverse('checkout_complete', args=[order.order_number]))
+            return redirect(reverse('checkout_complete',
+                                    args=[order.order_number]))
         else:
             # if form is not valid
             messages.error(request, "There was an error with your form"
@@ -146,9 +148,6 @@ def checkout(request):
         else:
             order_form = OrderForm()
 
-    if not stripe_public_key:
-        messages.warning(request, 'Set up your public key')
-
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
@@ -168,7 +167,7 @@ def checkout_complete(request, order_number):
         userprofile = get_object_or_404(UserProfile, user=request.user)
         order.user_profile = userprofile
         order.save()
-    
+
         # Save the user's info if the checkbox is ticked
         save_info = request.session['save_info']
         if save_info:
