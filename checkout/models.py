@@ -3,8 +3,9 @@ import uuid
 
 from django.db import models
 from django.db.models import Sum
-from django_countries.fields import CountryField
+
 from django.utils import timezone
+from django_countries.fields import CountryField
 
 from trips.models import Trip
 from accounts.models import UserProfile
@@ -15,7 +16,8 @@ class Order(models.Model):
     """Order model"""
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
-                                     null=True, blank=True, related_name='orders')
+                                     null=True, blank=True,
+                                     related_name='orders')
     first_name = models.CharField(max_length=50, null=False,
                                   blank=False, default="")
     last_name = models.CharField(max_length=50,
@@ -23,13 +25,13 @@ class Order(models.Model):
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
     country = CountryField(blank_label='Country *', null=False, blank=False)
-    postcode = models.CharField(max_length=20, null=True, blank=True)
+    postcode = models.CharField(max_length=20, blank=True)
     # not required field
     town_or_city = models.CharField(max_length=40, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
-    street_address2 = models.CharField(max_length=80, null=True, blank=True)
+    street_address2 = models.CharField(max_length=80, blank=True)
     # not required field
-    county = models.CharField(max_length=80, null=True, blank=True)
+    county = models.CharField(max_length=80, blank=True)
     # auto_now_add field will automatically set order date and time
     date = models.DateTimeField(auto_now_add=True)
     # these fields will be calculated using the model method
@@ -53,7 +55,9 @@ class Order(models.Model):
         """
         self.order_total = self.ticketitems.aggregate(Sum
                                                       ('ticketitem_total')
-                                                      )['ticketitem_total__sum'] or 0
+                                                      )[
+                                                        'ticketitem_total__sum'
+                                                        ] or 0
         self.grand_total = self.order_total
         self.save()
 
@@ -93,7 +97,8 @@ class OrderTicketItem(models.Model):
         """
         self.children_tickets = self.trip.child_price * self.child_quantity
         self.adult_tickets = self.trip.adult_price * self.adult_quantity
-        self.ticketitem_total = (self.children_tickets + self.adult_tickets) * self.quantity
+        self.ticketitem_total = (
+            self.children_tickets + self.adult_tickets) * self.quantity
         super().save(*args, **kwargs)
 
     def __str__(self):
