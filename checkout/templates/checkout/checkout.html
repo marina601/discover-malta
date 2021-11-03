@@ -101,10 +101,10 @@
                                 checked>
                             {% else %}
                             <!--Links to login/register-->
-                            <label class="form-check-label" for="id-save-info">
-                                <a class="text-info" href="{% url 'register' %}">Create an account</a> or
-                                <a class="text-info" href="{% url 'login' %}">login</a> to save this information
-                            </label>
+                            <p>
+                               <a class="trip-link" href="{% url 'register' %}"><strong>Register</strong></a> or
+                               <a class="trip-link"  href="{% url 'login' %}"><strong>Login</strong></a> to save this information
+                            </p>
                             {% endif %}
                         </div>
                     </fieldset>
