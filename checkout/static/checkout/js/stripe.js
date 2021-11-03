@@ -1,3 +1,6 @@
+//jshint esversion: 6
+/*globals $:false */
+
 /*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/js
@@ -110,5 +113,5 @@ form.addEventListener('submit', function(ev) {
     }).fail(function() {
         // just reload the page, the error will be displayed to the user in the messages
         location.reload();
-    })
+    });
 });
