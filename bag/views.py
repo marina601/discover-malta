@@ -12,8 +12,10 @@ def view_bag(request):
 
 def add_to_bag(request, trip_id):
     """
-    Add a quantity of the specific trip
-    to the shopping bag
+    Add items to the bag
+    Check if the trip already exists in the bag
+    then update the bag, if does not then add the trip
+    to the bag.
     """
     booking_date = request.POST.get('booking_date')
     adult_tickets = int(request.POST.get('adult_tickets'))
@@ -27,7 +29,7 @@ def add_to_bag(request, trip_id):
 
     bag = request.session.get('bag', {})
 
-    # Add items to the bag
+    # Check if the trip is already in the bag
     if trip_id in list(bag.keys()):
         if booking_date == bag[trip_id]['booking_date']:
             bag[trip_id]['quantity'] += 1
@@ -41,23 +43,23 @@ def add_to_bag(request, trip_id):
                               f' and {children_tickets} children tickets'))
     else:
         bag[trip_id] = {
-            'quantity': 1, 'booking_date': booking_date,
+            'quantity': 1,
+            'booking_date': booking_date,
             'adult_tickets': adult_tickets,
             'children_tickets': children_tickets,
         }
         messages.success(request, (f'Added {trip.name},'
-                                   f' on {booking_date} date to your'))
+                                   f' on {booking_date} to your suitcase'))
 
     request.session['bag'] = bag
-    # del request.session['bag']
-    print(f'bag is: {bag}')
-
     return redirect(redirect_url)
 
 
 def update_bag(request, trip_id):
     """
     Update ticket quantity and booking date
+    If adult ticket quantity is less then 0
+    Delete trip from the bag
     """
     adult_tickets = int(request.POST.get('adult_tickets'))
     children_tickets = int(0)
@@ -89,7 +91,7 @@ def update_bag(request, trip_id):
 
 def remove_from_bag(request, trip_id):
     """
-    Remove all the trip by trip_id from the bag
+    Remove the trip by trip_id from the bag
     """
 
     try:
@@ -106,8 +108,7 @@ def remove_from_bag(request, trip_id):
             return redirect(reverse('trips'))
 
         return redirect(reverse('view_bag'))
-
     except Exception as e:
         messages.error(request, f'Error has occured when removing'
-                                f' {trip.name} from your suitcase')
+                       f' {trip.name} from your suitcase')
         return HttpResponse(status=500, e=e)
