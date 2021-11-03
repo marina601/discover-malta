@@ -14,7 +14,7 @@
 <section class="main-content">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">Thank you! </h2>
                 <hr>
@@ -23,6 +23,7 @@
                 </p>
             </div>
         </div>
+        <!--Order Info-->
         <div class="row">
             <div class="col-12">
                 <div class="order-confirmation-wrapper p-2 border">
@@ -37,13 +38,15 @@
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.order_number }}</p>
-                            <p class="text-muted">Please present this ticket number to the trip provider on your arrival
+                            <p class="text-muted">
+                                Please present this ticket number to the trip provider on your arrival
                             </p>
                         </div>
                     </div>
+                    <!--Ticket Details-->
                     <div class="row">
                         <div class="col-lg-8 mt-3">
-                            <p><strong>Order Details:</strong></p>
+                            <small class="text-muted">Order Details:</small>
                         </div>
                     </div>
                     {% for item in order.ticketitems.all %}
@@ -55,21 +58,36 @@
                             </p>
                         </div>
                         <div class="col-12 col-md-3 text-md-right mt-3">
-                            <p><strong><i class="fas fa-ticket-alt"></i> Tickets Purchased : </strong></p>
-                            <p class="small mb-0">{{ item.adult_quantity }} adults @ <i class="fas fa-euro-sign"></i>{{ item.trip.adult_price }} each
+                            <p><strong><i class="fas fa-ticket-alt" aria-hidden="true"></i> Tickets Purchased : </strong></p>
+                            <p class="small mb-0">
+                                {{ item.adult_quantity }} adults @ <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                <span class="sr-only">euro</span>
+                                {{ item.trip.adult_price }} each
                             </p>
                             {% if item.child_quantity > 0 %}
-                            <p class="small mb-0">{{ item.child_quantity }} children @ <i class="fas fa-euro-sign"></i>{{ item.trip.child_price }} each
+                            <p class="small mb-0">
+                                {{ item.child_quantity }} children @ <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                <span class="sr-only">euro</span>
+                                {{ item.trip.child_price }} each
                             </p>
                             {% endif %}
                         </div>
+                        <!--booking date-->
                         <div class="col-12 col-md-3 text-md-right mt-3">
-                            <p><strong><i class="fas fa-calendar-alt"></i> Booking Date :</strong></p>
+                            <p>
+                                <strong><i class="fas fa-calendar-alt" aria-hidden="true"></i> Booking Date :</strong>
+                            </p>
                             <p class="small mb-0">{{ item.booking_date }}</p>
                         </div>
                         <div class="col-12 col-md-2 text-md-right mt-3">
-                            <p><strong><i class="fas fa-money-bill-wave"></i> Total Cost :</strong></p>
-                            <p class="small mb-0"><i class="fas fa-euro-sign"></i> {{ item.ticketitem_total }}</p>
+                            <p>
+                                <strong><i class="fas fa-money-bill-wave" aria-hidden="true"></i> Total Cost :</strong>
+                            </p>
+                            <p class="small mb-0">
+                                <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                <span class="sr-only">euro</span> 
+                                {{ item.ticketitem_total }}
+                            </p>
                         </div>
                     </div>
                     <hr>
@@ -82,7 +100,9 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-user"></i> Full Name:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-user" aria-hidden="true"></i> Full Name:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-6 text-md-right">
                             <p class="mb-0 d-inline">{{ order.first_name|capfirst}}</p>
@@ -91,7 +111,9 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-map-marked-alt"></i> Address:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-map-marked-alt" aria-hidden="true"></i> Address:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-6 text-md-right">
                             <p class="mb-0">{{ order.street_address1|title }}</p>
@@ -100,7 +122,9 @@
                     {% if order.street_address2 %}
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-map-marked-alt"></i>Address:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-map-marked-alt" aria-hidden="true"></i>Address:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-6 text-md-right">
                             <p class="mb-0">{{ order.street_address2|title }}</p>
@@ -110,7 +134,9 @@
                     {% if order.county %}
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-home"></i>County:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-home" aria-hidden="true"></i>County:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.county|capfirst }}</p>
@@ -119,7 +145,9 @@
                     {% endif %}
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-city"></i> Town or City:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-city" aria-hidden="true"></i> Town or City:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.town_or_city|capfirst }}</p>
@@ -128,7 +156,9 @@
                     {% if order.postcode %}
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-home"></i> Postal Code:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-home" aria-hidden="true"></i> Postal Code:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.postcode|upper }}</p>
@@ -137,7 +167,9 @@
                     {% endif %}
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-globe"></i> Country:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-globe" aria-hidden="true"></i> Country:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.country }}</p>
@@ -145,7 +177,9 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-mobile-alt"></i> Phone Number:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-mobile-alt" aria-hidden="true"></i> Phone Number:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.phone_number }}</p>
@@ -153,7 +187,9 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-at"></i> Email Address:</strong></p>
+                            <p class="mb-0">
+                                <strong><i class="fas fa-at" aria-hidden="true"></i> Email Address:</strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
                             <p class="mb-0">{{ order.email }}</p>
@@ -161,10 +197,19 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-4 mt-3">
-                            <p class="mb-0"><strong><i class="fas fa-euro-sign"></i> Order Total:</strong></p>
+                            <p class="mb-0">
+                                <strong>
+                                    <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                     Order Total:
+                                </strong>
+                            </p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0"><i class="fas fa-euro-sign"></i> {{ order.order_total }}</p>
+                            <p class="mb-0">
+                                <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                <span class="sr-only">euro</span>
+                                 {{ order.order_total }}
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -177,14 +222,14 @@
                 <!--User is viewing past order history-->
                 <a href="{% url 'profile' %}" class="btn btn-dropdown">
                     <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
+                        <i class="fas fa-angle-left" aria-hidden="true" ></i>
                     </span>
                     <span class="text-uppercase">Back to Profile</span>
                 </a>
                 {% else %}
-                <a href="{% url 'trips' %}" class="btn btn-dropdown">
+                <a href="{% url 'trips' %}" class="btn btn-next">
                     <span class="icon mr-2">
-                        <i class="fas fa-angle-left"></i>
+                        <i class="fas fa-angle-left" aria-hidden="true"></i>
                     </span>
                     <span class="text-uppercase">Discover more Trips</span>
                 </a>
