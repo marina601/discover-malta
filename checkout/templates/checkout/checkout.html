@@ -29,7 +29,9 @@
             </div>
             <!--Trip name-->
             <div class="col-lg-2 col-md-6">
-                <p><strong>{{ item.trip.name }}</strong></p>
+                <a href="{{ item.trip.get_url }}" class="trip-link">
+                    <h5>{{ item.trip.name }}</h5>
+                </a>
             </div>
             <!--Tickets-->
             <div class="col-lg-2 col-md-4">
