@@ -31,8 +31,8 @@ class OrderForm(forms.ModelForm):
             'county': 'County, State or Locality',
         }
 
-# Autofocus attribute on the full_name field as true
-# The cursor will start on this field when the user loads the page
+        # Autofocus attribute on the full_name field as true
+        # The cursor will start on this field when the user loads the page
         self.fields['first_name'].widget.attrs['autofocus'] = True
         """
         Iterate through form fields and add * if
@@ -47,6 +47,8 @@ class OrderForm(forms.ModelForm):
                 # Setting placeholder to the values above
                 self.fields[field].widget.attrs['placeholder'] = placeholder
                 # adding a css class
-            self.fields[field].widget.attrs['class'] = 'form-control stripe-style-input'
+            self.fields[field].widget.attrs['class'] = (
+                'form-control stripe-style-input'
+            )
             # removing the form fields label
             self.fields[field].label = False
