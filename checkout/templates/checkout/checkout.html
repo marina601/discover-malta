@@ -14,7 +14,7 @@
 <section class="main-content">
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div class="col text-center">
                 <hr>
                 <h2 class="logo-font mb-4">Your Order Summary: </h2>
                 <hr>
@@ -104,14 +104,14 @@
                     </fieldset>
                     <!--link back to the shopping bag-->
                     <div class="submit-button text-right mt-5 mb-2">
-                        <a href="{% url 'view_bag' %}" class="btn btn-dropdown">
+                        <a href="{% url 'view_bag' %}" class="btn btn-next">
                             <span class="icon">
                                 <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="font-weight-bold">Adjust Your Order</span>
                         </a>
                         <!--submit button-->
-                        <button id="submit-button" class="btn add-quantity">
+                        <button id="submit-button" class="btn btn-dropdown">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock"></i>
@@ -125,6 +125,7 @@
                             <span>Your card will be charged <strong>
                                 <i class="fas fa-euro-sign"></i>{{ grand_total|floatformat:2 }}</strong></span>
                         </p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -144,6 +145,6 @@
    {{ block.super }}
    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
    {{ client_secret|json_script:"id_client_secret" }}
-   <script type="text/javascript" src="{% static 'checkout/js/stripe.js' %}"></script>
+   <script src="{% static 'checkout/js/stripe.js' %}"></script>
 
 {% endblock %}
