@@ -5,10 +5,8 @@ from django.shortcuts import get_object_or_404
 from trips.models import Trip
 
 
-# Create your views here.
-
-
-def bag(request):
+def view_bag(request):
+    """Render bag.htm template"""
     return render(request, 'bag/bag.html',)
 
 
@@ -29,11 +27,9 @@ def add_to_bag(request, trip_id):
 
     bag = request.session.get('bag', {})
 
+    # Add items to the bag
     if trip_id in list(bag.keys()):
         if booking_date == bag[trip_id]['booking_date']:
-            """
-            Add items to the bag
-            """
             bag[trip_id]['quantity'] += 1
             bag[trip_id]['booking_date'] = booking_date
             bag[trip_id]['adult_tickets'] += adult_tickets
@@ -88,7 +84,7 @@ def update_bag(request, trip_id):
                                    f'from your suitcase'))
 
     request.session['bag'] = bag
-    return redirect(reverse('bag'))
+    return redirect(reverse('view_bag'))
 
 
 def remove_from_bag(request, trip_id):
@@ -109,7 +105,7 @@ def remove_from_bag(request, trip_id):
         if not bag:
             return redirect(reverse('trips'))
 
-        return redirect(reverse('bag'))
+        return redirect(reverse('view_bag'))
 
     except Exception as e:
         messages.error(request, f'Error has occured when removing'
