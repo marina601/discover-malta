@@ -87,7 +87,7 @@ class StripeWH_Handler:
         if order_exists:
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | Success:'
-                        f' Verified order already in the database',
+                         f' Verified order already in the database',
                 status=200)
         else:
             # If order does not exists get all the values from the form
@@ -119,6 +119,7 @@ class StripeWH_Handler:
                         adult_quantity=bag_dict[key]['adult_tickets'],
                         booking_date=bag_dict[key]['booking_date'],
                         quantity=bag_dict[key]['quantity'],
+                        values=values,
                     )
                     order_ticket_item.save()
             except Exception as e:
@@ -126,11 +127,11 @@ class StripeWH_Handler:
                     order.delete()
                 return HttpResponse(
                         content=f'Webhook received: '
-                                f'{event["type"]} | ERROR: {e}',
+                                 f'{event["type"]} | ERROR: {e}',
                         status=500)
         return HttpResponse(
             content=f'Webhook received: {event["type"]} | SUCCESS: '
-                    f'Created order in webhook',
+                     f'Created order in webhook',
             status=200)
 
     def handle_payment_intent_payment_failed(self, event):
