@@ -49,11 +49,9 @@
                         </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-4 col-sm-12 mb-1">
+                            <div class="col">
                                 <img src="{{ review.user.userprofile.profile_img.url }}"
                                     class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
-                            </div>
-                            <div class="col-md-8 col-sm-8 mt-1">
                                 <h6 class="d-inline"><span class="text-muted">by</span>
                                     {{ review.user.first_name|capfirst }}</h6>
                                 {% if review.updated_at %}
@@ -65,9 +63,9 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-end">
+                        <div class="row">
                             {% if user == review.user %}
-                            <div class="col">
+                            <div class="col text-end">
                                 <a href="{% url 'delete_review' review.id %}" class="remove-item btn">
                                     <small><i class="fas fa-trash"></i> Delete</small></a>
                                 <a href="{% url 'edit_review' review.id %}" class="btn update-link">
