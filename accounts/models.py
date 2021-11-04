@@ -1,10 +1,9 @@
+# pylint: disable=no-member
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from django_countries.fields import CountryField
 from django.db.models.signals import post_save
 from django.dispatch import receiver
-
-# Create your models here.
+from django_countries.fields import CountryField
 
 
 class MyAccountManager(BaseUserManager):
@@ -16,9 +15,6 @@ class MyAccountManager(BaseUserManager):
         """Create a user"""
         if not email:
             raise ValueError('User must have an email address')
-
-        # if not username:
-        #     raise ValueError('User must have an username')
 
         user = self.model(
             # if entered a capital letter that it will convert to lowcase
@@ -77,13 +73,14 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return self.email
+        return self.USERNAME_FIELD
 
-    # if the user is admin it has all the permissions
     def has_perm(self, perm, obj=None):
+        """if the user is admin it has all the permissions"""
         return True
 
     def has_module_perms(self, app_label):
+        """if the user is admin it has all the permissions"""
         return True
 
 
@@ -110,5 +107,4 @@ def create_or_update_user_profile(sender, instance, created, **kwargs):
     """
     if created:
         UserProfile.objects.create(user=instance)
-    # Existing user: just save the profile
     instance.userprofile.save()
