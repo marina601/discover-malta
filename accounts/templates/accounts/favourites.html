@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} favourites {% endblock %}
+{% block extra_title %} Favourites {% endblock %}
 
 {% block content %}
 
@@ -15,13 +15,12 @@
             </div>
         </div>
         {% endif %}
-<!--display all the trips-->
+        <!--display all the trips-->
         <div class="row">
             <div class="col">
                 <p class="result-count">
-                   <span class="results">{{ fav_result_count }}</span> Saved Trips
+                    <span class="results">{{ fav_result_count }}</span> Saved Trips
                 </p>
-                
             </div>
         </div>
         <hr>
@@ -29,11 +28,12 @@
             {% for trip in fav_trips %}
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card card-trip">
-                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip">
                         <i class="fas fa-trash"></i>
                     </a>
                     <a href="{{ trip.get_url }}">
-                       <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+                        <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
                     </a>
                     <div class="card-body">
                         <a href="{{ trip.get_url }}">
@@ -61,16 +61,17 @@
                         </div>
                         <div class="row mt-4">
                             <div class="col">
-                                <a href="{{ trip.get_url }}" class="btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
+                                <a href="{{ trip.get_url }}" class="btn text-white btn-next btn-bottom"><i
+                                        class="fas fa-plus"></i> More Info
                                 </a>
                             </div>
                         </div>
                     </div>
-                  </div>
+                </div>
             </div>
             {% endfor %}
         </div>
-        <div class="row">
+        <div class="row m-1">
             <div class="col text-center">
                 {% if fav_result_count == 0 %}
                 <h4 class="text-center">You have not added any trips to your favourites yet.</h4>
@@ -80,12 +81,12 @@
             </div>
         </div>
         <!--Button to return to profile-->
-        <div class="row">
+        <div class="row mt-2">
             <div class="col text-center">
                 <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
             </div>
         </div>
     </div>
 </section>
-    
+
 {% endblock %}
