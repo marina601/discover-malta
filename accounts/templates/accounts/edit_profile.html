@@ -8,79 +8,81 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-auto mt-3">
-                <h2>{{ user.first_name }} Edit Your Profile</h2>
+                <h2>{{ user.first_name|capfirst }} Edit Your Profile</h2>
             </div>
         </div>
         <div class="row">
-          <!--Add a defaul picture here-->
+          <!--Profile Image-->
           <div class="col text-center">
-            {% if userprofile.profile_img %}
-          <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid profile-img rounded-circle">
-           {% endif %}
+            <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture"
+              class="img-fluid profile-img rounded-circle">
           </div>
         </div>
-        <div class="row justify-content-md-center mb-1 mt-1">
-            <div class="col-lg-8 col-md-8 col-sm-12 login-form pt-1">
-                <form class="row g-3" action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
-                   {% csrf_token %}
-                  <div class="col-md-6">
-                    <label for="first_name" class="form-label">First Name:</label>
-                    {{ user_form.first_name }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="last_name" class="form-label">Last Name:</label>
-                    {{ user_form.last_name }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="email" class="form-label">Email Address:</label>
-                    {{ user_form.email }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="phone_number" class="form-label">Phone Number:</label>
-                    {{ user_form.phone_number }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="street-address1" class="form-label">Street Address 1:</label>
-                    {{ profile_form.street_address1 }}
-                  </div>
-                  <div class="col-12">
-                    <label for="street-address2" class="form-label">Street Address 2:</label>
-                    {{ profile_form.street_address2 }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="town_or_city" class="form-label">Town or City:</label>
-                    {{ profile_form.town_or_city }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="county" class="form-label">County:</label>
-                    {{ profile_form.county }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="post-code" class="form-label">Post Code:</label>
-                    {{ profile_form.postcode }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="country" class="form-label">Country:</label>
-                    {{ profile_form.country }}
-                  </div>
-                  <div class="col-12">
-                    <label for="phone_number" class="form-label">Profile Img:</label>
-                    {{ profile_form.profile_img }}
-                  </div>
-                  <div class="col-12">
-                    <button type="submit" class="btn btn-next w-100">Update my Info</button>
-                  </div>
-                  <!--print form errors-->
-                  {{ form.email.errors }}
-                  {{ form.non_field_errors }}
-                </form>
-            </div>
+        <!--Profile Form-->
+        <div class="row justify-content-center spacing">
+          <div class="col-lg-8 col-md-8 col-sm-12 login-form pt-1">
+            <form class="row g-3" action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <div class="col-md-6">
+                <label for="first_name" class="form-label">First Name:</label>
+                {{ user_form.first_name }}
+              </div>
+              <div class="col-md-6">
+                <label for="last_name" class="form-label">Last Name:</label>
+                {{ user_form.last_name }}
+              </div>
+              <div class="form-row col-md-6">
+                <label for="email" class="form-label">Email Address:</label>
+                {{ user_form.email }}
+              </div>
+              <div class="col-md-6">
+                <label for="phone_number" class="form-label">Phone Number:</label>
+                {{ user_form.phone_number }}
+              </div>
+              <div class="form-row col-12">
+                <label for="street-address1" class="form-label">Street Address 1:</label>
+                {{ profile_form.street_address1 }}
+              </div>
+              <div class="col-12">
+                <label for="street-address2" class="form-label">Street Address 2:</label>
+                {{ profile_form.street_address2 }}
+              </div>
+              <div class="form-row col-md-6">
+                <label for="town_or_city" class="form-label">Town or City:</label>
+                {{ profile_form.town_or_city }}
+              </div>
+              <div class="col-md-6">
+                <label for="county" class="form-label">County:</label>
+                {{ profile_form.county }}
+              </div>
+              <div class="form-row col-md-6">
+                <label for="post-code" class="form-label">Post Code:</label>
+                {{ profile_form.postcode }}
+              </div>
+              <div class="col-md-6">
+                <label for="country" class="form-label">Country:</label>
+                {{ profile_form.country }}
+              </div>
+              <div class="col-12">
+                <label for="phone_number" class="form-label">Profile Img:</label>
+                {{ profile_form.profile_img }}
+                {{ profile_form.profile_img.errors }}
+              </div>
+              <!--print form errors-->
+              {{ user_form.non_field_errors }}
+              {{ profile_form.non_field_errors }}
+              <div class="col-12 text-center">
+                <button type="submit" class="btn btn-dropdown">Update my Info</button>
+              </div>
+            </form>
+          </div>
         </div>
+        <!--Back to Profile -->
         <div class="row mt-2">
           <div class="col text-center">
-              <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
+            <a href="{% url 'profile' %}" class="btn-next btn">Go back to Profile</a>
           </div>
-      </div>
+        </div>
     </div>
 </section>
 
