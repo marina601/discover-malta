@@ -5,60 +5,63 @@
 
 {% block content %}
 <section class="main-content">
-    <div class="container">
-      <!--message once the form is submitted-->
-      {% if request.GET.command == 'verification' %}
-      <div class="row justify-content-md-center verification-div">
-        <div class="col-lg-6 mt-5 ">
-          <p> Thank you for creating an account with us.
-            We have send a verification link to your email address <strong>{{request.GET.email}}</strong>.
-            Please click on the link and activate your account.
-          </p>
-          <hr>
-          <p>
-            If you have activated you account already.</p>
-            <p>
-             Please 
-            <a class="btn btn-dropdown d-inline" href="{% url 'login'%}">Login</a>
-          </p>
-        </div>
+  <div class="container">
+    <!--message once the form is submitted-->
+    {% if request.GET.command == 'verification' %}
+    <div class="row justify-content-md-center verification-div">
+      <div class="col-lg-6 mt-5 ">
+        <p> Thank you for creating an account with us.
+          We have send a verification link to your email address <strong>{{request.GET.email}}</strong>.
+          Please click on the link and activate your account.
+        </p>
+        <hr>
+        <p>
+          If you have activated you account already.</p>
+        <p>
+          Please
+          <a class="btn btn-dropdown d-inline" href="{% url 'login'%}">Login</a>
+        </p>
       </div>
-      {% else %}
-        <div class="row justify-content-center">
-            <div class="col-md-auto mt-3">
-                <h2>Login Here</h2>
-            </div>
-        </div>
-        <!--login form-->
-        <div class="row justify-content-md-center mt-4">
-            <div class="col-lg-8 col-md-6 col-sm-12">
-                <form class="row g-3 login-form" action="{% url 'login' %}" method="POST">
-                  {% csrf_token %}
-                  <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address:</label>
-                    <input type="email" autofocus class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" name="password">
-                  </div>
-                  <div class="mb-3">
-                    <button type="submit" class="btn btn-next w-100">Login</button>
-                  </div>
-                  <div class="mb-3 reset-password">
-                    <p class="d-md-inline text-muted">Forgot password ?</p>
-                    <a class="btn d-md-inline" href="{% url 'forgot_password' %}">Click here to reset your passowrd</a>
-                  </div>
-                </form>
-            </div>
-        </div>
-        <div class="row justify-content-md-center">
-          <div class="col-lg-4 col-md-8 mt-5">
-            <p class="d-md-inline">Do not have an account ?</p><a class="btn btn-dropdown d-md-inline" href="{% url 'register' %}">Register</a>
-          </div>
-        </div>
-      {% endif %}
     </div>
+    {% else %}
+    <div class="row">
+      <div class="col text-center mt-5 ">
+        <h2>Login Here</h2>
+      </div>
+    </div>
+    <!--login form-->
+    <div class="row justify-content-md-center mt-4">
+      <div class="col-lg-8 col-md-6 col-sm-12">
+        <form class="row g-3 login-form" action="{% url 'login' %}" method="POST">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address:</label>
+            <input type="email" autofocus class="form-control" id="email" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <div class="mb-3">
+            <button type="submit" class="btn btn-next w-100">Login</button>
+          </div>
+          <div class="mb-3 reset-password text-center">
+            <p class="d-md-inline text-muted">Forgot password ?</p>
+            <a class="btn d-md-inline trip-link" href="{% url 'forgot_password' %}">
+              <strong>click here to reset your passowrd</strong>
+            </a>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Link to Registration Page-->
+    <div class="row mt-5">
+      <div class="col text-center">
+        <p class="d-md-inline">Do not have an account ?</p>
+        <a class="btn btn-dropdown d-md-inline" href="{% url 'register' %}">Register</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
 </section>
 {% endblock %}
-
