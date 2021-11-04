@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} favourites {% endblock %}
+{% block extra_title %} Edit Review {% endblock %}
 
 {% block content %}
 
@@ -38,8 +38,8 @@
                     <label for="review" class="form-label">Review:</label>
                     {{ form.review }}
                 </div>
-                <div class="col float-end">
-                    <button type="submit" class="btn btn-next btn-submit" id="btn-submit">Submit Review</button>
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-dropdown" id="btn-submit">Submit Review</button>
                 </div>
             </form>
         </div>
