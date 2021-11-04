@@ -17,29 +17,29 @@
         <form class="row g-3 login-form" action="{% url 'register' %}" method="POST">
           {% csrf_token %}
           <div class="col-md-6">
-            <label for="first_name" class="form-label">First Name:</label>
+            <label for="id_first_name" class="form-label">First Name:</label>
             {{ form.first_name }}
           </div>
           <div class="col-md-6">
-            <label for="last_name" class="form-label">Last Name:</label>
+            <label for="id_last_name" class="form-label">Last Name:</label>
             {{ form.last_name }}
           </div>
           <div class="form-row col-md-6">
-            <label for="email" class="form-label">Email Address:</label>
+            <label for="id_email" class="form-label">Email Address:</label>
             {{ form.email }}
             {{ form.email.errors }}
           </div>
           <div class="col-md-6">
-            <label for="phone_number" class="form-label">Phone Number:</label>
+            <label for="id_phone_number" class="form-label">Phone Number:</label>
             {{ form.phone_number }}
           </div>
           <div class="form-row col-md-6">
-            <label for="password" class="form-label">Create Password:</label>
+            <label for="id_password" class="form-label">Create Password:</label>
             {{ form.password }}
             {{ form.password.erros }}
           </div>
           <div class="col-md-6">
-            <label for="password" class="form-label">Repeat Password:</label>
+            <label for="id_password" class="form-label">Repeat Password:</label>
             {{ form.confirm_password }}
             {{ form.confirm_password.errors }}
           </div>
