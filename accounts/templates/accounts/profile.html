@@ -18,6 +18,7 @@
               class="img-fluid profile-img rounded-circle">
           </div>
         </div>
+        <!--Profile Links-->
         <div class="row">
             <div class="col-md-4 col-sm-6">
                 <a class="btn btn-dropdown w-100" href="#order-history">View Order History</a>
@@ -42,6 +43,7 @@
             {% endif %}
         </div>
         <hr>
+        <!--Order History-->
         <div class="row">
             {% if orders %}
             <div class="col-12" id="order-history">
@@ -50,10 +52,10 @@
                     <table class="table table-sm table-borderless">
                         <thead>
                             <tr>
-                                <th>Order Number</th>
-                                <th>Date</th>
-                                <th>Items</th>
-                                <th>Order Total</th>
+                                <th>Order Number:</th>
+                                <th>Date:</th>
+                                <th>Items:</th>
+                                <th>Order Total:</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -61,8 +63,8 @@
                             <tr>
                                 <td>
                                     <a href="{% url 'order_history' order.order_number %}"
-                                        title="{{ order.order_number }}">
-                                        {{ order.order_number|truncatechars:6 }}
+                                        title="{{ order.order_number }}" class="trip-link">
+                                        <strong>{{ order.order_number|truncatechars:6 }}</strong>
                                     </a>
                                 </td>
                                 <td>{{ order.date }}</td>
@@ -70,13 +72,16 @@
                                     <ul class="list-unstyled">
                                         {% for item in order.ticketitems.all %}
                                         <li class="small">
-
                                             {{ item.trip.name }} x {{ item.quantity }}
                                         </li>
                                         {% endfor %}
                                     </ul>
                                 </td>
-                                <td>${{ order.grand_total }}</td>
+                                <td>
+                                    <i class="fas fa-euro-sign" aria-hidden="true"></i>
+                                    <span class="sr-only">euro</span>
+                                    {{ order.grand_total }}
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -84,12 +89,12 @@
                 </div>
             </div>
             {% else %}
-            <div class="col">
+            <!--If not order history-->
+            <div class="col text-center">
                 <p>Your order history will be displayed here once you place your first order</p>
             </div>
             {% endif %}
         </div>
-    
     </div>
 </section>
 
