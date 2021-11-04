@@ -6,32 +6,40 @@
 {% block content %}
 <section class="main-content">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-12 text-center">
+        <div class="row justify-content-center">
+            <div class="col-md-auto mt-3">
                 <h2>Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
-            </div>
-            <div class="col-md-4 col-sm-12 text-center">
-                <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture" class="img-fluid profile-img rounded-circle">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6">
+          <!--Profile Image-->
+          <div class="col text-center">
+            <img src="{{ userprofile.profile_img.url }}" alt="Profile Picture"
+              class="img-fluid profile-img rounded-circle">
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
                 <a class="btn btn-dropdown w-100" href="#order-history">View Order History</a>
             </div>
-            <div class="col-md-6 col-sm-12">
+            <div class="col-md-4 col-sm-12">
                 <a class="btn btn-dropdown w-100" href="{% url 'edit_profile' %}">Edit Your Profile</a>
             </div>
-            {% if user.is_superadmin %}
-            <div class="col-md-6 col-sm-12">
-                <a class="btn btn-dropdown w-100" href="{% url 'add_trip' %}">Add Trip</a>
-            </div>
-            {% endif %}
-            <div class="col-md-6 col-sm-6">
+            <div class="col-md-4 col-sm-12">
                 <a class="btn btn-dropdown w-100" href="{% url 'favourites' %}">View Favourites</a>
             </div>
-            <div class="col-md-6 col-sm-6">
+            {% if user.is_superadmin %}
+            <div class="col-md-4 offset-md-2 col-sm-12">
                 <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
             </div>
+            <div class="col-md-4 col-sm-12">
+                <a class="btn btn-dropdown w-100" href="{% url 'add_trip' %}">Add Trip</a>
+            </div>
+            {% else %}
+            <div class="col-md-4 offset-md-4 col-sm-12">
+                <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
+            </div>
+            {% endif %}
         </div>
         <hr>
         <div class="row">
