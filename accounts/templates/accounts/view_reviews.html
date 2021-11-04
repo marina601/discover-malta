@@ -27,27 +27,32 @@
                                 <h5 class="card-title">{{ review.trip }}</h5>
                             </div>
                         </div>
+                        <hr>
                         <div class="row">
                             <div class="col">
                                 <h5 class="card-title">{{ review.subject }}</h5>
                             </div>
                         </div>
+                        <!--Star Rating-->
                         <div class="row">
-                        <div class="col">
-                            <div class="star-rating">
-                                <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
+                            <div class="col">
+                                <div class="star-rating">
+                                    <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}" aria-hidden="true"></i>
+                                    <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}" aria-hidden="true"></i>
+                                    <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}" aria-hidden="true"></i>
+                                    <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}" aria-hidden="true"></i>
+                                    <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}" aria-hidden="true"></i>
+                                    <span class="sr-only">Rating:{{ review.rating }}</span>
+                                </div>
                             </div>
                         </div>
-                        </div>
+                        <!--Review-->
                         <div class="row">
-                        <div class="col">
-                            <p class="card-text">{{ review.review }}</p>
+                            <div class="col">
+                                <p class="card-text">{{ review.review }}</p>
+                            </div>
                         </div>
-                        </div>
+                        <!--User Info-->
                         <div class="row">
                             <div class="col">
                                 <img src="{{ review.user.userprofile.profile_img.url }}"
@@ -63,13 +68,16 @@
                                 {% endif %}
                             </div>
                         </div>
+                        <!--Edit/Delete button-->
                         <div class="row">
                             {% if user == review.user %}
                             <div class="col text-end">
                                 <a href="{% url 'delete_review' review.id %}" class="remove-item btn">
-                                    <small><i class="fas fa-trash"></i> Delete</small></a>
+                                    <small><i class="fas fa-trash" aria-hidden="true"></i> Delete</small>
+                                </a>
                                 <a href="{% url 'edit_review' review.id %}" class="btn update-link">
-                                    <small>Edit <i class="fas fa-sync"></i></small></a>
+                                    <small>Edit <i class="fas fa-sync" aria-hidden="true"></i></small>
+                                </a>
                             </div>
                             {% endif %}
                         </div>
@@ -79,9 +87,9 @@
             {% endfor %}
         </div>
         {% else %}
-            <div class="col">
-                <p class="text-center">You did not review any trips yet</p>
-            </div>
+        <div class="col">
+            <p class="text-center">You did not review any trips yet</p>
+        </div>
         {% endif %}
         <!--Button to return to profile-->
         <div class="row">
@@ -91,5 +99,5 @@
         </div>
     </div>
 </section>
-    
+
 {% endblock %}
