@@ -14,7 +14,7 @@ class RegistraionForm(forms.ModelForm):
     phone_number = forms.IntegerField(required=True)
 
     class Meta:
-        """Create a model form"""
+        """Create a RegistrationForm using Account model"""
         model = Account
         fields = ['first_name', 'last_name',
                   'email', 'password']
@@ -23,7 +23,8 @@ class RegistraionForm(forms.ModelForm):
         """Validate password min length"""
         if len(password) < password.min_length:
             raise ValidationError(
-                _("This password must contain at least %(min_length)d characters."),
+                _("This password must contain at least "
+                  "%(min_length)d characters."),
                 code='password_too_short',
                 params={'min_length': password.min_length},
             )
@@ -75,6 +76,7 @@ class RegistraionForm(forms.ModelForm):
 class UserForm(forms.ModelForm):
     """User form"""
     class Meta:
+        """Create a UserForm using Account model"""
         model = Account
         fields = ('first_name', 'last_name', 'phone_number', 'email')
 
@@ -93,10 +95,13 @@ class UserForm(forms.ModelForm):
 class UserProfileForm(forms.ModelForm):
     """User Profile Form"""
     profile_img = forms.ImageField(required=False,
-                                   error_messages={'invalid': ("Image files only")},
+                                   error_messages={'invalid':
+                                                   ("Image files only")
+                                                   },
                                    widget=forms.FileInput())
 
     class Meta:
+        """Getting the fields from UserProfiel Model"""
         model = UserProfile
         fields = ('street_address1', 'street_address2', 'town_or_city',
                   'county', 'postcode', 'country', 'profile_img')
