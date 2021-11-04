@@ -122,8 +122,8 @@ def activate(request, uidb64, token):
 def profile(request):
     """User Profile"""
     userprofile = get_object_or_404(UserProfile, user=request.user)
-
-    orders = userprofile.orders.all()
+    # display the orders in desc order
+    orders = userprofile.orders.all().order_by('-date')
 
     context = {
         'userprofile': userprofile,
