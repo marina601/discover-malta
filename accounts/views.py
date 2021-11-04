@@ -1,5 +1,6 @@
 # pylint: disable=no-member
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponseRedirect
+# pylint: disable=protected-access
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 
@@ -21,7 +22,8 @@ from .models import Account, UserProfile
 
 def register(request):
     """
-    Register function
+    Registration functionality, if the form is valid
+    create a new user and generate a username
     """
     if request.method == 'POST':
         form = RegistraionForm(request.POST)
@@ -40,27 +42,29 @@ def register(request):
             user.phone_number = phone_number
             user.save()
 
-            # Account activation email
+            # Send Account activation email
             current_site = get_current_site(request)
             mail_subject = 'Please activate your account'
-            message = render_to_string('accounts/emails/account_activation.html', {
-                'user': user,
-                'domain': current_site,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
-            })
+            message = render_to_string(
+                    'accounts/emails/account_activation.html', {
+                        'user': user,
+                        'domain': current_site,
+                        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                        'token': default_token_generator.make_token(user),
+                    }
+                )
             to_email = email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
             messages.success(request, f'Thank you {user.first_name} for'
-                                      f' registering,'
-                                      f' we have send you an email with'
-                                      f' verification link.'
-                                      f' Please verify your account')
+                             f' registering,'
+                             f' we have send you an email with'
+                             f' verification link.'
+                             f' Please verify your account')
             form = RegistraionForm()
-            return redirect('/accounts/login/?command=verification&email='
-                            + email)  # check if this link will work now
+            return redirect(
+                '/accounts/login/?command=verification&email=' + email)
     else:
         form = RegistraionForm()
 
@@ -73,6 +77,8 @@ def register(request):
 def login(request):
     """
     Login function
+    Authenticate the user by email address
+    and password
     """
     if request.method == 'POST':
         email = request.POST['email']
@@ -82,7 +88,8 @@ def login(request):
 
         if user is not None:
             auth.login(request, user)
-            messages.success(request, "You are now logged in!")
+            messages.success(request, f"Welcome {user.first_name}"
+                             f" you are now logged in!")
             return redirect('home')
         else:
             messages.error(request, "Invalid login details, please try again!")
@@ -96,7 +103,7 @@ def logout(request):
     """Logout function"""
     auth.logout(request)
     messages.success(request, "You have logged out!")
-    return redirect('profile')
+    return redirect('home')
 
 
 def activate(request, uidb64, token):
@@ -111,7 +118,7 @@ def activate(request, uidb64, token):
         user.is_active = True
         user.save()
         messages.success(request, f'Congratulations {user.first_name} your'
-                                  f' account has been activated')
+                         f' account has been activated')
         return redirect('login')
     else:
         messages.error(request, "Invalid activation link")
@@ -146,19 +153,21 @@ def forgot_password(request):
             # Reset password email
             current_site = get_current_site(request)
             mail_subject = 'Reset Your Password'
-            message = render_to_string('accounts/emails/reset_password_email.html', {
-                'user': user,
-                'domain': current_site,
-                # encoding user id
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': default_token_generator.make_token(user),
-            })
+            message = render_to_string(
+                'accounts/emails/reset_password_email.html', {
+                    'user': user,
+                    'domain': current_site,
+                    # encoding user id
+                    'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                    'token': default_token_generator.make_token(user),
+                }
+            )
             to_email = email
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
             messages.success(request, f'Password reset link has been'
-                                      f'send to {to_email}')
+                             f'send to {to_email}')
             return redirect('login')
         else:
             messages.error(request, "The email address you have entered does"
@@ -179,7 +188,7 @@ def validate_new_password(request, uidb64, token):
     if user is not None and default_token_generator.check_token(user, token):
         request.session['uid'] = uid
         messages.success(request, f'Please {user.first_name} you'
-                                  f' can now reset your password')
+                         f' can now reset your password')
         return redirect('reset_password')
     else:
         messages.error(request, "This link has expired, please"
@@ -203,8 +212,8 @@ def reset_password(request):
             user = Account.objects.get(pk=uid)
             user.set_password(password)
             user.save()
-            messages.success(request, f'Your {user.first_name}'
-                                      f' password has been reset!')
+            messages.success(request, f'{user.first_name} your'
+                             f' password has been reset!')
             return redirect('login')
         else:
             messages.warning(request, 'Please ensure your new password'
@@ -214,6 +223,7 @@ def reset_password(request):
         return render(request, 'accounts/reset_password.html')
 
 
+@login_required
 def edit_profile(request):
     """Update user profile"""
     userprofile = get_object_or_404(UserProfile, user=request.user)
@@ -227,8 +237,9 @@ def edit_profile(request):
             messages.success(request, 'Your profile has been updated!')
             return redirect('edit_profile')
         else:
-            messages.error(request, 'We wer not able to update your profile.'
-                                    'Please ensure all the rquired fields are filled')
+            messages.error(request, 'We were not able to update your profile.'
+                                    'Please ensure all the rquired'
+                                    'fields are filled')
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=userprofile)
@@ -241,6 +252,7 @@ def edit_profile(request):
     return render(request, 'accounts/edit_profile.html', context)
 
 
+@login_required
 def order_history(request, order_number):
     """View past order history"""
     order = get_object_or_404(Order, order_number=order_number)
@@ -267,12 +279,14 @@ def add_to_favourite(request, trip_id):
 
     if trip.add_to_favourites.filter(id=request.user.id).exists():
         trip.add_to_favourites.remove(request.user)
-        messages.success(request, f"Remove {trip.name} from your favourites")
+        messages.success(request, f"Removed {trip.name} from your favourites")
         return redirect(url)
     else:
         trip.add_to_favourites.add(request.user)
-        messages.success(request, f"You have added {trip.name} to your favourites")
+        messages.success(request, f"We have added {trip.name}"
+                         "to your favourites")
         return redirect(url)
+
 
 @login_required
 def favourites(request):
@@ -315,18 +329,17 @@ def edit_review(request, review_id):
             form = ReviewForm(request.POST, instance=review)
             form.save()
             messages.success(request, 'Thank you! Your review has'
-                            ' been updated.')
+                             ' been updated.')
             return redirect('view_reviews')
         else:
             messages.error(request,
-                               f'Failed to update {review.trip}.'
-                               f' Please ensure the form is valid.'
-                               )
+                           f'Failed to update {review.trip}.'
+                           f' Please ensure the form is valid.')
             return redirect(url)
     else:
         form = ReviewForm(instance=review)
         messages.info(request, f'You are editing {review.trip}')
-    
+
     template = 'accounts/edit_review.html'
     context = {
         'form': form,
@@ -334,5 +347,3 @@ def edit_review(request, review_id):
     }
 
     return render(request, template, context)
-
-
