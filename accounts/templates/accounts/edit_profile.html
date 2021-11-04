@@ -24,47 +24,47 @@
             <form class="row g-3" action="{% url 'edit_profile' %}" method="POST" enctype="multipart/form-data">
               {% csrf_token %}
               <div class="col-md-6">
-                <label for="first_name" class="form-label">First Name:</label>
+                <label for="id_first_name" class="form-label">First Name:</label>
                 {{ user_form.first_name }}
               </div>
               <div class="col-md-6">
-                <label for="last_name" class="form-label">Last Name:</label>
+                <label for="id_last_name" class="form-label">Last Name:</label>
                 {{ user_form.last_name }}
               </div>
               <div class="form-row col-md-6">
-                <label for="email" class="form-label">Email Address:</label>
+                <label for="id_email" class="form-label">Email Address:</label>
                 {{ user_form.email }}
               </div>
               <div class="col-md-6">
-                <label for="phone_number" class="form-label">Phone Number:</label>
+                <label for="id_phone_number" class="form-label">Phone Number:</label>
                 {{ user_form.phone_number }}
               </div>
               <div class="form-row col-12">
-                <label for="street-address1" class="form-label">Street Address 1:</label>
+                <label for="id_street_address1" class="form-label">Street Address 1:</label>
                 {{ profile_form.street_address1 }}
               </div>
               <div class="col-12">
-                <label for="street-address2" class="form-label">Street Address 2:</label>
+                <label for="id_street_address2" class="form-label">Street Address 2:</label>
                 {{ profile_form.street_address2 }}
               </div>
               <div class="form-row col-md-6">
-                <label for="town_or_city" class="form-label">Town or City:</label>
+                <label for="id_town_or_city" class="form-label">Town or City:</label>
                 {{ profile_form.town_or_city }}
               </div>
               <div class="col-md-6">
-                <label for="county" class="form-label">County:</label>
+                <label for="id_county" class="form-label">County:</label>
                 {{ profile_form.county }}
               </div>
               <div class="form-row col-md-6">
-                <label for="post-code" class="form-label">Post Code:</label>
+                <label for="id_postcode" class="form-label">Post Code:</label>
                 {{ profile_form.postcode }}
               </div>
               <div class="col-md-6">
-                <label for="country" class="form-label">Country:</label>
+                <label for="id_country" class="form-label">Country:</label>
                 {{ profile_form.country }}
               </div>
               <div class="col-12">
-                <label for="phone_number" class="form-label">Profile Img:</label>
+                <label for="id_profile_img" class="form-label">Profile Img:</label>
                 {{ profile_form.profile_img }}
                 {{ profile_form.profile_img.errors }}
               </div>
