@@ -259,7 +259,7 @@ a:active,
 }
 
 .review-card {
-    height: 16rem;
+    height: 18rem;
     overflow: auto;
 }
 
@@ -702,11 +702,10 @@ a.ui-button:active, .ui-button:active,
   }
 
 /**************Update Personal Info*/
-/* 
+ 
 .img-thumbnail {
-    width: 10rem;
-    height: 10rem;
-} */
+    border: none;
+} 
 
 /**********************Footer*/
 
@@ -805,6 +804,7 @@ footer {
     .remove-item {
         font-size: 0.9rem;
     }
+
 }
 
 @media (max-width: 320px) {
@@ -814,6 +814,10 @@ footer {
 
     ul {
         padding: 0px;
+    }
+
+    .review-card {
+        height: 20rem !important;
     }
 
     /* .card-info {
@@ -891,6 +895,10 @@ footer {
 
     .sort-div {
         display: block;
+    }
+
+    .review-card {
+        height: 18rem;
     }
 
     /* .carousel-img {
