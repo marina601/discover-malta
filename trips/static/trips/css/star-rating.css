@@ -1,53 +1,56 @@
+/**Css for star rating has been taken from 
+https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-properly****/
+
 .rating {
     display: inline-block;
-    color: #000000;
+    border: none;
 }
 
+/* Hide radio */
+.rating > input {
+    opacity: 0;
+}
+
+/* Order correctly by floating highest to the right */
 .rating > label {
     float: right;
 }
 
-.rating > input {
-    position: absolute;
-    opacity: 0;
-}
-
 /*******Display the stars********/
-
-.rating > label::before {
+.rating > label:before {
     display: inline-block;
-    font-size: 1.8rem;
-    font-family: FontAwesome;
-    content: "\f005";
-    margin: 0;
-    padding: 0.3rem 0.3rem;
+    font-size: 1.2rem;
+    padding: .3rem .2rem;
+    margin-right:0;
     cursor: pointer;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: "\f005";
 }
 
-/*******Half Stars ********/
-
+/* Show Half Stars */
 .rating .half:before {
-    content: "\f089";
+    content: "\f005"; 
     position: absolute;
     padding-right: 0;
+    width: 0.8rem;
+    overflow: hidden;
+    margin-right: 0.4rem;
 }
 
-/*******Click and hover ********/
-
+/* Click + hover color */
 .fa-star,
-.star-rating i,
-input:checked ~ label, label:hover ~ label {
-    color: #ffb503;
-}
+input:checked ~ label,
+label:hover, label:hover ~ label { 
+    color: #ffb503;  
+} 
 
-/*******hover and highlight ********/
-
-input:checked + label:hover, 
-input:checked ~ label:hover,
+/* Hover and highlight */
+input:checked + label:hover, input:checked ~ label:hover, 
 input:checked ~ label:hover ~ label,
-label:hover ~ input:checked ~ label {
-    color: #cc9000;
-}
+label:hover ~ input:checked ~ label { 
+    color: #cc9000;  
+} 
 
 .img-thumbnail {
     width: 4rem;
@@ -61,4 +64,10 @@ label:hover ~ input:checked ~ label {
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
     -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
     -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+}
+
+@media (max-width: 320px) {
+    .rating > label:before {
+        padding: .3rem .1rem;
+    }
 }
