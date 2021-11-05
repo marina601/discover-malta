@@ -18,22 +18,20 @@
                 {% if user.is_authenticated %}
                 {% if favourites %}
                 <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip from favourites"
-                    name="add-to-favourites">
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip from favourites">
                     <i class="fas fa-trash" aria-hidden="true"></i>
                     <span class="sr-only">remove from favourites</span>
                 </a>
                 {% else %}
                 <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites" name="add-to-favourites">
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
                     <i class="fas fa-heart" aria-hidden="true"></i>
                     <span class="sr-only">add to favourites</span>
                 </a>
                 {% endif %}
                 {% else %}
-                <a href="{% url 'login' %}" name="{{ trip.add_to_favourite }}"
-                    class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
-                    title="Please login to add this trip to your favourites" name="add-to-favourites">
+                <a href="{% url 'login' %}" class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
+                    title="Please login to add this trip to your favourites">
                     <i class="fas fa-heart" aria-hidden="true"></i>
                     <span class="sr-only">login to add this trip to favourites</span>
                 </a>
