@@ -23,7 +23,7 @@
                         <div class="input-group-append">
                             <button class="form-control search-btn" type="submit">
                                 <span class="icon">
-                                    <i class="fas fa-search"></i>
+                                    <i class="fas fa-search" aria-hidden="true"></i>
                                 </span>
                             </button>
                         </div>
@@ -40,9 +40,8 @@
         <div class="row results">
             <div class="col-md-6 col-sm-12">
                 <div class="btn-group">
-                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Choose Your Category
+                    <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">Choose Your Category
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><a class="dropdown-item" href="{% url 'trips' %}">All Trips</a></li>
@@ -61,23 +60,35 @@
                         Sort By
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <li><a class="dropdown-item" href="{% url 'search' %}?sort=adult_price&direction=asc">By
-                                Price</a></li>
-                        <li><a class="dropdown-item" href="{% url 'search' %}?sort=reviewrating&direction=desc">By
-                                Rating</a></li>
-                        <li><a class="dropdown-item" href="{% url 'search' %}?sort=duration&direction=asc">By
-                                Duration</a></li>
-                        <li><a class="dropdown-item"
-                                href="{% url 'search' %}?sort=family_friendly&direction=desc">Family Friendly</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'search' %}?sort=adult_price&direction=asc">
+                                By Price
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'search' %}?sort=reviewrating&direction=desc">
+                                By Rating
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'search' %}?sort=duration&direction=asc">
+                                By Duration
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'search' %}?sort=family_friendly&direction=desc">
+                                Family Friendly
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
-<!--display all the trips-->
+        <!--display all the trips-->
         <div class="row">
             <div class="col">
                 <p class="result-count">
-                   <span class="results">{{ result_count }}</span> Results Found
+                    <span class="results">{{ result_count }}</span> Results Found
                 </p>
                 {% if result_count == 0 %}
                 <p class="text-center">We do not have any trips with your search criteria, please try again.</p>
@@ -85,67 +96,109 @@
             </div>
         </div>
         <hr>
+        <!--Display All Trips-->
         <div class="row">
             {% for trip in trips %}
-            
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <div class="card card-trip">
-                {% if user.is_authenticated %}
-                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add" data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
-                        <i class="fas fa-heart"></i>
+                    <!--Add to favourites-->
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">add to favourites</span>
                     </a>
-                {% else %}
-                    <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top" title="Login to add this trip to favourites">
-                        <i class="fas fa-heart"></i>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip"
+                        data-bs-placement="top" title="Login to add this trip to favourites">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">add to favourites</span>
                     </a>
-                {% endif %}
+                    {% endif %}
+                    <!--Trip Image-->
                     <a href="{{ trip.get_url }}">
-                       <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+                        <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
                     </a>
                     <div class="card-body">
+                        <!--Trip Name-->
                         <a href="{{ trip.get_url }}">
                             <h4 class="card-title">{{ trip.name }}</h4>
                         </a>
+                        <!--Description-->
                         <p class="card-text short-description">{{ trip.short_description }}</p>
                         <hr>
                         <div class="row">
+                            <!--Duration-->
                             <div class="col">
                                 <p>
-                                    <i class="fas fa-hourglass-end d-block"></i>{{ trip.duration }}hrs
+                                    <i class="fas fa-hourglass-end d-block" aria-hidden="true"></i>
+                                    <span class="sr-only">duration</span>
+                                    {{ trip.duration }}hrs
                                 </p>
                             </div>
+                            <!--Price-->
                             <div class="col">
-                                <p><i class="fas fa-euro-sign d-block"></i>{{ trip.adult_price }}</p>
+                                <p>
+                                    <i class="fas fa-euro-sign d-block" aria-hidden="true"></i>
+                                    <span class="sr-only">euro</span>
+                                    {{ trip.adult_price }}
+                                </p>
                             </div>
+                            <!--Star rating-->
                             <div class="col">
-                                <p><i class="fas fa-star d-block"></i> {{ trip.averageRating|floatformat:1 }}/5 </p>
+                                {% if trip.averageRating > 0 %}
+                                <p>
+                                    <i class="fas fa-star d-block" aria-hidden="true"></i>
+                                    <span class="sr-only">star rating</span>
+                                    {{ trip.averageRating|floatformat:1 }}/5
+                                </p>
+                                {% else %}
+                                <p>
+                                    <i class="fas fa-star d-block text-black" aria-hidden="true"></i>
+                                    <span class="sr-only">star rating</span>
+                                    No rating yet
+                                </p>
+                                {% endif %}
                             </div>
+                            <!--Family Friendly-->
                             <div class="col">
                                 {% if trip.family_friendly %}
-                                <p><i class="fas fa-child d-block"></i>Family</p>
+                                <p>
+                                    <i class="fas fa-child d-block" aria-hidden="true"></i>
+                                    <span class="sr-only">family friendly</span>
+                                    Family
+                                </p>
                                 {% endif %}
                             </div>
                         </div>
                     </div>
                     <div class="card-footer">
                         <div class="row mt-2 mb-2">
+                            <!--Delete/Update Links-->
                             <div class="col">
                                 {% if user.is_superadmin %}
                                 <a href="{% url 'delete_trip' trip.id %}" class=" d-inline btn remove-item m-1">
-                                    <i class="fas fa-trash"></i>
+                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                    <span class="sr-only">delete</span>
+                                    Delete
                                 </a>
                                 <a href="{% url 'update_trip' trip.id %}" class="d-inline btn update-link m-1">
-                                    <i class="fas fa-sync"></i>
+                                    <i class="fas fa-sync" aria-hidden="true"></i>
+                                    <span class="sr-only">update</span>
+                                    Update
                                 </a>
                                 {% endif %}
-                                <a href="{{ trip.get_url }}" class="d-inline btn text-white btn-next btn-bottom"><i class="fas fa-plus"></i> More Info
+                                <!--Link to Trip Details-->
+                                <a href="{{ trip.get_url }}" class="d-inline btn text-white btn-next btn-bottom">
+                                    <i class="fas fa-plus" aria-hidden="true"></i>
+                                    More Info
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             {% endfor %}
         </div>
         <!--Pagination-->
@@ -157,9 +210,9 @@
                     <ul class="pagination justify-content-center">
                         {% if trips.has_previous %}
                         <li class="page-item">
-                          <a class="page-link" href="?page={{ trips.previous_page_number }}" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
+                            <a class="page-link" href="?page={{ trips.previous_page_number }}" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
@@ -170,11 +223,11 @@
                         {% endif %}
                         <!--Dynamic page range-->
                         {% for i in trips.paginator.page_range %}
-                            {% if trips.number == i %}
-                            <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
-                            {% else %}
-                            <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
-                            {% endif %}
+                        {% if trips.number == i %}
+                        <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
+                        {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        {% endif %}
                         {% endfor %}
                         <!--Dynamic next button -->
                         {% if trips.has_next %}
@@ -183,16 +236,16 @@
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                      {% else %}
+                        {% else %}
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
-                      {% endif %}
+                        {% endif %}
                     </ul>
                     {% endif %}
-                  </nav>
+                </nav>
             </div>
         </div>
     </div>
