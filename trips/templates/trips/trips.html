@@ -174,14 +174,46 @@
                     </div>
                     <div class="card-footer">
                         <div class="row mt-2 mb-2">
-                            <!--Delete/Update Links-->
+                            <!--Delete Links-->
                             <div class="col">
                                 {% if user.is_superadmin %}
-                                <a href="{% url 'delete_trip' trip.id %}" class=" d-inline btn remove-item m-1">
+                                <a class="d-inline btn remove-item m-1"  data-bs-toggle="modal" data-bs-target="#exampleModal-{{ trip.id }}">
                                     <i class="fas fa-trash" aria-hidden="true"></i>
                                     <span class="sr-only">delete</span>
                                     Delete
-                                </a>
+                                </a>    
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal-{{ trip.id }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel-{{ trip.id }}" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel-{{ trip.id }}">
+                                                    {{ trip.name }}
+                                                </h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Are you sure you want to delete {{ trip.name }}?</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-sm btn-dropdown w-auto"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="fas fa-times" aria-hidden="true"></i>
+                                                    Close
+                                                </button>
+                                                <a href="{% url 'delete_trip' trip.id %}"
+                                                    class="btn remove-item w-auto">
+                                                    <i class="fas fa-trash" aria-hidden="true"></i>
+                                                    <span class="sr-only">delete</span>
+                                                    Delete
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--Update Link-->
                                 <a href="{% url 'update_trip' trip.id %}" class="d-inline btn update-link m-1">
                                     <i class="fas fa-sync" aria-hidden="true"></i>
                                     <span class="sr-only">update</span>
@@ -252,3 +284,14 @@
     
 {% endblock %}
 
+{% block postloadjs %}
+   {{ block.super }}
+
+    <script>
+        console.log("hello")
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus');
+        });
+    </script>
+
+{% endblock %}

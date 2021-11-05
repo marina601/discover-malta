@@ -562,7 +562,9 @@ a.ui-button:active, .ui-button:active,
 /**************Update Personal Info*/
  
 .img-thumbnail {
-    border: none;
+    border: none !important;
+    background-color: transparent;
+    object-fit: cover;
 } 
 
 /**********************Footer*/
@@ -725,7 +727,8 @@ footer {
     
     .cancel-btn,
     .add-btn {
-        width: 9rem;
+        width: auto;
+        margin: 0.5rem;
     }
 }
 
