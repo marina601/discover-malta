@@ -70,13 +70,6 @@ nav {
     height: 3rem;
 }
 
-/* .main-nav {
-    position: absolute;
-    top: 10%;
-    left: 35%;
-    width: 100%;
-} */
-
 header,
 .dropdown-menu {
     background-color: #000000;
@@ -108,34 +101,10 @@ header,
     padding-top: 5px;
 }
 
-/* .nav-item a:hover,
-a:active,
-.main-logo-link:hover {
-    border: 1px solid #2576da;
-    transition: ease-in-out all .4s;
-    -moz-transition: ease-in-out all .4s;
-    -webkit-transition: ease-in-out all .4s;
-    background-color: rgba(97, 95, 95, 0.6);
-    text-decoration: none;
-    font-weight: bold;
-} */
-
-/* .navbar-toggler:hover {
-    border-radius: 5%;
-    border: 3px solid #2576da;
-    transition: ease-in-out all .4s;
-    -moz-transition: ease-in-out all .4s;
-    -webkit-transition: ease-in-out all .4s;
-} */
-
 .dropdown-item:hover {
     color: #fafafa;
     font-weight: bold;
 }
-
-/* .fas:hover {
-    padding: 10px;
-} */
 
 .brand-logo:hover {
     color: #2576da;
@@ -150,102 +119,6 @@ a:active,
     color: #ef1018;
 }
 /***********************Index.html*/
-
-/* .card-info {
-    border-radius: 50%;
-    color: white;
-    width: 10rem;
-    height: 10rem;
-    padding: 0.8rem;
-    position: relative;
-    margin: 2rem;
-    font-size: 20px;
-    font-family: 'Acme', sans-serif;
-    border: 2px solid rgba(0, 0, 0, .125);
-    box-shadow: -3px 8px 27px -2px rgba(180, 179, 179, 0.51);
-    display: none;
-
-}
-
-.card-info::after {
-    content: '';
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    right: -15px;
-    bottom: -15px;
-    border: 2px solid rgba(0, 0, 0, .425);
-    border-radius: 50%;
-}
-
-.carousel-inner {
-    margin-top: 1.5rem;
-}
-
-.carousel-img {
-    height: 40rem;
-    object-fit: cover;
-}
-
-.card-info p {
-    font-size: 1rem;
-}
-
-.card-1 {
-    background-color: #2576da;
-   
-}
-
-.card-2 {
-    background-color: #039b2b;
-
-}
-
-.card-3 {
-    background-color: #fafafa;
-    color: #000000;
-
-}
-
-.card-4 {
-    background-color: #ef1018;
-
-}
-
-.card-5 {
-    background-color: #da8925;
-}
-
-
-.category-div,
-.testimony-div {
-    justify-content: center;
-} */
-
-/* .testimony-div {
-    background-color: black;
-    border: 2px dotted white;
-    margin: 2rem;
-    padding: 1rem;
-    width: 100%;
-    height: auto;
-    box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-} */
-
-/* .category-link {
-    text-decoration: none !important;
-    color: #000000;
-    z-index: 2;
-}
-
-.category-heading {
-    color: #fafafa;
-    font-weight: 700;
-    text-shadow: 2px 2px black;
-    cursor: pointer;
-    letter-spacing: 0.1rem;
-    font-size: 1.3rem;
-} */
 
 .card:hover {
     box-shadow: 5px 6px 6px 2px rgba(97, 95, 95, 0.6);
@@ -337,14 +210,6 @@ a:active,
     justify-content: end;
 }
 
-/* .btn-more {
-    border-radius: 50%;
-    width: 4.5rem;
-    height: 4.5rem;
-    margin-left: 70%;
-    padding: 0.2rem;
-} */
-
 .btn-bottom {
     position: absolute;
     bottom: 0;
@@ -405,14 +270,9 @@ a:active,
     margin: 0px;
 }
 
-/* .results {
-    margin-bottom: 4rem;
-} */
-
 .card-trip {
     height: 45rem;
     margin:  1rem;
-    /* width: 21rem; */
     border: 2px solid #000000;
 }
 
@@ -462,11 +322,7 @@ a:active,
 }
 
 .btn-favourite {
-    /* margin: 1rem; */
     position: absolute;
-    /* width: 5rem;
-    z-index: 1;
-    border: 0.2rem solid #000000; */
 }
 
 .btn-favourite i {
@@ -717,21 +573,10 @@ footer {
     flex-shrink: 0;
 }
 
-/* .footer-links {
-    width: 100%;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 0px;
-    text-transform: capitalize;
-} */
-
 .footer-links li,
 .footer-links a {
     color: #fafafa;
     display: inline-block;
-    /* padding-left: 0.5rem;
-    padding-right: 0.5rem; */
     text-decoration: none;
     text-align: center;
 }
@@ -795,10 +640,6 @@ footer {
 
 /* Slightly larger container on xl screens */
 @media (max-width: 1200px) {
-    /* .container {
-        max-width: 90%;
-    } */
-
     .card-trip {
         height: 48rem;
     }
@@ -811,6 +652,7 @@ footer {
 }
 
 @media (max-width: 320px) {
+    
     .nav-link {
         padding: 0px;
     }
@@ -823,44 +665,9 @@ footer {
         height: 20rem !important;
     }
 
-    /* .card-info {
-    height: 8rem;
-    width: 8rem;
-    margin: 1rem 0.1rem;
-    } */
-
-
-
-    /* .testimony-div {
-        height: fit-content !important;
-    } */
-
-
     .btn-dropdown {
         width: auto;
     }
-
-    /* .btn-book {
-        left: 57% !important;
-        width: 7rem;
-        font-size: 1rem;
-        top: 37% !important;
-    } */
-
-    /* .btn-favourite {
-        top: 14% !important;
-        left: 3px;
-        height: 3rem;
-    } */
-
-    /* .mobile-icon-menu {
-        top: 21% !important;
-        left: 51% !important;
-    } */
-
-    /* .mobile-icon-menu {
-        padding-left: 1rem;
-    } */
 
     .mobile-icon-menu li {
         padding-left: 10px;
@@ -869,10 +676,6 @@ footer {
     .sort-div {
         display: block;
     }
-
-    /* .carousel-img {
-        height: 20rem !important;
-    } */
 
     .main-nav {
         width: auto !important;
@@ -884,13 +687,9 @@ footer {
         margin-top: 2rem;
     }
 
-
 }
 
 @media (max-width: 420px) {
-    /* .category-heading {
-        font-size: 2rem;
-    } */
 
     header {
         height: 15vh;
@@ -904,11 +703,6 @@ footer {
         height: 18rem;
     }
 
-    /* .carousel-img {
-        height: 30rem;
-        object-fit: cover;
-    } */
-
     .result-count {
         font-size: 1rem;
     }
@@ -916,27 +710,6 @@ footer {
     .main-nav {
         width: auto !important;
     }
-
-    /* .btn-favourite {
-        top: 22%!important;
-        left: 3% !important;
-        background-color: transparent;
-        border: none;
-    } */
-    /* .card-info {
-        width: 6rem;
-        height: 5rem;
-        padding: 0.4rem;
-        margin: 1rem;
-    }
-
-    .card-body p {
-        font-size: 0.6rem;
-    }
-
-    .card-body {
-        padding: 0rem;
-    } */
 
     .btn-favourite i {
         font-size: 1.5rem;
@@ -957,21 +730,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-    /* .testimony-div {
-        width: 100%;
-        margin-left: 0px;
-        margin-right: 0px
-    } */
-
-    /* .btn-book {
-        top: 17%;
-        left: 73%;
-    } */
-
-    /* .btn-favourite {
-        top: 17%;
-        margin-left: 0px;
-    } */
 
     .form-group {
         width: 12rem;
