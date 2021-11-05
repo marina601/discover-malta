@@ -337,11 +337,13 @@
                                 {% endif %}
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-md-end">
+                        <div class="row">
                             {% if user == review.user %}
-                            <div class="col-md-4 col-lg-4">
-                                <a href="{% url 'delete_review' review.id %}" class="float-left remove-item btn delete">
-                                    <small>Delete <i class="fas fa-trash" aria-hidden="true"></i></small></a>
+                            <div class="col">
+                                {% include 'trips/includes/delete-modal-review.html' %}
+                                <a href="{% url 'edit_review' review.id %}" class="d-inline btn update-link m-1">
+                                    Update <i class="fas fa-sync" aria-hidden="true"></i>
+                                </a>
                             </div>
                             {% endif %}
                         </div>
