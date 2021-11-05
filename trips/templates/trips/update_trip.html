@@ -5,115 +5,116 @@
 
 {% block content %}
 <section class="main-content">
-    <div class="container">
-        <div class="row">
-            <div class="col mt-3 text-center">
-                <h2>Trip Managment</h2>
-            </div>
-        </div>
-        <!--update trip form-->
-        <div class="row login-form justify-content-md-center m-0 p-1 mb-1 mt-4">
-            <div class="col-12 text-center mt-2">
-              <h4>Update Trip info here</h4>
-            </div>
-            <div class="col-lg-8 col-md-8 col-sm-12 p-1">
-                <form class="row g-3" method="POST" action="{% url 'update_trip' trip.id %}" enctype="multipart/form-data">
-                   {% csrf_token %}
-                   <div class="form-row col-12">
-                    <label for="name" class="form-label">Title:</label>
-                    {{ form.name }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="category" class="form-label">Category:</label>
-                    {{ form.category }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="category" class="form-label">Number of Ticket:</label>
-                    {{ form.num_tickets }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="short_description" class="form-label">Short Description:</label>
-                    {{ form.short_description }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="full_description" class="form-label">Full Description:</label>
-                    {{ form.full_description }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="included" class="form-label">What is included:</label>
-                    {{ form.included }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="what_to_bring" class="form-label">What to bring:</label>
-                    {{ form.what_to_bring }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="start_time" class="form-label">Duration:</label>
-                    {{ form.duration }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="start_time" class="form-label">Start Time:</label>
-                    {{ form.start_time }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="departure_location" class="form-label">Departure Location:</label>
-                    {{ form.departure_location }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="adult_price" class="form-label">Adult Price:</label>
-                    {{ form.adult_price }}
-                  </div>
-                  <div class="col-md-6">
-                    <label for="child_price" class="form-label">Child Price:</label>
-                    {{ form.child_price }}
-                  </div>
-                  <div class="form-row col-12">
-                    <label for="image" class="form-label">Image:</label>
-                    {{ form.images }}
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="special_offers" class="form-label">Special Offers:</label>
-                    <input type="checkbox" name="{{ form.special_offers }}" id="special_offers">
-                  </div>
-                  <div class="form-row col-md-6">
-                    <label for="special_offers" class="form-label">Family Friendly:</label>
-                    {% if trip.family_friendly %}
-                    <input type="checkbox" name='{{ form.family_friendly }}' id="family_friendly" checked>
-                    {% else %}
-                    <input type="checkbox" name='{{ form.family_friendly }}' id="family_friendly">
-                    {% endif %}
-                  </div>
-                  <div class="form-row d-flex justify-content-center">
-                    <div class="col-md-4 col-sm-12">
-                      <a href="{% url 'trips' %}" class="btn btn-dropdown cancel-btn">
-                        <span class="icon">
-                          <i class="fas fa-times"></i>
-                        </span>
-                        <span class="font-weight-bold">Cancel</span>
-                      </a>
-                    </div>
-                    <div class="col-md-4 col-sm-12">
-                      {{ form.non_field_errors }}
-                      {{ form.errors }}
-                       <!--submit button-->
-                      <button id="submit-button" class="btn btn-dropdown add-btn">
-                        <span class="font-weight-bold">Update</span>
-                        <span class="icon">
-                          <i class="fas fa-plus"></i>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-            </div>
-        </div>
-        <!--Button to return to all trips-->
-        <div class="row mt-2">
-          <div class="col text-center">
-              <a href="{% url 'trips' %}" class="btn-next btn">Go back to All Trips</a>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col mt-3 text-center">
+        <h2>Trip Managment</h2>
       </div>
     </div>
+    <!--update trip form-->
+    <div class="row login-form justify-content-md-center m-0 p-1 mb-1 mt-4">
+      <div class="col-12 text-center mt-2">
+        <h4>Update Trip info here</h4>
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-12 p-1">
+        <form class="row g-3" method="POST" action="{% url 'update_trip' trip.id %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-row col-12">
+            <label for="id_name" class="form-label">Title:</label>
+            {{ form.name }}
+          </div>
+          <div class="form-row col-md-6">
+            <label for="id_category" class="form-label">Category:</label>
+            {{ form.category }}
+          </div>
+          <div class="form-row col-md-6">
+            <label for="id_num_tickets" class="form-label">Number of Ticket:</label>
+            {{ form.num_tickets }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_short_description" class="form-label">Short Description:</label>
+            {{ form.short_description }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_full_description" class="form-label">Full Description:</label>
+            {{ form.full_description }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_included" class="form-label">What is included:</label>
+            {{ form.included }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_what_to_bring" class="form-label">What to bring:</label>
+            {{ form.what_to_bring }}
+          </div>
+          <div class="form-row col-md-6">
+            <label for="id_duration" class="form-label">Duration:</label>
+            {{ form.duration }}
+          </div>
+          <div class="col-md-6">
+            <label for="id_start_time" class="form-label">Start Time:</label>
+            {{ form.start_time }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_departure_location" class="form-label">Departure Location:</label>
+            {{ form.departure_location }}
+          </div>
+          <div class="form-row col-md-6">
+            <label for="id_adult_price" class="form-label">Adult Price:</label>
+            {{ form.adult_price }}
+          </div>
+          <div class="col-md-6">
+            <label for="id_child_price" class="form-label">Child Price:</label>
+            {{ form.child_price }}
+          </div>
+          <div class="form-row col-12">
+            <label for="id_images" class="form-label">Image:</label>
+            {{ form.images }}
+          </div>
+          <div class="form-row col-md-6">
+            <label for="special_offers" class="form-label">Special Offers:</label>
+            <input type="checkbox" name='special_offers' id="special_offers">
+          </div>
+          <div class="form-row col-md-6">
+            <label for="family_friendly" class="form-label">Family Friendly:</label>
+            {% if trip.family_friendly %}
+            <input type="checkbox" name='family_friendly' id="family_friendly" checked>
+            {% else %}
+            <input type="checkbox" name='family_friendly' id="family_friendly">
+            {% endif %}
+          </div>
+          <div class="form-row d-flex justify-content-center">
+            <div class="col-md-4 col-sm-12">
+              <!--cancel btn-->
+              <a href="{% url 'trips' %}" class="btn btn-dropdown cancel-btn">
+                <span class="icon">
+                  <i class="fas fa-times" aria-hidden="true"></i>
+                </span>
+                <span class="font-weight-bold">Cancel</span>
+              </a>
+            </div>
+            <div class="col-md-4 col-sm-12">
+              {{ form.non_field_errors }}
+              {{ form.errors }}
+              <!--submit button-->
+              <button id="submit-button" class="btn btn-dropdown add-btn">
+                <span class="font-weight-bold">Update</span>
+                <span class="icon">
+                  <i class="fas fa-plus" aria-hidden="true"></i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--Button to return to all trips-->
+    <div class="row mt-2">
+      <div class="col text-center">
+        <a href="{% url 'trips' %}" class="btn-next btn">Go back to All Trips</a>
+      </div>
+    </div>
+  </div>
 </section>
 
 
