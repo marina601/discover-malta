@@ -12,31 +12,33 @@
                 <h1 class="text-center heading">{{ trip.name }}</h1>
             </div>
         </div>
-       <!--Add to favourite link-->
         <div class="row">
             <div class="col">
+                 <!--Add to favourite link-->
                 {% if user.is_authenticated %}
-
-                    {% if favourites %}
-                    <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
-                        class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
-                        title="Remove this trip from favourites" name="add-to-favourites">
-                        <i class="fas fa-trash"></i>
-                     </a>
-                     {% else %}
-                     <a href="{% url 'add_to_favourite' trip.id %}" name="{{ trip.add_to_favourite }}"
-                        class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
-                        title="Add to favourites" name="add-to-favourites">
-                        <i class="fas fa-heart"></i>
-                     </a>
-                    {% endif %}
-                 {% else %}
-                 <a href="{% url 'login' %}" name="{{ trip.add_to_favourite }}"
+                {% if favourites %}
+                <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip from favourites"
+                    name="add-to-favourites">
+                    <i class="fas fa-trash" aria-hidden="true"></i>
+                    <span class="sr-only">remove from favourites</span>
+                </a>
+                {% else %}
+                <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
+                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites" name="add-to-favourites">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    <span class="sr-only">add to favourites</span>
+                </a>
+                {% endif %}
+                {% else %}
+                <a href="{% url 'login' %}" name="{{ trip.add_to_favourite }}"
                     class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Please login to add this trip to your favourites" name="add-to-favourites">
-                    <i class="fas fa-heart"></i>
-                 </a>
-                 {% endif %}
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                    <span class="sr-only">login to add this trip to favourites</span>
+                </a>
+                {% endif %}
+                <!--Trip Image-->
                 <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
             </div>
         </div>
@@ -44,27 +46,69 @@
         <div class="row mt-2">
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <ul class="list-group">
-                    <li class="list-group-item"><i class="fas fa-hourglass-end fa-lg"></i><strong> Duration: </strong>
-                        {{ trip.duration }}hrs</li>
-                    <li class="list-group-item"><i class="far fa-clock fa-lg"></i> <strong>Start Time: </strong>
-                        {{ trip.start_time }} AM</li>
-                    <li class="list-group-item"><i class="fas fa-map-marked-alt fa-lg"></i> <strong> Departure Location:
-                        </strong> {{ trip.departure_location }}</li>
-                    <li class="list-group-item"><i class="fas fa-euro-sign fa-lg"></i> {{ trip.adult_price }}
-                        <strong>per adult</strong></li>
+                    <!--Duration-->
+                    <li class="list-group-item">
+                        <i class="fas fa-hourglass-end fa-lg" aria-hidden="true"></i>
+                        <strong> Duration: </strong>
+                        {{ trip.duration }}hrs
+                    </li>
+                    <!--Start Time-->
+                    <li class="list-group-item">
+                        <i class="far fa-clock fa-lg" aria-hidden="true"></i>
+                        <strong>Start Time: </strong>
+                        {{ trip.start_time }}
+                    </li>
+                    <!--Departure Location-->
+                    <li class="list-group-item">
+                        <i class="fas fa-map-marked-alt fa-lg" aria-hidden="true"></i>
+                        <strong> Departure Location:
+                        </strong> {{ trip.departure_location }}
+                    </li>
+                    <!--Price-->
+                    <li class="list-group-item">
+                        <i class="fas fa-euro-sign fa-lg" aria-hidden="true"></i>
+                        <span class="sr-only">euro</span>
+                        {{ trip.adult_price }}
+                        <strong>per adult</strong>
+                    </li>
                     {% if trip.child_price > 0 %}
-                    <li class="list-group-item"><i class="fas fa-euro-sign fa-lg"></i> {{ trip.child_price }}
-                        <strong>per child above 4yrs</strong></li>
+                    <li class="list-group-item">
+                        <i class="fas fa-euro-sign fa-lg" aria-hidden="true"></i>
+                        <span class="sr-only">euro</span>
+                        {{ trip.child_price }}
+                        <strong>per child above 4yrs</strong>
+                    </li>
                     {% endif %}
+                    <!--Star rating-->
                     {% if trip.averageRating > 0 %}
-                    <li class="list-group-item"><i class="fas fa-star fa-lg"></i> {{ trip.averageRating|floatformat:1 }} /5
+                    <li class="list-group-item">
+                        <i class="fas fa-star fa-lg" aria-hidden="true"></i>
+                        <span class="sr-only">rating</span>
+                        {{ trip.averageRating|floatformat:1 }} /5
                     </li>
                     {% else %}
-                    <li class="list-group-item"><i class="fas fa-star fa-lg text-black"></i> No rating yet </li>
+                    <li class="list-group-item">
+                        <i class="fas fa-star fa-lg text-black" aria-hidden="true"></i>
+                        No rating yet
+                    </li>
                     {% endif %}
-                    <li class="list-group-item"><i class="fas fa-comments"></i> {{ trip.totalReviews }} reviews</li>
+                    <!--Reviews-->
+                    {% if trip.totalReviews > 0 %}
+                    <li class="list-group-item">
+                        <i class="fas fa-comments" aria-hidden="true"></i>
+                        {{ trip.totalReviews }} reviews
+                    </li>
+                    {% else %}
+                    <li class="list-group-item">
+                        <i class="fas fa-comments" aria-hidden="true"></i>
+                        No reviews yet
+                    </li>
+                    {% endif %}
+                    <!--Family Friendly-->
                     {% if trip.family_friendly %}
-                    <li class="list-group-item"><i class="fas fa-child fa-lg"></i> <strong>Friendly Friendly</strong>
+                    <li class="list-group-item">
+                        <i class="fas fa-child fa-lg" aria-hidden="true"></i>
+                        <strong>Friendly Friendly</strong>
                     </li>
                     {% endif %}
                 </ul>
@@ -177,10 +221,10 @@
         <div class="row mt-2">
             <div class="col d-flex justify-content-end">
                 <a href="{% url 'delete_trip' trip.id %}" class="btn remove-item m-1">
-                    <i class="fas fa-trash"></i> Delete Trip
+                    <i class="fas fa-trash" aria-hidden="true"></i> Delete Trip
                 </a>
                 <a href="{% url 'update_trip' trip.id %}" class="btn update-link m-1">
-                    <i class="fas fa-sync"></i> Update Trip
+                    <i class="fas fa-sync" aria-hidden="true"></i> Update Trip
                 </a>
             </div>
         </div>    
@@ -261,12 +305,12 @@
                         <div class="row">
                         <div class="col">
                             <div class="star-rating">
-                                <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
-                                <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
-                                {{ review.rating }}
+                                <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}" aria-hidden="true"></i>
+                                <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}" aria-hidden="true"></i>
+                                <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}" aria-hidden="true"></i>
+                                <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}" aria-hidden="true"></i>
+                                <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}" aria-hidden="true"></i>
+                                <span class="sr-only">rating {{ review.rating }} stars out of 5</span>
                             </div>
                         </div>
                         </div>
@@ -296,7 +340,7 @@
                             {% if user == review.user %}
                             <div class="col-md-4 col-lg-4">
                                 <a href="{% url 'delete_review' review.id %}" class="float-left remove-item btn delete">
-                                    <small>Delete <i class="fas fa-trash"></i></small></a></a>
+                                    <small>Delete <i class="fas fa-trash" aria-hidden="true"></i></small></a>
                             </div>
                             {% endif %}
                         </div>
