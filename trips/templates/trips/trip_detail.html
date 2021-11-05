@@ -217,24 +217,23 @@
                 </p>
             </div>
         </div>
+        <!--Delete/Update Trip-->
         {% if user.is_superadmin %}
         <div class="row mt-2">
             <div class="col d-flex justify-content-end">
-                <a href="{% url 'delete_trip' trip.id %}" class="btn remove-item m-1">
-                    <i class="fas fa-trash" aria-hidden="true"></i> Delete Trip
-                </a>
+                <!--Delete Trip Modal-->
+                {% include 'trips/includes/delete-modal-trip.html' %}
                 <a href="{% url 'update_trip' trip.id %}" class="btn update-link m-1">
-                    <i class="fas fa-sync" aria-hidden="true"></i> Update Trip
+                    Update Trip <i class="fas fa-sync" aria-hidden="true"></i>
                 </a>
             </div>
-        </div>    
+        </div>
         {% endif %}
-       
         {% if user.is_authenticated %}
-        <div class="row mt-3">
+        <div class="row m-1">
             <!--User Reviews-->
             <form action="{% url 'submit_review' trip.id  user.id %}" method="POST"
-                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
+                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 login-form" id="review-form">
                 {% csrf_token %}
                 <h4 class="text-center m-2">Review this Trip</h4>
                  <p>How would you rate this trip?</p>
@@ -261,16 +260,18 @@
                     <input type="radio" id="rating1" name="rating" value="0.5" required />
                     <label class="half" for="rating1" title="0.5 star"></label>
                 </fieldset>
+                <!--Review Title-->
                 <div class="col">
                     <label for="subject" class="form-label">Review Title:</label>
                     <input type="text" name="subject" id="subject" class="form-control" required>
                 </div>
+                <!--Review -->
                 <div class="col">
                     <label for="review" class="form-label">Review:</label>
                     <textarea name="review" id="review" rows="5" class="form-control"></textarea>
                 </div>
-                <div class="col float-end">
-                    <button type="submit" class="btn btn-next btn-submit" id="btn-submit">Submit Review</button>
+                <div class="col text-center">
+                    <button type="submit" class="btn btn-dropdown" id="btn-submit">Submit Review</button>
                 </div>
             </form>
         </div>
@@ -362,8 +363,6 @@
     </div>
 </section>
 
-      
-
 {% endblock %}
 
 {% block postloadjs %}
@@ -386,7 +385,6 @@
     submit.addEventListener('sumbmit', function(e) {
         e.preventDefault();
         if (rating1 < 0) {
-            alert("Please rate this trip")
             rating.removeAttribute("required");
         } 
     });
