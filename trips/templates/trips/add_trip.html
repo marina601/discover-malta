@@ -19,87 +19,98 @@
                 <form class="row g-3" action="{% url 'add_trip' %}" method="POST" enctype="multipart/form-data">
                    {% csrf_token %}
                    <div class="form-row col-12">
-                    <label for="name" class="form-label">Title:</label>
+                    <label for="id_name" class="form-label">Title:</label>
                     {{ form.name }}
+                    {{ form.name.errors }}
                   </div>
                   <div class="form-row col-md-6">
-                    <label for="category" class="form-label">Category:</label>
+                    <label for="id_category" class="form-label">Category:</label>
                     {{ form.category }}
+                    {{ form.category.errors }}
                   </div>
                   <div class="form-row col-md-6">
-                    <label for="category" class="form-label">Number of Ticket:</label>
+                    <label for="id_num_tickets" class="form-label">Number of Ticket:</label>
                     {{ form.num_tickets }}
+                    {{ form.num_tickets.errors }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="short_description" class="form-label">Short Description:</label>
+                    <label for="id_short_description" class="form-label">Short Description:</label>
                     {{ form.short_description }}
+                    {{ form.short_description.errors }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="full_description" class="form-label">Full Description:</label>
+                    <label for="id_full_description" class="form-label">Full Description:</label>
                     {{ form.full_description }}
+                    {{ form.full_description.errors }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="included" class="form-label">What is included:</label>
+                    <label for="id_included" class="form-label">What is included:</label>
                     {{ form.included }}
+                    {{ form.included.errors }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="what_to_bring" class="form-label">What to bring:</label>
+                    <label for="id_what_to_bring" class="form-label">What to bring:</label>
                     {{ form.what_to_bring }}
+                    {{ form.what_to_bring.errors }}
                   </div>
                   <div class="form-row col-md-6">
-                    <label for="start_time" class="form-label">Duration:</label>
+                    <label for="id_duration" class="form-label">Duration:</label>
                     {{ form.duration }}
+                    {{ form.duration.errors }}
                   </div>
                   <div class="col-md-6">
-                    <label for="start_time" class="form-label">Start Time:</label>
+                    <label for="id_start_time" class="form-label">Start Time:</label>
                     {{ form.start_time }}
+                    {{ form.start_time.errors }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="departure_location" class="form-label">Departure Location:</label>
+                    <label for="id_departure_location" class="form-label">Departure Location:</label>
                     {{ form.departure_location }}
+                    {{ form.departure_location.errors }}
                   </div>
                   <div class="form-row col-md-6">
-                    <label for="adult_price" class="form-label">Adult Price:</label>
+                    <label for="id_adult_price" class="form-label">Adult Price:</label>
                     {{ form.adult_price }}
                   </div>
                   <div class="col-md-6">
-                    <label for="child_price" class="form-label">Child Price:</label>
+                    <label for="id_child_price" class="form-label">Child Price:</label>
                     {{ form.child_price }}
                   </div>
                   <div class="form-row col-12">
-                    <label for="image" class="form-label">Image:</label>
+                    <label for="id_images" class="form-label">Image:</label>
                     {{ form.images }}
+                    {{ form.images.errors }}
                   </div>
                   <div class="form-row col-md-6">
                     <label for="special_offers" class="form-label">Special Offers:</label>
-                    <input type="checkbox" name="{{ form.special_offers }}" id="special_offers">
+                    <input type="checkbox" name="special_offers" id="special_offers">
                   </div>
                   <div class="form-row col-md-6">
-                    <label for="special_offers" class="form-label">Family Friendly:</label>
-                    <input type="checkbox" name='{{ form.family_friendly }}' id="family_friendly" checked>
+                    <label for="family_friendly" class="form-label">Family Friendly:</label>
+                    <input type="checkbox" name='family_friendly' id="family_friendly" checked>
+                  </div>
+                  <!--Form Errorrs-->
+                  <div class="form-row col">
+                    {{ form.non_field_errors }}
                   </div>
                   <div class="form-row d-flex justify-content-center">
                     <div class="col-md-4 col-sm-12">
                       <a href="{% url 'trips' %}" class="btn btn-dropdown cancel-btn">
                         <span class="icon">
-                          <i class="fas fa-times"></i>
+                          <i class="fas fa-times" aria-hidden="true"></i>
                         </span>
                         <span class="font-weight-bold">Cancel</span>
                       </a>
                     </div>
-
                     <div class="col-md-4 col-sm-12">
                        <!--submit button-->
                       <button id="submit-button" class="btn btn-dropdown add-btn">
                         <span class="font-weight-bold">Add Trip</span>
                         <span class="icon">
-                          <i class="fas fa-plus"></i>
+                          <i class="fas fa-plus" aria-hidden="true"></i>
                         </span>
                       </button>
-                    </div>
-                    {{ form.non_field_errors }}
-                    {{ form.errors }}
-                  
+                    </div>      
                   </div>
                 </form>
             </div>
