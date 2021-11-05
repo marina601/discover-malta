@@ -136,6 +136,7 @@ def search(request):
 def add_trip(request):
     """Add a trip to the database"""
     form = TripForm()
+
     if request.method == 'POST':
         if request.user.is_superadmin:
             form = TripForm(request.POST, request.FILES)
@@ -144,6 +145,10 @@ def add_trip(request):
                 new_trip = form.save(commit=False)
                 # populate the slug value
                 new_trip.slug = slugify(new_trip.name)
+                # check if the checkbox was checked
+                family_friendly = request.POST.get("family_friendly")
+                if family_friendly:
+                    new_trip.family_friendly = True
                 new_trip.save()
                 messages.success(request, 'Successfully added a new trip!')
                 return redirect(reverse('add_trip'))
