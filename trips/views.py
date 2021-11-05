@@ -151,7 +151,7 @@ def add_trip(request):
                     new_trip.family_friendly = True
                 new_trip.save()
                 messages.success(request, 'Successfully added a new trip!')
-                return redirect(reverse('add_trip'))
+                return redirect('trip_detail', new_trip.category.slug, new_trip.slug)
             else:
                 messages.error(request, 'Failed to add a trip. Please ensure'
                                ' all the required fields are completed!')
