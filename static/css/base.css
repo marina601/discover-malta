@@ -546,9 +546,11 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     color: #000000;
 }
 
+.trip-link h4:hover,
 .trip-link h5:hover {
     color: #fafafa;
 }
+
 /**********************View Availability*/
 
 .booking-form {
@@ -757,6 +759,7 @@ footer {
     color: #fafafa;
 }
 
+.trip-link h4:hover,
 .trip-link strong:hover,
 .trip-link h5:hover,
 .category-heading:hover,
