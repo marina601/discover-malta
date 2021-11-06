@@ -407,6 +407,14 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     color: #fafafa;
 }
 
+/**********************404.html*/
+
+.error {
+    background: url("https://cdn.pixabay.com/photo/2019/02/04/12/18/winter-3974511_1280.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 80rem;
+ }
+
 /**********************View Availability*/
 
 .booking-form {

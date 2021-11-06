@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} Error {% endblock %}
+
+{% block extra_css %}
+    
+{% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col error text-center">
+                <h1>The page you are trying to access does not exist!</h1>
+                <a href="{% url 'home' %}" class="btn btn-dropdown">Go Back</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+
+
