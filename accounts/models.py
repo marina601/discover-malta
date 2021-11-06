@@ -73,7 +73,7 @@ class Account(AbstractBaseUser):
     objects = MyAccountManager()
 
     def __str__(self):
-        return self.USERNAME_FIELD
+        return self.email
 
     def has_perm(self, perm, obj=None):
         """if the user is admin it has all the permissions"""
