@@ -78,7 +78,6 @@ def checkout(request):
                         adult_quantity=bag[key]['adult_tickets'],
                         booking_date=bag[key]['booking_date'],
                         quantity=bag[key]['quantity'],
-                        values=values,
                     )
                     order_ticket_item.save()
                 except Trip.DoesNotExist:
