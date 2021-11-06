@@ -3,6 +3,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 # Verification email
 from django.contrib.sites.shortcuts import get_current_site
@@ -327,7 +328,10 @@ def edit_review(request, review_id):
         form = ReviewForm(request.POST)
         if form.is_valid():
             form = ReviewForm(request.POST, instance=review)
+            form.rating = request.POST.get('rating')
+            review.updated_at = timezone.now()
             form.save()
+            review.save()
             messages.success(request, 'Thank you! Your review has'
                              ' been updated.')
             return redirect('view_reviews')
@@ -345,5 +349,7 @@ def edit_review(request, review_id):
         'form': form,
         'review': review,
     }
+
+    print(review.updated_at)
 
     return render(request, template, context)
