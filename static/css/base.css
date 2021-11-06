@@ -413,6 +413,16 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     background: url("https://cdn.pixabay.com/photo/2019/02/04/12/18/winter-3974511_1280.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 80rem;
+    margin-top: 9rem;
+ }
+
+ /**********************500.html*/
+
+.error {
+    background: url("https://cdn.pixabay.com/photo/2020/07/01/08/46/wattle-tree-5358904_1280.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 80rem;
+    margin-top: 9rem;
  }
 
 /**********************View Availability*/
