@@ -10,7 +10,7 @@
         <!--heading-->
         <div class="row">
             <div class="col-s12 mt-4">
-                <h1 class="text-center heading">You can now update your review</h1>
+                <h1 class="text-center heading">You can now update your review here</h1>
             </div>
         </div>
         <div class="row mt-3">
@@ -18,18 +18,33 @@
             <form action="{% url 'edit_review' review.id %}" method="POST"
                 class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
                 {% csrf_token %}
-                <p>How would you rate this trip?</p>
-                <div class="star-rating">
-                    <i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}"></i>
-                    <i class="fas fa-star{% if review.rating == 1.5 %}-half{% elif review.rating < 2 %}-o{%endif%}"></i>
-                    <i class="fas fa-star{% if review.rating == 2.5 %}-half{% elif review.rating < 3 %}-o{%endif%}"></i>
-                    <i class="fas fa-star{% if review.rating == 3.5 %}-half{% elif review.rating < 4 %}-o{%endif%}"></i>
-                    <i class="fas fa-star{% if review.rating == 4.5 %}-half{% elif review.rating < 5 %}-o{%endif%}"></i>
+                <div class="col mt-3">
+                    <p>Curren Star Rating: <strong>{{review.rating}}/5</strong></p>
                 </div>
-                <div class="col">
-                    <label for="subject" class="form-label">Rating:</label>
-                    {{ form.rating }}
-                </div>
+                <p>Update this trip rating</p>
+                <fieldset class="rating">
+                    <input type="radio" id="rating10" name="rating" value="5" />
+                    <label for="rating10" title="5 stars"></label>
+                    <input type="radio" id="rating9" name="rating" value="4.5" />
+                    <label class="half" for="rating9" title="4.5 stars"></label>
+                    <input type="radio" id="rating8" name="rating" value="4" />
+                    <label for="rating8" title="4 stars"></label>
+                    <input type="radio" id="rating7" name="rating" value="3.5" />
+                    <label class="half" for="rating7" title="3.5 stars"></label>
+                    <input type="radio" id="rating6" name="rating" value="3" />
+                    <label for="rating6" title="3 stars"></label>
+                    <input type="radio" id="rating5" name="rating" value="2.5" />
+                    <label class="half" for="rating5" title="2.5 stars"></label>
+                    <input type="radio" id="rating4" name="rating" value="2" />
+                    <label for="rating4" title="2 stars"></label>
+                    <input type="radio" id="rating3" name="rating" value="1.5" />
+                    <label class="half" for="rating3" title="1.5 stars"></label>
+                    <input type="radio" id="rating2" name="rating" value="1" />
+                    <label for="rating2" title="1 star"></label>
+                    <input type="radio" id="rating1" name="rating" value="0.5" required/>
+                    <label class="half" for="rating1" title="0.5 star"></label>
+                </fieldset>
+
                 <div class="col">
                     <label for="subject" class="form-label">Review Title:</label>
                     {{ form.subject}}
