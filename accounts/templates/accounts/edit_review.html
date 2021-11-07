@@ -22,6 +22,7 @@
                     <p>Curren Star Rating: <strong>{{review.rating}}/5</strong></p>
                 </div>
                 <p>Update this trip rating</p>
+                <!--Star Rating-->
                 <fieldset class="rating">
                     <input type="radio" id="rating10" name="rating" value="5" />
                     <label for="rating10" title="5 stars"></label>
@@ -44,21 +45,23 @@
                     <input type="radio" id="rating1" name="rating" value="0.5" required/>
                     <label class="half" for="rating1" title="0.5 star"></label>
                 </fieldset>
-
+                 <!--Review Subject-->
                 <div class="col">
-                    <label for="subject" class="form-label">Review Title:</label>
+                    <label for="id_subject" class="form-label">Review Title:</label>
                     {{ form.subject}}
                 </div>
+                <!--Review-->
                 <div class="col">
-                    <label for="review" class="form-label">Review:</label>
+                    <label for="id_review" class="form-label">Review:</label>
                     {{ form.review }}
                 </div>
+                <!--Submit Button-->
                 <div class="col text-center">
                     <button type="submit" class="btn btn-dropdown" id="btn-submit">Submit Review</button>
                 </div>
             </form>
         </div>
-        <!--Button to return to profile-->
+        <!--Button to all reviews-->
         <div class="row">
             <div class="col text-center">
                 <a href="{% url 'view_reviews' %}" class="btn-next btn">Go back to Reviews</a>
