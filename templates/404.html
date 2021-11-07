@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} Error {% endblock %}
+{% block extra_title %} 400 Error {% endblock %}
 
 {% block extra_css %}
     
@@ -12,7 +12,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col error text-center">
-                <h1>The page you are trying to access does not exist!</h1>
+                <h1 class="mt-4">The page you are trying to access does not exist!</h1>
                 <a href="{% url 'home' %}" class="btn btn-dropdown">Go Back</a>
             </div>
         </div>
