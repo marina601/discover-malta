@@ -1,5 +1,5 @@
 from django import forms
-from .models import Trip, Category, ReviewRating
+from .models import Trip, ReviewRating
 
 
 class TripForm(forms.ModelForm):
@@ -16,20 +16,23 @@ class TripForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-       
-        for field_name, field in self.fields.items():
-            """ Add classes to the form fields"""
+
+        for field in self.fields:
+            # Add classes to the form fields
             field.widget.attrs['class'] = 'form-control'
 
 
 class ReviewForm(forms.ModelForm):
+    """
+    Form to submit user trip review and rating
+    """
     class Meta:
         model = ReviewRating
         fields = ['subject', 'review', 'rating']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-    
-        for field_name, field in self.fields.items():
-            """ Add classes to the form fields"""
+
+        for field in self.fields:
+            # Add classes to the form fields
             field.widget.attrs['class'] = 'form-control'
