@@ -19,7 +19,7 @@ class TripForm(forms.ModelForm):
 
         for field in self.fields:
             # Add classes to the form fields
-            field.widget.attrs['class'] = 'form-control'
+            self.fields[field].widget.attrs['class'] = 'form-control'
 
 
 class ReviewForm(forms.ModelForm):
@@ -35,4 +35,4 @@ class ReviewForm(forms.ModelForm):
 
         for field in self.fields:
             # Add classes to the form fields
-            field.widget.attrs['class'] = 'form-control'
+            self.fields[field].widget.attrs['class'] = 'form-control'
