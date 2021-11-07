@@ -3,6 +3,11 @@
 
 {% block extra_title %} {{ trip.name }} {% endblock %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'trips/css/trips.css' %}">
+    <link rel="stylesheet" href="{% static 'trips/css/star-rating.css' %}">
+{% endblock %}
+
 {% block content %}
 <section class="main-content">
     <div class="container">

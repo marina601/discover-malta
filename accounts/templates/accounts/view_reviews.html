@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block extra_title %} favourites {% endblock %}
+{% block extra_title %} Favourites {% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'trips/css/trips.css' %}">
+{% endblock %}
 
 {% block content %}
 

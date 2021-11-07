@@ -58,15 +58,6 @@ label:hover ~ input:checked ~ label {
     height: 4rem;
 }
 
-
-.review-form {
-    border: 1px solid #000000 !important;
-    border-radius: 5px;
-    box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-}
-
 @media (max-width: 320px) {
     .rating > label:before {
         padding: .3rem .1rem;
