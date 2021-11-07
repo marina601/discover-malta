@@ -181,7 +181,7 @@ def update_trip(request, trip_id):
             if form.is_valid():
                 form.save()
                 messages.success(request, f'Succesfully updated {trip.name}!')
-                return redirect('trips')
+                return redirect('trip_detail', trip.category.slug, trip.slug)
             else:
                 messages.error(request,
                                f'Failed to update {trip.name}.'
