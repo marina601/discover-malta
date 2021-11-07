@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Q
 from django.utils.text import slugify
+from django.utils import timezone
 
 from accounts.models import Account
 from checkout.models import Order, OrderTicketItem
@@ -234,6 +235,8 @@ def submit_review(request, trip_id, user_id):
                 reviews = ReviewRating.objects.get(user__id=user_id,
                                                    trip__id=trip_id)
                 form = ReviewForm(request.POST, instance=reviews)
+                reviews.updated_at = timezone.now()
+                reviews.save()
                 form.save()
                 messages.success(request, 'Thank you! Your review has'
                                  ' been updated.')
