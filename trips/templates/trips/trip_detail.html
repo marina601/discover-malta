@@ -370,23 +370,12 @@
 
 <script>
 
-    // Modal
-    var myModal = document.getElementById('exampleModal')
-    var myInput = document.getElementById('total_adults')
+    // Modal from bootstrap 
+    var myModal = document.getElementById('exampleModal');
+    var myInput = document.getElementById('total_adults');
 
     myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus()
-    })
-
-    // Validate star rating
-    const submit = document.getElementById('btn-submit')
-    const rating = document.getElementById('rating1')
-    
-    submit.addEventListener('sumbmit', function(e) {
-        e.preventDefault();
-        if (rating1 < 0) {
-            rating.removeAttribute("required");
-        } 
+        myInput.focus();
     });
 
 </script>
