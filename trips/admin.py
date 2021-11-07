@@ -1,10 +1,9 @@
 from django.contrib import admin
 from .models import Category, Trip, ReviewRating
 
-# Register your models here.
-
 
 class CategoryAdmin(admin.ModelAdmin):
+    """Category Model fields"""
     prepopulated_fields = {
         'slug': ('category_name',)
     }
@@ -12,14 +11,15 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class TripAdmin(admin.ModelAdmin):
+    """Trip Model fields"""
     list_display = ('name', 'category', 'provider',
                     'duration', 'departure_location', 'family_friendly',
                     'adult_price', 'child_price', 'num_tickets')
     prepopulated_fields = {'slug': ('name',)}
 
 
-
 class ReviewRatingAdmin(admin.ModelAdmin):
+    """ReviewRating Model fields"""
     list_display = ('user', 'rating', 'trip')
 
 
