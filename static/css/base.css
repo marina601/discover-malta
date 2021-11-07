@@ -1,6 +1,9 @@
 html {
     height: 100%;
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    min-height: 100vh;
+    position: relative;
 }
 
 body {
@@ -412,17 +415,15 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 .error {
     background: url("https://cdn.pixabay.com/photo/2019/02/04/12/18/winter-3974511_1280.jpg") no-repeat center center fixed;
     background-size: cover;
-    height: 80rem;
-    margin-top: 9rem;
+    height: 80vh;
  }
 
  /**********************500.html*/
 
 .error {
-    background: url("https://cdn.pixabay.com/photo/2020/07/01/08/46/wattle-tree-5358904_1280.jpg") no-repeat center center fixed;
+    background: url("https://cdn.pixabay.com/photo/2017/08/01/22/38/flash-2568381_1280.jpg") no-repeat center center fixed;
     background-size: cover;
-    height: 80rem;
-    margin-top: 9rem;
+    height: 80vh;
  }
 
 /**********************View Availability*/
