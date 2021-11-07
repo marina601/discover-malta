@@ -1,0 +1,141 @@
+.heading {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+/*******************Search and Sort*/
+.search-btn {
+    background-color: #000000;
+    color: #fafafa;
+}
+
+.dropdown-item:hover {
+    background-color: rgba(97, 95, 95, 0.6);
+    border-radius: 5%;
+    padding: 1rem;
+    transition: ease-in-out all .2s;
+    -moz-transition: ease-in-out all .2s;
+    -webkit-transition: ease-in-out all .2s;
+}
+
+.sort-div {
+    display: flex;
+    justify-content: end;
+}
+
+/****************Card*/
+
+.card-body .list-group-item {
+    border: none;
+}
+
+.card-body .list-group {
+    flex-direction: unset;
+}
+
+
+.short-description {
+    height: 10rem;
+    overflow: auto;
+    scroll-behavior: smooth;
+    margin: 0px;
+}
+
+.card-trip {
+    height: 44rem;
+    margin:  1rem;
+    border: 2px solid #000000;
+}
+
+.card-body p {
+    font-size: 1rem;
+}
+
+
+.card-body a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.card-body ul {
+    font-size: 1rem;
+}
+
+.card-trip img {
+    height: 220px;
+    object-fit: cover;
+}
+
+.results {
+    font-weight: 900;
+    letter-spacing: 0.1rem;
+    font-size: 2rem;
+    padding-left: 1rem;
+}
+
+/*************Pagination*/
+.pagination {
+    background-color: #fafafa;
+    font-size: 1rem;
+    margin-top: 2rem;
+}
+
+.page-link {
+    color: #000000;
+}
+
+.pagination-section {
+    height: fit-content;
+}
+
+.page-item.active .page-link {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.list-group-item {
+    border: none;
+}
+
+/* -------------------------------- Media Queries */
+
+@media (max-width: 1200px) {
+    .card-trip {
+        height: 47rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .review-card {
+        height: 20rem !important;
+    }
+
+    .sort-div {
+        display: block;
+    }
+
+    .card-trip {
+        margin: 0;
+        width: 270px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .sort-div {
+        display: block;
+    }
+
+    .review-card {
+        height: 18rem;
+    }
+
+    .result-count {
+        font-size: 1rem;
+    }
+
+    .card-trip {
+        height: 44rem;
+    }
+
+}
