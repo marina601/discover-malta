@@ -39,31 +39,34 @@ def add_to_bag(request, trip_id):
             bag[trip_id]['booking_date'] = booking_date
             bag[trip_id]['adult_tickets'] += adult_tickets
             bag[trip_id]['children_tickets'] += children_tickets
+            # update number of tickets available for the trip
             if total_tickets <= trip.num_tickets:
                 trip.num_tickets -= total_tickets
                 trip.save()
                 messages.success(request,
                                  (f' Updated suitcase for {trip.name}'
-                                  f' and {booking_date} date with {adult_tickets}'
-                                  f' adult tickets'
+                                  f' and {booking_date} date with'
+                                  f' {adult_tickets} adult tickets'
                                   f' and {children_tickets} children tickets'))
             else:
-                messages.error(request, f"There are only {trip.num_tickets} tickets left for this trip")
+                messages.error(request, f"There are only {trip.num_tickets} "
+                                        f"tickets left for this trip")
     else:
         # Check if there are enough tickets
-        if total_tickets < trip.num_tickets:
+        if total_tickets <= trip.num_tickets:
+            trip.num_tickets -= total_tickets
+            trip.save()
             bag[trip_id] = {
                 'quantity': 1,
                 'booking_date': booking_date,
                 'adult_tickets': adult_tickets,
                 'children_tickets': children_tickets,
             }
-            trip.num_tickets -= total_tickets
-            trip.save()
             messages.success(request, (f'Added {trip.name},'
                                        f' on {booking_date} to your suitcase'))
         else:
-            messages.error(request, f"There are only {trip.num_tickets} tickets left for this trip")
+            messages.error(request, f"There are only {trip.num_tickets}"
+                                    f" tickets left for this trip")
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -92,8 +95,8 @@ def update_bag(request, trip_id):
         if adult_tickets > 0:
             bag[trip_id]['adult_tickets'] = int(adult_tickets)
             bag[trip_id]['children_tickets'] = int(children_tickets)
-            messages.success(request, (f'Updated your booking requirements'
-                                       f' for {trip.name}'))
+        messages.success(request, (f'Updated your booking requirements'
+                                   f' for {trip.name}'))
     else:
         del bag[trip_id]
         messages.success(request, (f'Removed {trip.name},'
@@ -111,7 +114,11 @@ def remove_from_bag(request, trip_id):
     try:
         trip = get_object_or_404(Trip, pk=trip_id)
         bag = request.session.get('bag', {})
-
+        total_tickets = (
+            bag[trip_id]['adult_tickets'] + bag[trip_id]['children_tickets']
+        )
+        trip.num_tickets += total_tickets
+        trip.save()
         del bag[trip_id]
         messages.success(request, (f'Removed {trip.name},'
                                    f'from your suitcase'))
