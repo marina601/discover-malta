@@ -50,7 +50,7 @@ def add_to_bag(request, trip_id):
                                   f' and {children_tickets} children tickets'))
             else:
                 messages.error(request, f"There are only {trip.num_tickets} "
-                                        f"tickets left for this trip")
+                               f"tickets left for this trip")
     else:
         # Check if there are enough tickets
         if total_tickets <= trip.num_tickets:
@@ -66,7 +66,7 @@ def add_to_bag(request, trip_id):
                                        f' on {booking_date} to your suitcase'))
         else:
             messages.error(request, f"There are only {trip.num_tickets}"
-                                    f" tickets left for this trip")
+                           f" tickets left for this trip")
 
     request.session['bag'] = bag
     return redirect(redirect_url)
@@ -109,6 +109,7 @@ def update_bag(request, trip_id):
 def remove_from_bag(request, trip_id):
     """
     Remove the trip by trip_id from the bag
+    update trip.ticket_num quantity
     """
 
     try:
