@@ -1,15 +1,15 @@
-# Scooter Circle
+# Discover Malta
 
-![Discover Malta]("Am I Responsive Image") 
+![Discover Malta](readme-files/images/responsive-img.png "Am I Responsive Image")
 
-[View the deployed project here]()
+[View the deployed project here](https://discover-malta.herokuapp.com/)
 
-I have created this site as part of my final Milestone 4 project for Code Institute, 
+I have created this e-commerce/booking site as part of my final Milestone 4 project for Code Institute, 
 focusing on Full Stack Web Development using HTML, CSS, JavaScript, jQuery, Python, Django and Postgresql.
 
 Discover Malta site offers the user the ability to discover the beautiful island of Malta and plan their holiday antinary on one platform. The site offers the user quick and easy checkout, instant ticket confirmation, a gallery of trips and some useful information which they need during their stay. 
 
-We are supporting local tour operators by reducing their wage cost, offering custom page design for each trip and easy online transactions. Taking the hustle of marketing and organization away, letting the business owners focusing on delivering an outstanding experience to our clients.
+The main objective of this site is to support local tour operators by reducing their wage cost, offering custom page design for each trip and easy online transactions. Taking the hustle of marketing and organization away, letting the business owners focus on delivering an outstanding experience to our clients.
 
 
 
@@ -82,10 +82,10 @@ We are supporting local tour operators by reducing their wage cost, offering cus
 
 ## Project Goals 
 
-This a trip booking website especially focused on Maltese tourist market. Malta is a nation of just under 450,000 people, yet its infrastructure is required to support over 1.1 million tourists every year.
+This a e-commerce/trip-booking website especially focused on Maltese tourist market. Malta is a nation of just under 450,000 people, yet its infrastructure is required to support over 1.1 million tourists every year.
 
 #### The main target audience of Discover Malta are: 
--	 Inbound tourists aged 25 to 44 years comprised the largest age group of tourists arriving in -    Malta in 2020. In that year, roughly 273 thousand international travelers within this age    group visited the country.
+-	 Inbound tourists aged 25 to 44 years comprised the largest age group of tourists arriving in - Malta in 2020. In that year, roughly 273 thousand international travelers within this age    group visited the country.
 -	Families who are looking for children friendly activities
 -	Couples who are looking to explore different parts of the island
 -	People looking for unique experiences during their holidays
@@ -110,9 +110,12 @@ This a trip booking website especially focused on Maltese tourist market. Malta 
 
 ####  Discover Malta travel site is a great way to meet these needs because: 
 -	The site has been designed with the user experience in mind, from easy navigation, responsive design to user feedback guiding them every step of the way.
--	Discover Malta trips can be searched by key words or categories giving the user freedom to explore their desired destination 
+-	Discover Malta trips can be searched by key words or categories giving the user freedom to explore their desired destination
+-   The user is also able to sort trips by different cretirias like (price, reviews, family friendly and duration)
+-   Once the user is logged in, they will be able to shorlist trips and view them in their profile
 -	Easy and quick checkout process with instant email confirmation
 -	User may access their tickets via Profile portal
+-   Login procedure is designed with user goals in mind, allowing the user to login with their email address, reset password and update their profile.
 
 
 ### Client Goals
@@ -122,11 +125,11 @@ A potential client which chooses to collaborate with Discover Malta might want t
 -	Sell their tickets on the web 
 -	Increase their business demand 
 -	Reduce their overheads
+
 #### Discover Malta travel site is a great way to meet these needs because: 
 -	A potential client can easily request more information by filling in the contact form.
 -	Discover Malta offers low commission rates, custom design and availability.
 -	The client may also increase or decrease their trip availability at any time. 
--	All transactions are done on line 12 hours prior to trip date and time
 
 
 ### Business Goals
@@ -150,18 +153,22 @@ A potential client which chooses to collaborate with Discover Malta might want t
 3.	As a first-time user, I want to see full trip details and trip reviews from other users.
 4.  As a first-time user, I want understand the benefits of booking my holiday itinerary with the provider.
 5.  As a first-time user, I want to add the trips which I like to my favourites.
-6.  As a first-time user, I want to be ablet  to shortlist the trips I might want to book.
+6.  As a first-time user, I want to find a variety of experiences suited for different ages and requirements.
+7.  As a first-time user, I want to navigate the site easily and view side on different screen sizes.
+8.  As a first-time user, I want have a good overview of what site has to offer and then click on the button to view more information about a specific trip if interested.
 
 #### Returning User 
 
 1.	As a returning user, I want to be able to login into my account
-2.	As the returning time user, I want to view my favourites and check their availability
-3.	As a  returning user, I want search for a specific trip or filter trips by category.
+2.	As a returning time user, I want to view my favourites and check their availability
+3.	As a returning user, I want search for a specific trip or filter trips by category.
 4.	As a returning user, I want to learn more about the site.
 5.	As a returning user, I want to purchase the trip with secure checkout.
 6.	As a returning user, I want to get an instant email confirmation of my transaction.
 7.	As a rerurning user, I want to have feedback provided to me every step of the way.
 8.	As a returning user, I want to view my ticket in my profile page.
+9.  As a returning user, I want to be able to save my information to my profile for quick and easy checkout next time.
+
 
 
 #### Frequent User
@@ -173,6 +180,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 5.	As a frequent user, I want to follow the site on social media.
 6.	As a frequent user, I want to be able to contact the site owners if I have an enquire.
 7.  As a frequent user, I want to explore latest deals
+8.  As a frequent user, I want my information to be pre-filled on the checkout page.
 
 
 ##### back to [content](#table-of-content)
@@ -208,7 +216,8 @@ A potential client which chooses to collaborate with Discover Malta might want t
 -	Ability to edit and delete their entities 
 -   Secure checkout procedure 
 -   Able to save the details for next time  
--   Short list trips 
+-   Short list trips
+-   For the site to give feedback on interaction
 
 
 ##### back to [content](#table-of-content)
@@ -228,9 +237,15 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ## Design 
 
 ### Colour Scheme 
-![Color Pallete]()
+![Color Pallete](readme-files/images/luzzu-boat.png)
 
 -	The colour palette inspiration has come from Luzzu, they date back to the time of the ancient Phoenicians. This gives the site an authentic look and feel
+-   The colour codes used on the site:
+
+| Colour:  | Blue    | Orange  | Red     | Green   | White    | Black   |
+| :------: | :-----: | :-----: | :-----: |:------: | :------: | :------:|
+| Code:    | #2576da | #da8925 | #ef1018 | #039b2b | #fafafa  | #000000 |
+
 
 ##### back to [content](#table-of-content)
 
@@ -239,10 +254,62 @@ A potential client which chooses to collaborate with Discover Malta might want t
  [Google Fonts](https://fonts.google.com/) have been used on this page 
     - To give consistency to the users, consistent fonts have been used throughout the site:
 
+      - All the headings are displayed in font-family: 'Acme', sans-serif;
+
+      - All other elements are displayed in font-family: 'Oxygen', sans-seri;
+    
 
 ##### back to [content](#table-of-content)
 
 ### Imagery
+
+- Carousel images in the index.htm have been sorced from [Pixabay](https://pixabay.com/):
+
+  - Catamaral image [by dimitrisvetsikas1969](https://pixabay.com/photos/catamaran-sea-boat-tourism-blue-2329770/)
+  - Gozo image [by waldomiguez](https://pixabay.com/photos/gozo-island-port-malta-water-sea-1139812/)
+  - Marsallok [by John Hoefer](https://pixabay.com/photos/boats-port-sea-town-village-5946304/)
+
+- Category Images:
+
+  - Last minute deals [by veerasantinithi](https://pixabay.com/photos/summer-travel-vacation-holiday-2880261/)
+  - Fishing [by dimitrisvetsikas1969](https://pixabay.com/photos/fishing-boat-fisherman-sea-fishing-5736839/)
+  - Adventures [by Pixels](https://pixabay.com/photos/woman-jump-backpack-jumping-leap-1868817/)
+  - Water activies [by Pixels](https://pixabay.com/photos/woman-kayaking-boat-canoe-canoeing-1867074/)
+  - Boat trips [by dimitrisvetsikas1969](https://pixabay.com/photos/sea-water-boat-ship-travel-3703094/)
+  - Food and Wine [by atanaspaskalev](https://pixabay.com/photos/luxury-food-wine-rose-starter-4330593/)
+
+
+- Trip Images:
+
+   - Walking food tasting trail in Valetta from [malta.com](https://www.malta.com/media/en/dining/restaurant/mosta/ta-marija/maltese-platter-at-ta-marija-mosta.jpg)
+   - Ta'Mena Wine Tours [by bedrck](https://pixabay.com/photos/wine-napa-valley-vineyard-napa-1938924/)
+   - Blue Grotto and Marsallock half day tour from Valetta [by PICNIC-Foto-Soest](https://pixabay.com/photos/market-fish-fish-market-food-fresh-897990/)
+   - Fishing Day Charter [by scottgardner](https://pixabay.com/photos/key-west-florida-fishing-angling-848209/)
+   - Fishing Trip Malta and Gozo [by photo-graphe](https://pixabay.com/photos/fish-fishing-fishermen-food-water-1544819/)
+   - St Paul's Bay [by kmarius](https://pixabay.com/photos/snorkeling-sea-water-snorkel-ocean-5222196/)
+   - Malta: Gozo, Camino and Blue Lagoon Trip [by Marrit1991](https://pixabay.com/photos/crete-boat-sea-fishing-boat-2152796/)
+   - Gozo Full Day Jeep Tour with Lunch [by dimitrisvetsikas1969](https://pixabay.com/photos/jeep-vehicle-off-road-adventure-1461830/)
+   - Harbour Cruise [by user32212](https://pixabay.com/photos/lighthouse-harbor-port-bay-sky-2482778/)
+   - Segway [by Republica](https://pixabay.com/photos/segway-people-ride-sunset-group-88961/)
+   - Stand up paddle board yoga [by Trex7875](https://pixabay.com/photos/yoga-on-water-lake-woman-1362019/)
+   - Kayak Gozo and Camino [by dimitrisvetsikas1969](https://pixabay.com/photos/canoe-kayak-sport-water-sport-1405961/)
+
+- Default User Profile Image:
+   
+    - Defaul User Image [by Peggy Marco](https://pixabay.com/illustrations/key-access-password-code-1013662/)
+
+- 404.html Background Image:
+
+   - Winter Tree Image [by EvgeniT](https://pixabay.com/photos/winter-tree-bench-field-snow-field-3974511/)
+
+
+- 500.html Background Image:
+
+    - Lightnening Image [by Felix Mittermeier](https://pixabay.com/photos/lightning-thunderstorm-super-cell-2568381/)
+
+- Favicon:
+     
+     - Sun in sunglasses [by OpenClippart_Vectors](https://pixabay.com/vectors/sun-cool-sunshine-glossy-smile-151763/)
 
 
 
@@ -250,17 +317,17 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ### Icons
 
- - Favicon icon has been sourced from 
-[icons8](https://icons8.com/icons/set/scooter)
-
-
-
-   - All the icons on site have been imported from 
-   [fontawesome](https://fontawesome.com/) library
+- All the icons on site have been imported from 
+[fontawesome](https://fontawesome.com/) library
 
 ##### back to [content](#table-of-content)
 
 ### Style 
+
+- Subtale box shadow has been applied elements which needed emphasis like, cards, forms.
+- In case where an area is clickable, for example links or call to action buttons, the shadow size in increased and animated when the user hovers over the element, this was done to make the area more tempting to click.
+- Curved coners styling has chosen for its friendly feel, and as it is common stylistic choice of bootstrap it blends well with style used from that library.
+- Call to action buttons and cards all have a black border around them to make them stand out against a nutural background.
 
 
 ##### back to [content](#table-of-content)
@@ -269,7 +336,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ### Wireframes 
 
-- I have used [Balsamiq](https://balsamiq.com/) to create wireframes for Scooter Circle.
+- I have used [Balsamiq](https://balsamiq.com/) to create wireframes for Discover Malta.
 - You can view my wireframes [here](https://github.com/marina601/scooter-circle/tree/master/wireframes)
 
 
