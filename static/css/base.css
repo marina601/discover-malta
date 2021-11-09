@@ -243,7 +243,7 @@ header,
 
 .add-to-favourites {
     background-color: #da8925;
-    border-bottom: 2px solid #000000;
+    border: 2px solid #000000;
 }
 
 .add-to-favourites:hover {
@@ -444,7 +444,7 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 }
 
 .add-booking-btn {
-    background-color: #039b2b;
+    background-color: #000000;
     color: #fafafa;
     text-align: center;
     border: 2px solid #000000;
