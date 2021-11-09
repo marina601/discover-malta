@@ -6,6 +6,7 @@
 {% block content %}
 <section class="main-content">
   <div class="container">
+    {% if user.is_superadmin %}
     <div class="row">
       <div class="col mt-3 text-center">
         <h2>Trip Managment</h2>
@@ -22,54 +23,67 @@
           <div class="form-row col-12">
             <label for="id_name" class="form-label">Title:</label>
             {{ form.name }}
+            {{ form.name.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_category" class="form-label">Category:</label>
             {{ form.category }}
+            {{ form.category.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_num_tickets" class="form-label">Number of Ticket:</label>
             {{ form.num_tickets }}
+            {{ form.num_tickets.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_short_description" class="form-label">Short Description:</label>
             {{ form.short_description }}
+            {{ form.short_description.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_full_description" class="form-label">Full Description:</label>
             {{ form.full_description }}
+            {{ form.full_description.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_included" class="form-label">What is included:</label>
             {{ form.included }}
+            {{ form.included.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_what_to_bring" class="form-label">What to bring:</label>
             {{ form.what_to_bring }}
+            {{ form.what_to_bring.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_duration" class="form-label">Duration:</label>
             {{ form.duration }}
+            {{ form.duration.errors }}
           </div>
           <div class="col-md-6">
             <label for="id_start_time" class="form-label">Start Time:</label>
             {{ form.start_time }}
+            {{ form.start_time.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_departure_location" class="form-label">Departure Location:</label>
             {{ form.departure_location }}
+            { form.departure_location.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_adult_price" class="form-label">Adult Price:</label>
             {{ form.adult_price }}
+            {{ form.adult_price.errors }}
           </div>
           <div class="col-md-6">
             <label for="id_child_price" class="form-label">Child Price:</label>
             {{ form.child_price }}
+            {{ form.child_price.errors }}
           </div>
           <div class="form-row col-12">
             <label for="id_images" class="form-label">Image:</label>
             {{ form.images }}
+            {{ form.images.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="special_offers" class="form-label">Special Offers:</label>
@@ -94,8 +108,6 @@
               </a>
             </div>
             <div class="col-md-4 col-sm-12">
-              {{ form.non_field_errors }}
-              {{ form.errors }}
               <!--submit button-->
               <button id="submit-button" class="btn btn-dropdown add-btn">
                 <span class="font-weight-bold">Update</span>
@@ -104,10 +116,18 @@
                 </span>
               </button>
             </div>
+            {{ form.non_field_errors }}
           </div>
         </form>
       </div>
     </div>
+    {% else %}
+    <div class="row">
+      <div class="col text-center mt-5">
+        <h4>You do not have permission to access this page!</h4>
+      </div>
+    </div>
+    {% endif %}
     <!--Button to return to all trips-->
     <div class="row mt-2">
       <div class="col text-center">
