@@ -47,7 +47,10 @@ The main objective of this site is to support local tour operators by reducing t
 7 [**Features**](#features)
    - [**All Pages**](#all-pages)
    - [**Home Page**](#home-page)
-   - [**Registration Page**](#registration-page)
+   - [**All Trips Page**](#all-page)
+   - [**Trip Details Page**](#trip-details-page)
+   - [**Add Trip Page**](#add-trip-page)
+   - [**Update Trip Page**](#update-trip-page)]
    - [**Login Page**](#login-page)
    - [**Profile Page**](#profile-page)
    - [**Edit Review**](#edit-review)
@@ -390,74 +393,134 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 #### Navbar
 
-- Dynamic navigation menu collapses on the mobile screen view. The navigation links contain a logo image which is linked to the Home Page. 
-- Main Navigation is centred on the desktop and tablet view with links to Home, Trips and Shop. This navigation collapses into the burger button on the mobile view and remains centred. 
-- Trips link contains a link to different categories of the Trips 
-- Icon links for User, Bag and Favourites are in the form of icons and appear on the right-hand side of the header. 
-- User icon contains a dropdown for non-logged in user to Login and Register
-- User icon contains a dropdown for logged in user to Profile and Logout
+- Dynamic navigation menu collapses on the mobile and tablet screen view. The navigation links contain site name which is linked to the Home Page. 
+
+![Descktop-navigation](readme-files/images/main-nav-desktop.png)
+
+- Main Navigation is centred on the desktop with links to Home, Trips and Categories. This navigation collapses into the burger button on the mobile view.
+- Trips link contains a link to all trips
+- Category link is a dropdown menu which is dynamically generated based on all the categories in the database and links to each category page.
+
+     - {% for category in links %} <li><a class="dropdown-item"href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>{% endfor %}
+
+- Navigation features 3 icons for user avitor, suicase for their trips and a hart icon for trips which user can add to their favourite list. 
+- User icon contains a dropdown menu for non-logged user to Login and Register
+- For Registered Users, user icons turns into a default user image or if updated by the user, user profile image
+- Registered user-image contains a dropdown menu to Profile page and Logout.
 - A logged in user will be able to add their chosen trips to their favourites, the number will increment, and the colour of the hart will change. 
 - If a non-logged in user will try to add trips to favourites, they will be prompted to login or create an account.
-- The colour of the footer and navbar remain consistent throughout the site.
+
+![tablet-navigation](readme-files/images/navigation-ipad.png)
+
+- Suitcase icon - once a user will add any trips to their suitcase(bag) the colour will change to orange and the total value of their suitcase will be displayed accross all the pages.
+- Navbar is fixed to the top of the page accross all screen sizes.
 
 
 #### Footer
 
 - Footer is available to all users at all times.
+- The design is simple and manimalistic, not to distract the user experience. 
 - The footer contains 2 main links: 
-- Contact 
-- About 
+    - Contact 
+    - About 
 - Also call to action “Follow Us” with social media icons displayed at the bottom of the page. 
-- Copyright information
+- Social icons are linked to social platforms as an external link.
+- The footer features the copyright information for Discover Malta, which is generated and updated automatically using JavaScript 
 
 
 #### General Features
   
-- The website has a responsive design based on the screen view.  
+- The website has a responsive design based on the screen view.
+- Nav bar and footer background colour is black to give the user a cle
 - All pages have call-to-action buttons to give the user easy access to the next page.
 - Favicon Icon is present for windows and apple devices to improve user experience. 
-
-
+- Page title to each page has been added dynamically through Django template in the base.html
+     - `<title>Discover Malta {% block extra_title %}{% endblock %}</title>`
+- Each page has its own title added using this block.
 
 #### Buttons
 
+- There are two main classes for the buttons:
+
+     - `class="btn-next"`
+
+- Has been added to all call to action buttons when the user is viewing all pages related trips.
+
+    - `class="btn-dropdown"`
+
+- Has been added to buttons to give a sence of security, once the user is proceeding to checkout page and also when viewing user profile pages.
+
+- Hover effect remained the same for all the buttons.
+
+- Only if the user is updating somethins like a trip or a review the colour of the button is green
+- Only when the user is deleting somethins the colour of the button is red
+
+#### Logo
+
+- When the user hover over the logo 'Discover' changes colour to blue.
+
+
+#### Links Hover effect
+
+- To keep the style consistant throught the site, I have added the same hover effect to footer and navbar links:
+    
+     -` background-color: rgba(97, 95, 95, 0.6);
+        border-radius: 5%;
+        padding: 0.5rem !important;
+        transition: ease-in-out all .2s;
+        -moz-transition: ease-in-out all .2s;
+        -webkit-transition: ease-in-out all .2s;`
+
+### Forms
+
+- All forms contain `text-shadow` property to make them stand out to the user.
 
  
 ##### back to [content](#table-of-content)
 
 ### Home Page
 
+![Index.html](readme-files/images/index.html-image.png)
+
 #### Hero Image
 
--	The hero carousel consists of 4 images of Malta island to showcase to the user the beautify of the island and what they can discover.
--	The carousel has a time delay function
+-	The hero carousel consists of 3 images of Malta island to showcase to the user the beautify of the island and what they can discover.
+-	The carousel has a time delay function, added `carousel-fade` class to fade each image instead of the traditional slide effect
+-   The carousel had `data-bs-touch="true"` which let's the user control the images on touch.
 
 
 #### Introduction 
 -	Consists of a brief paragraph about Maltese history 
--	The second paragraph consists of the a pitch and the benefits why user should use the site to book their trips with Discover Malta
+
+#### Benefits
+-	The second paragraph consists of the a pitch, why user should book the trip with Discover Malta
+-   The benefits are displayed in the form of different colour circles using the colour scheme of the site and `box-shadow` property to make them stand out.
+-   The benefits are not visible to the user initialy, on scroll they slide into the page, this was achieved using jQuery `show` function with time delay interval between each element.
 
 #### Categories 
 -	At the bottom of the page there is a list of categories which we offer for the user to explore.
--	When the user clicks on the category it will display the trips only by that category.
+-   The categories on the page are displayed dynamicaly from the database.
+-   Each category is displayed in the form of a card, with its own image and title.
+-   User may click on the category title to view all the trips under that category.
+-	Category title contains the same `:hover` effect as link in the navbar and footer
 
 #### Call-to-Action
 -	Call to action button “view all trips” displayed at the bottom of the page which will lead the user to explore all the trips available on the site.
 
 ##### back to [content](#table-of-content)
 
-
-
-
-
-
-### Registration Page
+### All Trips Page
 
 ![registration page](wireframes/images/registration-page.png)
 
 
 
 ##### back to [content](#table-of-content)
+
+ - [**All Trips Page**](#all-page)
+   - [**Trip Details Page**](#trip-details-page)
+   - [**Add Trip Page**](#add-trip-page)
+   - [**Update Trip Page**](#update-trip-page)]
 
 ### Login Page 
 
@@ -608,13 +671,17 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 -	Shop page which will allow the business owner to earn affiliate income 
 -	Client profile page, where the vendor of the trip will be able to see all their trips 
--	Check the availability of the trips
--	Check the bookings for a specific date 
--	Maybe even print their schedule for the date of the trip, with booking reference numbers, number of people and full names of attendies.
--	Booking form, should have a textarea element where the user is able to add notes to their booking and the vendor will be able to see them
--	Weather API
--	Google Maps API
+-	Checkout page, should have a textarea element where the user is able to add notes to their booking and the vendor will be    able to see them
 -	Privacy Policy
+-   Google map route overview for each trip on the trip_detail page
+-   Weather API to let the user check the weather when they are booking a trip
+-   Give the user option to login with their social media accounts
+-   About Page
+-   Fuctionality to give a specific trip the number of tickets available for a specific day.
+-   Set specific days for a trip to be available
+-   Implement last-minute category functionality, which would work on the condition whether a provider would like to sell more tickets on a specific day and give the user a specific % of the discount.
+-   Subscrition to a newsletter, where the user will be able to recieve an email with weekly offers
+-   Availability for user to add tickets to their personal calendar
 
 
 
