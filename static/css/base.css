@@ -243,9 +243,7 @@ header,
 
 .add-to-favourites {
     background-color: #da8925;
-    border: none;
-    border-radius: none;
-    border: 2px solid #000000;
+    border-bottom: 2px solid #000000;
 }
 
 .add-to-favourites:hover {
