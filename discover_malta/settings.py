@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'bag',
     'checkout',
+    'contact',
 
     # other
     'storages',
