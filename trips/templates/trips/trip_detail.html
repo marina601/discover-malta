@@ -141,7 +141,7 @@
                                             <label for="total_adults"><strong>Number of Adults:</strong></label>
                                             <i class="fas fa-user-friends"></i>
                                             <input type="number" id="total_adults" class="from-control"
-                                                name="adult_tickets" min="1" max="9" value="1"
+                                                name="adult_tickets" min="1" max="8" value="0"
                                                 oninput="this.setCustomValidity('')"
                                                 oninvalid="this.setCustomValidity('At least 1 adult ticket is required to purchase a trip')"
                                                 required>
@@ -266,7 +266,10 @@
                 <!--Review Title-->
                 <div class="col">
                     <label for="subject" class="form-label">Review Title:</label>
-                    <input type="text" name="subject" id="subject" class="form-control" required>
+                    <input type="text" name="subject" id="subject" class="form-control" minlength="5" maxlength="50"
+                       oninput="this.setCustomValidity('')"
+                       oninvalid="this.setCustomValidity('Please give your review a title')"
+                    required>
                 </div>
                 <!--Review -->
                 <div class="col">
