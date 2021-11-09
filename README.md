@@ -325,9 +325,18 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ### Style 
 
 - Subtale box shadow has been applied elements which needed emphasis like, cards, forms.
+
 - In case where an area is clickable, for example links or call to action buttons, the shadow size in increased and animated when the user hovers over the element, this was done to make the area more tempting to click.
+
 - Curved coners styling has chosen for its friendly feel, and as it is common stylistic choice of bootstrap it blends well with style used from that library.
+
 - Call to action buttons and cards all have a black border around them to make them stand out against a nutural background.
+
+- <em>Bootstrap Carousel</em> has been implemented on the home page to display the images of Malta.
+
+- <em>Bootstrap Card</em> was utilized to display a short description of each trip. The card has been also used to display trip reviews with custom sizing of the card.
+
+- <em>Bootstrap Modal</em> has been used for defensive programming when the user is trying to delete a review or a trip to alert the user of their action and ask to confirm their choice. Also modal is used to add trip to the basket by selecting the number of tickets and the date.
 
 
 ##### back to [content](#table-of-content)
@@ -337,17 +346,28 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ### Wireframes 
 
 - I have used [Balsamiq](https://balsamiq.com/) to create wireframes for Discover Malta.
-- You can view my wireframes [here](https://github.com/marina601/scooter-circle/tree/master/wireframes)
+- You can view my wireframes [here](https://github.com/marina601/discover-malta/tree/master/readme-files/wireframes)
+
+- I have diverted from my wireframes during the development process to create a better user experience:
+
+- <em>Home Page</em>
+
+- Instead of listing the reasons why the user should use this site to shop for thier holiday antinary, I have created a simple animation using JavaScript to give the user a good visual effect and overview of the benefits they will get whilest using the site.
+
+- <em>Trip Detail Page</em>
+
+- In the original design I wanted to implement a google map which will show to the user the route overview of their trip, due to tight schedule, this feature is still left to be implemented
+
+- I have added a form which lets the user to rate and submit a trip review, based on 2 conditions. One - the user mast be logged in and the other the user mast purchase the trip before they review it.
 
 
 ##### back to [content](#table-of-content)
 
 ### Database model
 
-I have used [DB Diagram](https://dbdiagram.io/) to create a database model
+I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16] to generate a database model diagram
 
-![Database model](wireframes/scooter-circle-database.png)
-
+![Database model](readme-files/images/database-model.png)
 
 
 ##### back to [content](#table-of-content)
