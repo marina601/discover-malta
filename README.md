@@ -475,6 +475,17 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 - All forms contain `text-shadow` property to make them stand out to the user.
 
+#### Icons
+
+- All icons contain `aria-hidden="true"` elements and `<span class="sr-only">` where appropriate to make the site more accessible for screen readers
+
+
+#### Toast
+
+- <em>Bootstrap Toasts</em> has been implemented across the whole side to give feedback to the user when an action is performed. 
+- This feature assures the user that when an action is taken it is recoreded. 
+- The user may dismiss the toast by clicking on the button or the toast notification will be dismissed with 5 seconds.
+
  
 ##### back to [content](#table-of-content)
 
@@ -511,14 +522,65 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ### All Trips Page
 
-![registration page](wireframes/images/registration-page.png)
+![trips.html](readme-files/images/all-trips-image.png)
+
+- All trips page features a heading which tells the user they will be able to view all the Trips here
+
+##### Search bar
+
+- Search bar feature is implemeneted which lets the user search for trips by keywords
+- If keyword does not exist then a message is displayed to the user telling them to try again.
+
+#### Sort functionality
+
+- Dropdown menu lets the user sort trips by price, rating, duration and if the trip is family friendly
+- This features lets user narrow down their search cretiria to their specific needs
+- The user also may choose to filter their trips by categories, the categories are generated dynamicaly based on the database entries. They display all the trips belonging to each category by category_slug
+- The url has been modifyed using `category_slug` to give the user a better experience and user-friendly appearance.
+
+#### Trip Count
+
+- Once the user lands on trips.html the total number of trips availabe in the database are displayed
+- When the user uses search bar or filters the trips by category, the total number of trips dynamically generates the total number of results found.
+
+#### Trip Card 
+
+- Each trip is displayed using <em>Bootstrap Card</em>
+- Card-header features add to favourite <em>tooltip</em> hart-icon, which on hover lets the user know they can add the trip to their favourites.
+   - Non-logged in users:
+      - If the user is not logged in they tooltip displays:
+          - "Login to add this trip to your favourites"
+      - If the user clicks on the button they will be redirected to the login page
+
+   - Logged in users:
+      - Tooltip features a different text on hover:
+         - "Add to favourite"
+      - When the user clicks on the hart the toast message is displayed letting the user know they have added the trip to their favourite list.
+      - The hart-icon in the navbar changes colour to red and displays the total number to favourite trips the user has added to their list.
+
+- Each trip contain an image, trip name, short description and friendly icons are displayed to let the user know the durations, price, star rating and if the trip is suitable for families.
+
+- Image and Trip name both are links to a trip_detail.html for an individual trip.
+- Short description gives the user a brief overview of the trip
+- Star rating displays to the user average rating for the trip, if there is star rating for the trip, the star icon turns yellow.
+- If there is no rating available for the trip, the star icon is balck and message is displayed to the user. 
+- If the trip is family friendly, a child icon appears in the card and message is displayed. 
+- If the trip is not family friendly, no icon and no message is displayed.
+- At the bottom of the card there is a "More Info" button which leads the user to trip_detail page.
+
+- If the user is admin:
+    - 2 addition buttons are added to the bottom of the card: "Delete" and "Update" trip.
+    - If the delete button is pressed the modal appears to inform the user of their actions and to confirm their decition
+    - Update button leads the user to update_trip.html
+
+#### Paginations
+    - Pagination buttons are provided depending on the number of results returned from the database with options next_page and previous_page, as well as the page number the user is currently on.
 
 
 
 ##### back to [content](#table-of-content)
 
- - [**All Trips Page**](#all-page)
-   - [**Trip Details Page**](#trip-details-page)
+
    - [**Add Trip Page**](#add-trip-page)
    - [**Update Trip Page**](#update-trip-page)]
 
@@ -553,14 +615,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ##### back to [content](#table-of-content)
 
-### Trips Page
--	Trips page consists of a heading 
--	Search bar using text content
--	Filter drop down option for categories which user may choose instead of the search 
-
--	Trip Cards – which contains image of the trips, small description, user rating and ‘view more button’ which will lead the user to the full trip detail page
--	Trip Cards also have add to favourite hart icon which will add the trips to the user profile once they are logged in or will redirect a non-loged in user to login/register page
--	Pagination has been implemented to limit the number of trips to 9 per page
+### 
 
 ##### back to [content](#table-of-content)
 
