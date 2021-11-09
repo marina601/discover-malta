@@ -580,9 +580,147 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ##### back to [content](#table-of-content)
 
+### Trips Detail Page
+![trip_details](readme-files/images/trip-details-image.png)
 
-   - [**Add Trip Page**](#add-trip-page)
-   - [**Update Trip Page**](#update-trip-page)]
+- The user is greeted with trip name and an image of the trip.
+
+#### Add to Favourites Icon
+    - In the left hand coner of the image the user has a tooltip like button.
+    - The conditions remain the same as trips.html for logged in users and not logged in users
+    - If the user is logged in and added the trip to their favourites the icon changes from hart to trash.
+    - Tooltip message displayed on hover "Remove this trip from your favourites", letting the user remove the trip by clicking the same button
+    - The toast message displays a messages "The trip.name has been removed from your favourites"
+
+- In the right-hand corner the user is presented with a stiky "Book Now" button, this feature has been implemented on purpose to give the user access to the booking modal at any stage, without scrolling upwards to find it.
+
+#### Book Now
+
+- When the user presses the button, a modal with a form appears.
+- The user may select the number of adults, children and the date which they would like to go on a trip.
+- In the modal header the trip name selected is displayed, to let the user know which trip they are booking the tickets for.
+- The price per single ticket is shown to the user.
+- The user has the option not to specify the number of children for the trip, however the number of adults has to be selected.
+- If only children tickets are selected, the custom validation message appears, letting the user know that at least 1 adult ticket is required to purchase this trip.
+- If the trip is not family friendly, the form does not display an input for number of children tickets.
+- On form submittions, total number of tickets is calculated and checked against the databse trip.num_tickets. The trip.num_tickets is being reduced.
+- If there are not enought tickets in the database available, an error toast message is appearing letting the user know how many tickets are available.
+- The user may dismiss the datepicke by pressing close button or a cross located on the right hand side of the modal.
+
+    - ![book-now-modal](readme-files/images/book-now-modal.png)
+
+#### Datepicker:
+    - Datepicker widget has been implemented from jQuery library
+    - The datepicker has been modified to display the date format django accepts, does not allow the user to pick any past dates and it displays the first day of the week:
+          - `$( ".calendar" ).datepicker({
+               dateFormat : 'yy-mm-dd',
+               minDate : new Date(),
+               firstDay: 1,
+           });`
+     - Datepicker colour scheme has been modifyed to suit the colour scheme of the site 
+
+- This page also features full informatio for selected trip
+- Icons are used on this page, similaly to all trips.html page, to display:
+        - Duration
+        - Start Time
+        - Reviews
+        - Rating
+        - Adult Price
+        - Child Price  (if applicable)
+        - Family Friendly (if applicable) 
+
+- A paragraph detailing cancellation policy procedure to the users is also displayed
+
+- If the user is admin user:
+        - Two buttons are displayed to Update and Delete the Trip
+
+#### Review/Rating
+
+- If the user is logged in:
+        - A form is presented to the user letting them easily add the review to this trip.
+        - The user may only add the review to a specific trip once this trip has been purchased by the user
+        - Otherwise the toast message is displayed to the user, letting them know they must purchase the trip first
+        - User must rate the trip and add the review title in order to submit the review
+        - Rating is accepted in decimal values with minimum of 0.5 and maximum of 5 star rating
+        - Star rating are displayed in the form via radio input fields, which are hidden and their labels are being transformed into font awesome stars.
+        - The stars are highlighted on hover using css styling
+        - Custom validation message is added to review title and displayed to the user if not entered.
+        - Once the form is valid and submited, there are two checks:
+            - If the user has already submitted the review for this trip, the review gets updated
+            - If this is a new review, a review gets created
+            - A function in the "trips.models.py" calculateds the average rating and total number of review if applicable.
+        - The page refreshes, the total number of review is updated and average star rating.
+        - User reveiw is displayed.
+
+- If user is not logged in:
+        - The form is not displayed.
+        - A message displayed to the user instead prompting them to login and rate their experience.
+
+- Review field is not required, as many users do not like to write a long review, by simplifying the process the site would gaine more reviews from users.
+
+    - ![review-form](readme-files/images/add-review-img.png) 
+
+#### Reviews
+
+- Reviews are displayed for a specific trip in form of the bootstrap cards
+- To keep the card styling consistant they benefit from the same box shadow property as the card-trip
+- Min-height property is added to the card to keep the elements the same heigh and consistant
+- Total number of review also displayed to the user to let them know how many reviews are there for this trip
+- The reviews are displayed in descending order, newest one first
+- The review card consist of review title, star rating which is displayed in form of the star icons and value condition to give colour to the stars:
+        - `<i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}" aria-hidden="true"></i>`
+- If there is an actual review it will be displayed.
+- In the footer of the reveiw card, user icon is displayed together with user.first_name.
+- The date is formated in the template to give the user a better visual effect:
+        - `{{ review.created_at|date:"M d, Y" }}`
+- It also let's the user know if this review has been updated or just created, as it tracks user updates in the databae
+
+- If the user is logged in and created a review:
+        - They are able to see Edit and Delete button in their review card
+        - The user may click Update button which will lead then to pre populated form with their review 
+        - The user may click Delete button which will display a modal asking them to confirm their decition
+        - If Review is deleted the quantities are being updated and toast message is displayed to the user 
+
+- If there are no review for this trip, a message is displayed letting the user know this trip has not been reviewed yet.
+
+- ![reviews](readme-files/images/reviews-images.png)
+
+##### back to [content](#table-of-content)
+
+
+### Add Trip Page
+    - This feature is available only for admin users
+    - They can access this page from their profile page, where the link is displayed
+    - The page contains a form and asks the user to fill in the required information
+    - If the form is valid the data is stored in the database and the user is redirected to trip_details page, where they can reveiw the trip created
+    - Toast message also displayed letting the user know they trip has been added to the database.
+    - Admin user may choose to edit or delete the trip from this page.
+    - If a not logged in user tries to acces this page, they will be redirected to the login page.
+    - If a user is logged in, but not admin tries to access this page they will see the message displayed that they do not have permission to access this page.
+
+##### back to [content](#table-of-content)
+
+### Update Trip Page
+    - This feature is available for admin users only
+    - They can access this page from trips.html or trip_detail.html pages, where update button is displayed
+    - The link takes the admin user to the pre-populated form with the trip they choose to edit.
+    - Alert in the form of toast appears on the page letting them know which trip they are editing
+    - Form erros are displayed to the user if the information entered is incorrect
+    - Once the form is submitted, the admin user is being redirected to the trip_detail.html to check the information entered.
+    - Admin user may choose to edit or delete the trip from this page.
+    - If a not logged in user tries to acces this page, they will be redirected to the login page.
+    - If a user is logged in, but not admin tries to access this page they will see the message displayed that they do not have permission to access this page.
+ 
+
+#### Delete Trip
+   - This feature is available for admin user only
+   - The admin user may delete a specific trip from trips.html or trip_detail.html, where the buttons are located
+   - When the button is triggered, a modal appear asking the user to confirm their decision.
+   - Once the trip is deleted the alert message in form of toast appears letting the user know the trip has been deleted.
+
+- ![delete-trip-modal](readme-files/images/delete-trip-modal.png)
+
+##### back to [content](#table-of-content)
 
 ### Login Page 
 
@@ -618,21 +756,6 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 ### 
 
 ##### back to [content](#table-of-content)
-
-### Trip Details Page 
--	Consits of the trip name at the top 
--	Followed by 3/4 images to give the user an overview what they will experience on the trip
--	Add to favourite hart icon appears on the left hand side of the image
--	On the right hand side of the image there is a floating “book now” button which will be fixed to the top of the page at all times, giving the user an easy access to the booking page, without the need to scroll up.
--	Features part of the page contain all the main features of the trip, to enchance user experience the icons. 
--	On the right hand side there are Google Maps which show the trip overview to the user 
--	Full Description 
--	What is Included
--	What to Bring 
--	Link to the shop for holiday essential (maybe)
--	Customer reviews also appear on the page. 
--	This page loads only 3 reviews, latest reviews first and has button to display more reviews if the user would like to read some more 
--	Two buttons at the bottom of the page which lead the user to go back to all trips page or explore latest deals
 
 
 ##### back to [content](#table-of-content)
