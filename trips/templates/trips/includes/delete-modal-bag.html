@@ -1,0 +1,36 @@
+<a class="d-inline btn remove-item m-1"  data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.trip.id }}">
+    Delete
+    <i class="fas fa-trash" aria-hidden="true"></i>
+    <span class="sr-only">delete</span>
+</a>    
+<!-- Modal -->
+<div class="modal fade" id="exampleModal-{{ item.trip.id }}" tabindex="-1"
+    aria-labelledby="exampleModalLabel-{{ item.trip.id }}" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel-{{ item.trip.id }}">
+                    {{ item.trip.name }}
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete {{ item.trip.name }} from your suitcase?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-dropdown w-auto"
+                    data-bs-dismiss="modal">
+                    <i class="fas fa-times" aria-hidden="true"></i>
+                    Close
+                </button>
+                <a href="{% url 'remove_from_bag' item.trip.id %}"
+                    class="btn remove-item w-auto">
+                    Delete
+                    <i class="fas fa-trash" aria-hidden="true"></i>
+                    <span class="sr-only">delete</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
