@@ -465,6 +465,8 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     border-radius: 5px;
     border: 1px solid black;
 }
+
+
 /*****************Add_to_bag*/
 
 .cancel-btn {
@@ -683,9 +685,10 @@ footer {
         padding: 0px;
     }
 
-    /* .review-card {
-        height: 20rem !important;
-    } */
+    .btn-checkout-mobile {
+        left: 41% !important;
+        top: 34% !important;
+    }
 
     .btn-dropdown {
         width: auto;
@@ -715,6 +718,19 @@ footer {
 
     header {
         height: 15vh;
+    }
+
+    .btn-checkout {
+        display: none;
+    }
+
+    .btn-checkout-mobile {
+        position: fixed;
+        left: 55%;
+        top: 26%;
+        z-index: 99999999;
+        width: auto;
+    }
     }
 
     /* .sort-div {

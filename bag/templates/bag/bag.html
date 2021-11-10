@@ -25,6 +25,19 @@
                     <h4>Trip Info</h4>
                 </div>
             </div>
+            <div class="row d-md-none">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                        <!--checkout button mobile view-->
+                        <a href="{% url 'checkout' %}" class="btn btn-dropdown btn-checkout-mobile">
+                            <span class="font-weight-bold"> Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
             <div class="row m-1">
                 <!--trip image-->
                 <div class="col-lg-3 col-md-6 spacing-md">
@@ -187,10 +200,10 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12">
+                <div class="col-lg-6 col-md-6">
                     <div class="float-end">
                         <!--checkout button-->
-                        <a href="{% url 'checkout' %}" class="btn btn-dropdown">
+                        <a href="{% url 'checkout' %}" class="btn btn-dropdown btn-checkout">
                             <span class="font-weight-bold">Proceed to Secure Checkout</span>
                             <span class="icon">
                                 <i class="fas fa-lock" aria-hidden="true"></i>
