@@ -7,7 +7,7 @@
 <section class="main-content">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-md-auto mt-3">
+      <div class="col-auto mt-3">
         <h2>Register Here</h2>
       </div>
     </div>
@@ -19,10 +19,12 @@
           <div class="col-md-6">
             <label for="id_first_name" class="form-label">First Name:</label>
             {{ form.first_name }}
+            {{ form.first_name.errors }}
           </div>
           <div class="col-md-6">
             <label for="id_last_name" class="form-label">Last Name:</label>
             {{ form.last_name }}
+            {{ form.last_name.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_email" class="form-label">Email Address:</label>
@@ -32,6 +34,7 @@
           <div class="col-md-6">
             <label for="id_phone_number" class="form-label">Phone Number:</label>
             {{ form.phone_number }}
+            {{ form.phone_number.errors }}
           </div>
           <div class="form-row col-md-6">
             <label for="id_password" class="form-label">Create Password:</label>
