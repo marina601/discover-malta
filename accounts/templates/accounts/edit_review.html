@@ -21,7 +21,7 @@
         <div class="row mt-3">
             <!--User Reviews-->
             <form action="{% url 'edit_review' review.id %}" method="POST"
-                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 review-form" id="review-form">
+                class="col-lg-8 offset-lg-2 col-md-8 offset-md-2 col-sm-12 login-form review-form" id="review-form">
                 {% csrf_token %}
                 <div class="col mt-3">
                     <p>Curren Star Rating: <strong>{{review.rating}}/5</strong></p>
