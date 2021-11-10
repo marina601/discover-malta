@@ -878,7 +878,8 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 -   If there is not items in the bag, a relevant message is displayed on the page with a link to "All Trips Page"
 -	The  user is greeted with a heading identifying the page clearly
 -   The Travel Bag Page features a summary of all the trips the user has added their suitcase
--	Each list item icludes trip image, duration, star time, departure location, number of tickets selected, price for a specific number of tickets based on their category (adults/children), total ticket quantity, selected booking date and sub total.
+-	Each list item icludes trip image, duration, star time, departure location, rating(if applicable), number of tickets selected, price for a specific number of tickets based on their category (adults/children), total ticket quantity, selected booking date and sub total.
+-   If the user clicks on the title of the trip, they can have a link to go to "Trip Details Page" to view more information
 -	The user is able to modify the date and the number of people selected for the trip
 -	The user can update their choice by pressing the button “Update”
 -   If the user sets the number of adult tickets to 0, the trip will be automatically deleted from the bag
@@ -893,31 +894,62 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 -   The number of tickets which have been deleted goes back to the total trip number of tickets available to purchase.
 -   Toast notification provides feedback to user on update and delete functionality.
 -	The user is able to see the grand total of their order on this page and below the icon of suitcase in the navigation menu. 
--	Two button at the bottom of the page “Continue Shopping” which will redirect the user to the trips page or “Checkout” which will take the user to the next page “Checkout”
+-	Two button at the bottom of the page “Keep Shopping” which will redirect the user to the trips page or “Proceed To Secure Checkout” which will take the user to the next page “Checkout”
+-   On the mobile screen view the "Checkout Button" is positioned at the top of the page and has `position: stiky`, this feature has been added as the trip summary can get quite big and the user may not want to scroll to the bottom of the page to find a checkout button.
 
 
 ##### back to [content](#table-of-content)
 
 
 #### Checkout Page
+
+![checkout-page](readme-files/images/checkout-1.png) | ![chekout-page-2](readme-files/images/checkout-2.png)
+-  Each checkout pagefeatures an order summary, which lists all the items in the users suitcase, image, trip name, number of tickets, adult price, child price (if applicable), booking date and total price.
+-  User will be able to click on trip name which will take them to "Trip Detail Page" if they would like to view more information about the trip.
 -	Once the user decides to checkout, they will be asked to complete a form and fill out the relevant details to complete a card transaction
--	The user will be able to save their details for next time by clicking on check box, which will store their information in their profile page. 
--	The user will be able to amend this information at any time 
--	The user will be asked for their card details 
--	Images of the credit and debit cards displayed to let the user know which payment methods they are able to use
+
+#### If the user is logged in 
+      - If the user is logged in and has their profile details the checkout form will be pre-filled
+      - If the user does not have their details saved to their profile, they will be asked to fill in the relevant information in the form.
+      - The user will be able to save their details for next time by clicking on check box, which will store their information in their profile page.
+   
+#### If the user is not logged in
+      - The check box to save user info will not be available, instead they will be asked to Login or Register to save their information for easy checkout next time and view their order history in their profile page.
+   
+   
+-   A user may use this page as an annonimouse user for one of checkout, or as a existing logged in user who will be able to view their order history in their profile page.
+-   The form is devided in 3 parts, one for user personal info, another one for their card registered address and the last one for their card number
+-   Each form element has a placeholder to guide the user during the form submition
+-   All the required input fields have added * to their placeholders
+-   Auto focus attribute is set to user first name field
+-   When the user selects the Country field, a nice feature from django fields 'CountryField' has been imported, which displays all the countried and lets them select the country from the list.
+
+#### Stripe
+-	The user will be asked for their card details, which will be authenticated by Stripe.
+-	Stripe detects what card is it and displays the relevant icon (like visa or mastercard)
+-   Stripe will display errors on the page for the user if there are any
+-   Using JavaScript I have modifyed default stripe input field and have hidden the zip code part, as it is mainly used in US and it is not applicable to the European market.
+
+
 -	A message at the bottom of the page will tell the user how much is being charged on their card
--	The user has two options at this point, press “Submit” button and the payment will be made to Stripe or “Cancel” button and the user will be redirected to the “Home” page.
+-	The user has two options at this point, press “Complete Order” button and the payment will be made to Stripe or “Adjust Order” button and the user will be redirected to the “View Bag Page” page, where they will be able to amend their order.
+-  Once the "Complete Order" button is pressed, a ovelay will cover the whole page and the user will see a loading spinner which will tell them the payment is being proccessed.
+-  On successfull payment submittion the user will be redirected to "Checkout Complete Page"
 
 ##### back to [content](#table-of-content)
 
 
 #### Checkout Success Page
+
+![checkout-ipad](readme-files/images/checkout-complete.png) | ![checkout-mobile](readme-files/images/checkout-complete-mobile.png)
   -  Checkout success page will be displayed once the payment has been successfully completed.
-- Trip Description will be displayed and booking reference number will be randomly generated, which will act as a ticket number for the trip 
-- The user will able to access this number in their profile page and present as a proof of purchase to the trip organizer
-- The user will receive an email with the same details as a confirmation of their booking 
-- The trip organizer will receive the same email to let them know the number of people booked for which date and booking ref number, which will be accepted as a proof of purchase on the day of the trip
-- A short paragraph at the bottom of  the ticket will tell the user that they will receive a confirmation email and they are also able to view the ticket in their profile page.
+  -  Toast notifications will let the user know the email has been send to the email address provided during the checkout process.
+  -  At this stage, an email has been automatically generated and send to the user with their full order details.
+  - Order summary is displayed and ticket number is randomly generated, which will act as a ticket number for the trip.
+  - The user will able to access this number in their profile page and present it as a proof of purchase to the trip organizer.
+  - The user will be able to view all the personal information which they have entered in the contact form on this page as well, to give them a chance to check if all the information is correct.
+  - A button at the bottom of the page links to "All Trips Page"
+
 
 ##### back to [content](#table-of-content)
 
