@@ -50,14 +50,19 @@ The main objective of this site is to support local tour operators by reducing t
    - [**All Trips Page**](#all-page)
    - [**Trip Details Page**](#trip-details-page)
    - [**Add Trip Page**](#add-trip-page)
-   - [**Update Trip Page**](#update-trip-page)]
+   - [**Update Trip Page**](#update-trip-page)
+   - [**Delete Trip**](#delete-trip)
    - [**Login Page**](#login-page)
-   - [**Registration Pag**](#registration-page)
+   - [**Registration Page**](#registration-page)
+   - [**Forgot Password Page**](#forgot-password-page)
+   - [**Reset Password Page**](#reset-password-page)
+   - [**Logout**](#logout)
    - [**Profile Page**](#profile-page)
-   - [**Edit Review**](#edit-review)
-   - [**Products Page**](#products-page)
-   - [**View Product**](#view-product) 
-   - [**Add Product**](#add-product) 
+   - [**Edit Profile Page**](#edit-profile-page)
+   - [**View Review Page**](#view-review-page)
+   - [**Edit Review Page**](#edit-review-page)
+   - [**Favourites Page**](#favourites-page) 
+   ***************************************************
    - [**Edit Product**](#edit-product) 
    - [**Contact Page**](#contact-page) 
    - [**404 Error Page**](#404-error-page)
@@ -390,7 +395,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 - Based on the user stories and expectations, the following features have been implemented:
 
-### All pages 
+### All Pages 
 
 #### Navbar
 
@@ -476,7 +481,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 - All forms contain `text-shadow` property to make them stand out to the user.
 
-#### Icons
+### Icons
 
 - All icons contain `aria-hidden="true"` elements and `<span class="sr-only">` where appropriate to make the site more accessible for screen readers
 
@@ -713,7 +718,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
     - If a user is logged in, but not admin tries to access this page they will see the message displayed that they do not have permission to access this page.
  
 
-#### Delete Trip
+### Delete Trip
    - This feature is available for admin user only
    - The admin user may delete a specific trip from trips.html or trip_detail.html, where the buttons are located
    - When the button is triggered, a modal appear asking the user to confirm their decision.
@@ -730,6 +735,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 - The login page features a standard login form asking user for their email address and password.
 - Validation is handled in the back end and relevant information is provided to the user on validation.
+- Once the user is logged in, they are being re-directed to "Home Page", toast notification welcomes the user and user icon in the navbar changes to default user image or logged in user image. 
 - If the user forgot their password, they have an option to click on the link 'click here to reset your password', which will take them to the reset_password.html
 - If the user is not regitered, they have a link which they can click and it will take them to the register.html
 
@@ -785,7 +791,7 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ##### back to [content](#table-of-content)
 
-### Logout Page
+### Logout
 
 - Any userwho clicks on "Logout" link from the navigation bar is automatically logged out and their session data cleared. They are taken to a "Home" page, toast notification informs the user they have been logged out.
 
@@ -793,79 +799,102 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ### Profile Page
 
+![profile-page](readme-files/images/profile-page.png)
+
 -  User profile page can only be accessed by a logged in user. Any user not logged in who tries to access this page will be redirected to the login page.
 
-#### Not logged in user
--	If the user is clicking on the user icon at the top of the page, they will see a drop down option for “login” or “register” links
 #### Logged in user 
 -	Once logged the user can click on the user icon to access their profile page
 -	They will be greeted with a welcome message which will user their username for authentication
--	Default avitor icon will be displayed, if the user chooses to update the avitor icon they can do so by clicking on “Edit” button 
--	Not to clutter the page, I have chosen to display 3  button to tell the user what they can do on the page 
--	“View Booked Trips”
--	A div will be displayed to the user shoving them booking ref numbers, trip name and date. 
--	If the user decides to expand this they will see their ticket will all the information required for the trip 
--	The user may also add a review for the trip which has already passed
--	“View Your Favourites”
--	The user will be able to see their favourite list of trips in the form of cards here
--	If the user clicks on a particular one it will directed to the “Trip by <id>” page where they can proceed to book their selected trip
--	“Update Your Details”
--	The user will be presented with a form where they can update their personal details and save them to the database.
+-	Default avitor/ or user profile image will be displayed.
+-	Not to clutter the page, I have chosen to display 4  button to tell the user what they can do on the page 
+-	Each button takes them to the relevant information they wish to view.
+-   Ancor link in the form of the button take the user to the order history, which is displaye at the bottom of the page.
+-   I have decided to keep the order history on their profile page, as the user most likely to need this information more than any other.
+-   Past order history is presented in the table format, displaying order number, date, items purchased and order total amount.
+-   The orders are displayed in descending order
+-   The user may click on the order number to view full order.
+-   The user will be notified via toast notification, that they are viewing a past order and confirmation email has been send on the date of purchase.
 
 #### Admin User 
--	Will be able to add products to the database
-
-
+-	An admin user will be have an extra option "Add Trip" which will lead them to a add-trip.htm where they will be able to add a new trip to the database.
 
 ##### back to [content](#table-of-content)
 
 ### Edit Profile Page
 
-### View Review
+- Edit Profile Page features a message letting the user know that they can edit their information here
+- User Profile image/ defaul image displayed in the middle 
+- The form is pre-filled with user information
+- They user has the ability to edit their information and update their profile image
+- When the form is submitted, toast message displayed letting the user know their info has been updated and the user is being redirected back to the "Edit Profile Page" which shows their updated information.
+- The button in the end of the page lets user easily go back to their profile
+
+##### back to [content](#table-of-content)
+
+### View Reviews Page
+
+![manage-reviews](readme-files/images/manage-reviews-page.png)
+
+- Navigating from the user profile page by clicking on the button "Manage Reviews", the user is able to view all their reviews in the form of cards
+- Here the user may choose to edit their review by clicking on "Edit" button 
+- Or delete their reveiw by clicking on "Delete" button
+- If pressed on "Delete" button it will trigger a delete-review-modal which will ask the user to confirm their request.
+- If the user has not reviewed any trips yet, the appropriate message will be displayed notifying the user that they do not have any reviews yet.
+
+##### back to [content](#table-of-content)
 
 ### Edit Review Page
 
-### Favourites
+![edit-review](readme-files/images/edit-review-page.png)
 
-
-##### back to [content](#table-of-content)
-
-
-##### back to [content](#table-of-content)
-
-### Booking Page
--	Consists of the booking form hidden from the user and only the icons are displayed. 
--	The user needs to pick their booking date
--	The number of people 
--	The user may also check the weather for the day of their booked trip
-#### Trip Description 
--	A card which shows overview of the selected trip
-#### Cancellation Policy 
--	In a form of the button, when the user pressed on the button a modal will display the cancellation policy to the user  with a checkbox to agree 
--	Which will be added to the ticket confirmation
-#### Subtotal 
--	Once the user chooses the date and the number of people this form will be self populated with and display the total cost of the trip 
-#### Call to Action Buttons 
--	One button “Cancel” which will redirect the user to the all trips page
--	The other button “Add to Basket” which will add the trip to basket 
--	Display the message to the user to tell them that their trip has been added to the busket
--	The user needs to be logged in to add their trip to the basket, if the user is not authenticated the user will be redirected to loggin/register page
-##### back to [content](#table-of-content)
-
-### Shop Page (maybe yes or not yet)
+- Navigating from "View Reviews Page" by clicking "Edit" button the user is being redirected to "Edit Review Page"
+- Toast notification lets the user know which trip review they are editing
+- Message at the top of the page lets the user know what action they can perform
+- Current star rating is displayed in the form of numbers
+- The user may update their star rating by clicking on the relevan star
+- The user may update their review title and review.
+- Once the form is valid and submitted the user is being redirected to "View Reviews Page" where they can view their updated review.
+- Updated review date also automatically changes to the current date.
 
 ##### back to [content](#table-of-content)
 
+### Favourites Page
 
-### Basket  Page
+- A logged in user may access their favourites page by clicking on the hart icon in the navigation or from their profile page
+- If the user has favourites the list of the favourite trips displayed in the same format as trips.html
+- If the user does not have any favourites added to their list yet, the page displayes a relevant message with a link for the user to go to "All Trips Page"
+- On this page, instead of the hart icon the trash icon is displayed on top of each trip-card, which is a tooltip feature and on hover lets the user know they can remove this trip by clicking on the icon
+- The user may view "Trip Detail Page" for a selected trip by clicking on the trip image, name or "More Info" button
+- Conviniently the user has an option at the bottom of the page to go back to thier Profile Page by clicking on the link supplied.
+
+##### back to [content](#table-of-content)
+
+### View Bag Page
+
+![view-bag-1](readme-files/images/view-bag-1.png) | ![view-bag-2](readme-files/images/view-bag-2.png)
+
+-	The user will have access to their bag by clicking on the basket icon in the main navbar 
+-   If there is not items in the bag, a relevant message is displayed on the page with a link to "All Trips Page"
 -	The  user is greeted with a heading identifying the page clearly
--	The user is able to see a picture pre-view of their chosen trip 
--	Small description of their trip 
+-   The Travel Bag Page features a summary of all the trips the user has added their suitcase
+-	Each list item icludes trip image, duration, star time, departure location, number of tickets selected, price for a specific number of tickets based on their category (adults/children), total ticket quantity, selected booking date and sub total.
 -	The user is able to modify the date and the number of people selected for the trip
 -	The user can update their choice by pressing the button “Update”
--	The user is able to see the total cost of their trip on this page 
+-   If the user sets the number of adult tickets to 0, the trip will be automatically deleted from the bag
+-   If the user sets the nubmer of adult tickest into negative value, a JavaScript alert is displayed letting the user know they need to have at least 1 adult selected for this trip.
+-   The user is able to set the amount of children tickets to 0, however if the value is going into a negative value, the minus button fades out for 5 seconds.
+-   The minus button fades out for 5 seconds
+-   If the user selects more than 8 adult or children tickets, JavaScript alert appears to let the user know they need to get in touch with the site owner for large group bookings.
+-   The plus button fades out for 5 seconds
+-   The user is able to update the trip date by clicking on their selected date, jQuery date picker opens with current date highlighted and their selected date highlighted in blue.
+-   Once the user pressed on "Update" the page refreshes and the new totals are calculated and displayed.
+-   Once the user presses on "Delete" button, modal is triggered, on the confirmation is recieved the trip is removed from the bag.
+-   The number of tickets which have been deleted goes back to the total trip number of tickets available to purchase.
+-   Toast notification provides feedback to user on update and delete functionality.
+-	The user is able to see the grand total of their order on this page and below the icon of suitcase in the navigation menu. 
 -	Two button at the bottom of the page “Continue Shopping” which will redirect the user to the trips page or “Checkout” which will take the user to the next page “Checkout”
--	The user will have access to their basket by clicking on the basket icon in the main navbar 
+
 
 ##### back to [content](#table-of-content)
 
