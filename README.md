@@ -763,10 +763,34 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 - If a logged in user tries to access the profile page, they will be redirected to their profile page and info toast message will appear, letting them know they have already registered.
 
 ##### back to [content](#table-of-content)
-### Reset Password Page
 
 ### Forgot Password Page
- 
+
+- If the user has forggotten thier password they may click on the link which is located on the login page
+- A simple form will ask the user to enter their email address
+- A check is completed in the back end to identify the email address in the database
+- If the email address exists, an email is generated and send out to the email address entered
+- A toast notification lets the user know the email with a link has been sent to their email address
+- If the email address does not exist in the database, the user is notified via toast notification.
+
+##### back to [content](#table-of-content)
+
+### Reset Password Page
+
+- When the user clicks on their reset password link, they are being redirected to reset password page
+- Where the form is asking them to create a new password and confirm password
+- Validation for the form is done in the back end, ensuring the 2 passwords match, and front end, setting the min-lenght for the password, which matches the orginal registration form.
+- If the passwords do not match the toast notification will display the error to the user
+- Once the form has been successfully submitted, toast notification will inform the user and redirect them to login page, where they can login to their account with their newly created password
+
+##### back to [content](#table-of-content)
+
+### Logout Page
+
+- Any userwho clicks on "Logout" link from the navigation bar is automatically logged out and their session data cleared. They are taken to a "Home" page, toast notification informs the user they have been logged out.
+
+##### back to [content](#table-of-content)
+
 ### Profile Page
 
 -  User profile page can only be accessed by a logged in user. Any user not logged in who tries to access this page will be redirected to the login page.
