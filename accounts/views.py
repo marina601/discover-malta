@@ -26,6 +26,10 @@ def register(request):
     Registration functionality, if the form is valid
     create a new user and generate a username
     """
+    if request.user.is_authenticated:
+        messages.info(request, "You have alredy registered!")
+        return redirect('profile')
+
     if request.method == 'POST':
         form = RegistraionForm(request.POST)
         if form.is_valid():
