@@ -148,9 +148,7 @@
                     <!--Update/Remove buttons-->
                     <a class="update-link btn d-inline"><small><i class="fas fa-sync" aria-hidden="true"></i>
                             Update</small></a>
-                    <a href="{% url 'remove_from_bag' item.trip.id %}"
-                        class="remove-item float-right btn d-inline">
-                        <small>Remove <i class="fas fa-trash" aria-hidden="true"></i></small></a>
+                    {% include 'trips/includes/delete-modal-bag.html' %}
                 </div>
                 <!--Sub btotal-->
                 <div class="col-lg-2 col-md-12">
