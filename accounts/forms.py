@@ -18,7 +18,9 @@ class RegistraionForm(forms.ModelForm):
         model = Account
         fields = ['first_name', 'last_name',
                   'email', 'password']
-
+                  
+    # code for password validation has been sorced from
+    # https://docs.djangoproject.com/en/3.2/topics/auth/passwords/
     def validate(self, password):
         """Validate password min length"""
         if len(password) < password.min_length:
