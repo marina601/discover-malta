@@ -381,6 +381,91 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 ![Database model](readme-files/images/database-model.png)
 
 
+#### Database Choices 
+
+- As a framework Django works with SQL databases. During development on my local machine I worked with the standard <em>sqlite3</em> database installed with Django.
+- On deployment, all the database has been migrated to <em>PostgresSQL</em> provided by Heroku.
+
+#### Data Models
+
+##### Account Model
+
+- Default <em>AbstractBaceUser</em> model has been modifyed, to allow the user to login with their email address istead of username. Which is more conventional method of login in. 
+- Allowing the superuser to create an account in local environment without verification email and setting all the permissions to TRUE
+- Email address and username must be unique for each user, if not Django will through an error
+
+##### UserProfile Model
+
+- This model has a direct relation to Account model, the user profile is created as soon as a new user is regitered.
+- Using user as the foregain field to Account model 
+- Setting a default user image to the user profile 
+        - `user = models.OneToOneField(Account, on_delete=models.CASCADE)`
+        -  `profile_img = models.ImageField(blank=True, upload_to='user_profile/',default='default_user.png')`
+- If the user is deleted, the user profile will be deleted as well.
+
+
+##### Category Model
+
+- Category model is the parent model for Trip model
+- Category model contains: 
+   -`cat_image = models.ImageField(upload_to='media/categories', blank=True)`
+   - The image uploads directly to media/categories folder, which enables to find the specific images a lot easier and faster
+- Category slug and category_name fields require to be unique
+- Category slug is used to generate user friendly url for each category
+
+
+#### Trip Model
+
+- Trip model contains all the information required for individual trip
+- Category field is used as a foreign key to the Category Modal
+   -`category = models.ForeignKey('Category', on_delete=models.CASCADE)`
+
+- Provider field will be modifyed in the later stage when the Provider modal is available, to a ForeignKey field.
+- Start time field contains a drop down choices field, where the user can select the start time for a trip, if no start time then a default value is assigned
+   -`start_time = models.CharField(max_length=5, choices=START_TIME, default='08:00',)`
+
+- Add to favourite field is related to the Account modal and accepts multiple values in the form of user email address 
+    '`add_to_favourites = models.ManyToManyField(Account, related_name='favourites', default=None, blank=True)`
+
+- Defaul values are set for both adult_price and child_price fields 
+- Image field is uploaded to `media/trips` folder in AWS S3 bucket
+
+- `num_tickets` field accepst a positive integer value, which stores the total number of tickets available for each trip. This number updates when the user is adding trip to their basket or deletes trip from their basket.
+
+-  `from_date` and `to_date` are set to defauls `timezone.now` value, however at the later stage this will have to be modifyed and conditions will be set to check if the trip is available within the date range available.
+
+- `special_offers` field accepts a boolean value, which is set to the False as default. 
+
+- Trip modal also tracks when the trip was first created and when/if the trip details have been modifyed, for easier data and sales analysis in the furture.
+
+- `slug` field accepts a unique number and used together with `category_slug` field to generate user friendly url for "Trip Details Page"
+
+#### ReviewRating model
+
+- This model has a direct relation to the Trip modal and Account modal using a ForegainKey field
+- This model accepts trip reviews and calcultates total number of reviews
+- This model also accepts trip rating and calculates the average rating. I have used a FloatField to accept half star values for reviews
+    - `rating = models.FloatField(blank=False, validators=[MinValueValidator(0.5), MaxValueValidator(5.0)])`
+- Status field is accepting a boolean value, the review is only displayed if the status is True, however admin may set this value to false not to display the review for a specific trip inside their admin panel
+- `created_at` and `updated_at` field track the date the review has been created or updated.
+
+#### Order Model
+
+- This model stores the information that is often expected to be found in an order, billing information, address information, the date of the transaction and the `stripe_pid`.
+- Order model has a direct relationship with UserProfile model using a ForegainKey field to store user information
+- Order model can also update user information if requested by the user during checkout
+- `grand_total` field is updated and calculated during checkout 
+- `order_number` field is generates a unique 32 characters value using `uuid` import
+
+#### OrderTicketItem Model
+
+- This model has a direction relationship to Order model and Trip model using a ForegainKey field
+- It stores an instance of the each trip added to the bag, together with booking date, number of tickets, price, quantity.
+- Ticketitem_total which updates the price in the checkout.
+
+
+- All the modals which accept media files use Pillow to store all images in an AWS S3 bucket.
+
 ##### back to [content](#table-of-content)
 
 ### Flow Chart
