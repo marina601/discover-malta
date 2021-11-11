@@ -414,19 +414,44 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 
 /**********************404.html*/
 
+.error-container {
+    margin-top: 3.2rem;
+    margin-bottom: -1rem;
+}
+
 .error {
     background: url("https://cdn.pixabay.com/photo/2019/02/04/12/18/winter-3974511_1280.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 80vh;
  }
 
+.error h1 {
+    position: absolute;
+    top: 50%
+}
+
+.error a {
+    position: absolute;
+    top: 60%
+}
+
  /**********************500.html*/
 
-.error {
+.error-500 {
     background: url("https://cdn.pixabay.com/photo/2017/08/01/22/38/flash-2568381_1280.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 80vh;
- }
+}
+
+.error-500 h1 {
+    position: absolute;
+    top: 50%
+}
+
+.error-500 a {
+    position: absolute;
+    top: 60%
+}
 
 /**********************View Availability*/
 
