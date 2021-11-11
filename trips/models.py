@@ -47,14 +47,14 @@ class Trip(models.Model):
     provider = models.CharField(max_length=50, blank=True)
     short_description = models.TextField(max_length=300,
                                          help_text='Enter a short description'
-                                         'max 150 characters')
+                                         'max 300 characters')
     full_description = models.TextField(max_length=800)
     included = models.TextField(max_length=800, blank=True)
     what_to_bring = models.TextField(max_length=800, blank=True)
     duration = models.IntegerField()
     start_time = models.CharField(
         max_length=5,
-        choices=START_TIME, default='8AM',
+        choices=START_TIME, default='08:00',
     )
     departure_location = models.TextField(max_length=800)
     family_friendly = models.BooleanField(default=True)
@@ -106,10 +106,11 @@ class ReviewRating(models.Model):
     trip = models.ForeignKey(Trip, on_delete=models.CASCADE)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     subject = models.CharField(max_length=50, blank=True)
-    review = models.TextField(max_length=500, blank=True,
-                              validators=[MinValueValidator(0.0),
-                                          MaxValueValidator(5.0)])
-    rating = models.FloatField(blank=True)
+    review = models.TextField(max_length=500, blank=True,)
+    rating = models.FloatField(blank=False, validators=[
+                                            MinValueValidator(0.5),
+                                            MaxValueValidator(5.0)
+                                            ])
     ip = models.CharField(max_length=20, blank=True)
     status = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
