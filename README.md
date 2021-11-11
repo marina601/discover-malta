@@ -80,8 +80,9 @@ The main objective of this site is to support local tour operators by reducing t
    - [TESTING.md file](TESTING.md)
 
 10 [**Deployment**](#deployment)
-   - [**Local Deployment**](#local-deployment)
+   - [**Deployment Steps**](#deployment-steps)
    - [**Clone this project**](#clone-this-project)
+   - [**Fork this project**](#fork-this-project)
    
 11 [**Credits**](#credits)
    - [**Content**](#content)
@@ -1114,7 +1115,7 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Frameworks and Libraries
 
-1. [Bootstrap]()
+1. [Bootstrap 5.1](https://getbootstrap.com/docs/5.1/)
  - Mainly for responsive grid layout. Components from this library have been used to structure the website and speed up the build process.
 
 2. [Google Fonts:](https://fonts.google.com/)
@@ -1126,32 +1127,32 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 4. [jQuery](https://api.jquery.com/)
     - jQuery library has been used to target HTML elements and assign event listeners throughout JavaScript files.   
 
-5. [Python Templating Language]()
+5. [Python Templating Language](https://docs.djangoproject.com/en/3.2/ref/templates/language/)
     - Templating language for Python, to simply display data from backend to front end
 
-6. [Django]()
+6. [Django](https://www.djangoproject.com/)
     - As a Python web framework for rapid development and clean design
 
-7. [Stripe]()
+7. [Stripe](https://stripe.com/en-gb-mt)
 - As a payment platform to validate and accept credit card payments securely
 
-8. [AWS S3 Bucket]()
-- To host the static files for this project
+8. [AWS S3 Bucket](https://aws.amazon.com/s3/)
+- To host the static files for this project and store media files
 
-9. [Django Crispy Forms]()
-- To style Django Forms 
-
-10. [Gunicorn]()
+9. [Gunicorn](https://gunicorn.org/)
 - WSGI HTTP Server for UNIX to aid in deployment of the Django project to Heroku
 
-11. [Psychopg2]()
+10. [Psychopg2](https://pypi.org/project/psycopg2/)
 - As PostgreSQL database adapter for Python
 
-12. [PostgreSQL] ()
+11. [PostgreSQL](https://www.postgresql.org/)
 - Database used for production, provided by Heroku
 
-13. [SQlite3]()
+12. [SQlite3](https://www.sqlite.org/index.html)
 - Database used for development, provided by Django
+
+13. [Gmail](https://mail.google.com/)
+- To send out automatic emails
 
 ##### back to [content](#table-of-content)
 
@@ -1169,10 +1170,8 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 4. [TinyPng:](https://tinypng.com/)
    - TinyPng was used to compress the size of the images and improve loading time.
 
-5. [Lucid Chart](https://www.lucidchart.com/)
-  - To create a flow chart and database structure 
-
-6. 
+5. [Befunky](https://www.befunky.com/)
+   -  To crop and resize images
 
 7. [Grammarly](https://www.grammarly.com/)
     - Used to fix the grammar errors across the project.
@@ -1232,111 +1231,282 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 ## Deployment
 
-### GitHub
-- Create GitHub Repository using the CI Full Template.
-- Create a development branch (master + development).
-- Configure Visual Studio Code environment
-- New Window.
+- This project was developed using Gitpod IDE and pushed to Github using the in-built terminal. 
+- However, because Github can only host static websites it was necessary to deploy this project to Heroku because it is a compatible hosting platform for a back-end focused site like Discover Malta. 
+- The master branch of this repository is the most current version and has been used for the deployed version of the site.
+- The Code Institute student template was used to create this project.
+- This project was deployed using Heroku and stored in GitHub.
 
-### Clone Repository -> GitHub -> Discover Malta.
-- Select development branch.
-- Create a virtual Python environment - Terminal: python3 -m venv .venv
-- Activate virtual Python environment - Terminal: source .venv/bin/activate
-- Install Django 3.1 - Terminal: pip3 install Django
-- Upgrade pip - Terminal: pip3 install pip --upgrade
-- Check Django version - Terminal: python3 -m django --version = 3.1.7
-- Update .gitignore to include .venv and /Snippets(my local test and fail code directory).
+### Deployment Steps
+
+### GitHub
+
+- Navigate to [Github](https://github.com/).
+- Create GitHub Repository using the CI Full Template.
+- Give the repository a name, in this case Discover-Malta.
+- Click the green 'Create Repository' button at the bottom of the page.
+- Inside the repository click the green 'gitpod' button to initialize your repository.
+- Future access to this workspace must be gained through gitpod workspaces, clicking the green button in gitpod again will initialize a new workspace.
+- Use the `git add .` command to add all modified and new files to the staging area.
+- Use the `git commit -m` command to commit a change to the local repository.
+- Use the `git push` command to push all committed changes to github.
 
 ### Create the Initial Django Project
-- Create a Django Project called "discover-malta" - Terminal: django-admin startproject discover-malta . (created in the current folder)
-- Verify that the initial Django project works - Terminal: python3 manage.py runserver 8000, [url]
-- Django Migrations (Version Control System for the Database Schema)
-migrate, which is responsible for applying and unapplying migrations.
 
-- makemigrations, which is responsible for creating new migrations based on the changes you have made to your models.
+- Create a Django Project called "discover-malta" 
+- Terminal: `django-admin startproject discover-malta` . (created in the current folder)
+- Verify that the initial Django project works - Terminal: `python3 manage.py runserver`
+- Django Migrations (Version Control System for the Database Schema) migrate, which is responsible for applying and unapplying migrations.
 
-- sqlmigrate, which displays the SQL statements for a migration.
+- `makemigrations`, which is responsible for creating new migrations based on the changes you have made to your models.
+- `sqlmigrate`, which displays the SQL statements for a migration.
+- `showmigrations`, which lists a project’s migrations and their status.
 
-- showmigrations, which lists a project’s migrations and their status.
-
-[Link](https://docs.djangoproject.com/en/3.1/topics/migrations/)
-
-- Apply the initial Django migrations: python3 manage.py migrate, add --planto validate before commit.
-- Create Django Admin superuser account: python3 manage.py createsuperuser, gaff, naoise.gaff.gaffney@gmail.com, `password...
-- Configure static and media for Django
+- Apply the initial Django migrations: `python3 manage.py migrate`, add `--plan` to validate before commit.
+- Create Django Admin superuser account: `python3 manage.py createsuperuser` and provide required information.
+- Configure static and media for Django.
 - Create the media folder in the Project root.
-- Create the static folder with the following sub-folders: scripts (js), scripts/vendors (vendor js), styles (css).
-- Configure 'settings.py' and 'urls.py' to accommodate the static and media folders.
-- Install django-environ to read a '.env' file with both confidential and useful variables -> Heroku Variables and - PyTest Variables
-- [Link](https://django-environ.readthedocs.io/en/latest/)
-- Install: pip3 install django-environ.
-- Configure settings.py to use django-environ and copy .env file from previous Django Project.
+- Create the static folder with the following sub-folders: `css`, `js`, `images`.
+- Configure <em>settings.py</em> and <em>urls.py</em> to accommodate the static and media folders.
 
 ###  Heroku Platform Configuration and Deployment
-- Install gunicorn: pip3 install gunicorn, create requirements.txt using pip3 freeze > requirements.txt, and create the Procfile: web: gunicorn myshop.wsgi:application.
-- Create .slugignorewith /Documentation and README.md as we don't want the documentation to upload to Heroku.
-Heroku.
 
-#### VS Code Source Control: Stage All Changes -> Commit All -> Push.
-- Create a new Pipeline: discover-malta and connect to GitHub Repository [github url]
-- Enable Review Apps: Create new review apps for new pull requests automatically and region: Europe -> GitHub. New App -> GitHub development branch. Name: training-and-development-<random sequence>
-- Add app to Heroku Staging (GitHub). Create new app: Create new review apps for new pull requests automatically and region: Europe -> GitHub. New App -> GitHub master branch. Name: training-and-development.
-- Add app to Heroku Production: Europe -> GitHub. Name: training-and-development-prod.
-- Add DISABLE_COLLECTSTATIC = 1 to Review App, Staging App, and Production App Configuration Variables (temporary until AWS S3 Bucket configured).
+- Before deploying the website to Heroku, the following three must be followed to allow the app to work in Heroku:
+    - Create `requirements.txt` file that contains the names of packages being used in Python. 
+    - It is important to update this file if other packages or modules are installed during project development by using the following command:
+            - `pip freeze --local > requirements.txt`
+    - Create `Procfile` that contains the name of the application file so that Heroku knows what to run. If the Procfile has a blank line when it is created remove this as this may cause problems.
+    - Push these files to GitHub.
+    - Install `psycopg2` and `dj_datatbase_url` in your workspace cli.
 
-### Herokue Config Vars (minus DISABLE_COLLECTSTATIC=1 which is a temporary variable)
-- Heroku Config Vars
-- Create a table here of config vars
+- Once those steps are done, the website can be deployed in Heroku using the steps listed below:
 
-#### PostgreSQL Configuration
-- Install PostgreSQL support: pip3 install psycopg2-binary and pip3 install dj-database-url.
-- Update the Heroku requirements file: pip3 freeze > requirements.txt
-- Add PostgreSQL add-on on Heroku under Application -> Resources -> Add-ons: Heroku Postgres (free / hobby tier). - - Heroku adds a DATABASE_URL variable under Application -> Settings -> Config Vars. Copy this URL.
-- Add the URL to the '.env' file: DATABASE_URL=<Database URL>. Update 'settings.py':
-DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+### Deployment Steps:
+
+- Log into Heroku.
+- Click the New button.
+- Click the option to create a new app.
+- Enter the app name in lowercase letters.
+- Select the correct geographical region.
+
+#### Connect Heroku app to Github repository:
+
+- In heroku select the deploy tab.
+- Click github button.
+- Enter the repository name and click search.
+- Select the relevant repository and click connect.
+
+#### PostgreSQL Configuration:
+
+- Add Heroku Postgres Database
+- Click the resources tab in heroku.
+- Under Add-ons search for heroku postgres.
+- Click on heroku postgres when it appears.
+- Select the Hobby Dev-Free option in plans.
+- Click submit order form.
+- Add the URL to the `.env` file: DATABASE_URL=<Database URL>. 
+- Update 'settings.py':
+    -`DATABASES = {`
+    -    `'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))`
+    -`}`
 
 #### Migrate the Django Models to the PostgreSQL Database:
-- python3 manage.py makemigrations
-- python3 manage.py migrate
-- python3 manage.py createsuperuser
 
-#### Update the allowed hosts in 'settings.py': ALLOWED_HOSTS = [os.environ.get('ALLOWED_HOSTS')].
-- VS Code: Create the commit message. Changes -> Stage All Changes, Commit -> Commit All, Push.
+- `python3 manage.py makemigrations`
+- `python3 manage.py migrate`
+- `python3 manage.py createsuperuser`
 
-#### AWS S3 Bucket Configuration
-- Create an account on AWS.
-- Add and configure the AWS S3 Bucket: trainingdjango, All public access. ACL: Everyone Objects -> List.
-- Create the Bucket Policy.
-- Create the Cross-Origin Resource Sharing (CORS)
-- Access AWS IAM and create a user for the Training Project. Create a group, with the user attached. Download the - - CSV file with the credentials and save it in a safe place. Updated the '.env' file with the relevant variables.
-- Execute python3 manage.py collectstatic to upload static files to the AWS S3 Bucket.
-- Upload the 'media' folder and files manually.
-- Remove DISABLE_COLLECTSTATIC variable from Heroku Config Vars.
+#### Setting up environment variables
+- In the heroku settings click the reveal config vars button and set the following variables:
+
+        - AWS_ACCESS_KEY_ID
+        - AWS_SECRET_ACCESS_KEY
+        - DATABASE_URL
+        - EMAIL_HOST_PASSWORD
+        - EMAIL_HOST_USER
+        - SECRET_KEY
+        - STRIPE_PUBLIC_KEY
+        - STRIPE_SECRET_KEY
+        - STRIPE_WH_SECRET
+        - USE_AWS
+
+- The values of these variables are secret and for security purposes will not be shared here.
+
+### Setting up the AWS s3 bucket:
+
+1. Create an Amazon AWS account
+2. Search for S3 and create a new bucket
+3. Allow public access
+        - Under Properties > Static website hosting
+        - Enable
+        - index.html as index.html
+        - save
+
+4. Under Permissions > CORS use the following:
+  -[
+    -  {
+    -      "AllowedHeaders": [
+    -          "Authorization"
+    -      ],
+    -      "AllowedMethods": [
+    -          "GET"
+    -      ],
+    -      "AllowedOrigins": [
+    -          "*"
+    -      ],
+    -      "ExposeHeaders": []
+    -  }
+  -]
+
+5. Under Permissions > Bucket Policy:
+        - Generate Bucket Policy and take note of Bucket ARN
+        - Chose S3 Bucket Policy as Type of Policy
+        - For Principal, enter *
+        - Enter ARN noted above
+        - Add Statement
+        - Generate Policy
+        - Copy Policy JSON Document
+        - Paste policy into Edit Bucket policy on the previous tab
+        - Save changes
+
+6. Under Access Control List (ACL):
+        - For Everyone (public access), tick List
+        - Accept that everyone in the world may access the Bucket
+        - Save changes
+
+### AWS IAM (Identity and Access Management) setup
+
+1. From the IAM dashboard within AWS, select User Groups:
+        - Create a new group
+        - Click through and Create Group
+
+2. Select Policies:
+        - Create policy
+        - Under JSON tab, click Import managed policy
+        - Choose AmazongS3FullAccess
+        - Edit the resource to include the Bucket ARN noted earlier when creating the Bucket Policy
+        - Click next step and go to Review policy
+        - Give the policy a name and description of your choice
+        - Create policy
+
+3. Go back to User Groups and choose the group created earlier
+        - Under Permissions > Add permissions, choose Attach Policies and select the one just created
+        - Add permissions
+
+4. Under Users:
+        - Choose a user name
+        - Select Programmatic access as the Access type
+        - Click Next
+        - Add the user to the Group just created
+        - Click Next and Create User
+        
+5. Download the `.csv` containing the access key and secret access key.
+- THE `.csv` FILE IS ONLY AVAILABLE ONCE AND CANNOT BE DOWNLOADED AGAIN.
 
 
-### Local Deployment
+### Connecting Heroku to AWS S3
 
-- I have created Discover Malta using Github, from there I used Gitpod to write my code. Then I used commits to git followed by "git push" to my GitHub repository. I've deployed this project to Heroku and used "git push Heroku master" to make sure my pushes to GitHub were also made to Heroku.
+- Install boto3 and django-storages:
+        -`pip3 install boto3`
+        -`pip3 install django-storages`
+        -`pip3 freeze > requirements.txt`
 
-- This project can be run locally by following the following steps: ( I used Gitpod for development, so the following steps will be specific to Gitpod. You will need to adjust them depending on your IDE. You can find more information about installing packages using pip and virtual environments [here](https://packaging.python.org/guides/installing-using-pip-and-virtual-environments/)
+- Add the values from the `.csv` you downloaded to your Heroku Config Vars under Settings:
+- Delete the DISABLE_COLLECTSTATIC variable from your vars and deploy your Heroku app
+- With your S3 bucket now set up, you can create a new folder called media (at the same level as the newly added static folder) and upload any required media files to it.
+- PLEASE MAKE SURE media AND static FILES ARE PUBLICLY ACCESSIBLE UNDER PERMISSIONS
+
+### Enable automatic deployment:
+
+- Click the Deploy tab
+- In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
+
+### Connect app to Github Repository:
+
+- Click the deploy tab and connect to GitHub.
+- Type the name of the repository into the search bar presented.
+- Click the Code dropdown button next to the green Gitpod button.
+- When the correct repository displays click the connect button.
 
 ##### back to [content](#table-of-content)
 
+### Clone This Project
+
+-It is important to note that this project will not run locally unless an env.py file has been set up by the user which contains -the local variables used in Heroku which have all been kept secret in keeping with best security practices.
+
+- Log into GitHub.
+- Select the respository.
+- Click the Code dropdown button next to the green Gitpod button.
+- Download ZIP file and unpackage locally and open with IDE. Alternatively copy the URL in the HTTPS box.
+- Open the alternative editor and terminal window.
+- Type 'git clone' and paste the copied URL.
+- Press Enter. A local clone will be created.
+- Once the project been loaded into the IDE it is necessary to install the necessary requirements which can be done by typing the following command.
+
+- `pip install -r requirements.txt`
+
+##### back to [content](#table-of-content)
+
+### Fork This Project:
+
+- Log into GitHub.
+- In Github go to [respiratory](https://github.com/marina601/discover-malta).
+- In the top right hand corner click "Fork".
+
+##### back to [content](#table-of-content)
 
 ## Credits
 
 ### Content
 
+- Content for the trips has been inpired and sourced from:
+
+    - (Valletta guided 3-hour walking food tasting trail)[https://www.viator.com/tours/Malta/Valletta-guided-3-hour-walking-food-tasting-trail/d4141-67855P1]	
+    - (Ta'Mena Wine Tours)[http://tamena-gozo.com/agritourism/]
+    - (Blue Grotto and Marsaxlokk Half-Day Tour from Valletta)[https://www.viator.com/tours/Mellieha/Blue-Grotto-and-Marsaxlokk-Half-Day-Trip/d25688-45047P2]
+    - (Fishing Day Charter	Fishing Trips Malta and Gozo)[https://www.viator.com/tours/Malta/Fishing-Day-Charter/d4141-193894P2]
+    - (Fishing Trips Malta and Gozo)[https://www.facebook.com/fishingtripsmaltagozo]
+    - (St Paul's Bay: Blue Lagoon, Beaches & Bays Trip by Catamaran)[https://www.getyourguide.co.uk/bugibba-l117570/st-paul-s-bay-blue-lagoon-beaches-and-bays-catamaran-trip-t398257/]	
+    - (Malta: Gozo, Comino and The Blue Lagoon Boat Trip)[https://www.getyourguide.co.uk/malta-l90/malta-gozo-comino-and-the-blue-lagoon-boat-trip-t243357/]
+    - (The Best Traditional 2 Harbours Day Cruise of Malta)[https://www.getyourguide.co.uk/malta-l90/the-best-traditional-2-harbours-day-cruise-of-malta-t598/]
+    - (Gozo Full-Day Jeep Tour with Lunch and Powerboat Ride)[https://www.getyourguide.co.uk/mosta-l1196/gozo-full-day-jeep-tour-with-lunch-powerboat-ride-t141120/]	
+    - (Malta by Segway: Dingli Funtastic)[https://www.getyourguide.co.uk/malta-l90/malta-short-short-tour-around-villages-historical-sites-t12885/]
+    - (Stand Up Paddleboard (SUP) Yoga in Manoel Island)[https://www.facebook.com/yogamaltaa]
+    - (Kayak Gozo & Comino - Summer Rise&Shine Adventure!)[https://www.viator.com/tours/Gozo/Kayak-Gozo-and-Comino-Rise-and-Shine-Adventure/d28021-173066P4]
 
 
 ##### back to [content](#table-of-content)
 
 ### Code
 
+- [Bootstrap](https://getbootstrap.com/docs/5.1/) library has been use to create: 
+  - Caroussel
+  - Card
+  - Modal
+  - Tooltip
+  - Toast
+  - Navbar
+  - Responsive Grid
+  - Form Elements using the `class="form-conrol`
+  - Loading Spinner in *checkout.html*
+- Code has been modifyed to suite the site design and contnet
 
+- Paggination code in the *Trips* app has been sorced from [django documentations](https://docs.djangoproject.com/en/3.2/topics/pagination/)
 
+- Datepicker in the *trip_details.html* and *bag.html* has been sourced from [jQuery](https://api.jqueryui.com/datepicker/)
+
+- Logic to create *Add to Favourites* functionaligy has been sorced from [Very Academy](https://www.youtube.com/watch?v=H4QPHLmsZMU) YouTube video
+
+- Account app, *forms.py* file, password validation has been sorced from [Django](https://docs.djangoproject.com/en/3.2/topics/auth/passwords/)
+
+- Bag app, *stripe.js* file, the core logic was used from [Stripe Documentation](https://stripe.com/docs/js), [Stripe Accept Payment](https://stripe.com/docs/payments/accept-a-payment), [CSS](https://stripe.com/docs/stripe-js)
+
+- Trips app, *star-rating.css* the logic implementing fontawesome on the label elements and change the colour on hover has been used from [Stack Overflow](https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-properly****/)
+
+- A large portion of this project's code was inspired by Chris Zielinski's [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of ecommerce logic on during this project
+- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use defaul django.auth functionality to challange myself and learn the basics behind the functionality already in place.
+
+- Both of the courses have helped me and assited me in understanding the core concepts of Django 
 
 ### Media
 
@@ -1346,7 +1516,15 @@ DATABASES = {
 
 ### Acknowledgement 
 
+- I would firstly like to thank my mentor, Reuben Fernandes, who has guided me throughout this project. Pointed me in the right directions and provided invaluable advice.
 
+- Code Institute's Boutique Ado project which helped me understand the core values of ecommerce site
+
+- I would like to thank Slack Community at Code Institute for  their invalueable advice and support during the duraition of my studies
+
+- I would like to thank a Tutor Support who have for their patience and guidance through this project and my time at Code Intitute. Especially jo_ci, who went above and beyond the call of dury on several occations and helped me throughout this project
+
+- I would like to thank my husband, who has supported me every step of the way.
 
 ##### back to [content](#table-of-content)
 
