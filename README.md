@@ -62,9 +62,11 @@ The main objective of this site is to support local tour operators by reducing t
    - [**View Review Page**](#view-review-page)
    - [**Edit Review Page**](#edit-review-page)
    - [**Favourites Page**](#favourites-page) 
-   ***************************************************
-   - [**Edit Product**](#edit-product) 
-   - [**Contact Page**](#contact-page) 
+   - [**View Bag Page**](#view-bag-page) 
+   - [**Checkout Page**](#checkout-page) 
+   - [**Checkout Success Page**](#checkout-success-page) 
+   - [**Contact Page**](#contact-page)
+   - [**About Page**](#about-page)
    - [**404 Error Page**](#404-error-page)
    - [**500 Error Page**](#500-error-page)
    - [**Features Left to Implement**](#features-left-to-implement)
@@ -383,7 +385,6 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Flow Chart
 
-I have used [Lucid Chart](https://www.lucidchart.com/) to create a database model
 
 
 
@@ -953,28 +954,43 @@ I have used [Lucid Chart](https://www.lucidchart.com/) to create a database mode
 
 ##### back to [content](#table-of-content)
 
+### Contact Page
+![contact-page](readme-files/images/contact-page.png)
+-   The user may access contact page via 'Contact' link located in the footer
+-	The contact page consists of a simple form, which user needs to fill out to submit their query. 
+-	The user is presentec with a select box to choose their subject, which will act as a subject send to the Admin email address.
+-	Custom HTML validation has been written for this page, to guide the user through the required input fields.
+-   If the user is logged in, their email address and full name will be pre-filled.
+-   If the user wants to leave the page, they may press the button at the bottom of the page which will take them to "Home Page"
+-	A toast notification will tell the user their form has been submitted and somebody from the team will be in touch with them shortly.
+-	On successful submission of the form the user will be redirected to the home page.
+-   Two emails will be send one to the user, letting them know their enquiry has been recieved and one to the admin, which will contain user name, subject, message and email address.
+-   Contact form is a simple HTML form, django sends confirmation emails using GMAIL settings.
+
+
+##### back to [content](#table-of-content)
+
 ### About Page
 -	About page will tell the user more information about the site, how it started and the mission of the site
 -	This page will also tell the potential client why they might want to collaborate with the site and the benefits they will receive once they sign the contract. 
 -	About page has two buttons at the bottom of the page “Home” which will redirect the user to the home page and “Contact” which will redirect the user to the contact page
 
-### Contact Page
--	The contact page consists of a simple form, which user needs to fill out to submit  their query. 
--	The user is presentec with a select box to choose their subject, which will act as a subject send to the Admin email address. As the business grows there might be different people who would deal with general or business enquiries.
--	The user may choose to press “Clear” button to clear the form or “Submit” button to submit the form 
--	A message will tell the user their form has been submitted and somebody from the team will be in touch with them shortly.
--	On successful submission of the form the user will be redirected to the home page.
-
-
+##### back to [content](#table-of-content)
 
 ### 404 Error Page
 
+- Custom 404.html has been designed with a picture of the winter day, letting the user know they are off course.
+- Message is telling the user "This page does not exists"
+- A link "Go Back" will take the user to the "Home Page"
  
 
 ##### back to [content](#table-of-content)
 
 ### 500 Error Page
 
+- Custom 500.html has been designed with a picture of the lightnening, letting the user something has gone wrong.
+- Message is telling the user "There is a problem, while we are looking in to it.."
+- A link "Go Back" will take the user to the "Home Page"
 
 
 ##### back to [content](#table-of-content)
