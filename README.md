@@ -7,7 +7,7 @@
 I have created this e-commerce/booking site as part of my final Milestone 4 project for Code Institute, 
 focusing on Full Stack Web Development using HTML, CSS, JavaScript, jQuery, Python, Django and Postgresql.
 
-Discover Malta site offers the user the ability to discover the beautiful island of Malta and plan their holiday antinary on one platform. The site offers the user quick and easy checkout, instant ticket confirmation, a gallery of trips and some useful information which they need during their stay. 
+Discover Malta site offers the user the ability to discover the beautiful island of Malta and plan their holiday antennary on one platform. The site offers the user quick and easy checkout, instant ticket confirmation, a gallery of trips and some useful information that they need during their stay. 
 
 The main objective of this site is to support local tour operators by reducing their wage cost, offering custom page design for each trip and easy online transactions. Taking the hustle of marketing and organization away, letting the business owners focus on delivering an outstanding experience to our clients.
 
@@ -94,15 +94,16 @@ The main objective of this site is to support local tour operators by reducing t
 
 ## Project Goals 
 
-This a e-commerce/trip-booking website especially focused on Maltese tourist market. Malta is a nation of just under 450,000 people, yet its infrastructure is required to support over 1.1 million tourists every year.
+- This is an e-commerce/trip-booking website specially focused on the Maltese tourist market. Malta is a nation of just under 450,000 people, yet its infrastructure is required to support over 1.1 million tourists every year.
+
 
 #### The main target audience of Discover Malta are: 
--	 Inbound tourists aged 25 to 44 years comprised the largest age group of tourists arriving in - Malta in 2020. In that year, roughly 273 thousand international travelers within this age    group visited the country.
--	Families who are looking for children friendly activities
+-	Inbound tourists aged 25 to 44 years comprised the largest age group of tourists arriving in - Malta in 2020. In that year, roughly 273 thousand international travellers within this age group visited the country.
+-	Families who are looking for children-friendly activities
 -	Couples who are looking to explore different parts of the island
 -	People looking for unique experiences during their holidays
--   Tourists looking to book and organize their holiday before arriving to their destination
--   Tourists and locals looking for last minute deals
+-   Tourists looking to book and organize their holiday before arriving at their destination
+-   Tourists and locals looking for last minute-deals
  
 
 ##### back to [content](#table-of-content)
@@ -122,12 +123,12 @@ This a e-commerce/trip-booking website especially focused on Maltese tourist mar
 
 ####  Discover Malta travel site is a great way to meet these needs because: 
 -	The site has been designed with the user experience in mind, from easy navigation, responsive design to user feedback guiding them every step of the way.
--	Discover Malta trips can be searched by key words or categories giving the user freedom to explore their desired destination
--   The user is also able to sort trips by different cretirias like (price, reviews, family friendly and duration)
--   Once the user is logged in, they will be able to shorlist trips and view them in their profile
+-	Discover Malta trips can be searched by keywords or categories giving the user freedom to explore their desired destination
+-   The user is also able to sort trips by different criteria like (price, reviews, family-friendly and duration)
+-   Once the user is logged in, they will be able to shortlist trips and view them in their profile
 -	Easy and quick checkout process with instant email confirmation
--	User may access their tickets via Profile portal
--   Login procedure is designed with user goals in mind, allowing the user to login with their email address, reset password and update their profile.
+-	User may access their tickets via the Profile portal
+-   Login procedure is designed with user goals in mind, allowing the user to log in with their email address, reset password and update their profile.
 
 
 ### Client Goals
@@ -146,7 +147,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ### Business Goals
 •	Provide a professional online booking platform that helps the user to feel safe that they are buying from a trustworthy source.
-•	Build brand awareness by including all the branding photographs, colours, fonts and logo associated with Discover Malta brand.
+•	Build brand awareness by including all the branding photographs, colours, fonts and logos associated with the Discover Malta brand.
 •	Connect with users of the platform via social media channels
 •	Keep track of sales data to inform future trip choices.
 •	Make sales of products easy for buyers to increase sales conversion.
@@ -163,22 +164,22 @@ A potential client which chooses to collaborate with Discover Malta might want t
 1.	As a first time user, I want to understand what this site is about.
 2.	As a first time user, I want to browse through the trips available on site.
 3.	As a first-time user, I want to see full trip details and trip reviews from other users.
-4.  As a first-time user, I want understand the benefits of booking my holiday itinerary with the provider.
+4.  As a first-time user, I want to understand the benefits of booking my holiday itinerary with the provider.
 5.  As a first-time user, I want to add the trips which I like to my favourites.
 6.  As a first-time user, I want to find a variety of experiences suited for different ages and requirements.
-7.  As a first-time user, I want to navigate the site easily and view side on different screen sizes.
-8.  As a first-time user, I want have a good overview of what site has to offer and then click on the button to view more information about a specific trip if interested.
+7.  As a first-time user, I want to navigate the site easily and view site on different screen sizes.
+8.  As a first-time user, I want to have a good overview of what the site has to offer and then click on the button to view more information about a specific trip if interested.
 
 #### Returning User 
 
 1.	As a returning user, I want to be able to login into my account
 2.	As a returning time user, I want to view my favourites and check their availability
-3.	As a returning user, I want search for a specific trip or filter trips by category.
+3.	As a returning user, I want to search for a specific trip or filter trips by category.
 4.	As a returning user, I want to learn more about the site.
 5.	As a returning user, I want to purchase the trip with secure checkout.
 6.	As a returning user, I want to get an instant email confirmation of my transaction.
-7.	As a rerurning user, I want to have feedback provided to me every step of the way.
-8.	As a returning user, I want to view my ticket in my profile page.
+7.	As a returning user, I want to have feedback provided to me every step of the way.
+8.	As a returning user, I want to view my ticket on my profile page.
 9.  As a returning user, I want to be able to save my information to my profile for quick and easy checkout next time.
 
 
@@ -191,14 +192,14 @@ A potential client which chooses to collaborate with Discover Malta might want t
 4.	As a frequent user, I want to be able to update and delete my reviews.
 5.	As a frequent user, I want to follow the site on social media.
 6.	As a frequent user, I want to be able to contact the site owners if I have an enquire.
-7.  As a frequent user, I want to explore latest deals
+7.  As a frequent user, I want to the explore latest deals
 8.  As a frequent user, I want my information to be pre-filled on the checkout page.
 
 
 ##### back to [content](#table-of-content)
 
 ### A Potential Client
-1.	As a potential client I want to see sample of trips to get an overview of what my product might look like
+1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 2.	As a potential client I want to learn what benefits are available to me
 3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
 
@@ -228,8 +229,8 @@ A potential client which chooses to collaborate with Discover Malta might want t
 -	Ability to edit and delete their entities 
 -   Secure checkout procedure 
 -   Able to save the details for next time  
--   Short list trips
--   For the site to give feedback on interaction
+-   Shortlist trips
+-   For the site to give feedback on the interaction
 
 
 ##### back to [content](#table-of-content)
@@ -238,10 +239,10 @@ A potential client which chooses to collaborate with Discover Malta might want t
  
 -	Full trip description
 -	Ability to filter trips by category 
--	Ability to search the database for a specific trips by key words
+-	Ability to search the database for a specific trip by keywords
 -	Ability to read other users reviews and add their own 
 -	Ability to contact the site owner
--   Ability to cancel a trip within given period of time 
+-   Ability to cancel a trip within a given period 
 
 
 ##### back to [content](#table-of-content)
@@ -336,19 +337,19 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ### Style 
 
-- Subtale box shadow has been applied elements which needed emphasis like, cards, forms.
+- Subtle box-shadow has been applied on elements that needed the attention of the user like cards and forms. 
 
-- In case where an area is clickable, for example links or call to action buttons, the shadow size in increased and animated when the user hovers over the element, this was done to make the area more tempting to click.
+- In the case where an area is clickable, for example, links or call to action buttons, the shadow size is increased and animated when the user hovers over the element, this was done to make the area more tempting to click.
 
-- Curved coners styling has chosen for its friendly feel, and as it is common stylistic choice of bootstrap it blends well with style used from that library.
+- Curved corners styling has been chosen for its friendly feel, and as it is a common stylistic choice of bootstrap it blends well with the style used from that library.
 
-- Call to action buttons and cards all have a black border around them to make them stand out against a nutural background.
+- Call to action buttons and cards all have a black border around them to make them stand out against a neutral background.
 
 - <em>Bootstrap Carousel</em> has been implemented on the home page to display the images of Malta.
 
 - <em>Bootstrap Card</em> was utilized to display a short description of each trip. The card has been also used to display trip reviews with custom sizing of the card.
 
-- <em>Bootstrap Modal</em> has been used for defensive programming when the user is trying to delete a review or a trip to alert the user of their action and ask to confirm their choice. Also modal is used to add trip to the basket by selecting the number of tickets and the date.
+- <em>Bootstrap Modal</em> has been used for defensive programming when the user is trying to delete a review or a trip to alert the user of their action and ask to confirm their choice. Also, a modal is used to add a trip to the basket by selecting the number of tickets and the date.
 
 
 ##### back to [content](#table-of-content)
@@ -364,35 +365,35 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 - <em>Home Page</em>
 
-- Instead of listing the reasons why the user should use this site to shop for thier holiday antinary, I have created a simple animation using JavaScript to give the user a good visual effect and overview of the benefits they will get whilest using the site.
+- Instead of listing the reasons why the user should use this site to shop for their holiday trips, I have created a simple animation using JavaScript to give the user a good visual effect and overview of the benefits they will get whilst using the site.
 
 - <em>Trip Detail Page</em>
 
-- In the original design I wanted to implement a google map which will show to the user the route overview of their trip, due to tight schedule, this feature is still left to be implemented
+- In the original design I wanted to implement a google map that will show to the user the route overview of their trip, due to tight schedule, this feature is still left to be implemented
 
-- I have added a form which lets the user to rate and submit a trip review, based on 2 conditions. One - the user mast be logged in and the other the user mast purchase the trip before they review it.
+- I have added a form that lets the user rate and submit a trip review, based on 2 conditions. One - the user must be logged in and the other the user must purchase the trip before they review it.
 
 
 ##### back to [content](#table-of-content)
 
 ### Database model
 
-I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16] to generate a database model diagram
+I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16] to generate a database model diagram
 
 ![Database model](readme-files/images/database-model.png)
 
 
 #### Database Choices 
 
-- As a framework Django works with SQL databases. During development on my local machine I worked with the standard <em>sqlite3</em> database installed with Django.
+- As a framework, Django works with SQL databases. During development on my local machine, I worked with the standard <em>sqlite3</em> database installed with Django.
 - On deployment, all the database has been migrated to <em>PostgresSQL</em> provided by Heroku.
 
 #### Data Models
 
 ##### Account Model
 
-- Default <em>AbstractBaceUser</em> model has been modifyed, to allow the user to login with their email address istead of username. Which is more conventional method of login in. 
-- Allowing the superuser to create an account in local environment without verification email and setting all the permissions to TRUE
+- Default <em>AbstractBaceUser</em> model has been modified, to allow the user to log in with their email address instead of a username. Which is a more conventional method of login. 
+- Allowing the superuser to create an account in a local environment without verification email and setting all the permissions to TRUE
 - Email address and username must be unique for each user, if not Django will through an error
 
 ##### UserProfile Model
@@ -407,12 +408,12 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ##### Category Model
 
-- Category model is the parent model for Trip model
+- Category model is the parent model for the Trip model
 - Category model contains: 
    -`cat_image = models.ImageField(upload_to='media/categories', blank=True)`
-   - The image uploads directly to media/categories folder, which enables to find the specific images a lot easier and faster
+   - The image uploads directly to the media/categories folder, which enables to find the specific images a lot easier and faster
 - Category slug and category_name fields require to be unique
-- Category slug is used to generate user friendly url for each category
+- Category slug is used to generate a user-friendly URL for each category
 
 
 #### Trip Model
@@ -421,51 +422,51 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 - Category field is used as a foreign key to the Category Modal
    -`category = models.ForeignKey('Category', on_delete=models.CASCADE)`
 
-- Provider field will be modifyed in the later stage when the Provider modal is available, to a ForeignKey field.
-- Start time field contains a drop down choices field, where the user can select the start time for a trip, if no start time then a default value is assigned
+- Provider field will be modified in the later stage when the Provider modal is available, to a ForeignKey field.
+- Start time field contains a drop-down choices field, where the user can select the start time for a trip, if no start time then a default value is assigned
    -`start_time = models.CharField(max_length=5, choices=START_TIME, default='08:00',)`
 
-- Add to favourite field is related to the Account modal and accepts multiple values in the form of user email address 
+- Add to the favourite field is related to the Account modal and accepts multiple values in the form of the user email address 
     '`add_to_favourites = models.ManyToManyField(Account, related_name='favourites', default=None, blank=True)`
 
-- Defaul values are set for both adult_price and child_price fields 
-- Image field is uploaded to `media/trips` folder in AWS S3 bucket
+- Default values are set for both adult_price and child_price fields 
+- Image field is uploaded to the `media/trips` folder in the AWS S3 bucket
 
-- `num_tickets` field accepst a positive integer value, which stores the total number of tickets available for each trip. This number updates when the user is adding trip to their basket or deletes trip from their basket.
+- `num_tickets` field accepts a positive integer value, which stores the total number of tickets available for each trip. This number updates when the user is adding a trip to their basket or deletes a trip from their basket.
 
--  `from_date` and `to_date` are set to defauls `timezone.now` value, however at the later stage this will have to be modifyed and conditions will be set to check if the trip is available within the date range available.
+-  `from_date` and `to_date` are set to defautl `timezone.now` value, however at the later stage this will have to be modified and conditions will be set to check if the trip is available within the date range available.
 
 - `special_offers` field accepts a boolean value, which is set to the False as default. 
 
-- Trip modal also tracks when the trip was first created and when/if the trip details have been modifyed, for easier data and sales analysis in the furture.
+- Trip modal also tracks when the trip was first created and when/if the trip details have been modified, for easier data and sales analysis in the future.
 
-- `slug` field accepts a unique number and used together with `category_slug` field to generate user friendly url for "Trip Details Page"
+- `slug` field accepts a unique number and is used together with the `category_slug` field to generate a user-friendly URL for "Trip Details Page"
 
 #### ReviewRating model
 
 - This model has a direct relation to the Trip modal and Account modal using a ForegainKey field
-- This model accepts trip reviews and calcultates total number of reviews
+- This model accepts trip reviews and calculates the total number of reviews
 - This model also accepts trip rating and calculates the average rating. I have used a FloatField to accept half star values for reviews
     - `rating = models.FloatField(blank=False, validators=[MinValueValidator(0.5), MaxValueValidator(5.0)])`
-- Status field is accepting a boolean value, the review is only displayed if the status is True, however admin may set this value to false not to display the review for a specific trip inside their admin panel
-- `created_at` and `updated_at` field track the date the review has been created or updated.
+- Status field is accepting a boolean value, the review is only displayed if the status is True, however, admin may set this value to false not to display the review for a specific trip inside their admin panel
+- `created_at` and `updated_at` fields track the date the review has been created or updated.
 
 #### Order Model
 
-- This model stores the information that is often expected to be found in an order, billing information, address information, the date of the transaction and the `stripe_pid`.
-- Order model has a direct relationship with UserProfile model using a ForegainKey field to store user information
+- This model stores the information that is often expected to be found in order, billing information, address information, the date of the transaction and the `stripe_pid`.
+- Order model has a direct relationship with the UserProfile model using a ForegainKey field to store user information
 - Order model can also update user information if requested by the user during checkout
 - `grand_total` field is updated and calculated during checkout 
-- `order_number` field is generates a unique 32 characters value using `uuid` import
+- `order_number` field generates a unique 32 characters value using `uuid` import
 
 #### OrderTicketItem Model
 
-- This model has a direction relationship to Order model and Trip model using a ForegainKey field
-- It stores an instance of the each trip added to the bag, together with booking date, number of tickets, price, quantity.
+- This model has a direct relationship to the Order model and the Trip model using a ForegainKey field
+- It stores an instance of each trip added to the bag, together with the booking date, number of tickets, price, quantity.
 - Ticketitem_total which updates the price in the checkout.
 
 
-- All the modals which accept media files use Pillow to store all images in an AWS S3 bucket.
+- All the models which accept media files use Pillow to store all images in an AWS S3 bucket.
 
 ##### back to [content](#table-of-content)
 
@@ -486,33 +487,33 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 #### Navbar
 
-- Dynamic navigation menu collapses on the mobile and tablet screen view. The navigation links contain site name which is linked to the Home Page. 
+- Dynamic navigation menu collapses on the mobile and tablet screen view. The navigation links contain a site name that is linked to the Home Page. 
 
 ![Descktop-navigation](readme-files/images/main-nav-desktop.png)
 
 - Main Navigation is centred on the desktop with links to Home, Trips and Categories. This navigation collapses into the burger button on the mobile view.
 - Trips link contains a link to all trips
-- Category link is a dropdown menu which is dynamically generated based on all the categories in the database and links to each category page.
+- Category link is a dropdown menu that is dynamically generated based on all the categories in the database and links to each category page.
 
      - {% for category in links %} <li><a class="dropdown-item"href="{{ category.get_url }}">{{ category.category_name|capfirst }}</a></li>{% endfor %}
 
-- Navigation features 3 icons for user avitor, suicase for their trips and a hart icon for trips which user can add to their favourite list. 
-- User icon contains a dropdown menu for non-logged user to Login and Register
-- For Registered Users, user icons turns into a default user image or if updated by the user, user profile image
-- Registered user-image contains a dropdown menu to Profile page and Logout.
-- A logged in user will be able to add their chosen trips to their favourites, the number will increment, and the colour of the hart will change. 
-- If a non-logged in user will try to add trips to favourites, they will be prompted to login or create an account.
+- Navigation features 3 icons for user avatar, suitcas for their trips and a hart icon for trips which user can add to their favourite list. 
+- User icon contains a dropdown menu for the non-logged user to the Login and Register
+- For Registered Users, user icons turns into a default user image or if updated by the user, the user profile image
+- Registered user image contains a dropdown menu to the Profile page and Logout.
+- A logged-in user will be able to add their chosen trips to their favourites, the number will increment, and the colour of the heart will change. 
+- If a non-logged in user will try to add trips to favourites, they will be prompted to log in or create an account.
 
 ![tablet-navigation](readme-files/images/navigation-ipad.png)
 
-- Suitcase icon - once a user will add any trips to their suitcase(bag) the colour will change to orange and the total value of their suitcase will be displayed accross all the pages.
-- Navbar is fixed to the top of the page accross all screen sizes.
+- Suitcase icon - once a user will add any trips to their suitcase(bag) the colour will change to orange and the total value of their suitcase will be displayed across all the pages.
+- Navbar is fixed to the top of the page across all screen sizes.
 
 
 #### Footer
 
 - Footer is available to all users at all times.
-- The design is simple and manimalistic, not to distract the user experience. 
+- The design is simple and minimalistic, not to distract the user experience. 
 - The footer contains 2 main links: 
     - Contact 
     - About 
@@ -524,12 +525,12 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 #### General Features
   
 - The website has a responsive design based on the screen view.
-- Nav bar and footer background colour is black to give the user a cle
+- Navbar and footer background colour is black, not to distract the user from the content.
 - All pages have call-to-action buttons to give the user easy access to the next page.
 - Favicon Icon is present for windows and apple devices to improve user experience. 
-- Page title to each page has been added dynamically through Django template in the base.html
+- Page title to each page has been added dynamically through the Django template in the base.html
      - `<title>Discover Malta {% block extra_title %}{% endblock %}</title>`
-- Each page has its own title added using this block.
+- Each page has its title added using this block.
 
 #### Buttons
 
@@ -541,21 +542,21 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
     - `class="btn-dropdown"`
 
-- Has been added to buttons to give a sence of security, once the user is proceeding to checkout page and also when viewing user profile pages.
+- Has been added to buttons to give a sense of security, once the user is proceeding to the checkout page and also when viewing user profile pages.
 
 - Hover effect remained the same for all the buttons.
 
-- Only if the user is updating somethins like a trip or a review the colour of the button is green
-- Only when the user is deleting somethins the colour of the button is red
+- Only if the user is updating something like a trip or a review the colour of the button is green
+- Only when the user is deleting something the colour of the button is red
 
 #### Logo
 
-- When the user hover over the logo 'Discover' changes colour to blue.
+- When the user hovers over the logo 'Discover' changes colour to blue.
 
 
 #### Links Hover effect
 
-- To keep the style consistant throught the site, I have added the same hover effect to footer and navbar links:
+- To keep the style consistent throughout the site, I have added the same hover effect to the footer and navbar links:
     
      -` background-color: rgba(97, 95, 95, 0.6);
         border-radius: 5%;
@@ -576,7 +577,7 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 #### Toast
 
 - <em>Bootstrap Toasts</em> has been implemented across the whole side to give feedback to the user when an action is performed. 
-- This feature assures the user that when an action is taken it is recoreded. 
+- This feature assures the user that when an action is taken it is recorded. 
 - The user may dismiss the toast by clicking on the button or the toast notification will be dismissed with 5 seconds.
 
  
@@ -590,26 +591,26 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 -	The hero carousel consists of 3 images of Malta island to showcase to the user the beautify of the island and what they can discover.
 -	The carousel has a time delay function, added `carousel-fade` class to fade each image instead of the traditional slide effect
--   The carousel had `data-bs-touch="true"` which let's the user control the images on touch.
+-   The carousel had `data-bs-touch="true"` which lets the user control the images on touch.
 
 
 #### Introduction 
 -	Consists of a brief paragraph about Maltese history 
 
 #### Benefits
--	The second paragraph consists of the a pitch, why user should book the trip with Discover Malta
+-	The second paragraph consists of a pitch, why the user should book the trip with Discover Malta
 -   The benefits are displayed in the form of different colour circles using the colour scheme of the site and `box-shadow` property to make them stand out.
--   The benefits are not visible to the user initialy, on scroll they slide into the page, this was achieved using jQuery `show` function with time delay interval between each element.
+-   The benefits are not visible to the user initially, on scroll they slide into the page, this was achieved using the jQuery `show` function with time delay interval between each element.
 
 #### Categories 
--	At the bottom of the page there is a list of categories which we offer for the user to explore.
--   The categories on the page are displayed dynamicaly from the database.
--   Each category is displayed in the form of a card, with its own image and title.
+-	At the bottom of the page there is a list of categories that we offer for the user to explore.
+-   The categories on the page are displayed dynamically from the database.
+-   Each category is displayed in the form of a card, with its image and title.
 -   User may click on the category title to view all the trips under that category.
--	Category title contains the same `:hover` effect as link in the navbar and footer
+-	Category title contains the same `:hover` effect as a link in the navbar and footer
 
 #### Call-to-Action
--	Call to action button “view all trips” displayed at the bottom of the page which will lead the user to explore all the trips available on the site.
+-	Call to action button “view all trips” is displayed at the bottom of the page which will lead the user to explore all the trips available on the site.
 
 ##### back to [content](#table-of-content)
 
@@ -617,53 +618,54 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![trips.html](readme-files/images/all-trips-image.png)
 
-- All trips page features a heading which tells the user they will be able to view all the Trips here
+- All trips page features a heading that tells the user they will be able to view all the Trips here
 
 ##### Search bar
 
-- Search bar feature is implemeneted which lets the user search for trips by keywords
-- If keyword does not exist then a message is displayed to the user telling them to try again.
+- Search bar feature is implemented which lets the user search for trips by keywords
+- If the keyword does not exist then a message is displayed to the user telling them to try again.
 
 #### Sort functionality
 
-- Dropdown menu lets the user sort trips by price, rating, duration and if the trip is family friendly
-- This features lets user narrow down their search cretiria to their specific needs
-- The user also may choose to filter their trips by categories, the categories are generated dynamicaly based on the database entries. They display all the trips belonging to each category by category_slug
-- The url has been modifyed using `category_slug` to give the user a better experience and user-friendly appearance.
+- Dropdown menu lets the user sort trips by price, rating, duration and if the trip is family-friendly
+- This feature lets the user narrow down their search criteria to their specific needs
+- The user also may choose to filter their trips by categories, the categories are generated dynamically based on the database entries. They display all the trips belonging to each category by category_slug
+- The URL has been modified using `category_slug` to give the user a better experience and user-friendly appearance.
 
 #### Trip Count
 
-- Once the user lands on trips.html the total number of trips availabe in the database are displayed
-- When the user uses search bar or filters the trips by category, the total number of trips dynamically generates the total number of results found.
+- Once the user lands on trips.html the total number of trips available in the database are displayed
+- When the user uses a search bar or filters the trips by category, the total number of trips dynamically generates the total number of results found.
 
 #### Trip Card 
 
 - Each trip is displayed using <em>Bootstrap Card</em>
 - Card-header features add to favourite <em>tooltip</em> hart-icon, which on hover lets the user know they can add the trip to their favourites.
-   - Non-logged in users:
-      - If the user is not logged in they tooltip displays:
+
+   ##### Non-logged in users:
+      - If the user is not logged in, the tooltip displays:
           - "Login to add this trip to your favourites"
       - If the user clicks on the button they will be redirected to the login page
 
-   - Logged in users:
+   ##### Logged in users:
       - Tooltip features a different text on hover:
          - "Add to favourite"
       - When the user clicks on the hart the toast message is displayed letting the user know they have added the trip to their favourite list.
-      - The hart-icon in the navbar changes colour to red and displays the total number to favourite trips the user has added to their list.
+      - The hart-icon in the navbar changes colour to red and displays the total number of favourite trips the user has added to their list.
 
-- Each trip contain an image, trip name, short description and friendly icons are displayed to let the user know the durations, price, star rating and if the trip is suitable for families.
+- Each trip contain an image, trip name, a short description and friendly icons are displayed to let the user know the durations, price, star rating and if the trip is suitable for families.
 
-- Image and Trip name both are links to a trip_detail.html for an individual trip.
+- Image and Trip names both are links to a trip_detail.html for an individual trip.
 - Short description gives the user a brief overview of the trip
-- Star rating displays to the user average rating for the trip, if there is star rating for the trip, the star icon turns yellow.
-- If there is no rating available for the trip, the star icon is balck and message is displayed to the user. 
-- If the trip is family friendly, a child icon appears in the card and message is displayed. 
-- If the trip is not family friendly, no icon and no message is displayed.
-- At the bottom of the card there is a "More Info" button which leads the user to trip_detail page.
+- Star rating displays the user average rating for the trip, if there is a star rating for the trip, the star icon turns yellow.
+- If there is no rating available for the trip, the star icon is black and the message is displayed to the user. 
+- If the trip is family-friendly, a child icon appears on the card and the message is displayed. 
+- If the trip is not family-friendly, no icon and no message is displayed.
+- At the bottom of the card there is a "More Info" button which leads the user to the *Trip Details Page*.
 
 - If the user is admin:
-    - 2 addition buttons are added to the bottom of the card: "Delete" and "Update" trip.
-    - If the delete button is pressed the modal appears to inform the user of their actions and to confirm their decition
+    - 2 additional buttons are added to the bottom of the card: "Delete" and "Update" trip.
+    - If the delete button is pressed the modal appears to inform the user of their actions and to confirm their decision
     - Update button leads the user to update_trip.html
 
 #### Paginations
@@ -676,16 +678,16 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 ### Trips Detail Page
 ![trip_details](readme-files/images/trip-details-image.png)
 
-- The user is greeted with trip name and an image of the trip.
+- The user is greeted with the trip name and an image of the trip.
 
 #### Add to Favourites Icon
-    - In the left hand coner of the image the user has a tooltip like button.
+    - In the left-hand corner of the image the user has a like button.
     - The conditions remain the same as trips.html for logged in users and not logged in users
     - If the user is logged in and added the trip to their favourites the icon changes from hart to trash.
     - Tooltip message displayed on hover "Remove this trip from your favourites", letting the user remove the trip by clicking the same button
-    - The toast message displays a messages "The trip.name has been removed from your favourites"
+    - The toast message displays a message "The trip.name has been removed from your favourites"
 
-- In the right-hand corner the user is presented with a stiky "Book Now" button, this feature has been implemented on purpose to give the user access to the booking modal at any stage, without scrolling upwards to find it.
+- In the right-hand corner the user is presented with a sticky "Book Now" button, this feature has been implemented on purpose to give the user access to the booking modal at any stage, without scrolling upwards to find it.
 
 #### Book Now
 
@@ -693,27 +695,27 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 - The user may select the number of adults, children and the date which they would like to go on a trip.
 - In the modal header the trip name selected is displayed, to let the user know which trip they are booking the tickets for.
 - The price per single ticket is shown to the user.
-- The user has the option not to specify the number of children for the trip, however the number of adults has to be selected.
+- The user has the option not to specify the number of children for the trip, however, the number of adults has to be selected.
 - If only children tickets are selected, the custom validation message appears, letting the user know that at least 1 adult ticket is required to purchase this trip.
-- If the trip is not family friendly, the form does not display an input for number of children tickets.
-- On form submittions, total number of tickets is calculated and checked against the databse trip.num_tickets. The trip.num_tickets is being reduced.
-- If there are not enought tickets in the database available, an error toast message is appearing letting the user know how many tickets are available.
-- The user may dismiss the datepicke by pressing close button or a cross located on the right hand side of the modal.
+- If the trip is not family-friendly, the form does not display input for children tickets.
+- On form submissions, a total number of tickets is calculated and checked against the database trip.num_tickets. The trip.num_tickets is being reduced.
+- If there are not enough tickets in the database available, an error toast message is appearing letting the user know how many tickets are available.
+- The user may dismiss the date picker by pressing the close button or a cross located on the right-hand side of the modal.
 
     - ![book-now-modal](readme-files/images/book-now-modal.png)
 
 #### Datepicker:
-    - Datepicker widget has been implemented from jQuery library
-    - The datepicker has been modified to display the date format django accepts, does not allow the user to pick any past dates and it displays the first day of the week:
+    - Datepicker widget has been implemented from the jQuery library
+    - The date picker has been modified to display the date format Django accepts, does not allow the user to pick any past dates and it displays the first day of the week:
           - `$( ".calendar" ).datepicker({
                dateFormat : 'yy-mm-dd',
                minDate : new Date(),
                firstDay: 1,
            });`
-     - Datepicker colour scheme has been modifyed to suit the colour scheme of the site 
+     - Date picker colour scheme has been modified to suit the colour scheme of the site 
 
-- This page also features full informatio for selected trip
-- Icons are used on this page, similaly to all trips.html page, to display:
+- This page also features full information for the selected trip
+- Icons are used on this page, similarly to all trips.html page, to display:
         - Duration
         - Start Time
         - Reviews
@@ -724,7 +726,7 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 - A paragraph detailing cancellation policy procedure to the users is also displayed
 
-- If the user is admin user:
+- If the user is an admin user:
         - Two buttons are displayed to Update and Delete the Trip
 
 #### Review/Rating
@@ -732,49 +734,49 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 - If the user is logged in:
         - A form is presented to the user letting them easily add the review to this trip.
         - The user may only add the review to a specific trip once this trip has been purchased by the user
-        - Otherwise the toast message is displayed to the user, letting them know they must purchase the trip first
-        - User must rate the trip and add the review title in order to submit the review
-        - Rating is accepted in decimal values with minimum of 0.5 and maximum of 5 star rating
-        - Star rating are displayed in the form via radio input fields, which are hidden and their labels are being transformed into font awesome stars.
-        - The stars are highlighted on hover using css styling
-        - Custom validation message is added to review title and displayed to the user if not entered.
-        - Once the form is valid and submited, there are two checks:
+        - Otherwise, the toast message is displayed to the user, letting them know they must purchase the trip first
+        - User must rate the trip and add the review title to submit the review
+        - Rating is accepted in decimal values with a minimum of 0.5 and a maximum of 5-star rating
+        - Star rating is displayed in the form via radio input fields, which are hidden and their labels are being transformed into font awesome stars.
+        - The stars are highlighted on hover using CSS styling
+        - Custom validation message is added to the review title and displayed to the user if not entered.
+        - Once the form is valid and submitted, there are two checks:
             - If the user has already submitted the review for this trip, the review gets updated
             - If this is a new review, a review gets created
-            - A function in the "trips.models.py" calculateds the average rating and total number of review if applicable.
-        - The page refreshes, the total number of review is updated and average star rating.
-        - User reveiw is displayed.
+            - A function in the "trips.models.py" calculates the average rating and a total number of reviews if applicable.
+        - The page refreshes, the total number of reviews is updated and the average star rating is calculated.
+        - User review is displayed.
 
-- If user is not logged in:
+- If the user is not logged in:
         - The form is not displayed.
-        - A message displayed to the user instead prompting them to login and rate their experience.
+        - A message is displayed to the user instead of a form, prompting them to log in and rate their experience.
 
-- Review field is not required, as many users do not like to write a long review, by simplifying the process the site would gaine more reviews from users.
+- Review field is not required, as many users do not like to write a long review, by simplifying the process the site would gain more reviews from users.
 
     - ![review-form](readme-files/images/add-review-img.png) 
 
 #### Reviews
 
 - Reviews are displayed for a specific trip in form of the bootstrap cards
-- To keep the card styling consistant they benefit from the same box shadow property as the card-trip
-- Min-height property is added to the card to keep the elements the same heigh and consistant
-- Total number of review also displayed to the user to let them know how many reviews are there for this trip
-- The reviews are displayed in descending order, newest one first
-- The review card consist of review title, star rating which is displayed in form of the star icons and value condition to give colour to the stars:
+- To keep the card styling consistent they benefit from the same box-shadow property as the card-trip
+- Min-height property is added to the card to keep the elements the same heigh and consistent
+- Total number of reviews also displayed to the user to let them know how many reviews are there for this trip
+- The reviews are displayed in descending order,the newest one first
+- The review card consists of review title, star rating which is displayed in form of the star icons and value condition to give colour to the stars:
         - `<i class="fas fa-star{% if review.rating == 0.5 %}-half{% elif review.rating < 1 %}-o{%endif%}" aria-hidden="true"></i>`
 - If there is an actual review it will be displayed.
-- In the footer of the reveiw card, user icon is displayed together with user.first_name.
-- The date is formated in the template to give the user a better visual effect:
+- In the footer of the review card,the user icon is displayed together with the user.first_name.
+- The date is formatted in the template to give the user a better visual effect:
         - `{{ review.created_at|date:"M d, Y" }}`
-- It also let's the user know if this review has been updated or just created, as it tracks user updates in the databae
+- It also lets the user know if this review has been updated or just created, as it tracks user updates in the database
 
 - If the user is logged in and created a review:
-        - They are able to see Edit and Delete button in their review card
-        - The user may click Update button which will lead then to pre populated form with their review 
-        - The user may click Delete button which will display a modal asking them to confirm their decition
-        - If Review is deleted the quantities are being updated and toast message is displayed to the user 
+        - They can see Edit and Delete buttons in their review card
+        - The user may click the Update button which will lead them to the pre-populated form with their review 
+        - The user may click the Delete button which will display a modal asking them to confirm their decision
+        - If the Review is deleted the quantities are being updated and a toast message is displayed to the user 
 
-- If there are no review for this trip, a message is displayed letting the user know this trip has not been reviewed yet.
+- If there is no review for this trip, a message is displayed letting the user know this trip has not been reviewed yet.
 
 - ![reviews](readme-files/images/reviews-images.png)
 
@@ -785,30 +787,30 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
     - This feature is available only for admin users
     - They can access this page from their profile page, where the link is displayed
     - The page contains a form and asks the user to fill in the required information
-    - If the form is valid the data is stored in the database and the user is redirected to trip_details page, where they can reveiw the trip created
-    - Toast message also displayed letting the user know they trip has been added to the database.
+    - If the form is valid the data is stored in the database and the user is redirected to the trip_details page, where they can review the trip created
+    - Toast message also displayed letting the user know their trip has been added to the database.
     - Admin user may choose to edit or delete the trip from this page.
-    - If a not logged in user tries to acces this page, they will be redirected to the login page.
+    - If a not logged in user tries to access this page, they will be redirected to the login page.
     - If a user is logged in, but not admin tries to access this page they will see the message displayed that they do not have permission to access this page.
 
 ##### back to [content](#table-of-content)
 
 ### Update Trip Page
     - This feature is available for admin users only
-    - They can access this page from trips.html or trip_detail.html pages, where update button is displayed
+    - They can access this page from trips.html or trip_detail.html pages, where the update button is displayed
     - The link takes the admin user to the pre-populated form with the trip they choose to edit.
     - Alert in the form of toast appears on the page letting them know which trip they are editing
-    - Form erros are displayed to the user if the information entered is incorrect
+    - Form errors are displayed to the user if the information entered is incorrect
     - Once the form is submitted, the admin user is being redirected to the trip_detail.html to check the information entered.
     - Admin user may choose to edit or delete the trip from this page.
-    - If a not logged in user tries to acces this page, they will be redirected to the login page.
-    - If a user is logged in, but not admin tries to access this page they will see the message displayed that they do not have permission to access this page.
+    - If a not logged in user tries to access this page, they will be redirected to the login page.
+    - If a user is logged in, but not admin, tries to access this page they will see the message displayed that they do not have permission to access this page.
  
 
 ### Delete Trip
    - This feature is available for admin user only
    - The admin user may delete a specific trip from trips.html or trip_detail.html, where the buttons are located
-   - When the button is triggered, a modal appear asking the user to confirm their decision.
+   - When the button is triggered, a modal appears, asking the user to confirm their decision.
    - Once the trip is deleted the alert message in form of toast appears letting the user know the trip has been deleted.
    - Once the 'delete' button is pressed the trip is being deleted from the database
 
@@ -820,11 +822,11 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![login-page](readme-files/images/login-page-img.png)
 
-- The login page features a standard login form asking user for their email address and password.
+- The login page features a standard login form asking the user for their email address and password.
 - Validation is handled in the back end and relevant information is provided to the user on validation.
-- Once the user is logged in, they are being re-directed to "Home Page", toast notification welcomes the user and user icon in the navbar changes to default user image or logged in user image. 
+- Once the user is logged in, they are being re-directed to "Home Page", toast notification welcomes the user and the user icon in the navbar changes to the default user image or logged in user image. 
 - If the user forgot their password, they have an option to click on the link 'click here to reset your password', which will take them to the reset_password.html
-- If the user is not regitered, they have a link which they can click and it will take them to the register.html
+- If the user is not registered, they have a link which they can click and it will take them to the register.html
 
 
 ##### back to [content](#table-of-content)
@@ -833,15 +835,15 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![registraion-page](readme-files/images/registration-page.html.png)
 
-- A non logged in user may access this page by pressing on the user icon at the top of the nav bar
-- A simple form is presented to the user , with text helpers to guide the user through the registraion process
-- The use needs to provide, first name, last name, email address, phone number and password
-- Validation is handled by django forms and relevant feedback is provided along the way to the user.
-- On successfull submittion of the form, a user will be redirected to login page, where a condition is checked:
+- A non logged in user may access this page by pressing on the user icon at the top of the navbar
+- A simple form is presented to the user, with text helpers to guide the user through the registration process
+- The user needs to provide, first name, last name, email address, phone number and password
+- Validation is handled by the Django forms and relevant feedback is provided along the way to the user.
+- On successful submission of the form, a user will be redirected to a login page, where a condition is checked:
      - `{% if request.GET.command == 'verification' %}`
-- And the message is displayed to the user telling them the verification email has been send to their email address.
+- And the message is displayed to the user telling them the verification email has been sent to their email address.
 - Verification email is being sent using <em>Gmail</em> account settings.
-- User gets a unique link sent to their email address generated by `uid` code and django default `token` generator.
+- User gets a unique link sent to their email address generated by `uid` code and Django default `token` generator.
     - `message = render_to_string(
                 'accounts/emails/account_activation.html', {
                     'user': user,
@@ -850,19 +852,19 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
                     'token': default_token_generator.make_token(user),
                 }
             )` 
-- If they have already activated their account they can click on 'Login' button to login
+- If they have already activated their account they can click on the 'Login' button to log in.
 - If the email already exists in the database, the registration will fail
-- If the user has already registered, they can access login page by clicking on the link below
-- If a logged in user tries to access the profile page, they will be redirected to their profile page and info toast message will appear, letting them know they have already registered.
+- If the user has already registered, they can access the login page by clicking on the link below
+- If a logged-in user tries to access the profile page, they will be redirected to their profile page and an info toast message will appear, letting them know they have already registered.
 
 ##### back to [content](#table-of-content)
 
 ### Forgot Password Page
 
-- If the user has forggotten thier password they may click on the link which is located on the login page
+- If the user has forgotten their password they may click on the link which is located on the login page
 - A simple form will ask the user to enter their email address
 - A check is completed in the back end to identify the email address in the database
-- If the email address exists, an email is generated and send out to the email address entered
+- If the email address exists, an email is generated and sent out to the email address entered
 - A toast notification lets the user know the email with a link has been sent to their email address
 - If the email address does not exist in the database, the user is notified via toast notification.
 
@@ -870,17 +872,17 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Reset Password Page
 
-- When the user clicks on their reset password link, they are being redirected to reset password page
-- Where the form is asking them to create a new password and confirm password
-- Validation for the form is done in the back end, ensuring the 2 passwords match, and front end, setting the min-lenght for the password, which matches the orginal registration form.
+- When the user clicks on their reset password link, they are being redirected to the reset password page
+- Where the form is asking them to create a new password and confirm the password
+- Validation for the form is done in the back end, ensuring the 2 passwords match, and front end, setting the min-length for the password, which matches the original registration form.
 - If the passwords do not match the toast notification will display the error to the user
-- Once the form has been successfully submitted, toast notification will inform the user and redirect them to login page, where they can login to their account with their newly created password
+- Once the form has been successfully submitted, toast notification will inform the user and redirect them to the login page, where they can log in to their account with their newly created password
 
 ##### back to [content](#table-of-content)
 
 ### Logout
 
-- Any userwho clicks on "Logout" link from the navigation bar is automatically logged out and their session data cleared. They are taken to a "Home" page, toast notification informs the user they have been logged out.
+- Any user who clicks on the "Logout" link from the navigation bar is automatically logged out and their session data cleared. They are taken to a "Home" page, toast notification informs the user they have been logged out.
 
 ##### back to [content](#table-of-content)
 
@@ -888,34 +890,34 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![profile-page](readme-files/images/profile-page.png)
 
--  User profile page can only be accessed by a logged in user. Any user not logged in who tries to access this page will be redirected to the login page.
+-  User profile page can only be accessed by a logged-in user. Any user not logged in who tries to access this page will be redirected to the login page.
 
 #### Logged in user 
 -	Once logged the user can click on the user icon to access their profile page
--	They will be greeted with a welcome message which will user their username for authentication
--	Default avitor/ or user profile image will be displayed.
--	Not to clutter the page, I have chosen to display 4  button to tell the user what they can do on the page 
+-	They will be greeted with a welcome message which will use their username for authentication
+-	Default avatar/ or user profile image will be displayed.
+-	Not to clutter the page, I have chosen to display 4  buttons to tell the user what they can do on the page 
 -	Each button takes them to the relevant information they wish to view.
--   Ancor link in the form of the button take the user to the order history, which is displaye at the bottom of the page.
--   I have decided to keep the order history on their profile page, as the user most likely to need this information more than any other.
+-   Ancor link in the form of the button take the user to the order history, which is displayed at the bottom of the page.
+-   I have decided to keep the order history on their profile page, as the user is most likely to need this information more than any other.
 -   Past order history is presented in the table format, displaying order number, date, items purchased and order total amount.
 -   The orders are displayed in descending order
--   The user may click on the order number to view full order.
--   The user will be notified via toast notification, that they are viewing a past order and confirmation email has been send on the date of purchase.
+-   The user may click on the order number to view the full order.
+-   The user will be notified via toast notification, that they are viewing a past order and a confirmation email has been sent on the date of purchase.
 
 #### Admin User 
--	An admin user will be have an extra option "Add Trip" which will lead them to a add-trip.htm where they will be able to add a new trip to the database.
+-	An admin user will have an extra option "Add Trip" which will lead them to an add-trip.htm where they will be able to add a new trip to the database.
 
 ##### back to [content](#table-of-content)
 
 ### Edit Profile Page
 
 - Edit Profile Page features a message letting the user know that they can edit their information here
-- User Profile image/ defaul image displayed in the middle 
+- User Profile image/ default image displayed in the middle 
 - The form is pre-filled with user information
-- They user has the ability to edit their information and update their profile image
-- When the form is submitted, toast message displayed letting the user know their info has been updated and the user is being redirected back to the "Edit Profile Page" which shows their updated information.
-- The button in the end of the page lets user easily go back to their profile
+- The user can edit their information and update their profile image
+- When the form is submitted, a toast message is displayed letting the user know their info has been updated and the user is being redirected back to the "Edit Profile Page" which shows their updated information.
+- The button at the end of the page lets the user easily go back to their profile
 
 ##### back to [content](#table-of-content)
 
@@ -923,10 +925,10 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![manage-reviews](readme-files/images/manage-reviews-page.png)
 
-- Navigating from the user profile page by clicking on the button "Manage Reviews", the user is able to view all their reviews in the form of cards
-- Here the user may choose to edit their review by clicking on "Edit" button 
-- Or delete their reveiw by clicking on "Delete" button
-- If pressed on "Delete" button it will trigger a delete-review-modal which will ask the user to confirm their request.
+- Navigating from the user profile page by clicking on the button "Manage Reviews", the user can view all their reviews in the form of cards
+- Here the user may choose to edit their review by clicking on the "Edit" button 
+- Or delete their review by clicking on the "Delete" button
+- If pressed on the "Delete" button it will trigger a delete-review-modal which will ask the user to confirm their request.
 - If the user has not reviewed any trips yet, the appropriate message will be displayed notifying the user that they do not have any reviews yet.
 
 ##### back to [content](#table-of-content)
@@ -935,11 +937,11 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ![edit-review](readme-files/images/edit-review-page.png)
 
-- Navigating from "View Reviews Page" by clicking "Edit" button the user is being redirected to "Edit Review Page"
+- Navigating from "View Reviews Page" by clicking "Edit" button the user is being redirected to the "Edit Review Page"
 - Toast notification lets the user know which trip review they are editing
 - Message at the top of the page lets the user know what action they can perform
 - Current star rating is displayed in the form of numbers
-- The user may update their star rating by clicking on the relevan star
+- The user may update their star rating by clicking on the relevant star
 - The user may update their review title and review.
 - Once the form is valid and submitted the user is being redirected to "View Reviews Page" where they can view their updated review.
 - Updated review date also automatically changes to the current date.
@@ -948,12 +950,12 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Favourites Page
 
-- A logged in user may access their favourites page by clicking on the hart icon in the navigation or from their profile page
+- A logged-in user may access their favourites page by clicking on the heart icon in the navigation or from their profile page
 - If the user has favourites the list of the favourite trips displayed in the same format as trips.html
-- If the user does not have any favourites added to their list yet, the page displayes a relevant message with a link for the user to go to "All Trips Page"
-- On this page, instead of the hart icon the trash icon is displayed on top of each trip-card, which is a tooltip feature and on hover lets the user know they can remove this trip by clicking on the icon
+- If the user does not have any favourites added to their list yet, the page displays a relevant message with a link for the user to go to the "All Trips Page"
+- On this page, instead of the heart icon the trash icon is displayed on top of each trip-card, which is a tooltip feature and on hover lets the user know they can remove this trip by clicking on the icon
 - The user may view "Trip Detail Page" for a selected trip by clicking on the trip image, name or "More Info" button
-- Conviniently the user has an option at the bottom of the page to go back to thier Profile Page by clicking on the link supplied.
+- Conveniently the user has an option at the bottom of the page to go back to their Profile Page by clicking on the link supplied.
 
 ##### back to [content](#table-of-content)
 
@@ -962,27 +964,27 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 ![view-bag-1](readme-files/images/view-bag-1.png) | ![view-bag-2](readme-files/images/view-bag-2.png)
 
 -	The user will have access to their bag by clicking on the basket icon in the main navbar 
--   If there is not items in the bag, a relevant message is displayed on the page with a link to "All Trips Page"
+-   If there are not items in the bag, a relevant message is displayed on the page with a link to "All Trips Page"
 -	The  user is greeted with a heading identifying the page clearly
 -   The Travel Bag Page features a summary of all the trips the user has added their suitcase
--	Each list item icludes trip image, duration, star time, departure location, rating(if applicable), number of tickets selected, price for a specific number of tickets based on their category (adults/children), total ticket quantity, selected booking date and sub total.
+-	Each list item includes trip image, duration, start time, departure location, rating(if applicable), number of tickets selected, the price for a specific number of tickets based on their category (adults/children), total ticket quantity, selected booking date and subtotal.
 -   If the user clicks on the title of the trip, they can have a link to go to "Trip Details Page" to view more information
--	The user is able to modify the date and the number of people selected for the trip
+-	The user can modify the date and the number of people selected for the trip
 -	The user can update their choice by pressing the button “Update”
 -   If the user sets the number of adult tickets to 0, the trip will be automatically deleted from the bag
--   If the user sets the nubmer of adult tickest into negative value, a JavaScript alert is displayed letting the user know they need to have at least 1 adult selected for this trip.
--   The user is able to set the amount of children tickets to 0, however if the value is going into a negative value, the minus button fades out for 5 seconds.
+-   If the user sets the number of adult tickets into the negative value, a JavaScript alert is displayed letting the user know they need to have at least 1 adult selected for this trip.
+-   The user can set the amount of children tickets to 0, however, if the value is going into a negative value, the minus button fades out for 5 seconds.
 -   The minus button fades out for 5 seconds
--   If the user selects more than 8 adult or children tickets, JavaScript alert appears to let the user know they need to get in touch with the site owner for large group bookings.
+-   If the user selects more than 8 adult or children tickets, a JavaScript alert appears to let the user know they need to get in touch with the site owner for large group bookings.
 -   The plus button fades out for 5 seconds
--   The user is able to update the trip date by clicking on their selected date, jQuery date picker opens with current date highlighted and their selected date highlighted in blue.
+-   The user can update the trip date by clicking on their selected date, jQuery date picker opens with the current date highlighted and their selected date highlighted in blue.
 -   Once the user pressed on "Update" the page refreshes and the new totals are calculated and displayed.
--   Once the user presses on "Delete" button, modal is triggered, on the confirmation is recieved the trip is removed from the bag.
--   The number of tickets which have been deleted goes back to the total trip number of tickets available to purchase.
--   Toast notification provides feedback to user on update and delete functionality.
--	The user is able to see the grand total of their order on this page and below the icon of suitcase in the navigation menu. 
--	Two button at the bottom of the page “Keep Shopping” which will redirect the user to the trips page or “Proceed To Secure Checkout” which will take the user to the next page “Checkout”
--   On the mobile screen view the "Checkout Button" is positioned at the top of the page and has `position: stiky`, this feature has been added as the trip summary can get quite big and the user may not want to scroll to the bottom of the page to find a checkout button.
+-   Once the user presses on the "Delete" button, modal is triggered, on the confirmation is received the trip is removed from the bag.
+-   The number of tickets that have been deleted goes back to the total trip number of tickets available to purchase.
+-   Toast notification provides feedback to users on update and delete functionality.
+-	The user can see the total of their order on this page and below the icon of a suitcase in the  
+-	Two buttons at the bottom of the page “Keep Shopping” which will redirect the user to the trips page or “Proceed To Secure Checkout” which will take the user to the next page “Checkout”
+-   On the mobile screen view the "Checkout Button" is positioned at the top of the page and has `position: sticky`, this feature has been added as the trip summary can get quite big and the user may not want to scroll to the bottom of the page to find a checkout button.
 
 
 ##### back to [content](#table-of-content)
@@ -991,37 +993,37 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 #### Checkout Page
 
 ![checkout-page](readme-files/images/checkout-1.png) | ![chekout-page-2](readme-files/images/checkout-2.png)
--  Each checkout pagefeatures an order summary, which lists all the items in the users suitcase, image, trip name, number of tickets, adult price, child price (if applicable), booking date and total price.
--  User will be able to click on trip name which will take them to "Trip Detail Page" if they would like to view more information about the trip.
+-  Each checkout page features an order summary, which lists all the items in the user's suitcase, image, trip name, number of tickets, adult price, child price (if applicable), booking date and total price.
+-  Users will be able to click on the trip name which will take them to the "Trip Detail Page" if they would like to view more information about the trip.
 -	Once the user decides to checkout, they will be asked to complete a form and fill out the relevant details to complete a card transaction
 
 #### If the user is logged in 
       - If the user is logged in and has their profile details the checkout form will be pre-filled
       - If the user does not have their details saved to their profile, they will be asked to fill in the relevant information in the form.
-      - The user will be able to save their details for next time by clicking on check box, which will store their information in their profile page.
+      - The user will be able to save their details for next time by clicking on the check box, which will store their information on their profile page.
    
 #### If the user is not logged in
-      - The check box to save user info will not be available, instead they will be asked to Login or Register to save their information for easy checkout next time and view their order history in their profile page.
+      - The check box to save user info will not be available, instead, they will be asked to Login or Register to save their information for easy checkout next time and view their order history on their profile page.
    
    
--   A user may use this page as an annonimouse user for one of checkout, or as a existing logged in user who will be able to view their order history in their profile page.
--   The form is devided in 3 parts, one for user personal info, another one for their card registered address and the last one for their card number
--   Each form element has a placeholder to guide the user during the form submition
--   All the required input fields have added * to their placeholders
--   Auto focus attribute is set to user first name field
--   When the user selects the Country field, a nice feature from django fields 'CountryField' has been imported, which displays all the countried and lets them select the country from the list.
+-   A user may use this page as an anonymous user for one of checkout, or as an existing logged-in user who will be able to view their order history on their profile page.
+-   The form is divided into 3 parts, one for user personal info, another one for their card registered address and the last one for their card number
+-   Each form element has a placeholder to guide the user during the form submission
+-   All the required input fields have been added * to their placeholders
+-   Autofocus attribute is set to the user first name field
+-   When the user selects the Country field, a nice feature from Django fields 'CountryField' has been imported, which displays all the countries and lets them select the country from the list.
 
 #### Stripe
 -	The user will be asked for their card details, which will be authenticated by Stripe.
--	Stripe detects what card is it and displays the relevant icon (like visa or mastercard)
+-	Stripe detects what card is it and displays the relevant icon (like Visa or MasterCard)
 -   Stripe will display errors on the page for the user if there are any
--   Using JavaScript I have modifyed default stripe input field and have hidden the zip code part, as it is mainly used in US and it is not applicable to the European market.
+-   Using JavaScript I have modified the default stripe input field and have hidden the zip code part, as it is mainly used in the US and does not apply to the European market.
 
 
 -	A message at the bottom of the page will tell the user how much is being charged on their card
--	The user has two options at this point, press “Complete Order” button and the payment will be made to Stripe or “Adjust Order” button and the user will be redirected to the “View Bag Page” page, where they will be able to amend their order.
--  Once the "Complete Order" button is pressed, a ovelay will cover the whole page and the user will see a loading spinner which will tell them the payment is being proccessed.
--  On successfull payment submittion the user will be redirected to "Checkout Complete Page"
+-	The user has two options at this point, press the “Complete Order” button and the payment will be made to Stripe or the “Adjust Order” button and the user will be redirected to the “View Bag Page” page, where they will be able to amend their order.
+-  Once the "Complete Order" button is pressed, an overlay will cover the whole page and the user will see a loading spinner which will tell them the payment is being processed.
+-  On successful payment submission the user will be redirected to  the"Checkout Complete Page".
 
 ##### back to [content](#table-of-content)
 
@@ -1029,29 +1031,29 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 #### Checkout Success Page
 
 ![checkout-ipad](readme-files/images/checkout-complete.png) | ![checkout-mobile](readme-files/images/checkout-complete-mobile.png)
-  -  Checkout success page will be displayed once the payment has been successfully completed.
-  -  Toast notifications will let the user know the email has been send to the email address provided during the checkout process.
-  -  At this stage, an email has been automatically generated and send to the user with their full order details.
-  - Order summary is displayed and ticket number is randomly generated, which will act as a ticket number for the trip.
-  - The user will able to access this number in their profile page and present it as a proof of purchase to the trip organizer.
+  -  Checkout success page will be displayed once the payment has been completed.
+  -  Toast notifications will let the user know the email has been sent to the email address provided during the checkout process.
+  -  At this stage, an email has been automatically generated and sent to the user with their full order details.
+  - Order summary is displayed and a ticket number is randomly generated, which will act as a ticket number for the trip.
+  - The user will be able to access this number on their profile page and present it as proof of purchase to the trip organizer.
   - The user will be able to view all the personal information which they have entered in the contact form on this page as well, to give them a chance to check if all the information is correct.
-  - A button at the bottom of the page links to "All Trips Page"
+  - A button at the bottom of the page links to the "All Trips Page"
 
 
 ##### back to [content](#table-of-content)
 
 ### Contact Page
 ![contact-page](readme-files/images/contact-page.png)
--   The user may access contact page via 'Contact' link located in the footer
+-   The user may access the contact page via the 'Contact' link located in the footer
 -	The contact page consists of a simple form, which user needs to fill out to submit their query. 
--	The user is presentec with a select box to choose their subject, which will act as a subject send to the Admin email address.
+-	The user is presented with a select box to choose their subject, which will act as a subject sent to the Admin email address.
 -	Custom HTML validation has been written for this page, to guide the user through the required input fields.
 -   If the user is logged in, their email address and full name will be pre-filled.
--   If the user wants to leave the page, they may press the button at the bottom of the page which will take them to "Home Page"
+-   If the user wants to leave the page, they may press the button at the bottom of the page which will take them to the "Home Page"
 -	A toast notification will tell the user their form has been submitted and somebody from the team will be in touch with them shortly.
 -	On successful submission of the form the user will be redirected to the home page.
--   Two emails will be send one to the user, letting them know their enquiry has been recieved and one to the admin, which will contain user name, subject, message and email address.
--   Contact form is a simple HTML form, django sends confirmation emails using GMAIL settings.
+-   Two emails will be sent one to the user, letting them know their enquiry has been received and one to the admin, which will contain the user name, subject, message and email address.
+-   Contact form is a simple HTML form, Django sends confirmation emails using GMAIL settings.
 
 
 ##### back to [content](#table-of-content)
@@ -1066,7 +1068,7 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 ### 404 Error Page
 
 - Custom 404.html has been designed with a picture of the winter day, letting the user know they are off course.
-- Message is telling the user "This page does not exists"
+- Message is telling the user "This page does not exist"
 - A link "Go Back" will take the user to the "Home Page"
  
 
@@ -1074,8 +1076,8 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### 500 Error Page
 
-- Custom 500.html has been designed with a picture of the lightnening, letting the user something has gone wrong.
-- Message is telling the user "There is a problem, while we are looking in to it.."
+- Custom 500.html has been designed with a picture of the lightning, letting the user something has gone wrong.
+- Message is telling the user "There is a problem, while we are looking into it.."
 - A link "Go Back" will take the user to the "Home Page"
 
 
@@ -1083,19 +1085,19 @@ I have used (django extentions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Features Left to Implement 
 
--	Shop page which will allow the business owner to earn affiliate income 
+-	Shop page which will allow the business owner to earn affiliate income and users purchase holiday items.
 -	Client profile page, where the vendor of the trip will be able to see all their trips 
--	Checkout page, should have a textarea element where the user is able to add notes to their booking and the vendor will be    able to see them
+-	Checkout page, should have a textarea element where the user can add notes to their booking and the vendor will be    able to see them
 -	Privacy Policy
 -   Google map route overview for each trip on the trip_detail page
 -   Weather API to let the user check the weather when they are booking a trip
--   Give the user option to login with their social media accounts
+-   Give the user option to log in with their social media accounts
 -   About Page
--   Fuctionality to give a specific trip the number of tickets available for a specific day.
+-   Functionality to give a specific trip the number of tickets available for a specific day.
 -   Set specific days for a trip to be available
 -   Implement last-minute category functionality, which would work on the condition whether a provider would like to sell more tickets on a specific day and give the user a specific % of the discount.
--   Subscrition to a newsletter, where the user will be able to recieve an email with weekly offers
--   Availability for user to add tickets to their personal calendar
+-   Subscription to a newsletter, where the user will be able to receive an email with weekly offers
+-   Availability for a user to add tickets to their calendar
 
 
 
@@ -1243,27 +1245,27 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Navigate to [Github](https://github.com/).
 - Create GitHub Repository using the CI Full Template.
-- Give the repository a name, in this case Discover-Malta.
+- Give the repository a name, in this case, Discover-Malta.
 - Click the green 'Create Repository' button at the bottom of the page.
 - Inside the repository click the green 'gitpod' button to initialize your repository.
-- Future access to this workspace must be gained through gitpod workspaces, clicking the green button in gitpod again will initialize a new workspace.
+- Future access to this workspace must be gained through gitpod workspaces, clicking the green button in GitPod again will initialize a new workspace.
 - Use the `git add .` command to add all modified and new files to the staging area.
 - Use the `git commit -m` command to commit a change to the local repository.
-- Use the `git push` command to push all committed changes to github.
+- Use the `git push` command to push all committed changes to GitHub.
 
 ### Create the Initial Django Project
 
 - Create a Django Project called "discover-malta" 
 - Terminal: `django-admin startproject discover-malta` . (created in the current folder)
 - Verify that the initial Django project works - Terminal: `python3 manage.py runserver`
-- Django Migrations (Version Control System for the Database Schema) migrate, which is responsible for applying and unapplying migrations.
+- Django Migrations (Version Control System for the Database Schema) migrate, which is responsible for applying migrations.
 
 - `makemigrations`, which is responsible for creating new migrations based on the changes you have made to your models.
 - `sqlmigrate`, which displays the SQL statements for a migration.
 - `showmigrations`, which lists a project’s migrations and their status.
 
 - Apply the initial Django migrations: `python3 manage.py migrate`, add `--plan` to validate before commit.
-- Create Django Admin superuser account: `python3 manage.py createsuperuser` and provide required information.
+- Create Django Admin superuser account: `python3 manage.py createsuperuser` and provide the required information.
 - Configure static and media for Django.
 - Create the media folder in the Project root.
 - Create the static folder with the following sub-folders: `css`, `js`, `images`.
@@ -1291,8 +1293,8 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 #### Connect Heroku app to Github repository:
 
-- In heroku select the deploy tab.
-- Click github button.
+- In Heroku select the deploy tab.
+- Click GitHub button.
 - Enter the repository name and click search.
 - Select the relevant repository and click connect.
 
@@ -1435,13 +1437,13 @@ You can find testing information in [TESTING.md](TESTING.md)
 -It is important to note that this project will not run locally unless an env.py file has been set up by the user which contains -the local variables used in Heroku which have all been kept secret in keeping with best security practices.
 
 - Log into GitHub.
-- Select the respository.
+- Select the repository.
 - Click the Code dropdown button next to the green Gitpod button.
-- Download ZIP file and unpackage locally and open with IDE. Alternatively copy the URL in the HTTPS box.
+- Download ZIP file and unpackage locally and open with IDE. Alternatively, copy the URL in the HTTPS box.
 - Open the alternative editor and terminal window.
 - Type 'git clone' and paste the copied URL.
 - Press Enter. A local clone will be created.
-- Once the project been loaded into the IDE it is necessary to install the necessary requirements which can be done by typing the following command.
+- Once the project has been loaded into the IDE it is necessary to install the requirements which can be done by typing the following command.
 
 - `pip install -r requirements.txt`
 
@@ -1451,7 +1453,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Log into GitHub.
 - In Github go to [respiratory](https://github.com/marina601/discover-malta).
-- In the top right hand corner click "Fork".
+- In the top right-hand corner click "Fork".
 
 ##### back to [content](#table-of-content)
 
@@ -1459,7 +1461,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 ### Content
 
-- Content for the trips has been inpired and sourced from:
+- Content for the trips has been inspired and sourced from:
 
     - (Valletta guided 3-hour walking food tasting trail)[https://www.viator.com/tours/Malta/Valletta-guided-3-hour-walking-food-tasting-trail/d4141-67855P1]	
     - (Ta'Mena Wine Tours)[http://tamena-gozo.com/agritourism/]
@@ -1479,8 +1481,8 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 ### Code
 
-- [Bootstrap](https://getbootstrap.com/docs/5.1/) library has been use to create: 
-  - Caroussel
+- [Bootstrap](https://getbootstrap.com/docs/5.1/) library has been used to create: 
+  - Carousel
   - Card
   - Modal
   - Tooltip
@@ -1489,26 +1491,28 @@ You can find testing information in [TESTING.md](TESTING.md)
   - Responsive Grid
   - Form Elements using the `class="form-conrol`
   - Loading Spinner in *checkout.html*
-- Code has been modifyed to suite the site design and contnet
+- Code has been modified to suit the site design and content
 
-- Paggination code in the *Trips* app has been sorced from [django documentations](https://docs.djangoproject.com/en/3.2/topics/pagination/)
+- Pagination code in the *Trips* app has been sourced from [django documentation](https://docs.djangoproject.com/en/3.2/topics/pagination/)
 
 - Datepicker in the *trip_details.html* and *bag.html* has been sourced from [jQuery](https://api.jqueryui.com/datepicker/)
 
-- Logic to create *Add to Favourites* functionaligy has been sorced from [Very Academy](https://www.youtube.com/watch?v=H4QPHLmsZMU) YouTube video
+- Logic to create *Add to Favourites* functionality has been sourced from [Very Academy](https://www.youtube.com/watch?v=H4QPHLmsZMU) YouTube video
 
-- Account app, *forms.py* file, password validation has been sorced from [Django](https://docs.djangoproject.com/en/3.2/topics/auth/passwords/)
+- Account app, *forms.py* file, password validation has been sourced from [Django](https://docs.djangoproject.com/en/3.2/topics/auth/passwords/)
 
 - Bag app, *stripe.js* file, the core logic was used from [Stripe Documentation](https://stripe.com/docs/js), [Stripe Accept Payment](https://stripe.com/docs/payments/accept-a-payment), [CSS](https://stripe.com/docs/stripe-js)
 
 - Trips app, *star-rating.css* the logic implementing fontawesome on the label elements and change the colour on hover has been used from [Stack Overflow](https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-properly****/)
 
-- A large portion of this project's code was inspired by Chris Zielinski's [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of ecommerce logic on during this project
-- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use defaul django.auth functionality to challange myself and learn the basics behind the functionality already in place.
+- A large portion of this project's code was inspired by Chris Zielinski's [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of e-commerce logic during this project
+- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use default django.auth functionality to challenge me and learn the basics behind the functionality already in place.
 
-- Both of the courses have helped me and assited me in understanding the core concepts of Django 
+- Both of the courses have helped me and assisted me in understanding the core concepts of Django 
 
 ### Media
+
+- All the media filese have been sorced from Pixabay and each individual aknowledgment is detailed above in the image section.
 
 
 
@@ -1516,13 +1520,13 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 ### Acknowledgement 
 
-- I would firstly like to thank my mentor, Reuben Fernandes, who has guided me throughout this project. Pointed me in the right directions and provided invaluable advice.
+- I would firstly like to thank my mentor, Reuben Fernandes, who has guided me throughout this project. Pointed me in the right direction and provided invaluable advice.
 
-- Code Institute's Boutique Ado project which helped me understand the core values of ecommerce site
+- Code Institute's Boutique Ado project helped me understand the core values of e-commerce site.
 
-- I would like to thank Slack Community at Code Institute for  their invalueable advice and support during the duraition of my studies
+- I would like to thank Slack Community at Code Institute for  their valuable advice and support during the duration of my studies
 
-- I would like to thank a Tutor Support who have for their patience and guidance through this project and my time at Code Intitute. Especially jo_ci, who went above and beyond the call of dury on several occations and helped me throughout this project
+- I would like to thank Tutor Support who have for their patience and guidance through this project and my time at Code Institute. Especially jo_ci, who went above and beyond the call of duty on several occasions and helped me throughout this project
 
 - I would like to thank my husband, who has supported me every step of the way.
 
