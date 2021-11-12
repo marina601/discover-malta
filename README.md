@@ -1463,18 +1463,18 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Content for the trips has been inspired and sourced from:
 
-    - (Valletta guided 3-hour walking food tasting trail)[https://www.viator.com/tours/Malta/Valletta-guided-3-hour-walking-food-tasting-trail/d4141-67855P1]	
-    - (Ta'Mena Wine Tours)[http://tamena-gozo.com/agritourism/]
-    - (Blue Grotto and Marsaxlokk Half-Day Tour from Valletta)[https://www.viator.com/tours/Mellieha/Blue-Grotto-and-Marsaxlokk-Half-Day-Trip/d25688-45047P2]
-    - (Fishing Day Charter	Fishing Trips Malta and Gozo)[https://www.viator.com/tours/Malta/Fishing-Day-Charter/d4141-193894P2]
-    - (Fishing Trips Malta and Gozo)[https://www.facebook.com/fishingtripsmaltagozo]
-    - (St Paul's Bay: Blue Lagoon, Beaches & Bays Trip by Catamaran)[https://www.getyourguide.co.uk/bugibba-l117570/st-paul-s-bay-blue-lagoon-beaches-and-bays-catamaran-trip-t398257/]	
-    - (Malta: Gozo, Comino and The Blue Lagoon Boat Trip)[https://www.getyourguide.co.uk/malta-l90/malta-gozo-comino-and-the-blue-lagoon-boat-trip-t243357/]
-    - (The Best Traditional 2 Harbours Day Cruise of Malta)[https://www.getyourguide.co.uk/malta-l90/the-best-traditional-2-harbours-day-cruise-of-malta-t598/]
-    - (Gozo Full-Day Jeep Tour with Lunch and Powerboat Ride)[https://www.getyourguide.co.uk/mosta-l1196/gozo-full-day-jeep-tour-with-lunch-powerboat-ride-t141120/]	
-    - (Malta by Segway: Dingli Funtastic)[https://www.getyourguide.co.uk/malta-l90/malta-short-short-tour-around-villages-historical-sites-t12885/]
-    - (Stand Up Paddleboard (SUP) Yoga in Manoel Island)[https://www.facebook.com/yogamaltaa]
-    - (Kayak Gozo & Comino - Summer Rise&Shine Adventure!)[https://www.viator.com/tours/Gozo/Kayak-Gozo-and-Comino-Rise-and-Shine-Adventure/d28021-173066P4]
+    - [Valletta guided 3-hour walking food tasting trail](https://www.viator.com/tours/Malta/Valletta-guided-3-hour-walking-food-tasting-trail/d4141-67855P1)
+    - [Ta'Mena Wine Tours](http://tamena-gozo.com/agritourism/)
+    - [Blue Grotto and Marsaxlokk Half-Day Tour from Valletta](https://www.viator.com/tours/Mellieha/Blue-Grotto-and-Marsaxlokk-Half-Day-Trip/d25688-45047P2)
+    - [Fishing Day Charter	Fishing Trips Malta and Gozo](https://www.viator.com/tours/Malta/Fishing-Day-Charter/d4141-193894P2)
+    - [Fishing Trips Malta and Gozo](https://www.facebook.com/fishingtripsmaltagozo)
+    - [St Paul's Bay: Blue Lagoon, Beaches & Bays Trip by Catamaran](https://www.getyourguide.co.uk/bugibba-l117570/st-paul-s-bay-blue-lagoon-beaches-and-bays-catamaran-trip-t398257/)
+    - [Malta: Gozo, Comino and The Blue Lagoon Boat Trip](https://www.getyourguide.co.uk/malta-l90/malta-gozo-comino-and-the-blue-lagoon-boat-trip-t243357/)
+    - [The Best Traditional 2 Harbours Day Cruise of Malta](https://www.getyourguide.co.uk/malta-l90/the-best-traditional-2-harbours-day-cruise-of-malta-t598/)
+    - [Gozo Full-Day Jeep Tour with Lunch and Powerboat Ride](https://www.getyourguide.co.uk/mosta-l1196/gozo-full-day-jeep-tour-with-lunch-powerboat-ride-t141120/)	
+    - [Malta by Segway: Dingli Funtastic](https://www.getyourguide.co.uk/malta-l90/malta-short-short-tour-around-villages-historical-sites-t12885/)
+    - [Stand Up Paddleboard (SUP) Yoga in Manoel Island](https://www.facebook.com/yogamaltaa)
+    - [Kayak Gozo & Comino - Summer Rise&Shine Adventure!](https://www.viator.com/tours/Gozo/Kayak-Gozo-and-Comino-Rise-and-Shine-Adventure/d28021-173066P4)
 
 
 ##### back to [content](#table-of-content)
