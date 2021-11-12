@@ -107,11 +107,19 @@
                 <div class="card card-trip">
                     <!--Add to favourites-->
                     {% if user.is_authenticated %}
-                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
-                        data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
-                        <i class="fas fa-heart" aria-hidden="true"></i>
-                        <span class="sr-only">add to favourites</span>
-                    </a>
+                        {% if trip in fav_trips %}
+                        <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="remove from favourites">
+                            <i class="fas fa-trash" aria-hidden="true"></i>
+                            <span class="sr-only">remove from favourites</span>
+                        </a>
+                        {% else %}
+                        <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                            <i class="fas fa-heart" aria-hidden="true"></i>
+                            <span class="sr-only">add to favourites</span>
+                        </a>
+                        {% endif %}
                     {% else %}
                     <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip"
                         data-bs-placement="top" title="Login to add this trip to favourites">
