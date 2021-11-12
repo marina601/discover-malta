@@ -116,6 +116,11 @@
                     {% endif %}
                 </ul>
             </div>
+            {% if trip.num_tickets == 0 %}
+            <button type="button" class="btn btn-md btn-next btn-book" disabled>
+                Sold Out
+            </button>
+            {% else %}
             <!--Booking Modal-->
             <div class="col-lg-6 col-md-6 col-sm-12">
                 <!-- Button trigger modal -->
@@ -192,6 +197,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
         </div>
         <!--Full Description-->
         <div class="row mt-2">
