@@ -1059,9 +1059,12 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 ##### back to [content](#table-of-content)
 
 ### About Page
--	About page will tell the user more information about the site, how it started and the mission of the site
+![about.html](readme-files/images/about.html.jpg)
+
+-	About page will tells the user why the site was created and its core mission
+-   The user is presented with a few images of Malta and some information what they can expect from the site.
 -	This page will also tell the potential client why they might want to collaborate with the site and the benefits they will receive once they sign the contract. 
--	About page has two buttons at the bottom of the page “Home” which will redirect the user to the home page and “Contact” which will redirect the user to the contact page
+-	About page has two buttons at the bottom of the page “Go Back” which will redirect the user to the home page and “Contact” which will redirect the user to the contact page.
 
 ##### back to [content](#table-of-content)
 
