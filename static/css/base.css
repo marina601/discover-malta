@@ -623,13 +623,15 @@ footer {
     flex-shrink: 0;
 }
 
-.footer-links li,
-.footer-links a {
-    color: #fafafa;
-    display: inline-block;
+
+
+.footer-link {
     text-decoration: none;
-    text-align: center;
-}
+    text-transform: uppercase;
+    text-shadow: 2px 2px #000000;
+    font-weight: 600;
+    font-size: 1.2rem;
+} 
 
 .social-icons {
     list-style-type: none;
@@ -661,9 +663,7 @@ footer {
 .nav-item a:hover,
 .main-logo-link:hover,
 .navbar-toggler:hover,
-.social-icons li a:hover,
-.footer-links li:hover,
-.footer-links li a:hover {
+.social-icons li a:hover {
     background-color: rgba(97, 95, 95, 0.6);
     border-radius: 5%;
     padding: 0.5rem !important;
@@ -757,18 +757,13 @@ footer {
         width: auto;
     }
     
-
-    /* .sort-div {
-        display: block;
+    .footer-row {
+        margin-top: 1rem;
+        margin-left: 0rem;
+        margin-bottom: 0rem;
+        margin-right: 0rem;
+        padding: 0rem;
     }
-
-    .review-card {
-        height: 18rem;
-    }
-
-    .result-count {
-        font-size: 1rem;
-    } */
 
     .main-nav {
         width: auto !important;

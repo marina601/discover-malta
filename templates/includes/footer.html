@@ -1,16 +1,17 @@
 <footer class="container-fluid">
-    <div class="row mt-1">
-        <div class="col-4 text-center mt-1 nav-item">
-            <ul class="navbar-nav nav-links-ul">
-                <li class="nav-item text-white">
-                    <a class="logo-font font-weight-bold nav-link text-white" href="{% url 'contact' %}">
-                        Contact
-                    </a>
-                </li>
-            </ul>
+    <div class="row spacing footer-row">
+        <div class="col-4  nav-item text-center">
+            <a class="footer-link font-weight-bold text-white" href="{% url 'contact' %}">
+                Contact
+            </a>
         </div>
-        <div class="col-4 text-center mt-1">
-            <p class="text-white">Follow Us</p>
+        <div class="col-4  text-center">
+            <p class="font-weight-bold text-white"> Follow Us</p>
+        </div>
+        <div class="col-4 nav-item text-center">
+            <a class="footer-link font-weight-bold text-white text-end" href="{% url 'about' %}">
+                About
+            </a>
         </div>
     </div>
     <div class="row">
