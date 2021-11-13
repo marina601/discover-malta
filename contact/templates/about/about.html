@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_title %} About {% endblock %}
+
+{% block content %}
+<section class="main-content">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-auto mt-3 text-center">
+                <h2>About Discover Malta</h2>
+                <p>
+                    This site has been created to make it easier for visitors to discover what Malta trully has to offer.
+                    We believe in supporting local businesses. Nobody knows this island better than a local! 
+                   <br> 
+                   Enjoy the gems of the sunny Malta!
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <img src="{{ MEDIA_URL }}media/sea-cave.jpg" class="img-fluid" alt="sea sea-cave">
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h3>Stress Free Vacation</h3>
+                <p>Say goodbey to stress and plan your vaction in one place.
+                    <br> We will tell you where to go and when to be there.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                media/media/sea-cave.jpg
+                <img src="{{ MEDIA_URL }}media/gozo-salt.jpg" class="img-fluid" alt="gozo salts">
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h3>Don't Miss a Thing!</h3>
+                <p>Incredible experiences — that’s what we’re all about. 
+                    <br>
+                    You’ll find unbeatable activities for all ages and interests at Discover Malta.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-8 col-sm-12">
+                <img src="{{ MEDIA_URL }}media/speed-boat.jpg" class="img-fluid" alt="speed boat">
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <h3>Collaborate with Us</h3>
+                <p>
+                    We offer low commission rates.
+                    <br>
+                    Free Marketing.
+                    <br>
+                    Custom Page design, just for your business.
+                    <br>
+                    Get in touch and one of our friendly team members 
+                    will contact you to see how we can help
+                 </p>
+            </div>
+        </div>
+        
+        <!--Link to login page-->
+        <div class="row">
+            <div class="col text-center mt-3">
+                <a class="btn btn-dropdown d-inline" href="{% url 'home' %}">Go Back</a>
+                <a class="btn btn-next d-inline" href="{% url 'contact' %}">Get in Touch</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}
