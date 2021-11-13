@@ -62,3 +62,8 @@ def contact(request):
     }
 
     return render(request, 'contact/contact.html', context)
+
+
+def about(request):
+    """Render the view for About Page"""
+    return render(request, 'about/about.html')
