@@ -165,7 +165,9 @@
 
 4.	As a returning user, I want to learn more about the site.
 
-    - 
+    - A user may find a link to the about page in the footer.
+    - The link will take them to the *About Page*, where the user can find out the core mission behind the site
+    - A user has two options at the bottom of the page to "Go Back" which will take the user to the *Home Page* or to *Get in Touch* which will take the user to the contact page.
 
 5.	As a returning user, I want to purchase the trip with secure checkout.
 
@@ -259,9 +261,16 @@
 1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 
      - A potential client may browse throgh the site to get the feel of the design and style of the site
-     - Each trip has the same style and design, therefore a potential client may have a good overview of what their product may look like on the site
+     - Each trip has the same style and design, therefore a potential client may have a good overview of what their product may 
+     look like on the site
 
-2.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
+2.	As a potential client I want to learn what benefits are available to me
+    
+    - A potential client may navigate to *About Page*
+    - The information presented there is let the user know about the core mission of the site and what benefits are availalbe to the potential clients
+    - Call to action button, promps the potential client to get in touch and request more information.
+
+3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
 
     - A potential client may get in touch with the site owners by completing a contact form 
     - A subject option "Collaboration" has been created especially for this in mind. 
