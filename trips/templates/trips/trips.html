@@ -260,15 +260,3 @@
 </section>
     
 {% endblock %}
-
-{% block postloadjs %}
-   {{ block.super }}
-
-    <script>
-        console.log("hello")
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus');
-        });
-    </script>
-
-{% endblock %}
