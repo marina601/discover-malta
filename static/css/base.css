@@ -18,6 +18,17 @@ body {
     flex-direction: column;
 }
 
+.container {
+    margin-top: 4rem;
+}
+
+.main-content {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    height: fit-content;
+    flex: 1 0 auto;
+}
+
 .spacing {
     margin: 1rem;
     padding: 1rem;
@@ -121,7 +132,7 @@ header,
 .user-favourites {
     color: #ef1018;
 }
-/***********************Index.html*/
+/***********************Cards*/
 
 .card:hover {
     box-shadow: 5px 6px 6px 2px rgba(97, 95, 95, 0.6);
@@ -138,6 +149,8 @@ header,
     height: 18rem;
     overflow: auto;
 }
+
+/***********************Buttons*/
 
 .btn-div {
     display: flex;
@@ -163,30 +176,6 @@ header,
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
 }
 
-
-/***********************Trips Page*/
-
-/* .heading {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-} */
-
-.container {
-    margin-top: 4rem;
-}
-
-.main-content {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    height: fit-content;
-    flex: 1 0 auto;
-}
-
-/* .search-btn {
-    background-color: #000000;
-    color: #fafafa;
-} */
-
 .search-btn:hover,
 .btn-dropdown:hover {
     background-color: #2576da;
@@ -203,20 +192,6 @@ header,
     width: 15rem;
 }
 
-/* .dropdown-item:hover {
-    background-color: rgba(97, 95, 95, 0.6);
-    border-radius: 5%;
-    padding: 1rem;
-    transition: ease-in-out all .2s;
-    -moz-transition: ease-in-out all .2s;
-    -webkit-transition: ease-in-out all .2s;
-} */
-
-/* .sort-div {
-    display: flex;
-    justify-content: end;
-} */
-
 .btn-bottom {
     position: absolute;
     bottom: 0;
@@ -226,14 +201,6 @@ header,
 .btn-more i {
     display: block;
 }
-
-/* .card-body .list-group-item {
-    border: none;
-}
-
-.card-body .list-group {
-    flex-direction: unset;
-} */
 
 .add-to-favourites i {
     font-size: 2rem;
@@ -254,68 +221,6 @@ header,
     color: #ef1018;
 }
 
-/* .pagination {
-    background-color: #fafafa;
-    font-size: 1rem;
-    margin-top: 2rem;
-}
-
-.page-link {
-    color: #000000;
-}
-
-.pagination-section {
-    height: fit-content;
-} */
-
-/* .short-description {
-    height: 10rem;
-    overflow: auto;
-    scroll-behavior: smooth;
-    margin: 0px;
-}
-
-.card-trip {
-    height: 45rem;
-    margin:  1rem;
-    border: 2px solid #000000;
-}
-
-.card-body p {
-    font-size: 1rem;
-} */
-
-/* .card-body a {
-    color: #000000;
-    text-decoration: none;
-}
-
-.card-body ul {
-    font-size: 1rem;
-}
-
-.card-trip img {
-    height: 220px;
-    object-fit: cover;
-}
-
-.container {
-    margin-top: 4rem;
-}
-
-.results {
-    font-weight: 900;
-    letter-spacing: 0.1rem;
-    font-size: 2rem;
-    padding-left: 1rem;
-}
-
-.page-item.active .page-link {
-    background-color: #000000;
-    border-color: #000000;
-} */
-
-/***********************Trip Details*/
 
 .btn-book {
     position: fixed;
@@ -337,18 +242,7 @@ header,
 .btn-submit {
     background-color: #039b2b;
 }
-/*font-family: 'Acme', sans-serif; - headings
-font-family: 'Oxygen', sans-seri  - paragraphs */
 
-/* from Bulma */
-/* css for fontawesome to create consistency */
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
-}
 
 .modal-btn {
     width: 100%;
@@ -379,9 +273,6 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
     color: #fafafa;
 }
 
-/* .list-group-item {
-    border: none;
-} */
 
 .modal-header {
     background-color: #da8925;
@@ -410,6 +301,18 @@ font-family: 'Oxygen', sans-seri  - paragraphs */
 .trip-link h4:hover,
 .trip-link h5:hover {
     color: #fafafa;
+}
+
+/**********************Icons*/
+
+/* from Bulma */
+/* css for fontawesome to create consistency */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 /**********************404.html*/
@@ -689,10 +592,6 @@ footer {
 
 /* Slightly larger container on xl screens */
 @media (max-width: 1200px) {
-    /* .card-trip {
-        height: 48rem;
-    } */
-
     .update-link,
     .remove-item {
         font-size: 0.9rem;
@@ -723,20 +622,9 @@ footer {
         padding-left: 10px;
     }
 
-    /* .sort-div {
-        display: block;
-    } */
-
     .main-nav {
         width: auto !important;
     }
-
-    /* .card-trip {
-        margin: 0;
-        width: 270px;
-        margin-top: 2rem;
-    } */
-
 }
 
 @media (max-width: 420px) {
