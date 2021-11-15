@@ -49,8 +49,6 @@ h6 {
     border: 1px solid #000000 !important;
     border-radius: 5px;
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
 }
 
 
@@ -132,6 +130,7 @@ header,
 .user-favourites {
     color: #ef1018;
 }
+
 /***********************Cards*/
 
 .card:hover {
@@ -141,8 +140,6 @@ header,
 .card {
     border: 2px solid rgba(0, 0, 0, .125);
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -webkit-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
-    -moz-box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
 }
 
 .review-card {
@@ -160,7 +157,7 @@ header,
 .btn-more {
     background-color: #da8925;
     border-radius: 0.5rem;
-    color:#fafafa;
+    color: #fafafa;
     margin: 0.5rem auto;
     border: 0.2rem solid #000000;
     font-family: 'Acme', sans-serif;
@@ -169,10 +166,8 @@ header,
 .btn-next:hover,
 .btn-more:hover {
     background-color: #2576da;
-    color: #fafafa ;
+    color: #fafafa;
     transition: ease-in-out all .4s;
-    -moz-transition: ease-in-out all .4s;
-    -webkit-transition: ease-in-out all .4s;
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
 }
 
@@ -186,7 +181,7 @@ header,
     background-color: #000000;
     color: #fafafa;
     text-transform: uppercase;
-    font-size: 1 rem;
+    font-size: 1rem;
     font-weight: 600;
     margin: 1rem;
     width: 15rem;
@@ -326,7 +321,7 @@ header,
     background: url("https://cdn.pixabay.com/photo/2019/02/04/12/18/winter-3974511_1280.jpg") no-repeat center center fixed;
     background-size: cover;
     height: 80vh;
- }
+}
 
 .error h1 {
     position: absolute;
@@ -338,7 +333,7 @@ header,
     top: 60%
 }
 
- /**********************500.html*/
+/**********************500.html*/
 
 .error-500 {
     background: url("https://cdn.pixabay.com/photo/2017/08/01/22/38/flash-2568381_1280.jpg") no-repeat center center fixed;
@@ -377,19 +372,20 @@ header,
     text-align: center;
     border: 2px solid #000000;
 }
+
 /**********************Bag*/
 
 .decrease-quantity-child,
 .decrease-quantity {
-    background-color:#ef1018;
-    color:#fafafa;
+    background-color: #ef1018;
+    color: #fafafa;
     border-radius: 5px;
     border: 1px solid black;
 }
 
 .add-quantity {
-    background-color:#039b2b;
-    color:#fafafa;
+    background-color: #039b2b;
+    color: #fafafa;
     border-radius: 5px;
     border: 1px solid black;
 }
@@ -445,8 +441,8 @@ header,
 
 /****************Date Picker*/
 
-.ui-state-highlight, 
-.ui-widget-content .ui-state-highlight, 
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
 .ui-widget-header .ui-state-highlight {
     border: 1px solid #000000 !important;
     background: #da8925 !important;
@@ -467,7 +463,8 @@ header,
 .ui-state-active,
 .ui-widget-content .ui-state-active,
 .ui-widget-header .ui-state-active,
-a.ui-button:active, .ui-button:active, 
+a.ui-button:active,
+.ui-button:active,
 .ui-button.ui-state-active:hover {
     border: 1px solid #000000 !important;
     background: #2576da !important;
@@ -508,15 +505,15 @@ a.ui-button:active, .ui-button:active,
 
 .trip-link strong:hover {
     color: #fafafa;
-  }
+}
 
 /**************Update Personal Info*/
- 
+
 .img-thumbnail {
     border: none !important;
     background-color: transparent;
     object-fit: cover;
-} 
+}
 
 /**********************Footer*/
 
@@ -534,7 +531,7 @@ footer {
     text-shadow: 2px 2px #000000;
     font-weight: 600;
     font-size: 1.2rem;
-} 
+}
 
 .social-icons {
     list-style-type: none;
@@ -571,8 +568,6 @@ footer {
     border-radius: 5%;
     padding: 0.5rem !important;
     transition: ease-in-out all .2s;
-    -moz-transition: ease-in-out all .2s;
-    -webkit-transition: ease-in-out all .2s;
 }
 
 .copy-rights-text {
@@ -592,6 +587,7 @@ footer {
 
 /* Slightly larger container on xl screens */
 @media (max-width: 1200px) {
+
     .update-link,
     .remove-item {
         font-size: 0.9rem;
@@ -600,7 +596,7 @@ footer {
 }
 
 @media (max-width: 320px) {
-    
+
     .nav-link {
         padding: 0px;
     }
@@ -644,7 +640,7 @@ footer {
         z-index: 99999999;
         width: auto;
     }
-    
+
     .footer-row {
         margin-top: 1rem;
         margin-left: 0rem;
@@ -661,14 +657,14 @@ footer {
         font-size: 1.5rem;
         position: relative;
     }
-    
+
     .btn-book {
         left: 70% !important;
         width: 7rem;
         font-size: 1rem;
         top: 25% !important;
     }
-    
+
     .cancel-btn,
     .add-btn {
         width: auto;
@@ -686,5 +682,5 @@ footer {
         position: unset;
         width: 100%;
     }
-    
+
 }
