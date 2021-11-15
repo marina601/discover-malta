@@ -121,7 +121,7 @@ def update_bag(request, trip_id):
         trip.num_tickets = 0
         trip.save()
         messages.error(request, f"There is only {trip.num_tickets}"
-                                f" tickets left for this trip")
+                       f" tickets left for this trip")
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
