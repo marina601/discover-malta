@@ -40,36 +40,96 @@
 - PEP8 has been used to ensure Python code is fully compliant.
 
 - [W3C CSS validation](https://jigsaw.w3.org/css-validator/)
-  - The file passed without any errors
+
+   | Files    |       Validation      |  Errors        |
+   |----------|:---------------------:|:---------------:|
+   |*checkout.css*|      &check; | removed `-webkit-transition` which was throwing a warning during validation |
+   |*home.css* |      &check; | removed `-moz-transition` and `-webkit-transition` which was throwing a warning during validation|
+   |*star-rating.css*  |      &check; | no errors |
+   |*trips.css* |  &check; | removed `-moz-transition` and `-webkit-transition` which was throwing a warning during validation and dublicate background colour property |
+
+ - Final check has been completed for all pages, no errors or warnings have been found.
 
 - [W3C Markup Validation](https://validator.w3.org/)
    - HTML code pass validation without major errors.
-   
+   - Label element had `for` attribute invalid due to using form input elements from Django Forms, checked using the dev tools to find the correct `id` for the input element. Altered the `label` element to match the input `id`.
+
+
+       | Pages    |       Validation      |
+       |----------|:---------------------:|
+       |*edit_profile.html*|      &check; |
+       |*edit_review.html* |      &check; |
+       |*favourites.html*  |      &check; |
+       |*forgot_password.html* |  &check; |
+       |*login.html* |            &check; |
+       |*profile.html* |          &check; |
+       |*regiseter.html* |         &check;|
+       |*reset_password.html* |   &check; |
+       |*view_reviews.html* |     &check; |
+       |*bag.html* |              &check; |
+       |*checkout_complete.html* | &check;|
+       |*checkout.html* |          &check;|
+       |*about.html* |             &check;|
+       |*contact.html* |           &check;|
+       |*index.html* |             &check;|
+       |*add_trip.html* |          &check;|
+       |*trip_detail.html* |       &check;|
+       |*trips.html* |             &check;|
+       |*update_trip.html* |       &check;|
 
   - Final check has been completed for all pages, no errors or warnings have been found.
 
-   #### All other pages have passed without errors.
 
-- [W3C Link Checker](https://validator.w3.org/checklink)
-   
+- [Broken link check](https://www.brokenlinkcheck.com/broken-links.php#status)
+   - All pages have passed without issues, no broken links have been detected
   
+
 - [JSHint](https://jshint.com/)
-  
+   
+   | Files    |       Validation      |  Errors        |
+   |----------|:---------------------:|:---------------:|
+   |*quantity.js*|      &check; | removed bad assignment `$(input).val() = 8` due to bad assignment warning |
+   |*stripe.js* |      &check; | one undefined variable `Stripe` which is coming directly from *Stripe API* |
+   |*home-script.js*  |      &check; | no errors |
+   |*dateoucjer.js* |  &check; | no errors |
+   |*main_script.js* |  &check; | one undefined variable `bootstrap` coming from Bootstrap library |
+   |*modal.js* |   &check; |  no errors |
+
+ - Final check has been completed for all pages, no errors or warnings have been found.
 
 - [PEP8](http://pep8online.com/)
-   - The code passed through validation without errors
+   
+   | Apps    |       Validation      |  Errors        |
+   |----------|:---------------------:|:---------------:|
+   |*Accounts*|      &check; | forms.py - white space on line 21 |
+   |*Bag* |      &check; | vies.py - line 124 indentation error |
+   |*Checkout*  |      &check; | no errors  |
+   |*Contact* |  &check; | no errors|
+   |*Discover_Malta* |  &check; | settings.py - lines 123, 126, 129, 132 displayed an error of being too long, this was left unfirxed as they were provided by default by Django|
+   |*Home* |   &check; |  no errrors |
+   |*Trips* |   &check; | no errors  |
+   |*custom_storages.py* |   &check; | no errors  |
 
 - [Extendclass](https://extendsclass.com/python-tester.html)
-   
+
+   | Apps    |       Validation      |  Errors        |
+   |----------|:---------------------:|:---------------:|
+   |*Accounts*|      &check; | forms.py and views.py throwing a syntax error for `f string` |
+   |*Bag* |      &check; | views.py - throwing a syntax error for `f string` |
+   |*Checkout*  |      &check; | forms.py, models.py, views.py, webhook_handler.py throwing a syntax error for `f string` |
+   |*Contact* |  &check; | views.py - throwing a syntax error for `f string` |
+   |*Discover_Malta* |  &check; | settings.py - throwing a syntax error for `f string`|
+   |*Home* |   &check; | no errors   |
+   |*Trips* |   &check; | views.py - throwing a syntax error for `f string`  |
+   |*custom_storages.py* |   &check; | no errors  |
+
 
 ##### back to [content](#table-of-content)
+
 
 ## User stories testing
 
 ### Testing user stories from UX section of [README.md](README.md)
-
-
-### User Stories 
 
 #### First Time User
 
