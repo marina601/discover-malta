@@ -18,7 +18,6 @@ for (var i = 0; i < addQuantity.length; i++) {
             $(this).fadeOut();
             $(this).delay(5000).fadeIn();
             alert("You cannot add more than 8 adults. Please get in touch for large group bookings");
-            $(input).val() = 8;
         }
     });
 }
