@@ -233,7 +233,7 @@
                 <!--Delete Trip Modal-->
                 {% include 'trips/includes/delete-modal-trip.html' %}
                 <a href="{% url 'update_trip' trip.id %}" class="btn update-link m-1">
-                    Update Trip <i class="fas fa-sync" aria-hidden="true"></i>
+                    Update <i class="fas fa-sync" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -380,20 +380,7 @@
 {% endblock %}
 
 {% block postloadjs %}
-   {{ block.super }}
 
-<script>
-
-    // Modal from bootstrap 
-    var myModal = document.getElementById('exampleModal');
-    var myInput = document.getElementById('total_adults');
-
-    myModal.addEventListener('shown.bs.modal', function () {
-        myInput.focus();
-    });
-
-</script>
-
-
+     <script src="{% static 'trips/js/modal.js' %}"></script>
 
 {% endblock %}
