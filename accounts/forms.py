@@ -18,7 +18,7 @@ class RegistraionForm(forms.ModelForm):
         model = Account
         fields = ['first_name', 'last_name',
                   'email', 'password']
-                  
+
     # code for password validation has been sorced from
     # https://docs.djangoproject.com/en/3.2/topics/auth/passwords/
     def validate(self, password):
@@ -54,9 +54,9 @@ class RegistraionForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         placeholders = {
-            'first_name': 'Pleas enter your first name',
-            'last_name': 'Please enter your last name',
-            'email': 'Please enter your email address',
+            'first_name': 'Please enter your name',
+            'last_name': 'Please enter your surname',
+            'email': 'Please enter your email',
             'phone_number': 'Please enter your phone number',
             'password': 'Create your password',
             'confirm_password': 'Confirm your password',
