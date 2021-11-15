@@ -7,21 +7,21 @@ https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-
 }
 
 /* Hide radio */
-.rating > input {
+.rating>input {
     opacity: 0;
 }
 
 /* Order correctly by floating highest to the right */
-.rating > label {
+.rating>label {
     float: right;
 }
 
 /*******Display the stars********/
-.rating > label:before {
+.rating>label:before {
     display: inline-block;
     font-size: 1.2rem;
     padding: .3rem .2rem;
-    margin-right:0;
+    margin-right: 0;
     cursor: pointer;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
@@ -30,7 +30,7 @@ https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-
 
 /* Show Half Stars */
 .rating .half:before {
-    content: "\f005"; 
+    content: "\f005";
     position: absolute;
     padding-right: 0;
     width: 0.8rem;
@@ -41,17 +41,19 @@ https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-
 /* Click + hover color */
 .fa-star,
 .fa-star-half,
-input:checked ~ label,
-label:hover, label:hover ~ label { 
-    color: #ffb503;  
-} 
+input:checked~label,
+label:hover,
+label:hover~label {
+    color: #ffb503;
+}
 
 /* Hover and highlight */
-input:checked + label:hover, input:checked ~ label:hover, 
-input:checked ~ label:hover ~ label,
-label:hover ~ input:checked ~ label { 
-    color: #cc9000;  
-} 
+input:checked+label:hover,
+input:checked~label:hover,
+input:checked~label:hover~label,
+label:hover~input:checked~label {
+    color: #cc9000;
+}
 
 .img-thumbnail {
     width: 4rem;
@@ -59,7 +61,7 @@ label:hover ~ input:checked ~ label {
 }
 
 @media (max-width: 320px) {
-    .rating > label:before {
+    .rating>label:before {
         padding: .3rem .1rem;
     }
 }
