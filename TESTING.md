@@ -135,20 +135,20 @@
 
 1.	As a first time user, I want to understand what this site is about.
 
-  - The site is designed with simple and easy to understant content in mind.
+  - The site is designed with simple and easy to understand content in mind.
   - The title of the site tells the user this site is about Malta.
-  - A hero images feature some of the Malta's most iconic places
-  - A favicon icon is a symble of the sunny holiday platform
+  - A hero images feature some of Malta's most iconic places
+  - A favicon icon is a symbol of the sunny holiday platform
 
 2.	As a first time user, I want to browse through the trips available on site.
   
   - The user can access all the trips via a link in the main navigation
-  - The user may access trips which are spesific to the category by clicking on the title of the category displayed on the Home page
+  - The user may access trips that are specific to the category by clicking on the title of the category displayed on the Home page
   - The user may also access all trips via a call to action button at the bottom of the Home page
 
 3.	As a first-time user, I want to see full trip details and trip reviews from other users.
 
-   - When the user lands on the *trips.html* page they are able to view a short description of each trip, this also includes 
+   - When the user lands on the *trips.html* page they can view a short description of each trip, this also includes 
      - Trip Image
      - Trip Name
      - Trip Duration
@@ -156,7 +156,7 @@
      - Trip Star Rating
      - Call to action button 'More Info'
 
-    - Based on this information a user may choose a specific trip which they want to view
+    - Based on this information a user may choose a specific trip that they want to view
     - They can access trip details in three ways:
       - By clicking on the trip image
       - By clicking on the trip name
@@ -169,8 +169,8 @@
 4.  As a first-time user, I want to understand the benefits of booking my holiday itinerary using this platform.
 
     - On the *Home Page* the user is presented with a paragraph detailing why they should use this platform to plan their itinerary.
-    - The benefits are presented in the visualy intising way, using different colour circles which display on scroll, drawing the user attention
-    - The circles use icons and text to give user a full experience.
+    - The benefits are presented in a visually enticing way, using different colour circles which display on scroll, drawing the user attention
+    - The circles use icons and text to give the user a full experience.
 
 5.  As a first-time user, I want to add the trips which I like to my favourites.
 
@@ -178,23 +178,23 @@
        - From *trips.html* page
        - From *trip_details page*
     - By clicking on the heart shape icon
-    - If the user is not logged in, and they hover over the icon, the message will be displayed telling them they should login to add this trip to their favourites.
-    - If they click on the icon, they will be redirected to *login page*, where they can choose to login or register
+    - If the user is not logged in, and they hover over the icon, the message will be displayed telling them they should log in to add this trip to their favourites.
+    - If they click on the icon, they will be redirected to the *login page*, where they can choose to log in or register
     - Once the user is logged-in, they may add trips to their favourite list by clicking on the heart icon.
     - A message will be displayed at the top of the screen letting them which trip they have added to their favourite list 
     - Hear icon in the menu will change colour to red and the trip count will be amended letting the user know how many trips they have added to their favourites.
 
 6.  As a first-time user, I want to find a variety of experiences suited for different ages and requirements.
 
-    - User may choose to search for a specific keyword in the search bar profided on *trips.html* at he top of the page.
+    - User may choose to search for a specific keyword in the search bar provided on *trips.html* at the top of the page.
     - The search bar will display the number of the results found with their keyword and all the related trips
-    - The user may narrow down their search by clicking on the specific category, dropdown menu is available in the navbar across the whole site
+    - The user may narrow down their search by clicking on the specific category, the dropdown menu is available in the navbar across the whole site
     - On the *trips.html* under "Refine you search", they have an option to choose their category as well
     - The user may sort the trips available by price, rating, duration or whether or not the trip is family-friendly on the *trips.html*
 
-7.  As a first-time user, I want to navigate the site easily and view site on different screen sizes.
+7.  As a first-time user, I want to navigate the site easily and view the site on different screen sizes.
 
-    - The site has been designed with user experience and mobile first approach in mind. The site has adopted a fully resposive design across all screen sizes.
+    - The site has been designed with user experience and a mobile-first approach in mind. The site has adopted a fully responsive design across all screen sizes.
 
 
 
@@ -202,26 +202,26 @@
 
 1.	As a returning user, I want to be able to login into my account
 
-    - Once the user is registered and has gone through verification steps, the user may login into their account by pressing on the user icon in the navigation bar.
-    - A dropdown menu will open and give 2 options to the user, either to login or register.
+    - Once the user is registered and has gone through verification steps, the user may log in to their account by pressing on the user icon in the navigation bar.
+    - A dropdown menu will open and give 2 options to the user, either to log in or register.
     - Once the user is logged in, they will be greeted with a friendly message welcoming them to the site, using their name
-    - The user icon will change into default user avator or cutom if selected.
+    - The user icon will change into the default user avatar or custom if selected.
 
 2.	As a returning time user, I want to view my favourites and check their availability
 
     - A logged-in user may access their favourites by clicking on the heart icon in the navigation bar
     - The icon will display the number of trips the user has in their favourites list
     - A logged-in user may navigate to their profile page and click on the link "View Favourites", to access their favourites page
-    - On this page the user is able to see how many favourites they have in their list, by clicking on the trip imag, name or "More Info" button they will be directed to the *trip details* page.
-    - They may add a trip to their shopping bag by clicking on "Book Now" button and select the number of tickets and booking date.
+    - On this page, the user can see how many favourites they have in their list, by clicking on the trip image, name or "More Info" button they will be directed to the *trip details* page.
+    - They may add a trip to their shopping bag by clicking on the "Book Now" button and selecting the number of tickets and booking date.
     - If the trip does not have enough tickets for the user requirements, the message will display letting the user know how many tickets are left for a specific trip.
-    - If the trip does not have any tickets left, "Book Now" button will display "Sold Out" and the button will be disabled.
+    - If the trip does not have any tickets left, the "Book Now" button will display "Sold Out" and the button will be disabled.
 
 3.	As a returning user, I want to search for a specific trip or filter trips by category.
 
      - By now the user is familiar with the site and will be able to navigate easily throughout it.
      - Can view the trips by category from the *Home page*, *navigation menu* or *trips.html*
-     - They can sort the trips from the *trips.html* using *Sort By* dropdown menu
+     - They can sort the trips from the *trips.html* using the *Sort By* dropdown menu
 
 4.	As a returning user, I want to learn more about the site.
 
@@ -231,29 +231,29 @@
 
 5.	As a returning user, I want to purchase the trip with secure checkout.
 
-    - A user may access the checkout from their shopping bag page, the link "Proceed to Secure Checkout" is locate at the bottom of the page
-    - Once the user is on the checkout page, they are presented with a short information about the trip they are about to purchase
+    - A user may access the checkout from their shopping bag page, the link "Proceed to Secure Checkout" is located at the bottom of the page
+    - Once the user is on the checkout page, they are presented with short information about the trip they are about to purchase
     - They have an option to view full details of the trip by clicking on *trip name*
-    - The user is asked to fill in form with their personal details
-    - A user navigate to *login page* or *registration page* if they would like to save their details for next time and view their order history.
-    - If the user is logged in, the form will be pre-filled with user details stored in user profile
+    - The user is asked to fill in the form with their details
+    - A user navigates to *login page* or *registration page* if they would like to save their details for next time and view their order history.
+    - If the user is logged in, the form will be pre-filled with user details stored in a user profile
     - The user may click a box to save or update their personal information during the checkout process
-    - Once the user enters a card number, strip will act as a secure payment platform and check that all required details are correct.
-    - On successful checkout, the user will be redirected to the *complete chekcoout* view, where the ticket summary will be displayed.
-    - A message at the top of the screen will let the user know that a confirmation email has been send to their email address.
-    - The user will recieve confirmation email which will display their order number, which they will need to present to the trip provider on the day of the trip
-    - A looged in user may also view their order history on their profile page.
+    - Once the user enters a card number, Stripe will act as a secure payment platform and check that all required details are correct.
+    - On successful checkout, the user will be redirected to the *complete checkcout* view, where the ticket summary will be displayed.
+    - A message at the top of the screen will let the user know that a confirmation email has been sent to their email address.
+    - The user will receive a confirmation email which will display their order number, which they will need to present to the trip provider on the day of the trip
+    - A logged in user may also view their order history on their profile page.
     - User card details are not stored in the database.
 
 6.	As a returning user, I want to get an instant email confirmation of my transaction.
     
-    - During successful checkout, the user will recieve confirmation email which will display their order numbe
+    - During successful checkout, the user will receive a confirmation email which will display their order number
     - They will need to present their order number to the trip provider on the day of the trip
     - This email will contain full details of the trips booked and personal details entered.
 
 7.	As a returning user, I want to have feedback provided to me every step of the way.
 
-    - The site is desigened to provide and guide user during their time on the site.
+    - The site is designed to provide and guide the user during their time on the site.
     - The feedback is provided to the user in the form of notifications pop ups at the top of the screen
     - Warnings, Alerts, Info and Success messages
     - When the user is deleting their review, a modal will apper asking to confirm their decition.
