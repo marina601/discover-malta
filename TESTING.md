@@ -397,3 +397,32 @@
      - Users may search the site using a search bar
      - Users may filter the trips by category
      - Users my sort the trips by a condition
+
+
+### Device compatibility table
+
+
+| Pages    |<strong>Laptop</strong>|<strong>Ipad</strong>|<strong>IphoneX</strong> | <strong>Nokia2.4</strong> | <strong>Sumsung</strong> |
+|----------|:---------------------:|--------------------:|------------------------:|-----------------------:|-----------------------:|
+| Home     | &check; | &check;| &check;| &check;| &check;|
+| Trips  | &check; | &check;| &check;| &check;| &check;|   
+| Trip Details    | &check; | &check;| &check;| &check;| &check;|
+| Add Trip | &check; | &check;| &check;| &check;| &check;|
+| Update Trip | &check; | &check;| &check;| &check;| &check;|
+| About | &check; | &check;| &check;| &check;| &check;|
+| Contact | &check; | &check;| &check;| &check;| &check;|
+| Checkout Complete | &check; | &check;| &check;| &check;| &check;|
+| Checkout | &check; | &check;| &check;| &check;| &check;|
+| Bag | &check; | &check;| &check;| &check;| &check;|
+| Edit Profile | &check; | &check;| &check;| &check;| &check;|
+| Edit Review | &check; | &check;| &check;| &check;| &check;|
+| Favourites | &check; | &check;| &check;| &check;| &check;|
+| Forgot Password | &check; | &check;| &check;| &check;| &check;|
+| Login | &check; | &check;| &check;| &check;| &check;|
+| Profile | &check; | &check;| &check;| &check;| &check;|
+| Register | &check; | &check;| &check;| &check;| &check;|
+| Reset Password | &check; | &check;| &check;| &check;| &check;|
+| View Reviews | &check; | &check;| &check;| &check;| &check;|
+| 400.html | &check; | &check;| &check;| &check;| &check;|
+    
+##### back to [content](#table-of-content)
