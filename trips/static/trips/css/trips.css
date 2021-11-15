@@ -14,8 +14,6 @@
     border-radius: 5%;
     padding: 1rem;
     transition: ease-in-out all .2s;
-    -moz-transition: ease-in-out all .2s;
-    -webkit-transition: ease-in-out all .2s;
 }
 
 .sort-div {
@@ -43,7 +41,7 @@
 
 .card-trip {
     height: 44rem;
-    margin:  1rem;
+    margin: 1rem;
     border: 2px solid #000000;
 }
 
@@ -90,7 +88,6 @@
 
 .page-item.active .page-link {
     background-color: #000000;
-    border-color: #000000;
 }
 
 .list-group-item {
