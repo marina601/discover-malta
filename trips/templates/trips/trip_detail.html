@@ -380,7 +380,9 @@
 {% endblock %}
 
 {% block postloadjs %}
+     {{ blocksuper }}
 
      <script src="{% static 'trips/js/modal.js' %}"></script>
+     <script src="{% static 'js/datepicker.js' %}"></script>
 
 {% endblock %}
