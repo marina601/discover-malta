@@ -462,3 +462,83 @@
   - Flip the tablet and mobile devices to check responsiveness.
 
 2. Footer
+  - Hovered over each link, confirmed background colour changed as expected.
+  - Confrim "Follow Us" is disabled, therefore no animation is present on hover.
+  - Click all links in the footer, confirm that they take the user to the relevant pages within the site.
+  - Click the social icons, confirm that they open a new tab and takes the user to correct social media platform.
+  - The footer is responsive on all window view sizes.
+  - Check date of copyright information, confirm year displayed matches the current year.
+
+3. Favicon
+  - View the site on different devices and confirm the favicon image is present
+
+4. Title
+  - Click on each page, view the tap of each page and confirm each page contains custom title
+
+##### back to [content](#table-of-content)
+
+### Home Page
+
+1. Hero Slider
+   - Confrim the carousel images fade within 5 seconds
+   - Confirm the carousel is touch compatible by sliding the fingers to the left and right
+   - Open dev tools in Google Chrome confim each image contains `alt` attribute
+
+2. Welcome Message 
+   - View the welcome message on all devices, confirm the message appears in the centre of the page.
+
+2. Benefits
+   - Scroll up and confirm no benefits are displayed on the page
+   - Confirm each element is displayed to the user within 2 seconds interval
+   - Confirm responsive layout of the elements accross all screen sizes
+   - Confrim each element contains `box-shadow: -3px 8px 27px -2px rgb(180 179 179 / 51%);` which makes them stand out.
+   - Inspect the page in the Google Dev Tools and confirm each icon contains `aria-hidden="True"` attribute. This will make the icon hidden from the screen reader, giving the user a better accessability to the page.
+
+
+![benefits](readme-files/images/benefits.png)
+
+4. Categories 
+   - Confrim the categories divs are displayed in the grid format and responsive across all screen views:
+            - Large screen - 4 category cards per row
+            - Medium screen - 3 category cards per row
+            - Small screen - 1 category card per row
+   - Each category card contains a border and box-shadow property to make them stand out and create a 3D look
+   - Hover over each card and confirm the `box-shadow` property is changing
+   - Hover over each title of the category and confirm background colour is changing as expected
+   - Click on each category title and confirm it takes you to the page which displays trips only under a specific category. The trip cound displays the correct number of results returned.
+   - Click on the 'last minute deals' category and confirm the no trips are displayed, the trip count is showing 0 and a message displayed to the user. 
+
+5. Call to Action 
+  - View all trips call to action button appears at the bottom of the page.
+  - Hover over the link, confirm background colour is changing as expected.
+  - Click on the link, confirm it takes the user to the *trips.html* page.
+
+  - Above tests have been repeated on tablet and mobile devices.
+    
+
+### All Trips
+
+1. Search
+
+2. Filter
+
+3. Sort
+
+4. Trip-card
+
+5. Logged-in User
+
+6. Admin User
+
+7. Pagination
+
+
+
+
+## Bugs
+
+- Navbar dropdown menu is not working 
+ - Added data-bs-toggle="dropdown" to the trigger button 
+ - Added link to the js popper 
+ - https://www.studytonight.com/bootstrap/solvedbootstrap-dropdown-not-working
+ - Because bootstrap 5 stopped supporting old browsers
