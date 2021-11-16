@@ -107,6 +107,12 @@ header,
 
 .navbar-toggler {
     background-color: #fafafa;
+    color: #000000;
+}
+
+.navbar-toggler:hover {
+    background-color: #000000 !important;
+    color: #fafafa;
 }
 
 .fa-bars {
