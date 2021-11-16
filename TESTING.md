@@ -14,7 +14,7 @@
         - [**Frequent User**](#frequent-user)
         - [**Potential Client**](#potential-client)
         - [**Business Goals**](#business-goals)
-   - [**Further Testing**](#further-testing)
+   - [**Manual Testing**](#manual-testing)
       - [**Device Compatibility Table**](#device-compatibility-table)
       - [**Elements on Every Page**](#elements-on-every-page)
       - [**Home Page**](#home-page)
@@ -398,6 +398,7 @@
      - Users may filter the trips by category
      - Users my sort the trips by a condition
 
+## Manual Testing
 
 ### Device compatibility table
 
@@ -426,3 +427,38 @@
 | 400.html | &check; | &check;| &check;| &check;| &check;|
     
 ##### back to [content](#table-of-content)
+
+### Elements on Every Page
+
+- All steps on the desktop were repeated on mobile, tablet and laptop screen sizes.
+
+1. Navigation
+
+- Hover over each link, confirm the hover effect works as expected.
+- Click each link in the navbar to confirm that it leads to the correct page.
+- Click each link in the "Categories" dropdown menu and confirm each category displays the correct trips.
+- Confirm that when logged out the options "Login" and "Register" are visible and that "Profile" and "Logout" are not.
+- Click on heart icon and confirm it takes user to the "Login" page.
+- Add a trip to your shopping bag, confirm the suitcase icon changes colour and total value of the trips is updated.
+- Remove all the trips from your shopping bag, confirm the icon changes colour to white and the value displayed is 0.00.
+
+- Log in to the site, confirm that options "Profile" and "Logout" are visible and that "Login" and "Register" are not.
+        - Confirm the user icon chages either to default user image or selected user image is changed by the user.
+        - Add some trips to your favourites and confirm the heart icon changes colour and displays the number of trips added.
+        - Click on the favourites link and confirm it takes the user to "Favourites Page"
+        - Remove all the trips from your favourite list and confirm the heart icon changes the colour back to white and displays 0 number of trips in your favourite
+
+- Go to the bottom of the page to make sure the navigation bar is sticky.
+
+- Mobile and Tablet view:
+
+  - Confirm burger button appears on the left-hand side of the navbar.
+  - Confirm the user, suitcase and heart icons apper next to the burger button.
+  - Click on the burger button, confirm the background colour and the colour of the bars are changing.
+  - Click on the burger button, confirm the drop down menu display links: "Home", "All Trips" and "Categories"
+  - Click on the "Categories" dropdown menu and confirm all the category link are displayed.
+  - Confirm the site heading/logo "Discover Malta" is no longer visible.
+  - Followed the same steps as above to determine all the links are working.
+  - Flip the tablet and mobile devices to check responsiveness.
+
+2. Footer
