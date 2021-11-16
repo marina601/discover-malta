@@ -445,13 +445,12 @@ header,
 
 /****************Date Picker*/
 
-.ui-state-highlight,
-.ui-widget-content .ui-state-highlight,
-.ui-widget-header .ui-state-highlight {
+.ui-datepicker-days-cell-over  > .ui-state-default {
     border: 1px solid #000000 !important;
-    background: #da8925 !important;
+    background-color: #da8925 !important;
     color: #000000 !important;
 }
+
 
 .ui-datepicker-header {
     border: 1px solid #fafafa !important;
