@@ -520,17 +520,97 @@
 
 1. Search
 
+  - Click inside the search input and confirm the placeholder displays the text "Search our site"
+  - Search by a key word, confirm the page displays all the trips which contain the key word and the number of results is updated.
+  - Type a key word which deos not exists like "kitty" and confirm no trips are displayed, the rusult count displays 0 and a message displayed to the user telling then "We do not have any trips with your search criteria, please try again."
+  - Click on the search button with an empty input field and confirm all trips are displayed again.
+
 2. Filter
 
+  - Click on the tropdown menu "Categories" and confirm all the categories are displayed which exists in the database, plus a link to all trips is also present.
+  - Hover over each link and confirm the background colour is changing and transitions are present, as expected.
+  - Click on each link and confirm the page displays the trips under each cagegory, the total trip count updates and represents the number of trips under each category.
+  - Click on the "All trips" link and confirm all the trips are displayed on the page.
+
 3. Sort
+   - Select sort by price and sort by duration confirm the results are returned in acsending order
+   - Select sort by rating, confrim the results returned are in descending order
+   - Select sort by family friendly, confirm the results returned display the trips which have value `family_friendly` set to `True`
+   - Confirm each time the sort functionality is selected the total number of trips is returned in the `trip_count`
+
+- Hover over the search, choose your category and sort by buttons and confirm the backgourn colour is changing
 
 4. Trip-card
 
-5. Logged-in User
+   - Confirm the cards are displayed 3 in the row on the large screen, 2 in the row on the medium screen and a single card in each row on the small screen.
+   - Hover over each card and confirm the box-shadow property is changing, making each card-trip stand out to the user
+   - Hover over heart icon, confirm the background colour changes as expected. 
+   - For not logged in user:
+            - Tooltip displays the message "Login to add this trip to your favourites".
+            - Click on the hear icon, confirm the it re-directs the user to login page.
+   - If the user is logged in:
+            - Hover over the heart icon, tooltip displays the message "Add to favourites"
+            - Click on the icon, confirm the the icon dissapears and instead the trash icon appears
+            - Hover overthe trash icon, tooltip disiplays the message "Remove from favourites"
+            - Heart icon in the navbar changes colour to red and displays the number of trips added to the favourite list.
+            - Toast message notifies the user which trip they have added to their favourites
+            - Click on the trash icon, confirm the number of trips in the navbar updates
+            - If no trips in the favourite list the heart icon displays 0 and background colour goes back to default white
+            - The trip's heart icon which has been removed from the favourites list reverts to its original state.
+            - Toast message notifies the user which trip they have removed from their favourites
+
+   ![favourites](readme-files/images/trips-favourites.png)
+
+   - Hover over the trip image, confirm the `cursor` is set to `pointer`
+   - Click on the trip image, confrim it takes the user to the "Trip Details Page"
+   - Hover over the trip name, confirm the background and tex colour changes as expected
+   - Click onthe trip name, confirm it teaks the user to the "Trip Detail Page"
+   - Trip card contains a short description of the trip, if the text lenght is longer than height property set to the card, it displays `overflow: auto;` property set in css file
+   - 4 icons at the middle of the card set out the most important information the user might look out for:
+            - Duration
+            - Price
+            - Rating
+            - Family Friendly
+    - If the trip has star rating, the star icon changes colour to yellow and display the average star rating for the trip calculated in the trips.models.py using Avg function from Django:
+
+              - `def averageRating(self):
+              -      """Calculate average trip review"""
+              -      reviews = ReviewRating.objects.filter(trip=self,
+              -                                           status=True).aggregate(
+              -                                               average=Avg('rating'))
+              -     avg = 0
+              -      if reviews['average'] is not None:
+              -          avg = float(reviews['average'])
+              -     return avg`
+    - If there is no star rating for this trip, the star icon is set to default black colour and message displays there is "no rating yet"
+    - If the trip is family friendly a child icon is displayed, if the trip is not set to be family friendly no icon is displayed.
+    - Call to action button "More Info", on hover changes colour and when clicked directs the user to trip details page.
+    - Open dev tools in Google Chrome and inspect each card image, confirm each image contains an `alt` attribute
+
+![trip-card](readme-files/images/trip-card.png)
 
 6. Admin User
+   - If the user is logged in as Admin user, they have 2 extra button at the bottom of each card.
+           -Update
+           -Delete
+  - Click on update button, confirm it redirects the user to "Update Trip Page" for the current trip.
+  - Try to access update_trip url as a non logged in user, confirm it redirects the user to login page.
+  - Try to acces update_trip url as a logged in user, confrim the message is displayed telling the user they do not have access to this page and link is in the form of button is displayed "Go back to all Trips"
+  - Click on delete button, confirm a modal is dipslayed asking the user to confirm their decision.
+  - Click delete button in the modal, confirm the toast message appears telling the user which trip has been deleted and redirects the user back to *trips.html*
+  - Try to access delete_trip url as a non logged in user, confirm it redirects the user to login page.
+  - Try to access delete_trip url as a logged in user, confirm toast notification appears letting the user know they do not have admin previlagies to delete this trip
+  - Confirm the Update and Delete buttons only visible to Admin user
+
+![delete-modal](readme-files/images/delete-modal.png)
 
 7. Pagination
+  - Go to the bottom of the page and check the pagiantion is working as expected
+  - 8 Trips per page will display on the first page
+  - Then the number of pages will be dynamically generated based on `trip_count` results
+  - If on page 1, previous button will be disabled 
+  - If on the last page, the next button will be disabled.
+  - Current page number is displayed to the user and the page number's background colour is changed when active.
 
 
 
@@ -542,3 +622,9 @@
  - Added link to the js popper 
  - https://www.studytonight.com/bootstrap/solvedbootstrap-dropdown-not-working
  - Because bootstrap 5 stopped supporting old browsers
+
+- Average rating not sorting 
+  - solved it by importing F function from Django which accepts null values
+  - from [django documentations](https://docs.djangoproject.com/en/3.2/ref/models/expressions/#using-f-to-sort-null-values)
+
+- Pagination not working during search and sort function
