@@ -232,6 +232,12 @@ header,
     z-index: 1;
 }
 
+.btn-sold {
+    position: absolute;
+    background-color: #000000;
+    opacity: 1 !important;
+}
+
 .btn-favourite {
     position: absolute;
 }
