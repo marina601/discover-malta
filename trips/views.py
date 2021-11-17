@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.utils.text import slugify
 from django.utils import timezone
 from django.db.models.functions import Lower
+from django.db.models import F
 
 from accounts.models import Account
 from checkout.models import OrderTicketItem
@@ -128,6 +129,28 @@ def search(request):
         'current_sorting': current_sorting,
     }
 
+    return render(request, 'trips/trips.html', context)
+
+
+def sort_rating(request):
+    """Sorting Average Review Rating"""
+
+    trips = None
+    result_count = 0
+    
+    trips = Trip.objects.order_by(F('reviewrating__rating').desc(nulls_last=True))
+    # pagination
+    paginator = Paginator(trips, 8)
+    page = request.GET.get('page')
+    paged_trips = paginator.get_page(page)
+
+    result_count = trips.count()
+
+    context = {
+        'trips': paged_trips,
+        'result_count': result_count,
+    }
+    # Trip.objects.annotate(average_stars = Avg('rating__stars')).order_by('-average_stars')
     return render(request, 'trips/trips.html', context)
 
 
