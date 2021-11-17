@@ -697,5 +697,11 @@ footer {
         position: unset;
         width: 100%;
     }
+    
+    #children_tickets,
+    #total_adults {
+        width: 5rem;
+        border: 1px solid #000000;
+    }
 
 }

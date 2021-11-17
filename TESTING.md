@@ -527,7 +527,7 @@
 
 2. Filter
 
-  - Click on the tropdown menu "Categories" and confirm all the categories are displayed which exists in the database, plus a link to all trips is also present.
+  - Click on the dropdown menu "Categories" and confirm all the categories are displayed which exists in the database, plus a link to all trips is also present.
   - Hover over each link and confirm the background colour is changing and transitions are present, as expected.
   - Click on each link and confirm the page displays the trips under each cagegory, the total trip count updates and represents the number of trips under each category.
   - Click on the "All trips" link and confirm all the trips are displayed on the page.
@@ -612,6 +612,55 @@
   - If on the last page, the next button will be disabled.
   - Current page number is displayed to the user and the page number's background colour is changed when active.
 
+## Trip Detail
+
+1. Favourites
+  -  Confirm favourtites functionality works in the same way as described in "All Trips Page".
+
+2. Book Now
+   - Book Now button appears in the top right hand corner
+   - Scroll down and confirm the button is fixed to the top of the page at all times, giving the user an easy access to add this trip to their bag and check availability
+   - If the trip's number of tickets is 0, confirm the "Sold Out" is displayed instead, which is not fixed to the top of the page
+   - Confirm the button is disabled and the user is not able to click on it
+   - Click on the "Book Now" button confirm modal is appearing asking the user to enter the numer of tickets and booking date
+   - Confirm if the trip is not family_friendly, the modal displays an input field only for adult tickets
+   - Click on "Add to Suitcase" button without entering any details, confirm the message is displayed "At least 1 adult ticket required to purchase this trip"
+   - Try to type a letter in the input field, confirm nothing is displayed, as input field expects a number.
+   - Enter an adult number of tickets and click on "Add to Suitcase" button, confirm the message displayed "Select the date for your trip"
+
+   3. Datepicker
+
+            - Click on the input field to select the date confirm, datepicker is displayed
+            - Confirm the first available date is available is tomorrow, the user will not be able to book a trip for the current or past date.
+            - Confirm tomorrow's date is highlighted.
+            - Click on any disabled dates, confirm it cannot be selected.
+            - Click on the next button, next to the current month, confirm the month is changing, the current year is displayed.
+            - Select any date in the furture and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
+            - Open the datepicker again, confirm the datepicker highlights the date selected.
+    
+    - Add the trip to the bag with children tickets set to 0, confirm the operation did display any errors, as the children tickets are allowed not to be selected
+    - Once all the input fields are valid. Click "Add to suitcase" confirm the toast notification is displayed telling the user which trip they have added to their bag.
+    
+   
+
+4. Trip Details
+   - Hover over a trip image and confirm `alt` attribut is present
+   - Check that all the information from the database is present
+   - Check average rating logic is the same as described in the "All Trips Page"
+   - If the trip has any reviews, the review count is displayed
+   - If there is not reviews for the trip, "No Reviews" message is displayed next to the icon.
+
+4. Cancellation Policy
+   - Check that cancellation policy contains a link to the "Contact Page"
+   - Click on the link, confirm it takes the user to the *contact.html*
+
+4. Review Rating
+
+5. Customer Reviews
+
+6. Call to Action 
+
+
 
 
 
@@ -626,5 +675,9 @@
 - Average rating not sorting 
   - solved it by importing F function from Django which accepts null values
   - from [django documentations](https://docs.djangoproject.com/en/3.2/ref/models/expressions/#using-f-to-sort-null-values)
+
+- Book Now modal
+   - During testing found a console error, when the trip was sold out and the modal was replaced with "Sold Out" button.
+   - Fix: by adding a condition to check if the element exists in `modal.js`
 
 - Pagination not working during search and sort function
