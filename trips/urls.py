@@ -8,6 +8,7 @@ urlpatterns = [
     path('category/<slug:category_slug>/<slug:trip_slug>/', views.trip_detail,
          name='trip_detail'),
     path('search/', views.search, name='search'),
+    path('sort_rating/', views.sort_rating, name='sort_rating'),
     # Trip Managment
     path('add_trip/', views.add_trip, name='add_trip'),
     path('update_trip/<int:trip_id>/', views.update_trip, name='update_trip'),
