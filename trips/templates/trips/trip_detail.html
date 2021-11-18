@@ -347,7 +347,7 @@
                             <div class="col-md-8 col-sm-8 mt-1">
                                 <h6 class="d-inline"><span class="text-muted">by</span>
                                     {{ review.user.first_name|capfirst }}</h6>
-                                {% if review.updated_at %}
+                                {% if review.updated_at == review.created_at %}
                                 <p class="card-text d-inline"><small class="text-muted">Updated on:
                                         {{ review.updated_at|date:"M d, Y" }}</small></p>
                                 {% else %}
