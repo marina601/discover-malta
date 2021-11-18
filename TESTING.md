@@ -622,11 +622,13 @@
    - Scroll down and confirm the button is fixed to the top of the page at all times, giving the user an easy access to add this trip to their bag and check availability
    - If the trip's number of tickets is 0, confirm the "Sold Out" is displayed instead, which is not fixed to the top of the page
    - Confirm the button is disabled and the user is not able to click on it
-   - Click on the "Book Now" button confirm modal is appearing asking the user to enter the numer of tickets and booking date
+   - Click on the "Book Now" button confirm modal is appearing asking the user to enter the number of tickets and booking date
    - Confirm if the trip is not family_friendly, the modal displays an input field only for adult tickets
-   - Click on "Add to Suitcase" button without entering any details, confirm the message is displayed "At least 1 adult ticket required to purchase this trip"
+   - Click on "Add to Suitcase" button without entering any details, confirm the message is displayed "Please select the number of tickets for this trip between 1-8"
    - Try to type a letter in the input field, confirm nothing is displayed, as input field expects a number.
    - Enter an adult number of tickets and click on "Add to Suitcase" button, confirm the message displayed "Select the date for your trip"
+   - Type a number greater than 8 into children_tickets input field, confrim a validation message displays "Maximum number of tickets can be selected is 8"
+   - Select the correct number of children tickets, 0 adult tickets and valid date. Confirm the validation message appears again to get the number of adult tickets.
 
    3. Datepicker
 
@@ -637,11 +639,20 @@
             - Click on the next button, next to the current month, confirm the month is changing, the current year is displayed.
             - Select any date in the furture and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
             - Open the datepicker again, confirm the datepicker highlights the date selected.
+            - Try to modify the date in the input field to past date, confirm the alert message is displayed telling the user they need to pick a date in the future and input field set to first available date(tomorrow).
     
     - Add the trip to the bag with children tickets set to 0, confirm the operation did display any errors, as the children tickets are allowed not to be selected
     - Once all the input fields are valid. Click "Add to suitcase" confirm the toast notification is displayed telling the user which trip they have added to their bag.
-    
+    - Every time the user is adding tickets to their bag, the total number of tickets is adjusted in the database.
+    - If the user selected more tickets than the number available in the database. The database will not be updated, the items will not be added to the bag, instead toast notification will appear telling the user how many tickets are left in the database.
+    - If there is no tickets left in the database, "Book Now" button will be replaced with "Sold Out". The button is desabled preventing the user from clicking on it.
    
+
+   - Once the trip is added to the bag, confirm the suitcases in the navbar changes colour and displays the total amount in the bag
+   - Add another trip to the bag to confirm the value in display updates
+   - Select a trip which is already in the bag, add another ticket. 
+      - The condition in Python checks: if the trip in the bag exists on the same date as selected again, also if there are enough tickets left for the trip. If all the conditions are met the bag gets updated, the total amount gets updated as well.
+      - In case of an error relevant toast messages notify the user of the error.
 
 4. Trip Details
    - Hover over a trip image and confirm `alt` attribut is present
@@ -655,10 +666,38 @@
    - Click on the link, confirm it takes the user to the *contact.html*
 
 4. Review Rating
+   - A user may only add the review based on 2 conditions, if the user is logged in and if they purchased a trip
+   - A not-logged in user navigating to the bottom of the page, will see a message displayed "Have you been on this trip? Please rate your experience" and a button which navigates the user to login page
+   - Click on the button, confirm the user is being redirected to the login page
+   - Once the user is logged in, navigation to any "Trip Detail" page will display a form where the user can submit their review
+   - Press submit button without filling out the review form, confirm message is displayed asking them to rate the trip
+   - Rate the trip and press the submit button again, confirm messge is displayed asking the  user give a title to their review
+   - Fill out all the required fields and press submit button again, confirm the toast notification is displayed telling the user their review has been submitted.
+   - Confirm the average rating and review fields are updated
+   - Under the "Customer Reviews" title, the total number of reviews is displayed
+   - The user is redirected to the same page, at the bottom they will see their review appearing on the page
+   - The user may delete or edit their review by clicking on the apropriate buttons
+   - Click on the Edit button and confirm the user is being redirected to *Edit Review Page*
+   - Click on the Delete button and confirm the modal appears asking the user to confirm their decision.
+   - Review Title does not accept more than 50 characters
+   - Review messge does not accept more than 500 characters
+   - If the user exceeds the character count the input fields will not accept any further characters.
+
+   - If the user did not purchase the trip, however filled out the review form anyway and submitted the reveiw.
+   - Errow toast message will appear letting the user know they must purchase the trip first.
 
 5. Customer Reviews
+    - If the trip has a review "Customer Reviews" can be seen at the bottom of the page
+    - The total number reviews also tells the user how many reviews are there for this trip
+    - Each review is presented in the form of a card, layed out 3 in a row on the large screen, 2 in a row on the medium screen and 1 in the sigle row on the small screen.
+    - Each review card contains a review title, star rating, user avatar, name of the user and date created or updated.
+    - Review-card contain the same shadow property as all the other cards on the site.
+    - Hover effect also works as expected, described in the previous section.
+    - Look at the trip which has reviews, but not by the current user. Confirm there is not "Edit" or "Delete" button present in the review card
+    - Admin user may disable reviews from Django Admin panel, by setting the Active value to false.
 
 6. Call to Action 
+    - Click on the "Back to All Trips" button confrim it takes the user to *trips.html*
 
 
 
@@ -679,5 +718,10 @@
 - Book Now modal
    - During testing found a console error, when the trip was sold out and the modal was replaced with "Sold Out" button.
    - Fix: by adding a condition to check if the element exists in `modal.js`
+
+- DatePicker
+   - During testing noticed that the user is able to modify the date manually in the input field
+   - Fixed it by adding and alert and setting the min date to the input field if modified date is in the past 
+   - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
 
 - Pagination not working during search and sort function
