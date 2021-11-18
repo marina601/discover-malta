@@ -287,7 +287,7 @@
                 <!--Review -->
                 <div class="col">
                     <label for="review" class="form-label">Review:</label>
-                    <textarea name="review" id="review" rows="5" class="form-control"></textarea>
+                    <textarea name="review" id="review" rows="5" class="form-control" maxlength="500"></textarea>
                 </div>
                 <div class="col text-center">
                     <button type="submit" class="btn btn-dropdown" id="btn-submit">Submit Review</button>
@@ -387,9 +387,19 @@
 {% endblock %}
 
 {% block postloadjs %}
-     {{ blocksuper }}
+    {{ block.super }}
 
      <script src="{% static 'trips/js/modal.js' %}"></script>
      <script src="{% static 'js/datepicker.js' %}"></script>
+     <script>
+         // Initialize toast again
+        
+        let myToast = document.querySelector('.toast');
+        if(myToast) {
+            let bsAlert = new  bootstrap.Toast(myToast);
+            bsAlert.show();
+        }
+
+     </script>
 
 {% endblock %}
