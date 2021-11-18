@@ -148,7 +148,7 @@
                                             <input type="number" id="total_adults" class="from-control"
                                                 name="adult_tickets" min="1" max="8" value="0"
                                                 oninput="this.setCustomValidity('')"
-                                                oninvalid="this.setCustomValidity('At least 1 adult ticket is required to purchase a trip')"
+                                                oninvalid="this.setCustomValidity('Please select the number of tickets for this trip between 1 and 8')"
                                                 required>
                                             <p> @ <i class="fas fa-euro-sign"></i> {{ trip.adult_price }} <span
                                                     class="text-muted "> per person</span></p>
@@ -158,7 +158,9 @@
                                             <label for="children_tickets"><strong>Number of Children:</strong></label>
                                             <i class="fas fa-child"></i>
                                             <input type="number" id="children_tickets" class="from-control"
-                                                name="children_tickets" value="0" min="0" max="9">
+                                                name="children_tickets" value="0" min="0" max="8"
+                                                oninput="this.setCustomValidity('')"
+                                                oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')">
                                             <p> @ <i class="fas fa-euro-sign"></i> {{ trip.child_price }} <span
                                                     class="text-muted ">per child</span></p>
                                         </div>
