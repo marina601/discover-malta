@@ -239,10 +239,10 @@
     - If the user is logged in, the form will be pre-filled with user details stored in a user profile
     - The user may click a box to save or update their personal information during the checkout process
     - Once the user enters a card number, Stripe will act as a secure payment platform and check that all required details are correct.
-    - On successful checkout, the user will be redirected to the *complete checkcout* view, where the ticket summary will be displayed.
+    - On successful checkout, the user will be redirected to the *complete checkout* view, where the ticket summary will be displayed.
     - A message at the top of the screen will let the user know that a confirmation email has been sent to their email address.
-    - The user will receive a confirmation email which will display their order number, which they will need to present to the trip provider on the day of the trip
-    - A logged in user may also view their order history on their profile page.
+    - The user will receive a confirmation email that will display their order number, which they will need to present to the trip provider on the day of the trip
+    - A logged-in user may also view their order history on their profile page.
     - User card details are not stored in the database.
 
 6.	As a returning user, I want to get an instant email confirmation of my transaction.
@@ -254,21 +254,21 @@
 7.	As a returning user, I want to have feedback provided to me every step of the way.
 
     - The site is designed to provide and guide the user during their time on the site.
-    - The feedback is provided to the user in the form of notifications pop ups at the top of the screen
+    - The feedback is provided to the user in the form of notifications, which appear at the top of the page.
     - Warnings, Alerts, Info and Success messages
-    - When the user is deleting their review, a modal will apper asking to confirm their decition.
-    - Automated emails have been set up as a confirmation to the user of their actions during purchase, regestraion, reseting passowrd and contacting the site owners. 
+    - When the user is deleting their review, a modal will appear asking to confirm their decision.
+    - Automated emails have been set up as a confirmation to the user of their actions during purchase, registration, resetting password and contacting the site owners.
 
 8.	As a returning user, I want to view my ticket on my profile page.
 
-    - If the user has regestered on the site, prior to purchasing, their order history will be displayed on their profile page
+    - If the user has registered on the site, before purchasing, their order history will be displayed on their profile page
 
 9.  As a returning user, I want to be able to save my information to my profile for quick and easy checkout next time.
     
-    - This functionality is restricted to regestered and logged in users.
-    - The user is able to click on the checkbox during the checkout process to save or update their personal information
+    - This functionality is restricted to registered and logged in users.
+    - The user can to click on the checkbox during the checkout process to save or update their personal information
     - The user will be able to view this information in their profile
-    - The user will have their information pre-filled during the checkout next time and in case they deside to user a contanct form to contact the site owner
+    - - The user will have their saved information pre-populated next time they use a checkout form or a contact form.
 
 
 
@@ -277,24 +277,24 @@
 1.	As a frequent user, I want to customize my profile page
 
     - A logged-in user may navigate to their profile page.
-    - Profile page displays a number of options available to the user 
-    - By clicking on the linkg "Edit Your Profile" user will be directed to the page where they can view and update their personal information, including their avatar.
+    - Profile page displays several options available to the user 
+    - By clicking on the link "Edit Your Profile" the user will be re-directed to the page where they can view and update their personal information, including their avatar.
 
 2.	As a frequent user, I want to review the trips which I have been on.
 
-    - A logged in user, who has purchased a specific trip may navigato to trip detail page where a review form will be available to them
-    - They may choose to give star rating, review title and their review of their experience
+    - A logged-in user, who has purchased a specific trip may navigate to the trip detail page where a review form will be available to them
+    - They may choose to give star-rating, review title and their review of their experience
     - The form will be submitted and they will be able to view their review straight away on the same page
-    - If the user has not purchased the trip yet, a message will be displayed to them nofifying them they have to purchase the trip first
+    - If the user has not purchased the trip yet, a message will be displayed to them notifying them they have to purchase the trip first
 
 3.	As a frequent user, I want to be able to update and delete my reviews.
 
-    - If the user is logged-in and has reviews, they can edit or delete thier reviews from:
-       - *Trip Detali Page* by clicking on the appropriate buttons
+    - If the user is logged-in and has reviews, they can edit or delete their reviews from:
+       - *Trip Detail Page* by clicking on the appropriate buttons
        - If the user submits another review for the same trip, their original review will be updated
-       - *Profile Page* - click on the link "Manage Reviews" which will take the user to *view_review.html* page. All the user reviews are displayed on this page
-       - User may choose to "Edit" their review which will take the user to pre-filled form with their review and alert will appear letting the user know which review they are editing
-       - User may choodse to "Delete" their review, in that case a modal will appear asking the user to confirm their decision. 
+       - *Profile Page* - click on the link "Manage Reviews" which will take the user to the *view_review.html* page. All the user reviews are displayed on this page
+        - A user may choose to "Edit" their review which will take the user to a pre-filled form with their review and an alert will appear letting the user know which review they are editing.
+       - User may choose to "Delete" their review, in that case, a modal will appear asking the user to confirm their decision. 
 
 4.	As a frequent user, I want to follow the site on social media.
 
@@ -303,11 +303,11 @@
 5.	As a frequent user, I want to be able to contact the site owners if I have an enquire.
        
         - Any user may click on the contact link located in the footer of the site.
-        - It will take them to the *contact.html*, if the user is logged in they will have their information pre-filled for a quicker form submittion
-        - Otherwise the user will be asked to fill in the form and choose a subject from the dropdown menu
-        - The user is redirected to the *home page* and a message will appear on the screen letting them know they should have recieved a confirmation email
-        - A user will recieve automated email letting them know the site owners have recieved their enquire and will be in touch shortly.
-        - An email will be generated to the admin user, with a client enquire and client details.
+        - It will take them to the *contact.html*, if the user is logged in they will have their information pre-filled for a quicker form submission
+        - Otherwise, the user will be asked to fill in the form and choose a subject from the dropdown menu
+        - The user is redirected to the *home page* and a message will appear on the screen letting them know they should have received a confirmation email
+        - A user will receive an automated email letting them know the site owners have received their enquire and will be in touch shortly.
+        - An email will be generated to the admin user, with client enquiries and client details.
 
 6.  As a frequent user, I want to the explore latest deals
         
@@ -320,21 +320,21 @@
 ### Potential Client
 1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 
-     - A potential client may browse throgh the site to get the feel of the design and style of the site
+     - A potential client may browse through the site to get the feel of the design and style of the site
      - Each trip has the same style and design, therefore a potential client may have a good overview of what their product may 
      look like on the site
 
 2.	As a potential client I want to learn what benefits are available to me
     
     - A potential client may navigate to *About Page*
-    - The information presented there is let the user know about the core mission of the site and what benefits are availalbe to the potential clients
-    - Call to action button, promps the potential client to get in touch and request more information.
+    - The information presented here is to let the user know about the core mission of the site and what benefits are available to the potential clients
+    - Call to action button, prompts the potential client to get in touch and request more information.
 
 3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
 
     - A potential client may get in touch with the site owners by completing a contact form 
     - A subject option "Collaboration" has been created especially for this in mind. 
-    - Once the message is recieved a relevent person from the team will be in touch
+    - Once the message is  received a relevant person from the team will be in touch
 
 ### Business goals
 
@@ -346,35 +346,35 @@
 
 2.	As a business owner, I want the user to be able to register with secure login details.
 
-    - Discover Malta has been designed to simplify the registration process for the user and ensure the user details are   stored  securely.
+    - Discover Malta has been designed to simplify the registration process for the user and ensure the user details are stored securely.
     - For the user to register they have to provide their full name, telephone number, email address and password.
     - A secure link is generated and sent to the user upon their registration
     - Once the link is clicked from the user email address the user is activated
     - User details and hashed password is stored in the database.
-    - User is able to reset their password by clicking on the `click here to reset your password` link 
-    - In that case another email is generated and send to the user email address to create a new password
-    - The user is able to login when two conditions are met, user email address and password
+    - User can reset their password by clicking on the `click here to reset your password` link 
+    - In that case, another email is generated and sent to the user email address to create a new password
+    - The user can log in when two conditions are met, user email address and password
     - The site owner who will have access to the database, will be able to see the username, however, will not be able to see the user password which is stored securely.
-    - The user may choose to update their personal details in their profile page by clicking on the link `edit your profile`
+    - The user may choose to update their details in their profile page by clicking on the link `edit your profile`
  
 3.	As a business owner, I want the user to be able to use the site easily on any device.
 
-     - The site has been designed to be fully responsive with mobile first approach in mind.
+     - The site has been designed to be fully responsive with the mobile-first approach in mind.
 
 4.	As a business owner, I want to provide useful links to users where they can purchase products and earn an affiliate commission.
 
      - The shop feature is yet to be implemented
-     - The site owner will be able to earn commission on sale of the tickets, once term and conditions have been agreed with provider
+     - The site owner will be able to earn commission on the sale of the tickets, once terms and conditions have been agreed upon with the provider.
 
 5.	As a business owner, I want to be able to delete any reviews which I consider to be inappropriate or out of content.
 
      - An admin user may set any review status to False inside their Django admin panel. 
-     - The condition for reveiw to display on site has been set as default to True.
+     - The condition for review to display on site has been set as default to True.
 
 6.	As a business owner, I want to be able to add additional new trips to the site. 
 
-     - An admin user, once logged-in, can navigate to their profile page, where they will see a link to *add trip* page.
-     - Once on the page, admin user is able to add new triip to the database once all the conditions have been met
+     - An admin user, once logged in, can navigate to their profile page, where they will see a link to the *add trip* page.
+     - Once on the page, the admin user can add a new trip to the database once all the conditions have been met.
      - Once added a new trip, the admin user will be redirected to the *trip_detail* page where they will be able to view the trip which they have just created.
 
 7.  As a business owner, I want to be able to edit or delete trips.
@@ -383,20 +383,20 @@
         - Trips.html
         - Trip Details page
     
-    - Once *Update* button has been pressed the user will be redirected to `update_trip.html` page
-    - Alert will tell the user which trip they are updating
-    - Once the trip has been ameded and form requirements are satified, the updated information will be saved to the database
-    - The user will be redirected to the *trip details* page
-    - Alert will be displayed letting the user know the information has been saved
+    - Once *Update* button has been pressed the user will be redirected to the `update_trip.html` page.
+    - Alert will tell the user which trip they are updating.
+    - Once the trip has been amended and form requirements are satisfied, the updated information will be saved to the database.
+    - The user will be redirected to the *trip details* page.
+    - Alert will be displayed letting the user know the information has been saved.
 
-    - Once *Delete* button has been pressed, an alert in the form of modal will appear asking the user to confirm their decision.
+    - Once *Delete* button has been pressed, an alert in the form of a modal will appear asking the user to confirm their decision.
     - If this is an intentional action, the trip will be deleted from the database.
  
 8.  As a business owner, I want to provide the user with search and filter functionality for products to enable easy access to the database.
      
      - Users may search the site using a search bar
      - Users may filter the trips by category
-     - Users my sort the trips by a condition
+     - Users may sort the trips by a condition
 
 ## Manual Testing
 
@@ -438,14 +438,14 @@
 - Click each link in the navbar to confirm that it leads to the correct page.
 - Click each link in the "Categories" dropdown menu and confirm each category displays the correct trips.
 - Confirm that when logged out the options "Login" and "Register" are visible and that "Profile" and "Logout" are not.
-- Click on heart icon and confirm it takes user to the "Login" page.
-- Add a trip to your shopping bag, confirm the suitcase icon changes colour and total value of the trips is updated.
+- Click on the heart icon and confirm it takes the user to the "Login" page.
+- Add a trip to your shopping bag, confirm the suitcase icon changes colour and the total value of the trips is updated.
 - Remove all the trips from your shopping bag, confirm the icon changes colour to white and the value displayed is 0.00.
 
 - Log in to the site, confirm that options "Profile" and "Logout" are visible and that "Login" and "Register" are not.
-        - Confirm the user icon chages either to default user image or selected user image is changed by the user.
+        - Confirm the user icon changes either to the default user image or the selected user image is changed by the user.
         - Add some trips to your favourites and confirm the heart icon changes colour and displays the number of trips added.
-        - Click on the favourites link and confirm it takes the user to "Favourites Page"
+        - Click on the favourites link and confirm it takes the user to the "Favourites Page".
         - Remove all the trips from your favourite list and confirm the heart icon changes the colour back to white and displays 0 number of trips in your favourite
 
 - Go to the bottom of the page to make sure the navigation bar is sticky.
@@ -453,36 +453,36 @@
 - Mobile and Tablet view:
 
   - Confirm burger button appears on the left-hand side of the navbar.
-  - Confirm the user, suitcase and heart icons apper next to the burger button.
+  - Confirm the user, suitcase and heart icons appear next to the burger button.
   - Click on the burger button, confirm the background colour and the colour of the bars are changing.
-  - Click on the burger button, confirm the drop down menu display links: "Home", "All Trips" and "Categories"
-  - Click on the "Categories" dropdown menu and confirm all the category link are displayed.
+  - Click on the burger button, confirm the drop-down menu display links: "Home", "All Trips" and "Categories"
+  - Click on the "Categories" dropdown menu and confirm all the category links are displayed.
   - Confirm the site heading/logo "Discover Malta" is no longer visible.
   - Followed the same steps as above to determine all the links are working.
   - Flip the tablet and mobile devices to check responsiveness.
 
 2. Footer
   - Hovered over each link, confirmed background colour changed as expected.
-  - Confrim "Follow Us" is disabled, therefore no animation is present on hover.
+  - Confirm "Follow Us" is disabled, therefore no animation is present on hover.
   - Click all links in the footer, confirm that they take the user to the relevant pages within the site.
-  - Click the social icons, confirm that they open a new tab and takes the user to correct social media platform.
+  - Click the social icons, confirm that they open a new tab and take the user to the correct social media platform.
   - The footer is responsive on all window view sizes.
-  - Check date of copyright information, confirm year displayed matches the current year.
+  - Check the date of copyright information, confirm the year displayed matches the current year.
 
 3. Favicon
-  - View the site on different devices and confirm the favicon image is present
+  - View the site on different devices and confirm the favicon image is present.
 
 4. Title
-  - Click on each page, view the tap of each page and confirm each page contains custom title
+  - Click on each page, view the tap of each page and confirm each page contains a custom title.
 
 ##### back to [content](#table-of-content)
 
 ### Home Page
 
 1. Hero Slider
-   - Confrim the carousel images fade within 5 seconds
+   - Confirm the carousel images fade within 5 seconds
    - Confirm the carousel is touch compatible by sliding the fingers to the left and right
-   - Open dev tools in Google Chrome confim each image contains `alt` attribute
+   - Open dev tools in Google Chrome confirm each image contains `alt` attribute
 
 2. Welcome Message 
    - View the welcome message on all devices, confirm the message appears in the centre of the page.
@@ -490,22 +490,22 @@
 2. Benefits
    - Scroll up and confirm no benefits are displayed on the page
    - Confirm each element is displayed to the user within 2 seconds interval
-   - Confirm responsive layout of the elements accross all screen sizes
-   - Confrim each element contains `box-shadow: -3px 8px 27px -2px rgb(180 179 179 / 51%);` which makes them stand out.
-   - Inspect the page in the Google Dev Tools and confirm each icon contains `aria-hidden="True"` attribute. This will make the icon hidden from the screen reader, giving the user a better accessability to the page.
+   - Confirm responsive layout of the elements across all screen sizes
+   - Confirm each element contains `box-shadow: -3px 8px 27px -2px rgb(180 179 179 / 51%);` which makes them stand out.
+   - Inspect the page in the Google Dev Tools and confirm each icon contains the `aria-hidden="True"` attribute. This will make the icon hidden from the screen reader, giving the user a better accessibility to the page.
 
 
 ![benefits](readme-files/images/benefits.png)
 
 4. Categories 
-   - Confrim the categories divs are displayed in the grid format and responsive across all screen views:
+   - Confirm the categories divs are displayed in the grid format and responsive across all screen views:
             - Large screen - 4 category cards per row
             - Medium screen - 3 category cards per row
             - Small screen - 1 category card per row
    - Each category card contains a border and box-shadow property to make them stand out and create a 3D look
    - Hover over each card and confirm the `box-shadow` property is changing
    - Hover over each title of the category and confirm background colour is changing as expected
-   - Click on each category title and confirm it takes you to the page which displays trips only under a specific category. The trip cound displays the correct number of results returned.
+   - Click on each category title and confirm it takes you to the page which displays trips only under a specific category. The trip count displays the correct number of results returned.
    - Click on the 'last minute deals' category and confirm the no trips are displayed, the trip count is showing 0 and a message displayed to the user. 
 
 5. Call to Action 
@@ -521,57 +521,57 @@
 1. Search
 
   - Click inside the search input and confirm the placeholder displays the text "Search our site"
-  - Search by a key word, confirm the page displays all the trips which contain the key word and the number of results is updated.
-  - Type a key word which deos not exists like "kitty" and confirm no trips are displayed, the rusult count displays 0 and a message displayed to the user telling then "We do not have any trips with your search criteria, please try again."
+  - Search by a keyword, confirm the page displays all the trips which contain the keyword and the number of results is updated.
+  - Type a keyword that does not exist like "kitty" and confirm no trips are displayed, the result count displays 0 and a message is displayed to the user telling them "We do not have any trips with your search criteria, please try again."
   - Click on the search button with an empty input field and confirm all trips are displayed again.
 
 2. Filter
 
   - Click on the dropdown menu "Categories" and confirm all the categories are displayed which exists in the database, plus a link to all trips is also present.
   - Hover over each link and confirm the background colour is changing and transitions are present, as expected.
-  - Click on each link and confirm the page displays the trips under each cagegory, the total trip count updates and represents the number of trips under each category.
+  - Click on each link and confirm the page displays the trips under each category, the total trip count updates and represents the number of trips under each category.
   - Click on the "All trips" link and confirm all the trips are displayed on the page.
 
 3. Sort
-   - Select sort by price and sort by duration confirm the results are returned in acsending order
-   - Select sort by rating, confrim the results returned are in descending order
-   - Select sort by family friendly, confirm the results returned display the trips which have value `family_friendly` set to `True`
+   - Select sort by price and sort by duration confirm the results are returned in ascending order.
+   - Select sort by rating, confirm the results returned are in descending order
+   - Select sort by family-friendly, confirm the results returned to display the trips which have value `family_friendly` set to `True`
    - Confirm each time the sort functionality is selected the total number of trips is returned in the `trip_count`
 
-- Hover over the search, choose your category and sort by buttons and confirm the backgourn colour is changing
+- Hover over the search, choose your category and sort by buttons and confirm the background colour is changing.
 
 4. Trip-card
 
    - Confirm the cards are displayed 3 in the row on the large screen, 2 in the row on the medium screen and a single card in each row on the small screen.
    - Hover over each card and confirm the box-shadow property is changing, making each card-trip stand out to the user
-   - Hover over heart icon, confirm the background colour changes as expected. 
+   - Hover over the heart icon, confirm the background colour changes as expected. 
    - For not logged in user:
             - Tooltip displays the message "Login to add this trip to your favourites".
-            - Click on the hear icon, confirm the it re-directs the user to login page.
+            - Click on the heart icon, confirm that it redirects the user to the login page.
    - If the user is logged in:
-            - Hover over the heart icon, tooltip displays the message "Add to favourites"
-            - Click on the icon, confirm the the icon dissapears and instead the trash icon appears
-            - Hover overthe trash icon, tooltip disiplays the message "Remove from favourites"
+            - Hover over the heart icon, a tooltip displays the message "Add to favourites"
+            - Click on the icon, confirm the icon disappears and instead the trash icon appears.
+            - Hover over the trash icon, a tooltip displays the message "Remove from favourites".
             - Heart icon in the navbar changes colour to red and displays the number of trips added to the favourite list.
             - Toast message notifies the user which trip they have added to their favourites
             - Click on the trash icon, confirm the number of trips in the navbar updates
-            - If no trips in the favourite list the heart icon displays 0 and background colour goes back to default white
+            - If no trips in the favourite list the heart icon displays 0 and the background colour goes back to the default white.
             - The trip's heart icon which has been removed from the favourites list reverts to its original state.
             - Toast message notifies the user which trip they have removed from their favourites
 
    ![favourites](readme-files/images/trips-favourites.png)
 
-   - Hover over the trip image, confirm the `cursor` is set to `pointer`
-   - Click on the trip image, confrim it takes the user to the "Trip Details Page"
-   - Hover over the trip name, confirm the background and tex colour changes as expected
-   - Click onthe trip name, confirm it teaks the user to the "Trip Detail Page"
-   - Trip card contains a short description of the trip, if the text lenght is longer than height property set to the card, it displays `overflow: auto;` property set in css file
+   - Hover over the trip image, confirm the `cursor` is set to `pointer`.
+   - Click on the trip image, confirm it takes the user to the "Trip Details Page".
+   - Hover over the trip name, confirm the background and text colour changes as expected.
+   - Click on the trip name, confirm it takes the user to the "Trip Detail Page".
+   -- Trip card contains a short description of the trip, if the text length is longer than the height property set to the card, it displays the `overflow: auto;` property set in the CSS file.
    - 4 icons at the middle of the card set out the most important information the user might look out for:
             - Duration
             - Price
             - Rating
             - Family Friendly
-    - If the trip has star rating, the star icon changes colour to yellow and display the average star rating for the trip calculated in the trips.models.py using Avg function from Django:
+    - If the trip has a star rating, the star icon changes colour to yellow and display the average star rating for the trip calculated in the trips.models.py using the Avg function from Django:
 
               - `def averageRating(self):
               -      """Calculate average trip review"""
@@ -590,114 +590,114 @@
 ![trip-card](readme-files/images/trip-card.png)
 
 6. Admin User
-   - If the user is logged in as Admin user, they have 2 extra button at the bottom of each card.
+   - If the user is logged in as an Admin user, they have 2 extra buttons at the bottom of each card.
            -Update
            -Delete
-  - Click on update button, confirm it redirects the user to "Update Trip Page" for the current trip.
-  - Try to access update_trip url as a non logged in user, confirm it redirects the user to login page.
-  - Try to acces update_trip url as a logged in user, confrim the message is displayed telling the user they do not have access to this page and link is in the form of button is displayed "Go back to all Trips"
-  - Click on delete button, confirm a modal is dipslayed asking the user to confirm their decision.
-  - Click delete button in the modal, confirm the toast message appears telling the user which trip has been deleted and redirects the user back to *trips.html*
-  - Try to access delete_trip url as a non logged in user, confirm it redirects the user to login page.
-  - Try to access delete_trip url as a logged in user, confirm toast notification appears letting the user know they do not have admin previlagies to delete this trip
+  - Click on the update button, confirm it redirects the user to the "Update Trip Page" for the current trip.
+  - Try to access the update_trip URL as a non logged in user, confirm it redirects the user to the login page.
+  - Try to access update_trip URL as a logged-in user, confirm the message is displayed telling the user they do not have access to this page and the link is in the form of a button is displayed "Go back to all Trips"
+  - Click on the delete button, confirm a modal is displayed asking the user to confirm their decision.
+  - Click the delete button in the modal, confirm the toast message appears telling the user which trip has been deleted and redirects the user back to *trips.html*
+  - Try to access the delete_trip URL as a non logged in user, confirm it redirects the user to the login page.
+  - Try to access delete_trip URL as a logged-in user, confirm toast notification appears letting the user know they do not have admin privileges to delete this trip
   - Confirm the Update and Delete buttons only visible to Admin user
 
 ![delete-modal](readme-files/images/delete-modal.png)
 
 7. Pagination
-  - Go to the bottom of the page and check the pagiantion is working as expected
+  - Go to the bottom of the page and check the pagination is working as expected
   - 8 Trips per page will display on the first page
   - Then the number of pages will be dynamically generated based on `trip_count` results
-  - If on page 1, previous button will be disabled 
+  - If on page 1, the previous button will be disabled 
   - If on the last page, the next button will be disabled.
   - Current page number is displayed to the user and the page number's background colour is changed when active.
 
 ## Trip Detail
 
 1. Favourites
-  -  Confirm favourtites functionality works in the same way as described in "All Trips Page".
+  -  Confirm favourites functionality works in the same way as described in "All Trips Page".
 
 2. Book Now
-   - Book Now button appears in the top right hand corner
-   - Scroll down and confirm the button is fixed to the top of the page at all times, giving the user an easy access to add this trip to their bag and check availability
+   - Book Now button appears in the top right-hand corner.
+   - Scroll down and confirm the button is fixed to the top of the page at all times, giving the user easy access to add this trip to their bag and check availability
    - If the trip's number of tickets is 0, confirm the "Sold Out" is displayed instead, which is not fixed to the top of the page
    - Confirm the button is disabled and the user is not able to click on it
-   - Click on the "Book Now" button confirm modal is appearing asking the user to enter the number of tickets and booking date
+   - Click on the "Book Now" button to confirm modal is appearing asking the user to enter the number of tickets and booking date
    - Confirm if the trip is not family_friendly, the modal displays an input field only for adult tickets
-   - Click on "Add to Suitcase" button without entering any details, confirm the message is displayed "Please select the number of tickets for this trip between 1-8"
-   - Try to type a letter in the input field, confirm nothing is displayed, as input field expects a number.
-   - Enter an adult number of tickets and click on "Add to Suitcase" button, confirm the message displayed "Select the date for your trip"
-   - Type a number greater than 8 into children_tickets input field, confrim a validation message displays "Maximum number of tickets can be selected is 8"
+   - Click on the "Add to Suitcase" button without entering any details, confirm the message is displayed "Please select the number of tickets for this trip between 1-8"
+   - Try to type a letter in the input field, confirm nothing is displayed, the input field expects a number.
+   - Enter an adult number of tickets and click on the "Add to Suitcase" button, confirm the message displayed "Select the date for your trip"
+   - Type a number greater than 8 into the `children_tickets` input field, confirm a validation message displays "Maximum number of tickets can be selected is 8"
    - Select the correct number of children tickets, 0 adult tickets and valid date. Confirm the validation message appears again to get the number of adult tickets.
 
    3. Datepicker
 
-            - Click on the input field to select the date confirm, datepicker is displayed
+            - Click on the input field to select the date, confirm datepicker is displayed.
             - Confirm the first available date is available is tomorrow, the user will not be able to book a trip for the current or past date.
             - Confirm tomorrow's date is highlighted.
-            - Click on any disabled dates, confirm it cannot be selected.
-            - Click on the next button, next to the current month, confirm the month is changing, the current year is displayed.
-            - Select any date in the furture and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
+            - Click on any disabled dates, confirm they cannot be selected.
+            - Click on the Next button, next to the current month, confirm the month is changing, the current year is displayed.
+            - Select any date in the future and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
             - Open the datepicker again, confirm the datepicker highlights the date selected.
-            - Try to modify the date in the input field to past date, confirm the alert message is displayed telling the user they need to pick a date in the future and input field set to first available date(tomorrow).
+            - Try to modify the date in the input field to past date, confirm the alert message is displayed telling the user they need to pick a date in the future and input field set to the first available date(tomorrow).
     
     - Add the trip to the bag with children tickets set to 0, confirm the operation did display any errors, as the children tickets are allowed not to be selected
-    - Once all the input fields are valid. Click "Add to suitcase" confirm the toast notification is displayed telling the user which trip they have added to their bag.
+    - Once all the input fields are valid. Click "Add to suitcase" to confirm the toast notification is displayed telling the user which trip they have added to their bag.
     - Every time the user is adding tickets to their bag, the total number of tickets is adjusted in the database.
-    - If the user selected more tickets than the number available in the database. The database will not be updated, the items will not be added to the bag, instead toast notification will appear telling the user how many tickets are left in the database.
-    - If there is no tickets left in the database, "Book Now" button will be replaced with "Sold Out". The button is desabled preventing the user from clicking on it.
+    - If the user selected more tickets than the number available in the database. The database will not be updated, the items will not be added to the bag, instead, a toast notification will appear telling the user how many tickets are left in the database.
+    - If there are no tickets left in the database, the "Book Now" button will be replaced with "Sold Out". The button is disabled preventing the user from clicking on it.
    
 
    - Once the trip is added to the bag, confirm the suitcases in the navbar changes colour and displays the total amount in the bag
    - Add another trip to the bag to confirm the value in display updates
-   - Select a trip which is already in the bag, add another ticket. 
+   - Select a trip that is already in the bag, add another ticket. 
       - The condition in Python checks: if the trip in the bag exists on the same date as selected again, also if there are enough tickets left for the trip. If all the conditions are met the bag gets updated, the total amount gets updated as well.
       - In case of an error relevant toast messages notify the user of the error.
 
 4. Trip Details
-   - Hover over a trip image and confirm `alt` attribut is present
+   - Hover over a trip image and confirm `alt` attribute is present
    - Check that all the information from the database is present
    - Check average rating logic is the same as described in the "All Trips Page"
    - If the trip has any reviews, the review count is displayed
-   - If there is not reviews for the trip, "No Reviews" message is displayed next to the icon.
+   - If there are no reviews for the trip, the "No Reviews" message is displayed next to the icon.
 
 4. Cancellation Policy
-   - Check that cancellation policy contains a link to the "Contact Page"
+   - Check that the cancellation policy contains a link to the "Contact Page"
    - Click on the link, confirm it takes the user to the *contact.html*
 
 4. Review Rating
    - A user may only add the review based on 2 conditions, if the user is logged in and if they purchased a trip
-   - A not-logged in user navigating to the bottom of the page, will see a message displayed "Have you been on this trip? Please rate your experience" and a button which navigates the user to login page
+   - A not-logged in user navigating to the bottom of the page, will see a message displayed "Have you been on this trip? Please rate your experience" and a button that navigates the user to the login page.
    - Click on the button, confirm the user is being redirected to the login page
    - Once the user is logged in, navigation to any "Trip Detail" page will display a form where the user can submit their review
    - Press submit button without filling out the review form, confirm message is displayed asking them to rate the trip
-   - Rate the trip and press the submit button again, confirm messge is displayed asking the  user give a title to their review
-   - Fill out all the required fields and press submit button again, confirm the toast notification is displayed telling the user their review has been submitted.
+   - Rate the trip and press the submit button again, confirm message is displayed asking the  user give a title to their review
+   - Fill out all the required fields and press the submit button again, confirm the toast notification is displayed telling the user their review has been submitted.
    - Confirm the average rating and review fields are updated
    - Under the "Customer Reviews" title, the total number of reviews is displayed
    - The user is redirected to the same page, at the bottom they will see their review appearing on the page
-   - The user may delete or edit their review by clicking on the apropriate buttons
+   - The user may delete or edit their review by clicking on the appropriate buttons.
    - Click on the Edit button and confirm the user is being redirected to *Edit Review Page*
    - Click on the Delete button and confirm the modal appears asking the user to confirm their decision.
    - Review Title does not accept more than 50 characters
-   - Review messge does not accept more than 500 characters
+   - Review message does not accept more than 500 characters
    - If the user exceeds the character count the input fields will not accept any further characters.
 
-   - If the user did not purchase the trip, however filled out the review form anyway and submitted the reveiw.
-   - Errow toast message will appear letting the user know they must purchase the trip first.
+   - If the user did not purchase the trip, however, fill out the review form anyway and submit the review.
+   - Error toast message will appear letting the user know they must purchase the trip first.
 
 5. Customer Reviews
     - If the trip has a review "Customer Reviews" can be seen at the bottom of the page
-    - The total number reviews also tells the user how many reviews are there for this trip
-    - Each review is presented in the form of a card, layed out 3 in a row on the large screen, 2 in a row on the medium screen and 1 in the sigle row on the small screen.
+    - The total number of reviews also tells the user how many reviews are there for this trip
+    - Each review is presented in the form of a card, laid out 3 in a row on the large screen, 2 in a row on the medium screen and 1 in the single row on the small screen.
     - Each review card contains a review title, star rating, user avatar, name of the user and date created or updated.
     - Review-card contain the same shadow property as all the other cards on the site.
     - Hover effect also works as expected, described in the previous section.
-    - Look at the trip which has reviews, but not by the current user. Confirm there is not "Edit" or "Delete" button present in the review card
-    - Admin user may disable reviews from Django Admin panel, by setting the Active value to false.
+    - Look at the trip which has reviews, but not by the current user. Confirm there is no "Edit" or "Delete" button present in the review card
+    - Admin user may disable reviews from the Django Admin panel, by setting the Active value to false.
 
 6. Call to Action 
-    - Click on the "Back to All Trips" button confrim it takes the user to *trips.html*
+    - Click on the "Back to All Trips" button confirm it takes the user to *trips.html*.
 
 
 
