@@ -3,8 +3,8 @@
 
  
  // Code taken from https://api.jqueryui.com/datepicker/
- const today = new Date()
- const tomorrow = new Date(today)
+ let today = new Date()
+ let tomorrow = new Date(today)
  tomorrow.setDate(tomorrow.getDate() + 1) 
 
 $(function () {
@@ -13,4 +13,20 @@ $(function () {
     minDate: tomorrow,
     firstDay: 1,
   });
+});
+
+/**Prevent the user from manually adusting the date to past dates
+ * and set the default date to tomorrow
+ * This code has been sorced from 
+ * https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates
+ */
+$("#datepicker").change(function () {
+  let updatedDate = $(this).val();
+  let instance = $(this).data("datepicker");
+  let date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, updatedDate, instance.settings);
+
+  if (date < tomorrow) {
+      alert("You must pick a date in the future")
+      $(this).datepicker("setDate", tomorrow);
+  }
 });
