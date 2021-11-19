@@ -44,9 +44,9 @@ Email Address: {{ order.email }}
 
 Order Total: {{ order.order_total }}
 
-You may view this order in your profile page 
+You may view this order on your profile page 
 
-If you need to cancel the order or make any adjusments, please do not hesitate to get in touch {{ from_email }}
+If you need to cancel your order or make any adjustments, please do not hesitate to get in touch!
 
 Best Wishes,
 
