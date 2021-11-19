@@ -11,14 +11,14 @@ Order Details:
 {% for item in order.ticketitems.all %}
 Trip Name: {{ item.trip.name }}
                    
-Tickets Purchased : {{ item.adult_quantity }} adults 
-        
-{% if item.child_quantity > 0 %}
-{{ item.child_quantity }} children
-{% endif %}
+Tickets Purchased : {{ item.adult_quantity }} adults {% if item.child_quantity > 0 %} and {{ item.child_quantity }} children {% endif %}
                
 Trip Booking Date : {{ item.booking_date }}
-            
+
+Trip Start Time: {{ item.trip.start_time }}
+
+Tripe Departure Lodation: {{ item.trip.departure_location }}
+
 Total Cost : {{ item.ticketitem_total }} 
               
 {% endfor %}
@@ -28,11 +28,7 @@ Billing Info:
 Full Name: {{ order.first_name }} {{ order.last_name }}
 
 Address:
-{{ order.street_address1|title }}
-               
-{% if order.street_address2 %}
-    {{ order.street_address2|title }}
-{% endif %}
+{{ order.street_address1|title }}, {% if order.street_address2 %} {{ order.street_address2|title }} {% endif %}
 {% if order.county %}
 County: {{ order.county|capfirst }}           
 {% endif %}
@@ -50,8 +46,9 @@ Order Total: {{ order.order_total }}
 
 You may view this order in your profile page 
 
-If you need to cancel the order or make any adjusments, please do not hesitate to get in touch.
+If you need to cancel the order or make any adjusments, please do not hesitate to get in touch {{ from_email }}
 
 Best Wishes,
 
 Team @ Discover Malta
+{{ domain }}
