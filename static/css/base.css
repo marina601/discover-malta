@@ -654,7 +654,7 @@ footer {
         position: fixed;
         left: 55%;
         top: 26%;
-        z-index: 99999999;
+        z-index: 1;
         width: auto;
     }
 
