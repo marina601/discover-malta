@@ -712,47 +712,51 @@
    
    - Add a few different trips to your bag, which consist of family-friendly trips and not
    - Click on the suitcase button in the navbar, confirm the user is being redirected to the *bag.html*, all the selected information is present
-   - Confirm the layout of the page, each trip is displayed on the different row.
+   - Confirm the layout of the page, each trip is displayed on a different row.
    - Trip Details consist of:
          - Trip Image - confirm the `alt` attribute is present
-         - Trip Name - hover over the name, confirm the background colour changes and the link takes you to trip detail page
+         - Trip Name - hover over the name, confirm the background colour changes and the link takes you to the trip detail page
          - Duration of the trip is displayed
          - Start Time
          - Departure Location
 
+![mobile-view](readme-files/images/bag-mobile-1.png) | ![mobile-view-2](readme-files/images/bag-mobile.png)
+
 2. Tickets
-    - Ticket information displays how many adult tickets and children tickets is selected for the trip
+    - Ticket information displays how many adult tickets and children tickets are selected for the trip
     - If the trip is not family-friendly, no children ticket information is displayed
-    - Ticket information also displays how many ticktes is selected all together
+    - Ticket information also displays how many tickets are selected all together
 
 3. Price
-    - Price information is calculated the total value of adult tickets and a total value of children tickets
+    - Price information is calculated the total value of adult tickets and the total value of children tickets
 
 4. Quantity
     - 2 input fields display the quantity of the tickets selected for each trip
-    - +/- buttons let the user to amend the quantity selected
+    - +/- buttons let the user amend the quantity selected
     - Update the quantity to more than 8 tickets, confirm alert appears letting the user know "They cannot add more than 8 tickets for this trip"
     - The plus button fades out for 5 seconds
-    - The value of the input is displaing the maximum number of tickets 8
+    - The value of the input is displying the maximum number of tickets 8
     - If the minus button sets the value to less than 0
     - Alert displays a message "You need select at least 1 adult ticket selected for this trip"
     - If the value of the input is set to 0 and the Update button is pressed, the trip gets removed from the bag, even if there are children tickets present
-    - Using the `-` button and try to set the input value to the negative value, confirm the `-` button fades out for 5 seconds. Letting the user to adjust the quantity
-    - If there is too many tickets selected and not enough availability in the database, toast notification lets the user know how many tickets is left for the current trip
+    - Using the `-` button and try to set the input value to the negative value, confirm the `-` button fades out for 5 seconds. Letting the user adjust the quantity
+    - If there are too many tickets selected and not enough availability in the database, toast notification lets the user know how many tickets are left for the current trip
     - The value of the input remains the same.
     - Try to modify the input field's number of tickets manually to more than 8, confirm alert appears letting the user know the largest number could be selected in 8, the input value is changed to 8.
     - If the trip is deleted from the bag, all the selected tickets go back to the database and become available
-    - Click on "Delete" button, confirm the modal appears asking the user to confirm their decision.
-    - If the trips ticket numbers successfully updated, confirm the price, number of tickets, subtotal and grand total updates as expected.
+    - Click on the "Delete" button, confirm the modal appears asking the user to confirm their decision.
+    - If the trips ticket numbers are successfully updated, confirm the price, number of tickets, subtotal and grand total updates as expected.
+
+![tablet-delete-modal](readme-files/images/bag-delete-modal.png) | ![tablet-view](readme-files/images/bag-tablet.png)
 
 5. Datepicker
-    - Update different trips dates, confirm all the datapickers are able to update and select different dates.
-    - Confirm the datapicker works as expected, described in the steps above
+    - Update different trips dates, confirm all the datepickers can update and select different dates.
+    - Confirm the datepicker works as expected, described in the steps above
 
 6. Subtotal
     - Subtotal field automatically updates for each line item based on user actions
 
-7. Grandtotal
+7. Grand Total
     - Grand Total field automatically updates at the bottom of the page and inside the navbar underneath the suitcase icon
 
 8. Call to Action Buttons
@@ -762,7 +766,46 @@
     - Hover over the buttons, confirm the background colour changes as expected
     - Click on each button, confirm  the "Keep Shopping" button takes the user to the *trips.html* and the "Checkout" button takes the user to the *checkout.html*
 
-    - Checkoout button on the mobile devices is positioned at the top of the page, has a `position: fixed;` property, this has been designed for a quick checkout option on mobile devices.
+    - Checkout button on the mobile devices is positioned at the top of the page, has a `position: fixed;` property, this has been designed for a quick checkout option on mobile devices.
+
+## Checkout 
+
+1. Summary
+   - Add some trips to your bag and proceed to the checkout page.
+   - Confirm order summary displays:
+       - Trip Image
+       - Trip Name - confirm if clicked it will redirect the user to the trip detail page
+       - Number of Adult and Children tickets if applicable
+       - Total price for adult tickets and children tickets are applicable
+       - Trip booking date
+       - Subtotal for each trip
+
+2. Order Form
+   - If the user is logged in, the form will be pre-filled with all the available user details
+        - Try to amend some details and click on the save details checkbox, go to the profile page to confirm the updated information is saved in the user profile
+        - Try to amend some details and un-check the save details checkbox, go to the profile page to confirm the information has not been updated
+   - If the user is not logged in:
+        - Confirm all the required fields contain placeholders and `*` next to them.
+        - Try to submit a form without filling in any details, confirm it prompts the user to fill in a name
+        - Fill in the name, surname and invalid email address, confirm the validation error is displayed, letting the user know what needs to be fixed.
+        - Fill in all the required fields, confirm country field displays a drop-down menu will all the countries
+        - Confirm save-info checkbox is not present, instead, a message is asking the user to log in or register to save their information for a quick checkout next time and to view their order history on their Profile Page.
+
+3. Stripe
+    - Complete the order form and press on submit button without filling out card details
+    - Confirm the page refreshes and displays an error telling the user their card details were incorrect
+    - Try to supply wrong card details, confirm an error is displayed
+    - Wrong expiration date, confirm an error is displayed
+    - A message at the bottom of the form is showing the user how much will their card be charged
+
+4. Call to action buttons
+    - 2 buttons are displayed at the bottom of the page:
+        - "Adjust Your Order" - click on the button and confirm it takes the user to the *bag.html*
+        - "Complete Order" - once clicked all the information will be sent to stripe, which will listen out for a webhook, the order will be created in the database and an email confirmation will be sent to the user.
+        - Login to the admin panel, confirm the order has been created, original bag info is present, stripe PID is saved.
+        - Login to Stripe and confirm the webhook has been successful, all the information has been received
+        - If the user has been logged in at the time of purchase, the user may see their order details on their profile page.
+        - Confirm the bag has been cleared.
 
 
 
