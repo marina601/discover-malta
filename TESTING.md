@@ -630,6 +630,8 @@
    - Type a number greater than 8 into the `children_tickets` input field, confirm a validation message displays "Maximum number of tickets can be selected is 8"
    - Select the correct number of children tickets, 0 adult tickets and valid date. Confirm the validation message appears again to get the number of adult tickets.
 
+   ![booking-modal](readme-files/images/booking-modal.jpg)
+
    3. Datepicker
 
             - Click on the input field to select the date, confirm datepicker is displayed.
@@ -653,6 +655,8 @@
    - Select a trip that is already in the bag, add another ticket. 
       - The condition in Python checks: if the trip in the bag exists on the same date as selected again, also if there are enough tickets left for the trip. If all the conditions are met the bag gets updated, the total amount gets updated as well.
       - In case of an error relevant toast messages notify the user of the error.
+
+![add-trip](readme-files/images/add-trip.jpg) | ![notification](readme-files/images/tickets-notification.jpg)
 
 4. Trip Details
    - Hover over a trip image and confirm `alt` attribute is present
@@ -695,11 +699,70 @@
     - Hover effect also works as expected, described in the previous section.
     - Look at the trip which has reviews, but not by the current user. Confirm there is no "Edit" or "Delete" button present in the review card
     - Admin user may disable reviews from the Django Admin panel, by setting the Active value to false.
+  
+  ![annonymouse-user](readme-files/images/review-not-logged-in-user.jpg) | ![logged-in-user](readme-files/images/review-form.jpg)
 
 6. Call to Action 
     - Click on the "Back to All Trips" button confirm it takes the user to *trips.html*.
 
 
+## Bag
+
+1. Trip Details
+   
+   - Add a few different trips to your bag, which consist of family-friendly trips and not
+   - Click on the suitcase button in the navbar, confirm the user is being redirected to the *bag.html*, all the selected information is present
+   - Confirm the layout of the page, each trip is displayed on the different row.
+   - Trip Details consist of:
+         - Trip Image - confirm the `alt` attribute is present
+         - Trip Name - hover over the name, confirm the background colour changes and the link takes you to trip detail page
+         - Duration of the trip is displayed
+         - Start Time
+         - Departure Location
+
+2. Tickets
+    - Ticket information displays how many adult tickets and children tickets is selected for the trip
+    - If the trip is not family-friendly, no children ticket information is displayed
+    - Ticket information also displays how many ticktes is selected all together
+
+3. Price
+    - Price information is calculated the total value of adult tickets and a total value of children tickets
+
+4. Quantity
+    - 2 input fields display the quantity of the tickets selected for each trip
+    - +/- buttons let the user to amend the quantity selected
+    - Update the quantity to more than 8 tickets, confirm alert appears letting the user know "They cannot add more than 8 tickets for this trip"
+    - The plus button fades out for 5 seconds
+    - The value of the input is displaing the maximum number of tickets 8
+    - If the minus button sets the value to less than 0
+    - Alert displays a message "You need select at least 1 adult ticket selected for this trip"
+    - If the value of the input is set to 0 and the Update button is pressed, the trip gets removed from the bag, even if there are children tickets present
+    - Using the `-` button and try to set the input value to the negative value, confirm the `-` button fades out for 5 seconds. Letting the user to adjust the quantity
+    - If there is too many tickets selected and not enough availability in the database, toast notification lets the user know how many tickets is left for the current trip
+    - The value of the input remains the same.
+    - Try to modify the input field's number of tickets manually to more than 8, confirm alert appears letting the user know the largest number could be selected in 8, the input value is changed to 8.
+    - If the trip is deleted from the bag, all the selected tickets go back to the database and become available
+    - Click on "Delete" button, confirm the modal appears asking the user to confirm their decision.
+    - If the trips ticket numbers successfully updated, confirm the price, number of tickets, subtotal and grand total updates as expected.
+
+5. Datepicker
+    - Update different trips dates, confirm all the datapickers are able to update and select different dates.
+    - Confirm the datapicker works as expected, described in the steps above
+
+6. Subtotal
+    - Subtotal field automatically updates for each line item based on user actions
+
+7. Grandtotal
+    - Grand Total field automatically updates at the bottom of the page and inside the navbar underneath the suitcase icon
+
+8. Call to Action Buttons
+    - Two buttons at the bottom of the page:
+        - Keep Shopping 
+        - Proceed to secure checkout
+    - Hover over the buttons, confirm the background colour changes as expected
+    - Click on each button, confirm  the "Keep Shopping" button takes the user to the *trips.html* and the "Checkout" button takes the user to the *checkout.html*
+
+    - Checkoout button on the mobile devices is positioned at the top of the page, has a `position: fixed;` property, this has been designed for a quick checkout option on mobile devices.
 
 
 
@@ -723,5 +786,9 @@
    - During testing noticed that the user is able to modify the date manually in the input field
    - Fixed it by adding and alert and setting the min date to the input field if modified date is in the past 
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
+
+- Bag.html
+   - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 by manually.
+   - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
 
 - Pagination not working during search and sort function
