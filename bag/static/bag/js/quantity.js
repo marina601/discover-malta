@@ -1,7 +1,6 @@
 //jshint esversion: 6
 /*globals $:false */
 
-
 /**Loop through all the plus buttons
  * Add event listener on click and prevent default behaviour
  * Find the closest input element
@@ -17,11 +16,26 @@ for (var i = 0; i < addQuantity.length; i++) {
         if ( $(input).val() > 7) {
             $(this).fadeOut();
             $(this).delay(5000).fadeIn();
-            alert("You cannot add more than 8 adults. Please get in touch for large group bookings");
+            alert("You cannot add more than 8 tickets for this trip. Please get in touch for large group bookings");
         }
     });
 }
 
+
+/**
+ * Prevent the user from manually adjusting the
+ * ticket value in the input field
+ * set the maximum value to the input field
+ */
+$(".qty_input").change(function () {
+    let updatedTicket = $(this).val();
+    let maxValue = 8;
+  
+    if (updatedTicket > maxValue) {
+        alert("You cannot select a number large than 8");
+        $(this).val(maxValue);
+    }
+});
 
 /**Remove quantity
  * Loop through all the minus buttons
@@ -39,7 +53,7 @@ for (var i = 0; i < removeQuantity.length; i++) {
         if ( $(input).val() < 1) {
             $(this).fadeOut();
             $(this).delay(5000).fadeIn();
-            alert("You need to have at least 1 adult selected!");
+            alert("You need to have at least 1 adult ticket selected!");
         }
         else {
             $(input).val(value - 1);
@@ -71,4 +85,3 @@ $('.update-link').click(function(e) {
     const form = $(this).prev('.update-form');
     form.submit();
 });
-
