@@ -20,7 +20,7 @@ $(function () {
  * This code has been sorced from 
  * https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates
  */
-$("#datepicker").change(function () {
+$(".calendar").change(function () {
   let updatedDate = $(this).val();
   let instance = $(this).data("datepicker");
   let date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, updatedDate, instance.settings);
