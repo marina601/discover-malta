@@ -810,17 +810,58 @@
         - "Complete Order" - once clicked all the information will be sent to stripe, which will listen out for a webhook, the order will be created in the database and an email confirmation will be sent to the user.
         - While the site is waiting for the response from Stripe, the user will see a loading spinner which tells the user the information is being processed.
         - Login to the admin panel, confirm the order has been created, original bag info is present, stripe PID is saved.
+
+        ![admin-panel](readme-files/images/admin-panel.png)
+
         - Login to Stripe and confirm the webhook has been successful, all the information has been received
+
+        ![stripe](readme-files/images/stripe.png)
+
         - If the user has been logged in at the time of purchase, the user may see their order details on their profile page.
+
+        ![profile](readme-files/images/order-in-profile.png)
+
         - Confirm the bag has been cleared.
 
 ## Checkout Complete
 
 - Once the checkout process in completed, confirm the user is being redirected to  the "Checkout Complete Page"
-- Toast notification lets the user know the confirmation email has been sent to the email address provided
+- Toast notification lets the user know the confirmation email has been sent to the email address provided.
+
+![mobile-view](readme-files/images/mobile-checkout-complete.png) | ![tablet-view](readme-files/images/ipad-checkout-complete.png)
+
 - The page displays order summary and user personal information 
 - User recieves an email with all the information needed including ticket number for the trip.
+
+![email](readme-files/images/email.png)
+
 - Button at the bottom of the page redirects the user to *trips.html*
+
+## About Page
+
+- Open devtools and hover each image confirm the `alt` attribute is present
+- Hover over the buttons at the bottom of the page, confirm the background colour changes as expected
+- Click on the "Go Back" button confirm it takes the user to the "Home Page"
+- Click on the "Get in Touch" button, confirm it takes the user to the "Contact Page"
+- Check the responsive layout of the page on the tablet and mobile view.
+
+
+## Contact Page
+
+ - Go to the "Contact Page", the user will be presented with a contact form
+ - If the user is logged-in, user's full name and email address will be pre-filled.
+ - Try to submit an empty form, confirm the form is asking for full name
+ - Fill in the name and press submit button, confirm the form is asking for email address
+ - Enter an invalid email address and press submit button, confirm the form is asking for a valid email address
+ - Enter full name and a valid email address, press submit button, confirm a validation message asking the user to select a subject.
+ - User may choose to select a subject from the drop-down menu or write their own.
+ - Select the subject, full name and email, click on submit button, confirm a custom validation message is displayed asking the user to enter at least 10 characters"
+ - Once all the input fields have been correctly completed, click on the "Submit" button.
+ - Confirm the user is being re-directed to the "Hope Page" and toast notification tells the user somebody will be in touch soon.
+ - At this instance, 2 emails are generated at the backend. 
+ - One email is sent to the user telling them their message has been recieved.
+ - The othe email is sent to the admin user giving them all the information filled out in the "Contact Form"
+ - Click on the "Go Back" button, confirm the user is being re-directed to the "Home Page".
 
 
 
