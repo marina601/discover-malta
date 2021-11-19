@@ -21,7 +21,8 @@
                         <div class="col mt-2">
                             <label for="exampleDataList" class="form-label">Choose Subject</label>
                             <input class="form-control" list="datalistOptions" id="exampleDataList"
-                                placeholder="Select one..." name="subject">
+                                placeholder="Select one..." name="subject" required oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please select a subject')">
                             <datalist id="datalistOptions">
                                 <option value="General Enquire">
                                 <option value="I need to cancel my trip">
@@ -32,29 +33,32 @@
                             </datalist>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <label for="full_name">Full Name:</label>
-                        <input type="text" class="form-control" name="full_name" id="full_name" minlength="4"
-                            maxlength="20"
-                            value="{% if user.is_authenticated %} {{user.first_name|capfirst}} {{user.last_name|capfirst}} {% endif %}"
-                            required pattern="^[a-z A-Z]{4,20}$" oninput="this.setCustomValidity('')"
-                            oninvalid="this.setCustomValidity('Please enter your name')" />
-                    </div>
-                    <div class="col-md-6">
-                        <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                            name="email" value="{% if user.is_authenticated %} {{user.email}} {% endif %}"
-                            pattern="^[a-zA-Z0-9!?.@]{5,20}$" required oninput="this.setCustomValidity('')"
-                            oninvalid="this.setCustomValidity('Please enter a valid email address')" />
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label for="full_name">Full Name:</label>
+                            <input type="text" class="form-control" name="full_name" id="full_name" minlength="4"
+                                maxlength="20"
+                                value="{% if user.is_authenticated %} {{user.first_name|capfirst}} {{user.last_name|capfirst}} {% endif %}"
+                                required pattern="^[a-z A-Z]{4,20}$" oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please enter your name')" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="exampleInputEmail1">Email address</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" name="email"
+                                value="{% if user.is_authenticated %} {{user.email}} {% endif %}"
+                                pattern="^[a-zA-Z0-9!?.@]{5,20}$" required oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please enter a valid email address')" />
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <label for="message">Your Message</label>
-                            <textarea class="form-control" aria-label="With textarea" minlength="20" maxlength="500"
-                                name="message" id="message" oninput="this.setCustomValidity('')"
-                                oninvalid="this.setCustomValidity('Please enter at least 20 characters')" required>
-                    </textarea>
+                            <textarea id="message" name="message" minlength="10" maxlength="200"
+                                class="form-control validate" oninput="this.setCustomValidity('')"
+                                oninvalid="this.setCustomValidity('Please enter at least 10 characters')"
+                                required></textarea>
                         </div>
                     </div>
                     <div class="col text-center">
