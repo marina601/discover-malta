@@ -108,9 +108,11 @@
                                     </button>
                                 </div>
                                 <input class="form-control form-control-sm qty_input" type="number" name="adult_tickets"
-                                    value="{{ item.adult_tickets }}" data-item_id="{{ item.trip.id }}">
+                                    value="{{ item.adult_tickets }}" data-item_id="{{ item.trip.id }}" max="8" min="1"
+                                    oninput="this.setCustomValidity('')"
+                                    oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')">
                                 <div class="input-group-append">
-                                    <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}">
+                                    <button type="submit" class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}">
                                         <span>
                                             <i class="fas fa-plus fa-sm" aria-hidden="true"></i>
                                             <span class="sr-only">plus</span>
@@ -133,10 +135,12 @@
                                     </button>
                                 </div>
                                 <input class="form-control form-control-sm qty_input child-input" type="number"
+                                    max="8" min="0" oninput="this.setCustomValidity('')"
+                                    oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')"
                                     name="children_tickets" value="{{ item.children_tickets }}"
                                     data-item_id="{{ item.trip.id }}">
                                 <div class="input-group-append">
-                                    <button class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}">
+                                    <button type="submit" class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}">
                                         <span>
                                             <i class="fas fa-plus fa-sm" aria-hidden="true"></i>
                                             <span class="sr-only">plus</span>
@@ -232,8 +236,9 @@
 {% endblock %}
 
 {% block postloadjs %}
-{{ block.super }}
+   {{ block.super }}
 
-<script src="{% static 'bag/js/quantity.js' %}"></script>
+   <script src="{% static 'bag/js/quantity.js' %}"></script>
+   <script src="{% static 'js/datepicker.js' %}"></script>
 
 {% endblock %}
