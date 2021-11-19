@@ -780,6 +780,8 @@
        - Trip booking date
        - Subtotal for each trip
 
+![mobile-view](readme-files/images/order-summary-mobile.png) | ![tablet-view](readme-files/images/order-summary-tablet.png)
+
 2. Order Form
    - If the user is logged in, the form will be pre-filled with all the available user details
         - Try to amend some details and click on the save details checkbox, go to the profile page to confirm the updated information is saved in the user profile
@@ -791,6 +793,8 @@
         - Fill in all the required fields, confirm country field displays a drop-down menu will all the countries
         - Confirm save-info checkbox is not present, instead, a message is asking the user to log in or register to save their information for a quick checkout next time and to view their order history on their Profile Page.
 
+![pre-filled-form](readme-files/images/pre-filled-order-form.png) | ![form-annonymouse-user](readme-files/images/order-form-mobile.png)
+
 3. Stripe
     - Complete the order form and press on submit button without filling out card details
     - Confirm the page refreshes and displays an error telling the user their card details were incorrect
@@ -798,14 +802,25 @@
     - Wrong expiration date, confirm an error is displayed
     - A message at the bottom of the form is showing the user how much will their card be charged
 
+![stripe-elements](readme-files/images/stripe-mobile.png)
+
 4. Call to action buttons
     - 2 buttons are displayed at the bottom of the page:
         - "Adjust Your Order" - click on the button and confirm it takes the user to the *bag.html*
         - "Complete Order" - once clicked all the information will be sent to stripe, which will listen out for a webhook, the order will be created in the database and an email confirmation will be sent to the user.
+        - While the site is waiting for the response from Stripe, the user will see a loading spinner which tells the user the information is being processed.
         - Login to the admin panel, confirm the order has been created, original bag info is present, stripe PID is saved.
         - Login to Stripe and confirm the webhook has been successful, all the information has been received
         - If the user has been logged in at the time of purchase, the user may see their order details on their profile page.
         - Confirm the bag has been cleared.
+
+## Checkout Complete
+
+- Once the checkout process in completed, confirm the user is being redirected to  the "Checkout Complete Page"
+- Toast notification lets the user know the confirmation email has been sent to the email address provided
+- The page displays order summary and user personal information 
+- User recieves an email with all the information needed including ticket number for the trip.
+- Button at the bottom of the page redirects the user to *trips.html*
 
 
 
