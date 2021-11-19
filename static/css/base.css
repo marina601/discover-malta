@@ -397,6 +397,7 @@ header,
     color: #fafafa;
     border-radius: 5px;
     border: 1px solid black;
+    z-index: 0 !important;
 }
 
 .add-quantity {
@@ -404,6 +405,7 @@ header,
     color: #fafafa;
     border-radius: 5px;
     border: 1px solid black;
+    z-index: 0 !important;
 }
 
 
