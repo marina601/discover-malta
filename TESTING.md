@@ -864,6 +864,42 @@
  - Click on the "Go Back" button, confirm the user is being re-directed to the "Home Page".
 
 
+## Registration
+
+  - Go to create registration page, confirm the form is displayed correctly.
+  - Placeholders are present for each input field and  * indicates all the required fields
+  - Try to press register, without filling in the form. Confirm custom message appears to inform the user what field they should enter.
+  - Try to enter a firstname, but nothing else, confirm the custom message appears to tell the user which field needs to be entered next.
+  - Try enter an invalid email address, confirm the custom message tells the user what is missing.
+  - Try to enter the email address which already exists and all other required information, confirm a message tells the user the account with this email address already exists. 
+  - Confirm phone_number input accepts only numbers
+  - Try to create a new account with all require informanion, but two passwords that do not match, confirm that the flash message appears informing the user that the passwords entered do not match.
+  - Try to enter a matching password which is less then 8 characters long, confirm a cutom validation message tells the user the parametars of the password lenght.
+  - Create a new account with a new username and 2 passwords that match, confirm the user is beign redirected to `/accounts/login/?command=verification&email=' + email`.
+  - Cutom message appears on the page telling the user that varification email has been sent. The use also has an option to login if they already verifyed their registration
+  - At this instance a custom url is generated  using `urlsafe_base64_encode(force_bytes(user.pk))` and `default_token_generator.make_token(user)` which is inserted inside the `account_activation.html` template, which is sent out to the user.
+  - Confirm the email has been recieved with an activation click.
+  - Login to Admin panel, confirm the user has been created but in not activated yet.
+  - Click on the activation link, confirm the user has been redirected to the Login Page and toast notification appers, telling the user their accunt has been activated.
+  - Login to Admin Panel to confirm.
+  - Click on the UserProfile inside the Admin Panel and confirm the User Profile has been automatically generated upon registration.
+  - Go back to the login page and confirm the user is able to login with new login details.
+  - Confirm toast notifaction tells the user they are now logged in and redirects the user to the Home Page
+  - Confirm the user icon changes to the default user avatar in the navigation.
+  - Click on the user avator, confirm dropdown menu displays links only to profile and logout.
+  - Click on the Profile Page and confirm the Profile Page is personalized to the newly created user.
+  - On the registration page,  click the login button, confirm that it takes the user to the login page.
+  - Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
+  - When the accunt is being created I am also creating a username by: `username = email.split("@")[0]`, event though at this moment in time I am not using username variable for anything, Django expects it in their default User Model.
+
+
+## Login
+
+## Forgot Password
+
+## Reset Password
+
+
 
 ## Bugs
 
