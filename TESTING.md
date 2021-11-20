@@ -923,16 +923,73 @@
 
 - From the "Login Page", click on the *reset your password link*, confirm it takes the user to the "Forgot Password Page."
 - Confirm Forgot Password form is displayed correctly.
+
+![forgot-password](readme-files/images/forgot-password-mobile.png)
+
 - Try to submit an empty form, confirm the message is displayed asking the user to fill in the required field
 - Try to submit the form with the email address which does not exists, confirm error message appears informing the user the email address entered does not exist
+
+![wrong-email](readme-files/images/wrong-email.png)
+
 - Submit a form with a valid email address, confirm the user is being redirected to the "Login Page" and toast notification informs the user the email with password reset link has been sent.
 - At this instance an email is sent to the user with a link, that is generated in the same way as activation link to register a new account.
 - Click on the link sent, confirm the user is being redirected to the "Reset Password Page" and toast notification tells the user they can now reset their password.
+
+![account-verified](readme-files/images/account-verified.png)
+
 - Click on the register button, confirm it takes the user to the "Registration Page".
+
+- Activate account and reset password verification works in the same way, firt I use `try` and `except` block to determent that the user and toked generated match:
+   - `uid = urlsafe_base64_decode(uidb64).decode()`
+   - `user = Account._default_manager.get(pk=uid)`
+- In case `except` case is executed, than the error message will appear to the user.
 
 ## Reset Password
 
+- Upon a successful verification of the `uid` and `user`, the user is being redirected to the "Reset Password Page"
+- Try to submit a form without entering any values, confirm a cutom validation message is displayed
+- Complete the firs input field, but not the second, confirm validation message is displayed
+- Enter a password which is less than 8 characters long, confirm validation message is dispalyed
+- Enter 2 password which are more than 8 characters long, but different, confirm validation message is dispalyed
+- Confirm, the user is being redirected to the login page and toast notification display a success message.
+- Login using your email address and the old password, confirm the login attempt has failed.
+- Login with reset password and confirm the login attemp has been successful.
 
+## Profile
+
+- Login in to the site and navigato to the user Profile Page.
+- Confirm a welcome massage is displays user first name for athentication
+- User default avatar or custom avatar image is displayed in the middle of the page
+- Confirm the user is presented with 4 options in the form of the button:
+        - View Order History
+        - Edit Your Profile
+        - View Favourites
+        - Manage Reviews
+
+- If the user is superadmin an additional link -Add Trip is displayed, confirm this is not displayed for regular user.
+- View Order History is an ancor link whic brings the user to the bottom of the page, where the order history is located in acsending order.
+- If the user does not have a order history yet, the massage will let the user know they have not placed any orders yet.
+- Hover over each link and confirm the background colour changes as expected.
+- Click on each link and confirm they all lead to the relevant page.
+- Log out and try to modify the URL to go to the profile page, confirm the user is being re-directed to the "Login Page".
+
+## Edit Profile
+
+## Favourites
+
+## View Reviews
+
+## Edit Review 
+
+## Add Trip
+
+## Update Trip
+
+## 404.html
+
+## 500.html
+
+![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
 
 ## Bugs
 
