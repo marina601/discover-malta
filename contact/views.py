@@ -33,7 +33,7 @@ def contact(request):
                 'full_name': full_name,
                 'domain': current_site,
             })
-        to_email = settings.EMAIL_HOST_USER, settings.DEFAULT_FROM_EMAIL
+        to_email = settings.EMAIL_HOST_USER
         send_email = EmailMessage(mail_subject, message, to=[to_email])
         send_email.send()
 
