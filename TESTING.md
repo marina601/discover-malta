@@ -874,9 +874,15 @@
   - Try to enter the email address which already exists and all other required information, confirm a message tells the user the account with this email address already exists. 
   - Confirm phone_number input accepts only numbers
   - Try to create a new account with all require informanion, but two passwords that do not match, confirm that the flash message appears informing the user that the passwords entered do not match.
+
+  ![password-validation](readme-files/images/password-validation.png)
+
   - Try to enter a matching password which is less then 8 characters long, confirm a cutom validation message tells the user the parametars of the password lenght.
   - Create a new account with a new username and 2 passwords that match, confirm the user is beign redirected to `/accounts/login/?command=verification&email=' + email`.
   - Cutom message appears on the page telling the user that varification email has been sent. The use also has an option to login if they already verifyed their registration
+
+  ![activation](readme-files/images/activation.png)
+
   - At this instance a custom url is generated  using `urlsafe_base64_encode(force_bytes(user.pk))` and `default_token_generator.make_token(user)` which is inserted inside the `account_activation.html` template, which is sent out to the user.
   - Confirm the email has been recieved with an activation click.
   - Login to Admin panel, confirm the user has been created but in not activated yet.
@@ -888,14 +894,41 @@
   - Confirm the user icon changes to the default user avatar in the navigation.
   - Click on the user avator, confirm dropdown menu displays links only to profile and logout.
   - Click on the Profile Page and confirm the Profile Page is personalized to the newly created user.
+
+  ![profile-page](readme-files/images/tablet-profile-new-user.png)
+
   - On the registration page,  click the login button, confirm that it takes the user to the login page.
   - Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
-  - When the accunt is being created I am also creating a username by: `username = email.split("@")[0]`, event though at this moment in time I am not using username variable for anything, Django expects it in their default User Model.
+  - When the account is being created I am also creating a username by: `username = email.split("@")[0] + last_name`, event though at this moment in time I am not using username variable for anything, Django expects it in their default User Model.
+  - As a logged-in user, try to access the Login Page by modifying the URL, confirm the user has been redirected to their profile page and toast notification informs the user they are already registered.
+ - After your account has been activated, try to click on the link again, confirm the user is being redirected to the profile page, error message telling them the activation link is invalid and alert message telling the user they have alredy registered.
 
+ - I have modifyed the base Django User Model to allow the user to login with their email address, as usernames get forgotten very often and not being able to login to the site because the user forgot their username is a poor user experience.
 
 ## Login
 
+- Go to the login page, confirm that the login form is displayed correctly.
+- Try to submit the form without entering any details, confirm custom feedback is displayed, which tells the user to fill in the field with their email address.
+- Enter the email address, but not the password, confirm custom feedback is displayed, telling the user to enter a valid password.
+- Try to login with a username or password which does not exists in the database, confirm the toatst notifiaction is displayed letting the user know that some of the details entered are incorrect.
+- Confirm that the logged-in user is redirected to their profile page.
+- Log out, then try to log in the using correct username and password, confirm that this is successful.
+- Confirm *Click here to reset your password* link takes the user to the "Forgot password Page".
+- Confirm *Register* link takes the user to the register page.
+- Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
+- Confirm the navbar has changed based on user access.
+- As a logged-in user, try to access the Login Page by modifying the URL, confirm the user has been redirected to their profile page and toast notification informs the user they are already logged in.
+
 ## Forgot Password
+
+- From the "Login Page", click on the *reset your password link*, confirm it takes the user to the "Forgot Password Page."
+- Confirm Forgot Password form is displayed correctly.
+- Try to submit an empty form, confirm the message is displayed asking the user to fill in the required field
+- Try to submit the form with the email address which does not exists, confirm error message appears informing the user the email address entered does not exist
+- Submit a form with a valid email address, confirm the user is being redirected to the "Login Page" and toast notification informs the user the email with password reset link has been sent.
+- At this instance an email is sent to the user with a link, that is generated in the same way as activation link to register a new account.
+- Click on the link sent, confirm the user is being redirected to the "Reset Password Page" and toast notification tells the user they can now reset their password.
+- Click on the register button, confirm it takes the user to the "Registration Page".
 
 ## Reset Password
 
