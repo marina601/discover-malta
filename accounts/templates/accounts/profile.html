@@ -6,8 +6,8 @@
 {% block content %}
 <section class="main-content">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-auto mt-3">
+        <div class="row">
+            <div class="col-md-auto mt-3 text-center">
                 <h2>Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
             </div>
         </div>
@@ -20,24 +20,24 @@
         </div>
         <!--Profile Links-->
         <div class="row">
-            <div class="col-md-4 col-sm-6">
+            <div class="col-md-4 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="#order-history">View Order History</a>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="{% url 'edit_profile' %}">Edit Your Profile</a>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="{% url 'favourites' %}">View Favourites</a>
             </div>
             {% if user.is_superadmin %}
-            <div class="col-md-4 offset-md-2 col-sm-12">
+            <div class="col-md-4 offset-md-2 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
             </div>
-            <div class="col-md-4 col-sm-12">
+            <div class="col-md-4 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="{% url 'add_trip' %}">Add Trip</a>
             </div>
             {% else %}
-            <div class="col-md-4 offset-md-4 col-sm-12">
+            <div class="col-md-4 offset-md-4 col-sm-12 text-center">
                 <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
             </div>
             {% endif %}
