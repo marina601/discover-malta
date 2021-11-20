@@ -358,13 +358,13 @@ header,
 .error-500 h1 {
     position: absolute;
     top: 30%;
-    left: 10%;
+    left: 20%;
 }
 
 .error-500 a {
     position: absolute;
     top: 50%;
-    left: 10%;
+    left: 40%;
 }
 
 /**********************View Availability*/
@@ -650,6 +650,10 @@ footer {
         display: none;
     }
 
+    .erro-500 a {
+        left: 15%;
+    }
+
     .btn-checkout-mobile {
         position: fixed;
         left: 55%;
@@ -693,6 +697,14 @@ footer {
 
     .form-group {
         width: 12rem;
+    }
+
+    .error-500 {
+        margin-top: -2rem;
+    }
+
+    .erro-500 a {
+        left: 35%;
     }
 
     .main-nav {
