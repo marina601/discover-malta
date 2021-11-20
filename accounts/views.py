@@ -99,6 +99,10 @@ def login(request):
         else:
             messages.error(request, "Invalid login details, please try again!")
             return redirect('login')
+    
+    if request.user.is_authenticated:
+        messages.info(request, "You have are already logged in!")
+        return redirect('profile')
 
     return render(request, 'accounts/login.html')
 
@@ -171,11 +175,11 @@ def forgot_password(request):
             send_email = EmailMessage(mail_subject, message, to=[to_email])
             send_email.send()
 
-            messages.success(request, f'Password reset link has been'
+            messages.success(request, f'Password reset link has been '
                              f'send to {to_email}')
             return redirect('login')
         else:
-            messages.error(request, "The email address you have entered does"
+            messages.error(request, "The email address you have entered does "
                                     "not match any account")
             return redirect('forgot_password')
 
