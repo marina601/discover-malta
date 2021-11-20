@@ -38,7 +38,7 @@ def register(request):
             phone_number = form.cleaned_data['phone_number']
             email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            username = email.split("@")[0]
+            username = email.split("@")[0] + last_name
             user = Account.objects.create_user(first_name=first_name,
                                                last_name=last_name,
                                                email=email,
