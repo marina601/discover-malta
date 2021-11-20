@@ -926,4 +926,6 @@
    - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 by manually.
    - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
 
+- Registraion Page
+  - During testing I have come accross a unique contrain failed during generating a usernam, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
 - Pagination not working during search and sort function
