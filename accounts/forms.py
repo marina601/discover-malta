@@ -82,14 +82,39 @@ class UserForm(forms.ModelForm):
         model = Account
         fields = ('first_name', 'last_name', 'phone_number', 'email')
 
+    def clean_phone_number(self):
+        """Validate Phone Number field"""
+        phone_number = self.cleaned_data.get('phone_number', None)
+        try:
+            int(phone_number)
+        except (ValueError, TypeError):
+            raise ValidationError('Please enter a valid phone number')
+        return phone_number
+
     def __init__(self, *args, **kwargs):
         """Add bootstrap classes to
         all the input fields
         """
         super(UserForm, self).__init__(*args, **kwargs)
+
+        placeholders = {
+            'first_name': 'Please enter your name',
+            'last_name': 'Please enter your surname',
+            'email': 'Please enter your email',
+            'phone_number': 'Please enter your phone number',
+        }
+
         for field in self.fields:
+            if self.fields[field].required:
+                # Adding a * to required fields
+                placeholder = f'{placeholders[field]} *'
+            else:
+                placeholder = placeholders[field]
+            # add placeholders
+            self.fields[field].widget.attrs['placeholder'] = placeholder
             # set auto focus
             self.fields['first_name'].widget.attrs['autofocus'] = True
+            self.fields['phone_number'].widget.attrs['type'] = 'number'
             # set bootstrap class to input fields
             self.fields[field].widget.attrs['class'] = 'form-control'
 
