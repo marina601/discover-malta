@@ -63,7 +63,7 @@
                                     class="img-fluid img-thumbnail rounded-circle" alt="user profile image">
                                 <h6 class="d-inline"><span class="text-muted">by</span>
                                     {{ review.user.first_name|capfirst }}</h6>
-                                {% if review.updated_at %}
+                                    {% if review.updated_at|date:"M d, Y" != review.created_at|date:"M d, Y" %}
                                 <p class="card-text d-inline"><small class="text-muted">Updated on:
                                         {{ review.updated_at|date:"M d, Y" }}</small></p>
                                 {% else %}
