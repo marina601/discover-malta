@@ -113,8 +113,15 @@ class ReviewRating(models.Model):
                                             ])
     ip = models.CharField(max_length=20, blank=True)
     status = models.BooleanField(default=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(editable=False)
+    updated_at = models.DateTimeField()
+
+    def save(self, *args, **kwargs):
+        ''' On save, update timestamps '''
+        if not self.id:
+            self.created_at = timezone.now()
+        self.updated_at = timezone.now()
+        return super(ReviewRating, self).save(*args, **kwargs)
 
     def __str__(self):
         return str(self.subject)
