@@ -658,6 +658,11 @@ footer {
         left: 0;
     }
 
+    #review-form {
+        width: auto;
+        margin: 1rem auto;
+    }
+
 
     .btn-checkout-mobile {
         position: fixed;
