@@ -18,15 +18,24 @@
       - [**Device Compatibility Table**](#device-compatibility-table)
       - [**Elements on Every Page**](#elements-on-every-page)
       - [**Home Page**](#home-page)
-      - [**Registration Page**](#registration-page)
-      - [**Login Page**](#login-page)
-      - [**Profile Page**](#profile-page)
-      - [**Edit Review**](#edit-review)
-      - [**Products Page**](#products-page)
-      - [**View Product**](#view-product) 
-      - [**Add Product**](#add-product) 
-      - [**Edit Product**](#edit-product) 
+      - [**All Trips**](#all-trips)
+      - [**Trip Details**](#trip-details)
+      - [**Bag**](#bag)
+      - [**Checkout**](#checkout)
+      - [**Checkout Complete**](#checkout-complete)
+      - [**About Page**](#about-page)
       - [**Contact Page**](#contact-page) 
+      - [**Registration Page**](#registration-page)
+      - [**Login**](#login)
+      - [**Forgot Password**](#forgot-password)
+      - [**Reset Password**](#reset-password)  
+      - [**Profile**](#profile)
+      - [**Edit Profile**](#edit-profile)
+      - [**Favourites**](#favourites)
+      - [**View Review**](#view-review)
+      - [**Edit Review**](#edit-review)
+      - [**Add Trip**](#add-trip)
+      - [**Update Trip**](#update-trip) 
       - [**404 Page**](#404-page)
       - [**500 Page**](#500-page)
    - [**Google Lighthouse Testing**](#google-lighthouse-testing)
@@ -514,7 +523,8 @@
   - Click on the link, confirm it takes the user to the *trips.html* page.
 
   - Above tests have been repeated on tablet and mobile devices.
-    
+
+##### back to [content](#table-of-content)   
 
 ### All Trips
 
@@ -612,7 +622,9 @@
   - If on the last page, the next button will be disabled.
   - Current page number is displayed to the user and the page number's background colour is changed when active.
 
-## Trip Detail
+##### back to [content](#table-of-content)
+
+## Trip Details
 
 1. Favourites
   -  Confirm favourites functionality works in the same way as described in "All Trips Page".
@@ -705,6 +717,8 @@
 6. Call to Action 
     - Click on the "Back to All Trips" button confirm it takes the user to *trips.html*.
 
+##### back to [content](#table-of-content)
+
 
 ## Bag
 
@@ -768,6 +782,8 @@
 
     - Checkout button on the mobile devices is positioned at the top of the page, has a `position: fixed;` property, this has been designed for a quick checkout option on mobile devices.
 
+##### back to [content](#table-of-content)
+
 ## Checkout 
 
 1. Summary
@@ -823,6 +839,8 @@
 
         - Confirm the bag has been cleared.
 
+##### back to [content](#table-of-content)
+
 ## Checkout Complete
 
 - Once the checkout process in completed, confirm the user is being redirected to  the "Checkout Complete Page"
@@ -837,6 +855,8 @@
 
 - Button at the bottom of the page redirects the user to *trips.html*
 
+##### back to [content](#table-of-content)
+
 ## About Page
 
 - Open devtools and hover each image confirm the `alt` attribute is present
@@ -845,6 +865,7 @@
 - Click on the "Get in Touch" button, confirm it takes the user to the "Contact Page"
 - Check the responsive layout of the page on the tablet and mobile view.
 
+##### back to [content](#table-of-content)
 
 ## Contact Page
 
@@ -863,6 +884,7 @@
  - The othe email is sent to the admin user giving them all the information filled out in the "Contact Form"
  - Click on the "Go Back" button, confirm the user is being re-directed to the "Home Page".
 
+##### back to [content](#table-of-content)
 
 ## Registration
 
@@ -905,6 +927,8 @@
 
  - I have modifyed the base Django User Model to allow the user to login with their email address, as usernames get forgotten very often and not being able to login to the site because the user forgot their username is a poor user experience.
 
+##### back to [content](#table-of-content)
+
 ## Login
 
 - Go to the login page, confirm that the login form is displayed correctly.
@@ -918,6 +942,8 @@
 - Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
 - Confirm the navbar has changed based on user access.
 - As a logged-in user, try to access the Login Page by modifying the URL, confirm the user has been redirected to their profile page and toast notification informs the user they are already logged in.
+
+##### back to [content](#table-of-content)
 
 ## Forgot Password
 
@@ -944,6 +970,8 @@
    - `user = Account._default_manager.get(pk=uid)`
 - In case `except` case is executed, than the error message will appear to the user.
 
+##### back to [content](#table-of-content)
+
 ## Reset Password
 
 - Upon a successful verification of the `uid` and `user`, the user is being redirected to the "Reset Password Page"
@@ -954,6 +982,8 @@
 - Confirm, the user is being redirected to the login page and toast notification display a success message.
 - Login using your email address and the old password, confirm the login attempt has failed.
 - Login with reset password and confirm the login attemp has been successful.
+
+##### back to [content](#table-of-content)
 
 ## Profile
 
@@ -973,6 +1003,10 @@
 - Click on each link and confirm they all lead to the relevant page.
 - Log out and try to modify the URL to go to the profile page, confirm the user is being re-directed to the "Login Page".
 
+![profile-tablet-view](readme-files/images/profile-tablet.jpg) | ![profile-mobile-vie](readme-files/images/profile-mobile-admin.jpg)
+
+##### back to [content](#table-of-content)
+
 ## Edit Profile
 
 - From the Profile Page click on "Edit Your Profile", confirm the page takes the user to the form which is pre-filled with user information.
@@ -981,24 +1015,60 @@
 - Confirm the placeholders display the information required for the form to be submitted
 - Try to type incorrect email address, confirm validation message is displayed telling the user what is missing
 - Try to type letters into phone_number field and submit the form, confirm the form validation message tells the user to enter a valid phone number
+![phone-number-validation](readme-files/images/phone-number-error.jpg)
 - Try to update the profile picture, upload a non image file, confirm the form validation has failed, the toast notification and form valiation error is displayed to the user.
+![media-validation](readme-files/images/media-file-error.jpg)
 - Upload a media file and all the required information, click on submit button, confirm the toast notification is displaying a success message. The user is being redirected to the same page, where their updated information is displayed.
 - User avatar has been updated on the page and in the navbar.
 - Click on the "Go back to Profile" and confirm the links takes the user to the profile page.
+- Log out and modify the url to /accounts/edit_profile, confirm the user is redirected to the login page.
+
+![edit-profile](readme-files/images/edit-profile-mobile.jpg)
+
+##### back to [content](#table-of-content)
 
 ## Favourites
 
+- From the user Profile Page, click on the button "View Favourties", the user also may access this page by clickin on the heart icon in the navigation bar. Confirm both links redirect the user to the same page.
+- Confirm the total number of favourites is equavalant to the number of favourite trips displayed on the page.
+- The layout of the trips on the page is identical to *trips.html*
+- Confirm the favourites functionality works in the same way as described in the All Trips
+- Confirm the trip-card is functioning in the same way as described in the All Trips.
+- Click on the "Go Back to Profile" button, confirm it takes the user to the "Profile Page"
+- If the user does not have any trips added to their favourites, the message is displayed on the page telling the user they did not add any trips to their favourites yet, call to action button directs the user to the *trips.html*.
+- Log out and modify the url to /accounts/favourites/, confirm the user is redirected to the login page.
+
+![no-favourites](readme-files/images/no-favourites.jpg) | ![tablet-view](readme-files/images/favourites-tablet.jpg)
+
+##### back to [content](#table-of-content)
+
 ## View Reviews
+
+##### back to [content](#table-of-content)
 
 ## Edit Review 
 
+##### back to [content](#table-of-content)
+
 ## Add Trip
+
+##### back to [content](#table-of-content)
 
 ## Update Trip
 
+##### back to [content](#table-of-content)
+
+## Logout
+
+##### back to [content](#table-of-content)
+
 ## 404.html
 
+##### back to [content](#table-of-content)
+
 ## 500.html
+
+##### back to [content](#table-of-content)
 
 ![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
 
@@ -1030,3 +1100,7 @@
 - Registraion Page
   - During testing I have come accross a unique contrain failed during generating a usernam, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
 - Pagination not working during search and sort function
+
+- Edit Profile Page
+  - During testing I have accross a phone number input field which was accepting charactes instead of numbers, due to the model field being saved as a `CharField`, I have  solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and dispalaying validation errors to the user.
+    
