@@ -326,6 +326,7 @@ def view_reviews(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_review(request, review_id):
     """Edit user review"""
     review = get_object_or_404(ReviewRating, pk=review_id)

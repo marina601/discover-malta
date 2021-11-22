@@ -287,6 +287,7 @@ def submit_review(request, trip_id, user_id):
             return redirect(url)
 
 
+@login_required
 def delete_review(request, review_id):
     """
     Delete user review
