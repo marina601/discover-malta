@@ -1046,7 +1046,7 @@
 
 - From the Profile Page, click the "Manage Reviews" link, confirm it takes the user to *view_reviews.html*.
 - If the user does not have any reviews, a custom message is displayed on the page and the button "Go back to Profile".
-- If the user has reviews, the reviews are displayed in the form of cards and contain the same layot as the described on the trip detail page.
+- If the user has reviews, the reviews are displayed in the form of cards and contain the same layot as the described on the trip detail page, with exception for trip name added to each review, to make it easier to identify
 - Confirm the review are displayed only the ones the current logged in user has created
 - The user has 2 option to Delete or Edit the review
 - If the use is pressing on the "Delete" button, confirm the modal appears asking the use to confirm their decition, the same logic is present as described on the "Trip Detalis" page.
