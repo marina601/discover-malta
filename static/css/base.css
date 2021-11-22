@@ -650,9 +650,14 @@ footer {
         display: none;
     }
 
-    .erro-500 a {
-        left: 15%;
+    .error-500 a {
+        left: 15% !important;
     }
+
+    .error-500 h1 {
+        left: 0;
+    }
+
 
     .btn-checkout-mobile {
         position: fixed;
