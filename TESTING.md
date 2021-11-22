@@ -975,6 +975,17 @@
 
 ## Edit Profile
 
+- From the Profile Page click on "Edit Your Profile", confirm the page takes the user to the form which is pre-filled with user information.
+- Edit Profile form consists of 2 forms, one is user form which takes all the information upon the registration and the other one is the profile form.
+- Delete all the information from the form and click "Update My Profile" button, confirm toast error notifications is displayed to the user and not information is updated.
+- Confirm the placeholders display the information required for the form to be submitted
+- Try to type incorrect email address, confirm validation message is displayed telling the user what is missing
+- Try to type letters into phone_number field and submit the form, confirm the form validation message tells the user to enter a valid phone number
+- Try to update the profile picture, upload a non image file, confirm the form validation has failed, the toast notification and form valiation error is displayed to the user.
+- Upload a media file and all the required information, click on submit button, confirm the toast notification is displaying a success message. The user is being redirected to the same page, where their updated information is displayed.
+- User avatar has been updated on the page and in the navbar.
+- Click on the "Go back to Profile" and confirm the links takes the user to the profile page.
+
 ## Favourites
 
 ## View Reviews
