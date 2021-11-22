@@ -1058,27 +1058,83 @@
 
 ## Edit Review 
 
+- Click on the "Edit" button from the "View Reviews" page or the "Trip Details" page
+- Confirm user review is displayed correctly
+- Toast notification tells teh user which review they are updating
+- Confirm the form is displayed correctly
+- Confirm the form also lets the user know what is the current rating given to the review
+- To update the review the user has to fill in the required fields (rating and review title)
+- Delete the review title, click submit button confirm the user is asked to fill in the rating and then the review title before the form is submitted.
+- Once all the required fields are entered and the form is submitted, the user is being redirected to the "View Reviews" page.
+- Toast notification lets the user know their review has been updated.
+- Confirm the updated date is now updated and displayed in the reveiw card.
+- Log out and modify the url to /accounts/edit_review/25, confirm the user is redirected to the login page.
+
 ##### back to [content](#table-of-content)
 
 ## Add Trip
+
+- This option is only available for the admin users.
+- Login to site with Admin Account and navigate to the Profile page, confirm the profile page displays an additinal link which lets the user to add a trip to the database.
+- Confirm the add trip form is displayed as expected.
+- Confirm custom placeholders are present guiding the user through the form submittion
+- Try to sumbit an empty form, confirm the form is not submitted and the user is being diverted to the trip name, where the placeholder tells the user what is they need to enter.
+- Try to upload text file instead of the media file confirm the validation is present and user is given feedback.
+- There are two buttons at the bottom of the page, click on the "Cancel" button, confirm the user is bein redirected to their Profile Page and the information entered is not saved.
+- Once all the required fields in the form has been submitted, click "Add Trip" button, confirm the user is being taken to the new *Trip Details Page*, where they can check the information they entered.
+- Login to Django Admin panel and confirm the new trip has been added to the database.
+- Also as an admin user, they are able to update or delete current trip by clicking on the relevant links.
+- Click on the "Delete" button, confirm the delete functionality works as expected.
+- Log out and modify the url to /trips/add_trip/, confirm the user is redirected to the login page.
+- Login as not admin user, try to navigate to the same page by amending the url, confirm the message is displayed letting the user know they do not have permission to access this page.
 
 ##### back to [content](#table-of-content)
 
 ## Update Trip
 
+- This page is only for Admin user, who can easily update trip using the website.
+- Login with Admin details, from the trips page click the Update button on any trip card, confirm the correct information is displayed for a selected trip.
+- Navigate to any trip details page and click the Update button, confirm the correct information is displayed.
+- Try to delete any input field and submit the form, the user the form field displays a placeholder which lets the user know what information is missing, the form is not submitted and no changes are made in the database.
+- Try to amend any value and submit the form, by pressing the Edit button, confirm the user is being redirected to the current trip details page as expected with feedback displayed to the user.
+- All custom placeholders and form validations are identical to add trip page.
+- Hover over the 2 buttons at the end of the form, confirm the background colour changes as expected.
+- Cancel the button, the user is being redirected back to the trips page, no changes are made in the database.
+- Repeated the following steps for tablet and mobile view. 
+- Log out and modify the url to /trips/add_trip/, confirm the user is redirected to the login page.
+- Login as not admin user, try to navigate to the same page by amending the url, confirm the message is displayed letting the user know they do not have permission to access this page.
+
 ##### back to [content](#table-of-content)
 
 ## Logout
 
+- A logged in user, may log out from their account at any time by simply clicking on their avatar at the top of the navbar
+- Select the option logout from the dropdown menu and click the button
+- Confirm the user is being redirected to the "Home Page" and toast notification displays a success message to he user.
+
 ##### back to [content](#table-of-content)
 
 ## 404.html
+
+- Starting at the desktop view, typed some random characters after the URL and custom 404 page is displayed.
+- Hover over the button which leads to the home page and the colour has changed. 
+- Clicked on the button and the link has diverted the user to the home page. 
+- Repeated the following steps for tablet and mobile view. 
+- The result was satisfactory across the different size devices and browsers.
 
 ##### back to [content](#table-of-content)
 
 ## 500.html
 
 ##### back to [content](#table-of-content)
+
+- Custom server error page has been designed to provide feedback to the user
+- The page is identical to 404.html and also provides the link for the user to return to the home page
+- To test this page I had to take the following steps
+  1. insinde urls.py from django.views.generic import TemplateView
+  2. path("500.html/", TemplateView.as_view(template_name="500.html"))
+  
+  - I have used the above code to test my custom 500.html, then removed it upon successfull testing.
 
 ![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
 
@@ -1113,4 +1169,8 @@
 
 - Edit Profile Page
   - During testing I have accross a phone number input field which was accepting charactes instead of numbers, due to the model field being saved as a `CharField`, I have  solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and dispalaying validation errors to the user.
+
+- View Reviews
+  - During testing found that the created and updated date was not displaying under the correct condition, due to modifying the date output in the template. Fix it by comparing the 2 dates explicitly 
+     - `{% if review.updated_at|date:"M d, Y" != review.created_at|date:"M d, Y" %}`
     
