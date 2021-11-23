@@ -1084,7 +1084,10 @@
 - Once all the required fields in the form has been submitted, click "Add Trip" button, confirm the user is being taken to the new *Trip Details Page*, where they can check the information they entered.
 - Login to Django Admin panel and confirm the new trip has been added to the database.
 - Also as an admin user, they are able to update or delete current trip by clicking on the relevant links.
+- Confirm the user is able to search the newly created trip.
+- Confrim the user can purchase the trip and add review.
 - Click on the "Delete" button, confirm the delete functionality works as expected.
+- Confirm all the related reviews are deleted from the database when the trip is deleted.
 - Log out and modify the url to /trips/add_trip/, confirm the user is redirected to the login page.
 - Login as not admin user, try to navigate to the same page by amending the url, confirm the message is displayed letting the user know they do not have permission to access this page.
 
@@ -1173,4 +1176,6 @@
 - View Reviews
   - During testing found that the created and updated date was not displaying under the correct condition, due to modifying the date output in the template. Fix it by comparing the 2 dates explicitly 
      - `{% if review.updated_at|date:"M d, Y" != review.created_at|date:"M d, Y" %}`
-    
+
+- Pagination
+  - During testing I have struggled to get the pagination working during search and filter query sets, I have spend some time with @John_ci and have manged to solve this issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s)
