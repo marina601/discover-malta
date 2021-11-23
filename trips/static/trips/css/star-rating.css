@@ -12,12 +12,12 @@ https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-
 }
 
 /* Order correctly by floating highest to the right */
-.rating>label {
+.rating>.star-label {
     float: right;
 }
 
 /*******Display the stars********/
-.rating>label:before {
+.rating>.star-label:before {
     display: inline-block;
     font-size: 1.2rem;
     padding: .3rem .2rem;
@@ -41,17 +41,17 @@ https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-
 /* Click + hover color */
 .fa-star,
 .fa-star-half,
-input:checked~label,
-label:hover,
-label:hover~label {
+input:checked~.star-label,
+.star-label:hover,
+.star-label:hover~label {
     color: #ffb503;
 }
 
 /* Hover and highlight */
-input:checked+label:hover,
-input:checked~label:hover,
-input:checked~label:hover~label,
-label:hover~input:checked~label {
+input:checked+.star-label:hover,
+input:checked~.star-label:hover,
+input:checked~.star-label:hover~.star-label,
+.star-label:hover~input:checked~.star-label {
     color: #cc9000;
 }
 
@@ -61,7 +61,7 @@ label:hover~input:checked~label {
 }
 
 @media (max-width: 320px) {
-    .rating>label:before {
+    .rating>.star-label:before {
         padding: .3rem .1rem;
     }
 }
