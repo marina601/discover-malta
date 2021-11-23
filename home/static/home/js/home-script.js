@@ -10,8 +10,6 @@ $(document).ready(function () {
                     el.show(2000);
                 }, index * 1500, $(this));
             });
-        } else {
-            $('.card-info').hide();
         }
     });
 });
