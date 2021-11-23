@@ -226,7 +226,7 @@
                     <ul class="pagination justify-content-center">
                         {% if trips.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ trips.previous_page_number }}" aria-label="Previous">
+                            <a class="page-link" href="?{% if keyword %}q={{keyword}}&{% endif %}page={{ trips.previous_page_number }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                             </a>
                         </li>
@@ -242,13 +242,13 @@
                         {% if trips.number == i %}
                         <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
                         {% else %}
-                        <li class="page-item"><a class="page-link" href="?page={{i}}">{{i}}</a></li>
+                        <li class="page-item"><a class="page-link" href="?{% if keyword %}q={{keyword}}&{% endif %}page={{ i }}">{{ i }}</a></li>
                         {% endif %}
                         {% endfor %}
                         <!--Dynamic next button -->
                         {% if trips.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?page={{ trips.next_page_number }}" aria-label="Next">
+                            <a class="page-link" href="?{% if keyword %}q={{keyword}}&{% endif %}page={{ trips.next_page_number }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                             </a>
                         </li>
