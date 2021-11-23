@@ -5,6 +5,8 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     """Order Form"""
 
+    phone_number = forms.IntegerField()
+
     class Meta:
         """Order Form Fields"""
         model = Order
