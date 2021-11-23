@@ -88,21 +88,22 @@ def search(request):
     """Search and sort functionality"""
     trips = None
     sort = None
-    direction = None
+    direction = ""
     result_count = 0
+    sortkey = ""
 
     if request.GET:
         # Sorting the trips by name in descending or ascending order
         if 'sort' in request.GET:
             trips = Trip.objects.all()
-            sortkey = request.GET['sort']
+            sortkey = request.GET.get('sort', '')
             sort = sortkey
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 trips = trips.annotate(lower_name=Lower('name'))
 
             if 'direction' in request.GET:
-                direction = request.GET['direction']
+                direction = request.GET.get('direction', '')
                 if direction == 'desc':
                     sortkey = f'-{sortkey}'
             trips = trips.order_by(sortkey)
@@ -117,24 +118,28 @@ def search(request):
             trips = Trip.objects.order_by('-created_date').filter(Q(
                 full_description__icontains=keyword) | Q(
                     name__icontains=keyword))
-            # pagination
-            paginator = Paginator(trips, 3)
-            page = request.GET.get('page')
-            paged_trips = paginator.get_page(page)
 
             result_count = trips.count()
         else:
             return redirect(reverse('trips'))
 
     current_sorting = f'{sort}_{direction}'
+    # pagination
+    paginator = Paginator(trips, 8)
+    page = request.GET.get('page')
+    paged_trips = paginator.get_page(page)
 
     context = {
         'trips': paged_trips,
         'result_count': result_count,
         'current_sorting': current_sorting,
         'keyword': keyword,
-    }
+        'sortkey': sortkey,
+        'direction': direction
 
+    }
+    print(sortkey)
+    print(direction)
     return render(request, 'trips/trips.html', context)
 
 
@@ -145,6 +150,28 @@ def sort_rating(request):
     result_count = 0
 
     trips = Trip.objects.order_by(F('reviewrating__rating').desc(nulls_last=True))
+    # pagination
+    paginator = Paginator(trips, 8)
+    page = request.GET.get('page')
+    paged_trips = paginator.get_page(page)
+
+    result_count = trips.count()
+
+    context = {
+        'trips': paged_trips,
+        'result_count': result_count,
+    }
+
+    return render(request, 'trips/trips.html', context)
+
+
+def sort_family_friendly(request):
+    """Sorting by Family Friendly Field"""
+
+    trips = None
+    result_count = 0
+
+    trips = Trip.objects.order_by('-family_friendly')
     # pagination
     paginator = Paginator(trips, 8)
     page = request.GET.get('page')
