@@ -110,13 +110,18 @@ def search(request):
 
     # Search function, cheking if the method is GET
     # and the keyword=name in input, store the value
-
+    keyword = ""
     if 'q' in request.GET:
-        keyword = request.GET['q']
+        keyword = request.GET.get('q', '')
         if keyword:
             trips = Trip.objects.order_by('-created_date').filter(Q(
                 full_description__icontains=keyword) | Q(
                     name__icontains=keyword))
+            # pagination
+            paginator = Paginator(trips, 3)
+            page = request.GET.get('page')
+            paged_trips = paginator.get_page(page)
+
             result_count = trips.count()
         else:
             return redirect(reverse('trips'))
@@ -124,9 +129,10 @@ def search(request):
     current_sorting = f'{sort}_{direction}'
 
     context = {
-        'trips': trips,
+        'trips': paged_trips,
         'result_count': result_count,
         'current_sorting': current_sorting,
+        'keyword': keyword,
     }
 
     return render(request, 'trips/trips.html', context)
@@ -137,7 +143,7 @@ def sort_rating(request):
 
     trips = None
     result_count = 0
-    
+
     trips = Trip.objects.order_by(F('reviewrating__rating').desc(nulls_last=True))
     # pagination
     paginator = Paginator(trips, 8)
@@ -150,7 +156,7 @@ def sort_rating(request):
         'trips': paged_trips,
         'result_count': result_count,
     }
-    # Trip.objects.annotate(average_stars = Avg('rating__stars')).order_by('-average_stars')
+
     return render(request, 'trips/trips.html', context)
 
 
@@ -204,8 +210,10 @@ def update_trip(request, trip_id):
                 form = TripForm(request.POST, request.FILES, instance=trip)
                 if form.is_valid():
                     form.save()
-                    messages.success(request, f'Succesfully updated {trip.name}!')
-                    return redirect('trip_detail', trip.category.slug, trip.slug)
+                    messages.success(request,
+                                     f'Succesfully updated {trip.name}!')
+                    return redirect('trip_detail', trip.category.slug,
+                                    trip.slug)
                 else:
                     messages.error(request,
                                    f'Failed to update {trip.name}.'
