@@ -1050,9 +1050,14 @@
 - Confirm the review are displayed only the ones the current logged in user has created
 - The user has 2 option to Delete or Edit the review
 - If the use is pressing on the "Delete" button, confirm the modal appears asking the use to confirm their decition, the same logic is present as described on the "Trip Detalis" page.
+
+![delete-review-modal](readme-files/images/delete-review-tablet.jpg)
+
 - Click on the "Edit" button, confirm it takes the user to the *edit_review.html*
 - Click on the "Back to Profile" button confirm the user is being redirected to the user Profile Page.
 - Log out and modify the url to /accounts/view_reviews/, confirm the user is redirected to the login page.
+
+![mobile-view](readme-files/images/manage-reviews-mobile.jpg)
 
 ##### back to [content](#table-of-content)
 
@@ -1069,6 +1074,8 @@
 - Toast notification lets the user know their review has been updated.
 - Confirm the updated date is now updated and displayed in the reveiw card.
 - Log out and modify the url to /accounts/edit_review/25, confirm the user is redirected to the login page.
+
+![update-review-form](readme-files/images/update-review.jpg)
 
 ##### back to [content](#table-of-content)
 
@@ -1090,6 +1097,8 @@
 - Confirm all the related reviews are deleted from the database when the trip is deleted.
 - Log out and modify the url to /trips/add_trip/, confirm the user is redirected to the login page.
 - Login as not admin user, try to navigate to the same page by amending the url, confirm the message is displayed letting the user know they do not have permission to access this page.
+
+![add-trip-form](readme-files/images/add-trip-form.jpg)
 
 ##### back to [content](#table-of-content)
 
@@ -1125,6 +1134,8 @@
 - Repeated the following steps for tablet and mobile view. 
 - The result was satisfactory across the different size devices and browsers.
 
+![mobile-viewl](readme-files/images/mobile-404.jpg)
+
 ##### back to [content](#table-of-content)
 
 ## 500.html
@@ -1141,41 +1152,87 @@
 
 ![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
 
+## Google Lighthouse Testing
+
+- To get an accurate report all the pages have been viewed using an incognito window.
+
+## All Trips
+  - Pagination next and previous buttons did not have any screen reader accessability
+  - Added `<span class="sr-only">next button</span>`
+  - Same issue was detected on the search icon
+  - The button "More Info" does not have very descriptive text, I have decided not to fix this issue at this point in time
+
+## Datepicker
+  - Datepicker input field did not have any associated label, therefore I have added the label on the "Trip Detail" and the "Bag" pages.
+
+## Modals 
+  - The trigger button for all modals was using `<a>` element which resulted in uncrolable link, updated the element to a `button`
+
+## General Images
+
+### Cross Browser Compatibility Table 
+
+| Pages    | **Google Chrome** | **Edge**  | **Safari**| **Firefox**
+|----------|:-----------------:|-----------:|---------:|-----------:|
+| Home     |&check;            | &check;   | &check;| &check;|
+| All Trips    |&check; | &check;| &check;| &check;|
+| Trip Details   |&check; | &check;| &check;| &check;| 
+| Bag    |&check; | &check;| &check;| &check;|
+| Checkout    |&check; | &check;| &check;| &check;|
+| Checkout Complete    |&check; | &check;| &check;| &check;|
+| About    |&check; | &check;| &check;| &check;|
+| Contact   |&check; | &check;| &check;| &check;|
+| Register    |&check; | &check;| &check;| &check;|
+| Login  |&check; | &check;| &check;| &check;|
+| Forgot Password  |&check; | &check;| &check;| &check;|
+| Profile  |&check; | &check;| &check;| &check;|
+| Edit Profile  |&check; | &check;| &check;| &check;|
+| Add Trip  |&check; | &check;| &check;| &check;|
+| Update Trip  |&check; | &check;| &check;| &check;|
+| 404.html |&check; | &check;| &check;| &check;|
+
+
+- Browser compatibility test has been successful and all browsers tested displayed the information correctly. Used [Lampada](https://app.lambdatest.com/console/realtime) to help with  cross-browser compatibility.
+
+##### back to [content](#table-of-content)
+
 ## Bugs
 
-- Navbar dropdown menu is not working 
+### Navbar dropdown menu is not working 
  - Added data-bs-toggle="dropdown" to the trigger button 
  - Added link to the js popper 
  - https://www.studytonight.com/bootstrap/solvedbootstrap-dropdown-not-working
  - Because bootstrap 5 stopped supporting old browsers
 
-- Average rating not sorting 
+### Average rating not sorting 
   - solved it by importing F function from Django which accepts null values
   - from [django documentations](https://docs.djangoproject.com/en/3.2/ref/models/expressions/#using-f-to-sort-null-values)
 
-- Book Now modal
+### Book Now modal
    - During testing found a console error, when the trip was sold out and the modal was replaced with "Sold Out" button.
    - Fix: by adding a condition to check if the element exists in `modal.js`
 
-- DatePicker
+### DatePicker
    - During testing noticed that the user is able to modify the date manually in the input field
    - Fixed it by adding and alert and setting the min date to the input field if modified date is in the past 
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
 
-- Bag.html
+### Bag.html
    - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 by manually.
    - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
 
-- Registraion Page
+### Registraion Page
   - During testing I have come accross a unique contrain failed during generating a usernam, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
 - Pagination not working during search and sort function
 
-- Edit Profile Page
+### Edit Profile Page
   - During testing I have accross a phone number input field which was accepting charactes instead of numbers, due to the model field being saved as a `CharField`, I have  solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and dispalaying validation errors to the user.
 
-- View Reviews
+### View Reviews
   - During testing found that the created and updated date was not displaying under the correct condition, due to modifying the date output in the template. Fix it by comparing the 2 dates explicitly 
      - `{% if review.updated_at|date:"M d, Y" != review.created_at|date:"M d, Y" %}`
 
-- Pagination
-  - During testing I have struggled to get the pagination working during search and filter query sets, I have spend some time with @John_ci and have manged to solve this issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s)
+### Pagination
+  - During testing I have struggled to get the pagination working on search and filter query sets, I have spend some time with @John_ci and have manged to solve this issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s) for both queries. 
+  - The issue I have also encountered when the sort functionality was set in decsending order for family_friendly field, to solve this issue quickly I have created a custom function with ta query set.
+  - Sorting float field values was also tricky. I have maged to find a solution by importing an "F" function from the Django which accepts null values.
