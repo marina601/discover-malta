@@ -275,7 +275,7 @@
 9.  As a returning user, I want to be able to save my information to my profile for quick and easy checkout next time.
     
     - This functionality is restricted to registered and logged in users.
-    - The user can to click on the checkbox during the checkout process to save or update their personal information
+    - The user can click on the checkbox during the checkout process to save or update their personal information
     - The user will be able to view this information in their profile
     - - The user will have their saved information pre-populated next time they use a checkout form or a contact form.
 
@@ -364,7 +364,7 @@
     - In that case, another email is generated and sent to the user email address to create a new password
     - The user can log in when two conditions are met, user email address and password
     - The site owner who will have access to the database, will be able to see the username, however, will not be able to see the user password which is stored securely.
-    - The user may choose to update their details in their profile page by clicking on the link `edit your profile`
+    - The user may choose to update their details on their profile page by clicking on the link `edit your profile`
  
 3.	As a business owner, I want the user to be able to use the site easily on any device.
 
@@ -392,13 +392,13 @@
         - Trips.html
         - Trip Details page
     
-    - Once *Update* button has been pressed the user will be redirected to the `update_trip.html` page.
+    - Once the *Update* button has been pressed the user will be redirected to the `update_trip.html` page.
     - Alert will tell the user which trip they are updating.
     - Once the trip has been amended and form requirements are satisfied, the updated information will be saved to the database.
     - The user will be redirected to the *trip details* page.
     - Alert will be displayed letting the user know the information has been saved.
 
-    - Once *Delete* button has been pressed, an alert in the form of a modal will appear asking the user to confirm their decision.
+    - Once the *Delete* button has been pressed, an alert in the form of a modal will appear asking the user to confirm their decision.
     - If this is an intentional action, the trip will be deleted from the database.
  
 8.  As a business owner, I want to provide the user with search and filter functionality for products to enable easy access to the database.
@@ -496,12 +496,12 @@
 2. Welcome Message 
    - View the welcome message on all devices, confirm the message appears in the centre of the page.
 
-2. Benefits
+3. Benefits
    - Scroll up and confirm no benefits are displayed on the page
    - Confirm each element is displayed to the user within 2 seconds interval
    - Confirm responsive layout of the elements across all screen sizes
    - Confirm each element contains `box-shadow: -3px 8px 27px -2px rgb(180 179 179 / 51%);` which makes them stand out.
-   - Inspect the page in the Google Dev Tools and confirm each icon contains the `aria-hidden="True"` attribute. This will make the icon hidden from the screen reader, giving the user a better accessibility to the page.
+   - Inspect the page in the Google Dev Tools and confirm each icon contains the `aria-hidden="True"` attribute. This will make the icon hidden from the screen reader, giving the user better accessibility to the page.
 
 
 ![benefits](readme-files/images/benefits.png)
@@ -515,7 +515,7 @@
    - Hover over each card and confirm the `box-shadow` property is changing
    - Hover over each title of the category and confirm background colour is changing as expected
    - Click on each category title and confirm it takes you to the page which displays trips only under a specific category. The trip count displays the correct number of results returned.
-   - Click on the 'last minute deals' category and confirm the no trips are displayed, the trip count is showing 0 and a message displayed to the user. 
+   - Click on the 'last minute deals' category and confirm the no trips are displayed, the trip count is showing 0 and a message is displayed to the user. 
 
 5. Call to Action 
   - View all trips call to action button appears at the bottom of the page.
@@ -592,8 +592,8 @@
               -      if reviews['average'] is not None:
               -          avg = float(reviews['average'])
               -     return avg`
-    - If there is no star rating for this trip, the star icon is set to default black colour and message displays there is "no rating yet"
-    - If the trip is family friendly a child icon is displayed, if the trip is not set to be family friendly no icon is displayed.
+    - If there is no star rating for this trip, the star icon is set to default black colour and the message displays there is "no rating yet"
+    - If the trip is family-friendly a child icon is displayed, if the trip is not set to be family-friendly no icon is displayed.
     - Call to action button "More Info", on hover changes colour and when clicked directs the user to trip details page.
     - Open dev tools in Google Chrome and inspect each card image, confirm each image contains an `alt` attribute
 
@@ -605,7 +605,7 @@
            -Delete
   - Click on the update button, confirm it redirects the user to the "Update Trip Page" for the current trip.
   - Try to access the update_trip URL as a non logged in user, confirm it redirects the user to the login page.
-  - Try to access update_trip URL as a logged-in user, confirm the message is displayed telling the user they do not have access to this page and the link is in the form of a button is displayed "Go back to all Trips"
+  - Try to access the update_trip URL as a logged-in user, confirm the message is displayed telling the user they do not have access to this page and the link is in the form of a button is displayed "Go back to all Trips"
   - Click on the delete button, confirm a modal is displayed asking the user to confirm their decision.
   - Click the delete button in the modal, confirm the toast message appears telling the user which trip has been deleted and redirects the user back to *trips.html*
   - Try to access the delete_trip URL as a non logged in user, confirm it redirects the user to the login page.
@@ -618,8 +618,8 @@
   - Go to the bottom of the page and check the pagination is working as expected
   - 8 Trips per page will display on the first page
   - Then the number of pages will be dynamically generated based on `trip_count` results
-  - If on page 1, the previous button will be disabled 
-  - If on the last page, the next button will be disabled.
+  - If on page 1, the Previous button will be disabled 
+  - If on the last page, the Next button will be disabled.
   - Current page number is displayed to the user and the page number's background colour is changed when active.
 
 ##### back to [content](#table-of-content)
@@ -681,7 +681,7 @@
    - Check that the cancellation policy contains a link to the "Contact Page"
    - Click on the link, confirm it takes the user to the *contact.html*
 
-4. Review Rating
+5. Review Rating
    - A user may only add the review based on 2 conditions, if the user is logged in and if they purchased a trip
    - A not-logged in user navigating to the bottom of the page, will see a message displayed "Have you been on this trip? Please rate your experience" and a button that navigates the user to the login page.
    - Click on the button, confirm the user is being redirected to the login page
@@ -702,7 +702,7 @@
    - If the user did not purchase the trip, however, fill out the review form anyway and submit the review.
    - Error toast message will appear letting the user know they must purchase the trip first.
 
-5. Customer Reviews
+6. Customer Reviews
     - If the trip has a review "Customer Reviews" can be seen at the bottom of the page
     - The total number of reviews also tells the user how many reviews are there for this trip
     - Each review is presented in the form of a card, laid out 3 in a row on the large screen, 2 in a row on the medium screen and 1 in the single row on the small screen.
@@ -714,8 +714,8 @@
   
   ![annonymouse-user](readme-files/images/review-not-logged-in-user.jpg) | ![logged-in-user](readme-files/images/review-form.jpg)
 
-6. Call to Action 
-    - Click on the "Back to All Trips" button confirm it takes the user to *trips.html*.
+7. Call to Action 
+    - Click on the "Back to All Trips" button, confirm it takes the user to *trips.html*.
 
 ##### back to [content](#table-of-content)
 
@@ -749,7 +749,7 @@
     - +/- buttons let the user amend the quantity selected
     - Update the quantity to more than 8 tickets, confirm alert appears letting the user know "They cannot add more than 8 tickets for this trip"
     - The plus button fades out for 5 seconds
-    - The value of the input is displying the maximum number of tickets 8
+    - The value of the input is displaying the maximum number of tickets 8
     - If the minus button sets the value to less than 0
     - Alert displays a message "You need select at least 1 adult ticket selected for this trip"
     - If the value of the input is set to 0 and the Update button is pressed, the trip gets removed from the bag, even if there are children tickets present
@@ -824,7 +824,7 @@
     - 2 buttons are displayed at the bottom of the page:
         - "Adjust Your Order" - click on the button and confirm it takes the user to the *bag.html*
         - "Complete Order" - once clicked all the information will be sent to stripe, which will listen out for a webhook, the order will be created in the database and an email confirmation will be sent to the user.
-        - While the site is waiting for the response from Stripe, the user will see a loading spinner which tells the user the information is being processed.
+        - While the site is waiting for the response from Stripe, the user will see a loading spinner that tells the user the information is being processed.
         - Login to the admin panel, confirm the order has been created, original bag info is present, stripe PID is saved.
 
         ![admin-panel](readme-files/images/admin-panel.png)
@@ -843,13 +843,13 @@
 
 ## Checkout Complete
 
-- Once the checkout process in completed, confirm the user is being redirected to  the "Checkout Complete Page"
+- Once the checkout process is completed, confirm the user is being redirected to  the "Checkout Complete Page"
 - Toast notification lets the user know the confirmation email has been sent to the email address provided.
 
 ![mobile-view](readme-files/images/mobile-checkout-complete.png) | ![tablet-view](readme-files/images/ipad-checkout-complete.png)
 
 - The page displays order summary and user personal information 
-- User recieves an email with all the information needed including ticket number for the trip.
+- User receives an email with all the information needed including the ticket number for the trip.
 
 ![email](readme-files/images/email.png)
 
@@ -859,9 +859,9 @@
 
 ## About Page
 
-- Open devtools and hover each image confirm the `alt` attribute is present
+- Open dev tools and hover each image to confirm the `alt` attribute is present
 - Hover over the buttons at the bottom of the page, confirm the background colour changes as expected
-- Click on the "Go Back" button confirm it takes the user to the "Home Page"
+- Click on the "Go Back" button, confirm it takes the user to the "Home Page"
 - Click on the "Get in Touch" button, confirm it takes the user to the "Contact Page"
 - Check the responsive layout of the page on the tablet and mobile view.
 
@@ -870,62 +870,62 @@
 ## Contact Page
 
  - Go to the "Contact Page", the user will be presented with a contact form
- - If the user is logged-in, user's full name and email address will be pre-filled.
- - Try to submit an empty form, confirm the form is asking for full name
- - Fill in the name and press submit button, confirm the form is asking for email address
+ - If the user is logged-in, the user's full name and email address will be pre-filled.
+ - Try to submit an empty form, confirm the form is asking for the full name
+ - Fill in the name and press submit button, confirm the form is asking for an email address
  - Enter an invalid email address and press submit button, confirm the form is asking for a valid email address
  - Enter full name and a valid email address, press submit button, confirm a validation message asking the user to select a subject.
- - User may choose to select a subject from the drop-down menu or write their own.
+ - Users may choose to select a subject from the drop-down menu or write their own.
  - Select the subject, full name and email, click on submit button, confirm a custom validation message is displayed asking the user to enter at least 10 characters"
  - Once all the input fields have been correctly completed, click on the "Submit" button.
- - Confirm the user is being re-directed to the "Hope Page" and toast notification tells the user somebody will be in touch soon.
+ - Confirm the user is being re-directed to the "Hope Page" and the toast notification tells the user somebody will be in touch soon.
  - At this instance, 2 emails are generated at the backend. 
- - One email is sent to the user telling them their message has been recieved.
- - The othe email is sent to the admin user giving them all the information filled out in the "Contact Form"
+ - One email is sent to the user telling them their message has been received.
+ - The other email is sent to the admin user giving them all the information filled out in the "Contact Form"
  - Click on the "Go Back" button, confirm the user is being re-directed to the "Home Page".
 
 ##### back to [content](#table-of-content)
 
 ## Registration
 
-  - Go to create registration page, confirm the form is displayed correctly.
+  - Go to the Registration page, confirm the form is displayed correctly.
   - Placeholders are present for each input field and  * indicates all the required fields
   - Try to press register, without filling in the form. Confirm custom message appears to inform the user what field they should enter.
-  - Try to enter a firstname, but nothing else, confirm the custom message appears to tell the user which field needs to be entered next.
-  - Try enter an invalid email address, confirm the custom message tells the user what is missing.
+  - Try to enter the first name, but nothing else, confirm the custom message appears to tell the user which field needs to be entered next.
+  - Try to enter an invalid email address, confirm the custom message tells the user what is missing.
   - Try to enter the email address which already exists and all other required information, confirm a message tells the user the account with this email address already exists. 
   - Confirm phone_number input accepts only numbers
-  - Try to create a new account with all require informanion, but two passwords that do not match, confirm that the flash message appears informing the user that the passwords entered do not match.
+  - Try to create a new account with all required information, but two passwords that do not match, confirm that the flash message appears informing the user that the passwords entered do not match.
 
   ![password-validation](readme-files/images/password-validation.png)
 
-  - Try to enter a matching password which is less then 8 characters long, confirm a cutom validation message tells the user the parametars of the password lenght.
+   - Try to enter a matching password that is less than 8 characters long, confirm a custom validation message tells the user the parameters of the password length.
   - Create a new account with a new username and 2 passwords that match, confirm the user is beign redirected to `/accounts/login/?command=verification&email=' + email`.
-  - Cutom message appears on the page telling the user that varification email has been sent. The use also has an option to login if they already verifyed their registration
+   - Custom message appears on the page telling the user that a verification email has been sent. The user also has an option to log in if they already verified their registration.
 
   ![activation](readme-files/images/activation.png)
 
   - At this instance a custom url is generated  using `urlsafe_base64_encode(force_bytes(user.pk))` and `default_token_generator.make_token(user)` which is inserted inside the `account_activation.html` template, which is sent out to the user.
-  - Confirm the email has been recieved with an activation click.
-  - Login to Admin panel, confirm the user has been created but in not activated yet.
-  - Click on the activation link, confirm the user has been redirected to the Login Page and toast notification appers, telling the user their accunt has been activated.
+  - Confirm the email has been received with an activation click.
+  - Login to Admin panel, confirm the user has been created but is not activated yet.
+  - Click on the activation link, confirm the user has been redirected to the Login Page and a toast notification appears, telling the user their account has been activated.
   - Login to Admin Panel to confirm.
   - Click on the UserProfile inside the Admin Panel and confirm the User Profile has been automatically generated upon registration.
-  - Go back to the login page and confirm the user is able to login with new login details.
-  - Confirm toast notifaction tells the user they are now logged in and redirects the user to the Home Page
+   - Go back to the login page and confirm the user can log in with new login details.
+  - Confirm toast  notification tells the user they are now logged in and redirects the user to the Home Page
   - Confirm the user icon changes to the default user avatar in the navigation.
-  - Click on the user avator, confirm dropdown menu displays links only to profile and logout.
+  - Click on the user avatar, confirm dropdown menu displays links only to profile and logout.
   - Click on the Profile Page and confirm the Profile Page is personalized to the newly created user.
 
   ![profile-page](readme-files/images/tablet-profile-new-user.png)
 
   - On the registration page,  click the login button, confirm that it takes the user to the login page.
   - Above steps have been repeated on mobile and tablet devices. No changes to this page layout across the different screen sizes.
-  - When the account is being created I am also creating a username by: `username = email.split("@")[0] + last_name`, event though at this moment in time I am not using username variable for anything, Django expects it in their default User Model.
+  - When the account is being created I am also creating a username by: `username = email.split("@")[0] + last_name`, even though at this moment in time I am not using username variable for anything, Django expects it in their default User Model.
   - As a logged-in user, try to access the Login Page by modifying the URL, confirm the user has been redirected to their profile page and toast notification informs the user they are already registered.
- - After your account has been activated, try to click on the link again, confirm the user is being redirected to the profile page, error message telling them the activation link is invalid and alert message telling the user they have alredy registered.
+ - After your account has been activated, try to click on the link again, confirm the user is being redirected to the profile page, error message telling them the activation link is invalid and alert message telling the user they have already registered.
 
- - I have modifyed the base Django User Model to allow the user to login with their email address, as usernames get forgotten very often and not being able to login to the site because the user forgot their username is a poor user experience.
+ - I have modified the base Django User Model to allow the user to log in with their email address, as usernames get forgotten very often and not being able to login to the site because the user forgot their username is a poor user experience.
 
 ##### back to [content](#table-of-content)
 
@@ -934,7 +934,7 @@
 - Go to the login page, confirm that the login form is displayed correctly.
 - Try to submit the form without entering any details, confirm custom feedback is displayed, which tells the user to fill in the field with their email address.
 - Enter the email address, but not the password, confirm custom feedback is displayed, telling the user to enter a valid password.
-- Try to login with a username or password which does not exists in the database, confirm the toatst notifiaction is displayed letting the user know that some of the details entered are incorrect.
+- Try to login with a username or password which does not exist in the database, confirm the toast notification is displayed letting the user know that some of the details entered are incorrect.
 - Confirm that the logged-in user is redirected to their profile page.
 - Log out, then try to log in the using correct username and password, confirm that this is successful.
 - Confirm *Click here to reset your password* link takes the user to the "Forgot password Page".
@@ -952,43 +952,43 @@
 
 ![forgot-password](readme-files/images/forgot-password-mobile.png)
 
-- Try to submit an empty form, confirm the message is displayed asking the user to fill in the required field
-- Try to submit the form with the email address which does not exists, confirm error message appears informing the user the email address entered does not exist
+- Try to submit an empty form, confirm the message is displayed asking the user to fill in the required field.
+- Try to submit the form with the email address which does not exist, confirm error message appears informing the user the email address entered does not exist.
 
 ![wrong-email](readme-files/images/wrong-email.png)
 
-- Submit a form with a valid email address, confirm the user is being redirected to the "Login Page" and toast notification informs the user the email with password reset link has been sent.
-- At this instance an email is sent to the user with a link, that is generated in the same way as activation link to register a new account.
-- Click on the link sent, confirm the user is being redirected to the "Reset Password Page" and toast notification tells the user they can now reset their password.
+- Submit a form with a valid email address, confirm the user is being redirected to the "Login Page" and toast notification informs the user the email with a password reset link has been sent.
+- At this instance, an email is sent to the user with a link, that is generated in the same way as an activation link to register a new account.
+- Click on the link sent, confirm the user is being redirected to the "Reset Password Page" and the toast notification tells the user they can now reset their password.
 
 ![account-verified](readme-files/images/account-verified.png)
 
 - Click on the register button, confirm it takes the user to the "Registration Page".
 
-- Activate account and reset password verification works in the same way, firt I use `try` and `except` block to determent that the user and toked generated match:
+- Activate account and reset password verification works in the same way, first I use `try` and `except` block to determent that the user and toked generated match:
    - `uid = urlsafe_base64_decode(uidb64).decode()`
    - `user = Account._default_manager.get(pk=uid)`
-- In case `except` case is executed, than the error message will appear to the user.
+- In case `except` case is executed, then the error message will appear to the user.
 
 ##### back to [content](#table-of-content)
 
 ## Reset Password
 
-- Upon a successful verification of the `uid` and `user`, the user is being redirected to the "Reset Password Page"
-- Try to submit a form without entering any values, confirm a cutom validation message is displayed
-- Complete the firs input field, but not the second, confirm validation message is displayed
-- Enter a password which is less than 8 characters long, confirm validation message is dispalyed
-- Enter 2 password which are more than 8 characters long, but different, confirm validation message is dispalyed
-- Confirm, the user is being redirected to the login page and toast notification display a success message.
+- Upon successful verification of the `uid` and `user`, the user is being redirected to the "Reset Password Page"
+- Try to submit a form without entering any values, confirm a custom validation message is displayed
+- Complete the first input field, but not the second, confirm validation message is displayed
+- Enter a password that is less than 8 characters long, confirm validation message is displayed.
+- Enter 2 passwords that are more than 8 characters long, but different, confirm validation message is displayed.
+- Confirm, the user is being redirected to the login page and the toast notification display a success message.
 - Login using your email address and the old password, confirm the login attempt has failed.
-- Login with reset password and confirm the login attemp has been successful.
+- Login with reset password and confirm the login attempt has been successful.
 
 ##### back to [content](#table-of-content)
 
 ## Profile
 
-- Login in to the site and navigato to the user Profile Page.
-- Confirm a welcome massage is displays user first name for athentication
+- Login into the site and navigate to the User Profile Page.
+- Confirm a welcome message is displayed including the user's first name for authentication.
 - User default avatar or custom avatar image is displayed in the middle of the page
 - Confirm the user is presented with 4 options in the form of the button:
         - View Order History
@@ -996,8 +996,10 @@
         - View Favourites
         - Manage Reviews
 
-- If the user is superadmin an additional link -Add Trip is displayed, confirm this is not displayed for regular user.
-- View Order History is an ancor link whic brings the user to the bottom of the page, where the order history is located in acsending order.
+- If the user is `superadmin` an additional link -Add Trip is displayed, confirm this is not displayed for a regular user.
+- View Order History is an anchor link that brings the user to the bottom of the page, where the order history is located in ascending order.
+- Hover over the order number, confirm the background changes, as expected.
+- Click on the order number, confirm the toast notification tells the user they are viewing past order and the date when the confirmation email has been sent.
 - If the user does not have a order history yet, the massage will let the user know they have not placed any orders yet.
 - Hover over each link and confirm the background colour changes as expected.
 - Click on each link and confirm they all lead to the relevant page.
@@ -1010,16 +1012,18 @@
 ## Edit Profile
 
 - From the Profile Page click on "Edit Your Profile", confirm the page takes the user to the form which is pre-filled with user information.
-- Edit Profile form consists of 2 forms, one is user form which takes all the information upon the registration and the other one is the profile form.
-- Delete all the information from the form and click "Update My Profile" button, confirm toast error notifications is displayed to the user and not information is updated.
+- Edit Profile form consists of 2 forms, one is the `user_form` which takes all the information upon the registration and the other one is the `profile_form`.
+- Delete all the information from the form and click the "Update My Profile" button, confirm toast error notification is displayed to the user and no information is updated.
 - Confirm the placeholders display the information required for the form to be submitted
 - Try to type incorrect email address, confirm validation message is displayed telling the user what is missing
-- Try to type letters into phone_number field and submit the form, confirm the form validation message tells the user to enter a valid phone number
+- Try to type letters into the phone_number field and submit the form, confirm the form validation message tells the user to enter a valid phone number
 ![phone-number-validation](readme-files/images/phone-number-error.jpg)
-- Try to update the profile picture, upload a non image file, confirm the form validation has failed, the toast notification and form valiation error is displayed to the user.
+- Try to update the profile picture, upload a non-image file, confirm the form validation has failed, the toast notification and form validation error is displayed to the user.
 ![media-validation](readme-files/images/media-file-error.jpg)
 - Upload a media file and all the required information, click on submit button, confirm the toast notification is displaying a success message. The user is being redirected to the same page, where their updated information is displayed.
 - User avatar has been updated on the page and in the navbar.
+- If the email address is changed during this process, log out, then try to login with an old email address, confirm the authentication fails.
+- Try to login with an updated email address, confirm the authentication is successful and toast notification informs the user they are logged in.  
 - Click on the "Go back to Profile" and confirm the links takes the user to the profile page.
 - Log out and modify the url to /accounts/edit_profile, confirm the user is redirected to the login page.
 
@@ -1029,8 +1033,8 @@
 
 ## Favourites
 
-- From the user Profile Page, click on the button "View Favourties", the user also may access this page by clickin on the heart icon in the navigation bar. Confirm both links redirect the user to the same page.
-- Confirm the total number of favourites is equavalant to the number of favourite trips displayed on the page.
+- From the user Profile Page, click on the button "View Favourites", the user also may access this page by clicking on the heart icon in the navigation bar. Confirm both links redirect the user to the same page.
+- Confirm the total number of favourites is equivalent to the number of favourite trips displayed on the page.
 - The layout of the trips on the page is identical to *trips.html*
 - Confirm the favourites functionality works in the same way as described in the All Trips
 - Confirm the trip-card is functioning in the same way as described in the All Trips.
@@ -1046,15 +1050,15 @@
 
 - From the Profile Page, click the "Manage Reviews" link, confirm it takes the user to *view_reviews.html*.
 - If the user does not have any reviews, a custom message is displayed on the page and the button "Go back to Profile".
-- If the user has reviews, the reviews are displayed in the form of cards and contain the same layot as the described on the trip detail page, with exception for trip name added to each review, to make it easier to identify
+- If the user has reviews, the reviews are displayed in the form of cards and contain the same layout as the described on the trip detail page, with an exception for trip name added to each review, to make it easier to identify.
 - Confirm the review are displayed only the ones the current logged in user has created
-- The user has 2 option to Delete or Edit the review
-- If the use is pressing on the "Delete" button, confirm the modal appears asking the use to confirm their decition, the same logic is present as described on the "Trip Detalis" page.
+- The user has 2 options to Delete or Edit the review
+- If the user is pressing on the "Delete" button, confirm the modal appears asking the user to confirm their decision, the same logic is present as described on the "Trip Details" page.
 
 ![delete-review-modal](readme-files/images/delete-review-tablet.jpg)
 
 - Click on the "Edit" button, confirm it takes the user to the *edit_review.html*
-- Click on the "Back to Profile" button confirm the user is being redirected to the user Profile Page.
+- Click on the "Back to Profile" button to confirm the user is being redirected to the "User Profile Page".
 - Log out and modify the url to /accounts/view_reviews/, confirm the user is redirected to the login page.
 
 ![mobile-view](readme-files/images/manage-reviews-mobile.jpg)
@@ -1065,14 +1069,14 @@
 
 - Click on the "Edit" button from the "View Reviews" page or the "Trip Details" page
 - Confirm user review is displayed correctly
-- Toast notification tells teh user which review they are updating
+- Toast notification tells the user which review they are updating
 - Confirm the form is displayed correctly
 - Confirm the form also lets the user know what is the current rating given to the review
 - To update the review the user has to fill in the required fields (rating and review title)
-- Delete the review title, click submit button confirm the user is asked to fill in the rating and then the review title before the form is submitted.
+- Delete the review title, click submit button, confirm the user is asked to fill in the rating and then the review title before the form is submitted.
 - Once all the required fields are entered and the form is submitted, the user is being redirected to the "View Reviews" page.
 - Toast notification lets the user know their review has been updated.
-- Confirm the updated date is now updated and displayed in the reveiw card.
+- Confirm the updated date is now updated and displayed on the review card.
 - Log out and modify the url to /accounts/edit_review/25, confirm the user is redirected to the login page.
 
 ![update-review-form](readme-files/images/update-review.jpg)
@@ -1081,18 +1085,18 @@
 
 ## Add Trip
 
-- This option is only available for the admin users.
-- Login to site with Admin Account and navigate to the Profile page, confirm the profile page displays an additinal link which lets the user to add a trip to the database.
+- This option is only available for admin users.
+- Login to site with Admin Account and navigate to the Profile page, confirm the profile page displays an additional link which lets the user add a trip to the database.
 - Confirm the add trip form is displayed as expected.
-- Confirm custom placeholders are present guiding the user through the form submittion
-- Try to sumbit an empty form, confirm the form is not submitted and the user is being diverted to the trip name, where the placeholder tells the user what is they need to enter.
-- Try to upload text file instead of the media file confirm the validation is present and user is given feedback.
-- There are two buttons at the bottom of the page, click on the "Cancel" button, confirm the user is bein redirected to their Profile Page and the information entered is not saved.
-- Once all the required fields in the form has been submitted, click "Add Trip" button, confirm the user is being taken to the new *Trip Details Page*, where they can check the information they entered.
-- Login to Django Admin panel and confirm the new trip has been added to the database.
-- Also as an admin user, they are able to update or delete current trip by clicking on the relevant links.
-- Confirm the user is able to search the newly created trip.
-- Confrim the user can purchase the trip and add review.
+- Confirm custom placeholders are present, guiding the user through the form submission.
+- Try to submit an empty form, confirm the form is not submitted and the user is being diverted to the trip name, where the placeholder tells the user what is they need to enter.
+- Try to upload a text file instead of the media file to confirm the validation is present and the user is given feedback.
+- There are two buttons at the bottom of the page, click on the "Cancel" button, confirm the user is being redirected to their Profile Page and the information entered is not saved.
+- Once all the required fields in the form has been submitted, click the "Add Trip" button, confirm the user is being taken to the new *Trip Details Page*, where they can check the information they entered.
+- Login to the Django Admin panel and confirm the new trip has been added to the database.
+- Also the admin user can update or delete the current trip by clicking on the relevant links.
+- Confirm the user can search the newly created trip.
+- Confirm the user can purchase the trip and add a review.
 - Click on the "Delete" button, confirm the delete functionality works as expected.
 - Confirm all the related reviews are deleted from the database when the trip is deleted.
 - Log out and modify the url to /trips/add_trip/, confirm the user is redirected to the login page.
@@ -1120,9 +1124,9 @@
 
 ## Logout
 
-- A logged in user, may log out from their account at any time by simply clicking on their avatar at the top of the navbar
+- A logged-in user, may log out from their account at any time by simply clicking on their avatar at the top of the navbar
 - Select the option logout from the dropdown menu and click the button
-- Confirm the user is being redirected to the "Home Page" and toast notification displays a success message to he user.
+- Confirm the user is being redirected to the "Home Page" and the toast notification displays a success message to the user.
 
 ##### back to [content](#table-of-content)
 
@@ -1145,10 +1149,10 @@
 - Custom server error page has been designed to provide feedback to the user
 - The page is identical to 404.html and also provides the link for the user to return to the home page
 - To test this page I had to take the following steps
-  1. insinde urls.py from django.views.generic import TemplateView
-  2. path("500.html/", TemplateView.as_view(template_name="500.html"))
+  1. inside `urls.py`  import - `from django.views.generic import TemplateView`
+  2. Add path - `path("500.html/", TemplateView.as_view(template_name="500.html"))`
   
-  - I have used the above code to test my custom 500.html, then removed it upon successfull testing.
+  - I have used the above code to test my custom 500.html, then removed it upon successful testing.
 
 ![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
 
@@ -1157,20 +1161,21 @@
 - To get an accurate report all the pages have been viewed using an incognito window.
 
 ## All Trips
-  - Pagination next and previous buttons did not have any screen reader accessability
+  - Pagination next and previous buttons did not have any screen reader accessibility
   - Added `<span class="sr-only">next button</span>`
-  - Same issue was detected on the search icon
-  - The button "More Info" does not have very descriptive text, I have decided not to fix this issue at this point in time
+  - The same issue was detected on the search icon
+  - The button "More Info" does not have very descriptive text, I have decided not to fix this issue at this point
 
 ## Datepicker
   - Datepicker input field did not have any associated label, therefore I have added the label on the "Trip Detail" and the "Bag" pages.
 
 ## Modals 
-  - The trigger button for all modals was using `<a>` element which resulted in uncrolable link, updated the element to a `button`
+  - The trigger button for all modals was using `<a>` element which resulted in the uncrawlable link, updated the element to a `button`
 
 ## General Images
+  - Have compressed all the images to reduce speeding loading time using [TinyPing](https://tinypng.com/)
 
-### Cross Browser Compatibility Table 
+### Cross-Browser Compatibility Table 
 
 | Pages    | **Google Chrome** | **Edge**  | **Safari**| **Firefox**
 |----------|:-----------------:|-----------:|---------:|-----------:|
@@ -1209,30 +1214,30 @@
   - from [django documentations](https://docs.djangoproject.com/en/3.2/ref/models/expressions/#using-f-to-sort-null-values)
 
 ### Book Now modal
-   - During testing found a console error, when the trip was sold out and the modal was replaced with "Sold Out" button.
+   - During testing found a console error when the trip was sold out and the modal was replaced with the "Sold Out" button.
    - Fix: by adding a condition to check if the element exists in `modal.js`
 
 ### DatePicker
    - During testing noticed that the user is able to modify the date manually in the input field
-   - Fixed it by adding and alert and setting the min date to the input field if modified date is in the past 
+   - Fixed it by adding an alert and setting the min date to the input field if modified date is in the past.
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
 
 ### Bag.html
-   - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 by manually.
+   - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 manually.
    - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
 
 ### Registraion Page
-  - During testing I have come accross a unique contrain failed during generating a usernam, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
-- Pagination not working during search and sort function
+  - During testing I have come across a unique constraint that failed during generating a username, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
+  - Pagination not working during search and sort function
 
 ### Edit Profile Page
-  - During testing I have accross a phone number input field which was accepting charactes instead of numbers, due to the model field being saved as a `CharField`, I have  solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and dispalaying validation errors to the user.
+  - During testing I have across a phone number input field that was accepting characters instead of numbers, due to the model field being saved as a `CharField`, I have solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and displaying validation errors to the user.
 
 ### View Reviews
   - During testing found that the created and updated date was not displaying under the correct condition, due to modifying the date output in the template. Fix it by comparing the 2 dates explicitly 
      - `{% if review.updated_at|date:"M d, Y" != review.created_at|date:"M d, Y" %}`
 
 ### Pagination
-  - During testing I have struggled to get the pagination working on search and filter query sets, I have spend some time with @John_ci and have manged to solve this issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s) for both queries. 
-  - The issue I have also encountered when the sort functionality was set in decsending order for family_friendly field, to solve this issue quickly I have created a custom function with ta query set.
-  - Sorting float field values was also tricky. I have maged to find a solution by importing an "F" function from the Django which accepts null values.
+  - During testing, I have struggled to get the pagination working on search and filter query sets. I have spent some time with @John_ci and have managed to solve these issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s) for both queries. 
+  - The issue I have also encountered was when the sort functionality was set in descending order for the family_friendly field. To solve this issue quickly, I have created a custom function with the query set.
+  - Sorting float field values was also tricky. I have managed to find a solution by importing an "F" function from Django, which accepts null values.
