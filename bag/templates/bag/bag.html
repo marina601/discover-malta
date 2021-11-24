@@ -155,6 +155,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <h4>Booking Date: <i class="far fa-calendar-alt" aria-hidden="true"></i>
+                                        <label for="datepicker-{{ item.trip.id }}"></label>
                                         <input type="text" class="calendar form-control datepicker" name="booking_date"
                                             value="{{ item.booking_date }}" id="datepicker-{{ item.trip.id }}">
                                     </h4>
