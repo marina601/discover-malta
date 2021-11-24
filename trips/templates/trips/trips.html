@@ -28,6 +28,7 @@
                             <button class="form-control search-btn" type="submit">
                                 <span class="icon">
                                     <i class="fas fa-search" aria-hidden="true"></i>
+                                    <span class="sr-only">search</span>
                                 </span>
                             </button>
                         </div>
@@ -228,12 +229,14 @@
                         <li class="page-item">
                             <a class="page-link" href="?{% if keyword %}q={{keyword}}&{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.previous_page_number }}" aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous page</span>
                             </a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
                             <a class="page-link" tabindex="-1" role="button" aria-disabled="true">
                                 <span aria-hidden="true">&laquo;</span>
+                                <span class="sr-only">Previous page</span>
                             </a>
                         </li>
                         {% endif %}
@@ -250,12 +253,14 @@
                         <li class="page-item">
                             <a class="page-link" href="?{% if keyword %}q={{keyword}}{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.next_page_number }}" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next page</span>
                             </a>
                         </li>
                         {% else %}
                         <li class="page-item disabled">
                             <a class="page-link" href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next page</span>
                             </a>
                         </li>
                         {% endif %}
