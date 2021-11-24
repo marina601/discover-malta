@@ -43,6 +43,8 @@ class TripForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             # Add classes to the form fields
             self.fields[field].widget.attrs['class'] = 'form-control'
+            self.fields['adult_price'].widget.attrs['min'] = 0.0
+            self.fields['child_price'].widget.attrs['min'] = 0.0
 
 
 class ReviewForm(forms.ModelForm):
