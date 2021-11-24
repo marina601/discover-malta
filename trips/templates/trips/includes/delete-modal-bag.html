@@ -1,8 +1,8 @@
-<a class="d-inline btn remove-item m-1"  data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.trip.id }}">
+<button class="d-inline btn remove-item m-1"  data-bs-toggle="modal" data-bs-target="#exampleModal-{{ item.trip.id }}">
     Delete
     <i class="fas fa-trash" aria-hidden="true"></i>
     <span class="sr-only">delete</span>
-</a>    
+</button>    
 <!-- Modal -->
 <div class="modal fade" id="exampleModal-{{ item.trip.id }}" tabindex="-1"
     aria-labelledby="exampleModalLabel-{{ item.trip.id }}" aria-hidden="true">
