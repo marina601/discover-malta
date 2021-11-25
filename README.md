@@ -19,13 +19,14 @@ The main objective of this site is to support local tour operators by reducing t
 
 2 [**UX**](#ux)
    - [**User Goals**](#user-goals)
-   - [**Scope**](#scope)
+   - [**Client Goals**](#client-goals)
+   - [**Business Goals**](#business-goals)
 
-3 [**Structure of the app**](#structure-of-the-app)
-   - [**View for a guest user**](#view-for-a-guest-user)
-   - [**View for logged in user**](#view-for-logged-in-user) 
-   - [**View for admin**](#view-for-admin)
-   - [**User Stories**](#user-stories)
+3 [**User Stories**](#user-stories)
+   - [**First Time User**](#first-time-user)
+   - [**Returning User**](#returning-user)
+   - [**Frequent User**](#frequent-user)
+   - [**Potential Client**](#potential-client)
    - [**Business goals**](#business-goals)
 
 4 [**User Requirements and Expectations**](#user-requirements-and-expectations)
@@ -39,10 +40,11 @@ The main objective of this site is to support local tour operators by reducing t
    - [**Icons**](#icons)
    - [**Style**](#style)
 
-6 [**Wireframes Flowchart and Data Model**](#wireframes-flowchart-and-data-model)
+6 [**Wireframes and Data Modal**](#wireframes-and-data-modal)
    - [**Wireframes**](#wireframes)
-   - [**Database model**](#database-model)
-   - [**Flow Chart**](#flow-chart)
+   - [**Database modal**](#database-modal)
+      - [**Database Choices**](#database-choices)
+      - [**Data Modals**](#data-modals)
 
 7 [**Features**](#features)
    - [**All Pages**](#all-pages)
@@ -81,6 +83,8 @@ The main objective of this site is to support local tour operators by reducing t
 
 10 [**Deployment**](#deployment)
    - [**Deployment Steps**](#deployment-steps)
+   - [**AWS**](#aws)
+   - [**Heroku and AWS**](#heroku-and-aws)
    - [**Clone this project**](#clone-this-project)
    - [**Fork this project**](#fork-this-project)
    
@@ -131,6 +135,9 @@ The main objective of this site is to support local tour operators by reducing t
 -   Login procedure is designed with user goals in mind, allowing the user to log in with their email address, reset password and update their profile.
 
 
+##### back to [content](#table-of-content)
+
+
 ### Client Goals
 A potential client which chooses to collaborate with Discover Malta might want to 
 -	Advertise their trips on the web
@@ -145,6 +152,9 @@ A potential client which chooses to collaborate with Discover Malta might want t
 -	The client may also increase or decrease their trip availability at any time. 
 
 
+##### back to [content](#table-of-content)
+
+
 ### Business Goals
 •	Provide a professional online booking platform that helps the user to feel safe that they are buying from a trustworthy source.
 •	Build brand awareness by including all the branding photographs, colours, fonts and logos associated with the Discover Malta brand.
@@ -155,7 +165,9 @@ A potential client which chooses to collaborate with Discover Malta might want t
 •	Drive traffic and create awareness by advertising on social media channels 
 •	Supply a platform for small business owners to advertise and increase their sales
 
+
 ##### back to [content](#table-of-content)
+
 
 ### User Stories 
 
@@ -170,6 +182,10 @@ A potential client which chooses to collaborate with Discover Malta might want t
 7.  As a first-time user, I want to navigate the site easily and view site on different screen sizes.
 8.  As a first-time user, I want to have a good overview of what the site has to offer and then click on the button to view more information about a specific trip if interested.
 
+
+##### back to [content](#table-of-content)
+
+
 #### Returning User 
 
 1.	As a returning user, I want to be able to login into my account
@@ -182,6 +198,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 8.	As a returning user, I want to view my ticket on my profile page.
 9.  As a returning user, I want to be able to save my information to my profile for quick and easy checkout next time.
 
+##### back to [content](#table-of-content)
 
 
 #### Frequent User
@@ -198,10 +215,15 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
+
 ### A Potential Client
 1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 2.	As a potential client I want to learn what benefits are available to me
 3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
+
+
+##### back to [content](#table-of-content)
+
 
 ### Business goals
 
@@ -215,8 +237,8 @@ A potential client which chooses to collaborate with Discover Malta might want t
 8.  As a business owner, I want to provide the user with search and filter functionality for products to enable easy access to the database.
 
 
-
 ##### back to [content](#table-of-content)
+
 
 ## User Requirements and Expectations
 
@@ -235,6 +257,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
+
 ### Expectations: 
  
 -	Full trip description
@@ -246,6 +269,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 
 ##### back to [content](#table-of-content)
+
 
 ## Design 
 
@@ -262,6 +286,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
+
 ### Typography
       
  [Google Fonts](https://fonts.google.com/) have been used on this page 
@@ -274,15 +299,16 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
+
 ### Imagery
 
-- Carousel images in the index.htm have been sorced from [Pixabay](https://pixabay.com/):
+#### Carousel images in the index.htm have been sorced from [Pixabay](https://pixabay.com/):
 
   - Catamaral image [by dimitrisvetsikas1969](https://pixabay.com/photos/catamaran-sea-boat-tourism-blue-2329770/)
   - Gozo image [by waldomiguez](https://pixabay.com/photos/gozo-island-port-malta-water-sea-1139812/)
   - Marsallok [by John Hoefer](https://pixabay.com/photos/boats-port-sea-town-village-5946304/)
 
-- Category Images:
+#### Category Images:
 
   - Last minute deals [by veerasantinithi](https://pixabay.com/photos/summer-travel-vacation-holiday-2880261/)
   - Fishing [by dimitrisvetsikas1969](https://pixabay.com/photos/fishing-boat-fisherman-sea-fishing-5736839/)
@@ -291,8 +317,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
   - Boat trips [by dimitrisvetsikas1969](https://pixabay.com/photos/sea-water-boat-ship-travel-3703094/)
   - Food and Wine [by atanaspaskalev](https://pixabay.com/photos/luxury-food-wine-rose-starter-4330593/)
 
-
-- Trip Images:
+#### Trip Images:
 
    - Walking food tasting trail in Valetta from [malta.com](https://www.malta.com/media/en/dining/restaurant/mosta/ta-marija/maltese-platter-at-ta-marija-mosta.jpg)
    - Ta'Mena Wine Tours [by bedrck](https://pixabay.com/photos/wine-napa-valley-vineyard-napa-1938924/)
@@ -307,33 +332,40 @@ A potential client which chooses to collaborate with Discover Malta might want t
    - Stand up paddle board yoga [by Trex7875](https://pixabay.com/photos/yoga-on-water-lake-woman-1362019/)
    - Kayak Gozo and Camino [by dimitrisvetsikas1969](https://pixabay.com/photos/canoe-kayak-sport-water-sport-1405961/)
 
-- Default User Profile Image:
+#### About Page:
+   
+   - Speed Boat [by eyeImage](https://pixabay.com/photos/speedboat-water-boat-ocean-speed-823229/)
+   - Sea Caves [by Margaret King](https://pixabay.com/photos/sea-cove-holiday-summer-island-4890410/)
+   - Sea Salt [by Andreas64](https://pixabay.com/photos/gozo-salt-pans-sea-heaven-malta-6229702/)
+
+#### Default User Profile Image:
    
     - Defaul User Image [by Peggy Marco](https://pixabay.com/illustrations/key-access-password-code-1013662/)
 
-- 404.html Background Image:
+#### 404.html Background Image:
 
    - Winter Tree Image [by EvgeniT](https://pixabay.com/photos/winter-tree-bench-field-snow-field-3974511/)
 
-
-- 500.html Background Image:
+#### 500.html Background Image:
 
     - Lightnening Image [by Felix Mittermeier](https://pixabay.com/photos/lightning-thunderstorm-super-cell-2568381/)
 
-- Favicon:
+#### Favicon:
      
      - Sun in sunglasses [by OpenClippart_Vectors](https://pixabay.com/vectors/sun-cool-sunshine-glossy-smile-151763/)
 
 
-
 ##### back to [content](#table-of-content)
+
 
 ### Icons
 
 - All the icons on site have been imported from 
 [fontawesome](https://fontawesome.com/) library
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Style 
 
@@ -354,7 +386,8 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
-## Wireframes Flowchart and Data Model
+
+## Wireframes and Data Modal
 
 ### Wireframes 
 
@@ -376,11 +409,15 @@ A potential client which chooses to collaborate with Discover Malta might want t
 
 ##### back to [content](#table-of-content)
 
-### Database model
+
+### Database Modals
 
 I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16] to generate a database model diagram
 
 ![Database model](readme-files/images/database-model.png)
+
+
+##### back to [content](#table-of-content)
 
 
 #### Database Choices 
@@ -388,13 +425,14 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - As a framework, Django works with SQL databases. During development on my local machine, I worked with the standard <em>sqlite3</em> database installed with Django.
 - On deployment, all the database has been migrated to <em>PostgresSQL</em> provided by Heroku.
 
-#### Data Models
+#### Data Modals
 
 ##### Account Model
 
 - Default <em>AbstractBaceUser</em> model has been modified, to allow the user to log in with their email address instead of a username. Which is a more conventional method of login. 
 - Allowing the superuser to create an account in a local environment without verification email and setting all the permissions to TRUE
-- Email address and username must be unique for each user, if not Django will through an error
+- Email address and username must be unique for each user, if not Django will through an error.
+
 
 ##### UserProfile Model
 
@@ -442,6 +480,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 - `slug` field accepts a unique number and is used together with the `category_slug` field to generate a user-friendly URL for "Trip Details Page"
 
+
 #### ReviewRating model
 
 - This model has a direct relation to the Trip modal and Account modal using a ForegainKey field
@@ -451,13 +490,15 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - Status field is accepting a boolean value, the review is only displayed if the status is True, however, admin may set this value to false not to display the review for a specific trip inside their admin panel
 - `created_at` and `updated_at` fields track the date the review has been created or updated.
 
+
 #### Order Model
 
 - This model stores the information that is often expected to be found in order, billing information, address information, the date of the transaction and the `stripe_pid`.
 - Order model has a direct relationship with the UserProfile model using a ForegainKey field to store user information
 - Order model can also update user information if requested by the user during checkout
 - `grand_total` field is updated and calculated during checkout 
-- `order_number` field generates a unique 32 characters value using `uuid` import
+- `order_number` field generates a unique 32 characters value using `uuid` import.
+
 
 #### OrderTicketItem Model
 
@@ -467,13 +508,6 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 
 - All the models which accept media files use Pillow to store all images in an AWS S3 bucket.
-
-##### back to [content](#table-of-content)
-
-### Flow Chart
-
-
-
 
 ##### back to [content](#table-of-content)
 
@@ -565,14 +599,13 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
         -moz-transition: ease-in-out all .2s;
         -webkit-transition: ease-in-out all .2s;`
 
-### Forms
+#### Forms
 
 - All forms contain `text-shadow` property to make them stand out to the user.
 
-### Icons
+#### Icons
 
 - All icons contain `aria-hidden="true"` elements and `<span class="sr-only">` where appropriate to make the site more accessible for screen readers
-
 
 #### Toast
 
@@ -593,23 +626,26 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 -	The carousel has a time delay function, added `carousel-fade` class to fade each image instead of the traditional slide effect
 -   The carousel had `data-bs-touch="true"` which lets the user control the images on touch.
 
-
 #### Introduction 
+
 -	Consists of a brief paragraph about Maltese history 
 
 #### Benefits
+
 -	The second paragraph consists of a pitch, why the user should book the trip with Discover Malta
 -   The benefits are displayed in the form of different colour circles using the colour scheme of the site and `box-shadow` property to make them stand out.
 -   The benefits are not visible to the user initially, on scroll they slide into the page, this was achieved using the jQuery `show` function with time delay interval between each element.
 
 #### Categories 
+
 -	At the bottom of the page there is a list of categories that we offer for the user to explore.
 -   The categories on the page are displayed dynamically from the database.
 -   Each category is displayed in the form of a card, with its image and title.
--   User may click on the category title to view all the trips under that category.
+-   User may click on the category title or image to view all the trips under that category.
 -	Category title contains the same `:hover` effect as a link in the navbar and footer
 
 #### Call-to-Action
+
 -	Call to action button “view all trips” is displayed at the bottom of the page which will lead the user to explore all the trips available on the site.
 
 ##### back to [content](#table-of-content)
@@ -670,12 +706,14 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 #### Paginations
     - Pagination buttons are provided depending on the number of results returned from the database with options next_page and previous_page, as well as the page number the user is currently on.
-
+    - The pagination has been implemented on search, filter and sort functionality as well as normal page view.
 
 
 ##### back to [content](#table-of-content)
 
+
 ### Trips Detail Page
+
 ![trip_details](readme-files/images/trip-details-image.png)
 
 - The user is greeted with the trip name and an image of the trip.
@@ -784,6 +822,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 
 ### Add Trip Page
+
     - This feature is available only for admin users
     - They can access this page from their profile page, where the link is displayed
     - The page contains a form and asks the user to fill in the required information
@@ -796,6 +835,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 ##### back to [content](#table-of-content)
 
 ### Update Trip Page
+
     - This feature is available for admin users only
     - They can access this page from trips.html or trip_detail.html pages, where the update button is displayed
     - The link takes the admin user to the pre-populated form with the trip they choose to edit.
@@ -806,8 +846,11 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
     - If a not logged in user tries to access this page, they will be redirected to the login page.
     - If a user is logged in, but not admin, tries to access this page they will see the message displayed that they do not have permission to access this page.
  
+##### back to [content](#table-of-content)
+
 
 ### Delete Trip
+
    - This feature is available for admin user only
    - The admin user may delete a specific trip from trips.html or trip_detail.html, where the buttons are located
    - When the button is triggered, a modal appears, asking the user to confirm their decision.
@@ -816,7 +859,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 - ![delete-trip-modal](readme-files/images/delete-trip-modal.png)
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Login Page 
 
@@ -830,6 +875,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 
 ##### back to [content](#table-of-content)
+
 
 ### Registration Page
 
@@ -857,7 +903,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - If the user has already registered, they can access the login page by clicking on the link below
 - If a logged-in user tries to access the profile page, they will be redirected to their profile page and an info toast message will appear, letting them know they have already registered.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Forgot Password Page
 
@@ -868,7 +916,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - A toast notification lets the user know the email with a link has been sent to their email address
 - If the email address does not exist in the database, the user is notified via toast notification.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Reset Password Page
 
@@ -878,13 +928,17 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - If the passwords do not match the toast notification will display the error to the user
 - Once the form has been successfully submitted, toast notification will inform the user and redirect them to the login page, where they can log in to their account with their newly created password
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Logout
 
 - Any user who clicks on the "Logout" link from the navigation bar is automatically logged out and their session data cleared. They are taken to a "Home" page, toast notification informs the user they have been logged out.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Profile Page
 
@@ -908,7 +962,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 #### Admin User 
 -	An admin user will have an extra option "Add Trip" which will lead them to an add-trip.htm where they will be able to add a new trip to the database.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Edit Profile Page
 
@@ -919,7 +975,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - When the form is submitted, a toast message is displayed letting the user know their info has been updated and the user is being redirected back to the "Edit Profile Page" which shows their updated information.
 - The button at the end of the page lets the user easily go back to their profile
 
+
 ##### back to [content](#table-of-content)
+
 
 ### View Reviews Page
 
@@ -931,7 +989,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - If pressed on the "Delete" button it will trigger a delete-review-modal which will ask the user to confirm their request.
 - If the user has not reviewed any trips yet, the appropriate message will be displayed notifying the user that they do not have any reviews yet.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Edit Review Page
 
@@ -946,7 +1006,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - Once the form is valid and submitted the user is being redirected to "View Reviews Page" where they can view their updated review.
 - Updated review date also automatically changes to the current date.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Favourites Page
 
@@ -957,7 +1019,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - The user may view "Trip Detail Page" for a selected trip by clicking on the trip image, name or "More Info" button
 - Conveniently the user has an option at the bottom of the page to go back to their Profile Page by clicking on the link supplied.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### View Bag Page
 
@@ -1025,6 +1089,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 -  Once the "Complete Order" button is pressed, an overlay will cover the whole page and the user will see a loading spinner which will tell them the payment is being processed.
 -  On successful payment submission the user will be redirected to  the"Checkout Complete Page".
 
+
 ##### back to [content](#table-of-content)
 
 
@@ -1042,7 +1107,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ##### back to [content](#table-of-content)
 
+
 ### Contact Page
+
 ![contact-page](readme-files/images/contact-page.png)
 -   The user may access the contact page via the 'Contact' link located in the footer
 -	The contact page consists of a simple form, which user needs to fill out to submit their query. 
@@ -1059,6 +1126,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 ##### back to [content](#table-of-content)
 
 ### About Page
+
 ![about.html](readme-files/images/about.html.jpg)
 
 -	About page will tells the user why the site was created and its core mission
@@ -1066,7 +1134,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 -	This page will also tell the potential client why they might want to collaborate with the site and the benefits they will receive once they sign the contract. 
 -	About page has two buttons at the bottom of the page “Go Back” which will redirect the user to the home page and “Contact” which will redirect the user to the contact page.
 
+
 ##### back to [content](#table-of-content)
+
 
 ### 404 Error Page
 
@@ -1077,6 +1147,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ##### back to [content](#table-of-content)
 
+
 ### 500 Error Page
 
 - Custom 500.html has been designed with a picture of the lightning, letting the user something has gone wrong.
@@ -1085,6 +1156,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 
 ##### back to [content](#table-of-content)
+
 
 ### Features Left to Implement 
 
@@ -1095,21 +1167,19 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 -   Google map route overview for each trip on the trip_detail page
 -   Weather API to let the user check the weather when they are booking a trip
 -   Give the user option to log in with their social media accounts
--   About Page
--   Functionality to give a specific trip the number of tickets available for a specific day.
--   Set specific days for a trip to be available
+-   Functionality to check the day and ticket number availability based on a specific date and then number of tickets available for that day.
+-   Set specific days for a trip to be available.
 -   Implement last-minute category functionality, which would work on the condition whether a provider would like to sell more tickets on a specific day and give the user a specific % of the discount.
--   Subscription to a newsletter, where the user will be able to receive an email with weekly offers
--   Availability for a user to add tickets to their calendar
-
-
+-   Subscription to a newsletter, where the user will be able to receive an email with weekly offers.
+-   Availability for a user to add tickets to their calendar.
 
 
 ##### back to [content](#table-of-content)
 
-## Technology Used
 
-### Language Used
+## Technologies Used
+
+### Languages Used
 
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
@@ -1159,7 +1229,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 13. [Gmail](https://mail.google.com/)
 - To send out automatic emails
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Tools  
 
@@ -1223,8 +1295,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 20. [Lampada Test](https://app.lambdatest.com/console/realtime)
   - Used this tool to help with cross-browser compatibility test 
 
-
-    
+  
 ##### back to [content](#table-of-content)
 
 
@@ -1232,7 +1303,9 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 You can find testing information in [TESTING.md](TESTING.md)
 
+
 ##### back to [content](#table-of-content)
+
 
 ## Deployment
 
@@ -1244,7 +1317,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 ### Deployment Steps
 
-### GitHub
+1. GitHub
 
 - Navigate to [Github](https://github.com/).
 - Create GitHub Repository using the CI Full Template.
@@ -1256,7 +1329,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 - Use the `git commit -m` command to commit a change to the local repository.
 - Use the `git push` command to push all committed changes to GitHub.
 
-### Create the Initial Django Project
+2. Create the Initial Django Project
 
 - Create a Django Project called "discover-malta" 
 - Terminal: `django-admin startproject discover-malta` . (created in the current folder)
@@ -1274,7 +1347,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 - Create the static folder with the following sub-folders: `css`, `js`, `images`.
 - Configure <em>settings.py</em> and <em>urls.py</em> to accommodate the static and media folders.
 
-###  Heroku Platform Configuration and Deployment
+3.  Heroku Platform Configuration and Deployment
 
 - Before deploying the website to Heroku, the following three must be followed to allow the app to work in Heroku:
     - Create `requirements.txt` file that contains the names of packages being used in Python. 
@@ -1286,7 +1359,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Once those steps are done, the website can be deployed in Heroku using the steps listed below:
 
-### Deployment Steps:
+4. Deployment Steps:
 
 - Log into Heroku.
 - Click the New button.
@@ -1294,14 +1367,14 @@ You can find testing information in [TESTING.md](TESTING.md)
 - Enter the app name in lowercase letters.
 - Select the correct geographical region.
 
-#### Connect Heroku app to Github repository:
+5. Connect Heroku app to Github repository:
 
 - In Heroku select the deploy tab.
 - Click GitHub button.
 - Enter the repository name and click search.
 - Select the relevant repository and click connect.
 
-#### PostgreSQL Configuration:
+6. PostgreSQL Configuration:
 
 - Add Heroku Postgres Database
 - Click the resources tab in heroku.
@@ -1315,13 +1388,13 @@ You can find testing information in [TESTING.md](TESTING.md)
     -    `'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))`
     -`}`
 
-#### Migrate the Django Models to the PostgreSQL Database:
+7. Migrate the Django Models to the PostgreSQL Database:
 
 - `python3 manage.py makemigrations`
 - `python3 manage.py migrate`
 - `python3 manage.py createsuperuser`
 
-#### Setting up environment variables
+8. Setting up environment variables
 - In the heroku settings click the reveal config vars button and set the following variables:
 
         - AWS_ACCESS_KEY_ID
@@ -1337,6 +1410,12 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - The values of these variables are secret and for security purposes will not be shared here.
 
+
+##### back to [content](#table-of-content)
+
+
+## AWS
+
 ### Setting up the AWS s3 bucket:
 
 1. Create an Amazon AWS account
@@ -1348,20 +1427,20 @@ You can find testing information in [TESTING.md](TESTING.md)
         - save
 
 4. Under Permissions > CORS use the following:
-  -[
-    -  {
-    -      "AllowedHeaders": [
-    -          "Authorization"
-    -      ],
-    -      "AllowedMethods": [
-    -          "GET"
-    -      ],
-    -      "AllowedOrigins": [
-    -          "*"
-    -      ],
-    -      "ExposeHeaders": []
-    -  }
-  -]
+  -`[
+        {
+            "AllowedHeaders": [
+                "Authorization"
+            ],
+            "AllowedMethods": [
+                "GET"
+            ],
+            "AllowedOrigins": [
+                "*"
+            ],
+            "ExposeHeaders": []
+        }
+    ]`
 
 5. Under Permissions > Bucket Policy:
         - Generate Bucket Policy and take note of Bucket ARN
@@ -1408,8 +1487,11 @@ You can find testing information in [TESTING.md](TESTING.md)
 5. Download the `.csv` containing the access key and secret access key.
 - THE `.csv` FILE IS ONLY AVAILABLE ONCE AND CANNOT BE DOWNLOADED AGAIN.
 
+##### back to [content](#table-of-content)
 
-### Connecting Heroku to AWS S3
+## Heroku and AWS
+
+1. Connecting Heroku to AWS S3
 
 - Install boto3 and django-storages:
         -`pip3 install boto3`
@@ -1421,12 +1503,12 @@ You can find testing information in [TESTING.md](TESTING.md)
 - With your S3 bucket now set up, you can create a new folder called media (at the same level as the newly added static folder) and upload any required media files to it.
 - PLEASE MAKE SURE media AND static FILES ARE PUBLICLY ACCESSIBLE UNDER PERMISSIONS
 
-### Enable automatic deployment:
+2. Enable automatic deployment:
 
 - Click the Deploy tab
 - In the Automatic deploys section, choose the branch you want to deploy from then click Enable Automation Deploys.
 
-### Connect app to Github Repository:
+3. Connect app to Github Repository:
 
 - Click the deploy tab and connect to GitHub.
 - Type the name of the repository into the search bar presented.
@@ -1450,7 +1532,9 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - `pip install -r requirements.txt`
 
+
 ##### back to [content](#table-of-content)
+
 
 ### Fork This Project:
 
@@ -1458,7 +1542,9 @@ You can find testing information in [TESTING.md](TESTING.md)
 - In Github go to [respiratory](https://github.com/marina601/discover-malta).
 - In the top right-hand corner click "Fork".
 
+
 ##### back to [content](#table-of-content)
+
 
 ## Credits
 
@@ -1508,16 +1594,17 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Trips app, *star-rating.css* the logic implementing fontawesome on the label elements and change the colour on hover has been used from [Stack Overflow](https://stackoverflow.com/questions/53055930/hover-with-star-rating-not-working-properly****/)
 
-- A large portion of this project's code was inspired by Chris Zielinski's [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of e-commerce logic during this project
-- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use default django.auth functionality to challenge me and learn the basics behind the functionality already in place.
+- Core logic for bag and checkout apps was sorced from [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of e-commerce logic during this project.
 
-- Both of the courses have helped me and assisted me in understanding the core concepts of Django 
+- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use default django.auth functionality to challenge me and understand the core logic and functionality.
+
+- Both of the courses have helped me and assisted me in understanding the core concepts of Django.
+
+##### back to [content](#table-of-content)
 
 ### Media
 
 - All the media filese have been sorced from Pixabay and each individual aknowledgment is detailed above in the image section.
-
-
 
 ##### back to [content](#table-of-content)
 
@@ -1529,11 +1616,16 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - I would like to thank Slack Community at Code Institute for  their valuable advice and support during the duration of my studies
 
-- I would like to thank Tutor Support who have for their patience and guidance through this project and my time at Code Institute. Especially jo_ci, who went above and beyond the call of duty on several occasions and helped me throughout this project
+- I would like to thank Tutor Support @Code Institute, for their patience and guidance through this project and my time at Code Institute. Especially jo_ci, who went above and beyond the call of duty on several occasions and helped me throughout this project.
+
+- I would like to thank Code Intitute Slack Community who have supported and helped me trouble shoot my code on many occassions.
 
 - I would like to thank my husband, who has supported me every step of the way.
 
+- I also would like to thank my family and friends who have provided a fantastic feedback and helped me test this project.
+
 ##### back to [content](#table-of-content)
+
 
 ## Disclaimer 
 
