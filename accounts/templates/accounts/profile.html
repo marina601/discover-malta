@@ -5,8 +5,8 @@
 
 {% block content %}
 <section class="main-content">
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mt-5">
             <div class="col mt-3 text-center">
                 <h2>Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
             </div>
@@ -42,12 +42,17 @@
             </div>
             {% endif %}
         </div>
-        <hr>
-        <!--Order History-->
+    </div>
+</section>
+<hr>
+<!--Order History-->
+<section>
+    <div class="container m-0">
         <div class="row">
             {% if orders %}
             <div class="col-12" id="order-history">
-                <p class="text-muted">Order History</p>
+                <h3>Order History</h3>
+                <p class="text-muted">Click on the order number to view full details of your purchase</p>
                 <div class="order-history table-responsive">
                     <table class="table table-sm table-borderless">
                         <thead>
@@ -91,7 +96,7 @@
             {% else %}
             <!--If not order history-->
             <div class="col text-center">
-                <p>Your order history will be displayed here once you place your first order</p>
+                <p>Your order history will be displayed here once you make your first purchase.</p>
             </div>
             {% endif %}
         </div>
