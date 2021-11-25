@@ -107,9 +107,10 @@
                                         </span>
                                     </button>
                                 </div>
+                                <label for="adult_input_{{ item.trip.id }}"></label>
                                 <input class="form-control form-control-sm qty_input" type="number" name="adult_tickets"
                                     value="{{ item.adult_tickets }}" data-item_id="{{ item.trip.id }}" max="8" min="1"
-                                    oninput="this.setCustomValidity('')"
+                                    id="adult_input_{{ item.trip.id }}"oninput="this.setCustomValidity('')"
                                     oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')">
                                 <div class="input-group-append">
                                     <button type="submit" class="add-quantity btn btn-sm" data-item_id="{{ item.trip_id }}">
@@ -134,8 +135,9 @@
                                         </span>
                                     </button>
                                 </div>
+                                <label for="child-input_{{item.trip.id}}"></label>
                                 <input class="form-control form-control-sm qty_input child-input" type="number"
-                                    max="8" min="0" oninput="this.setCustomValidity('')"
+                                    id="child-input_{{item.trip.id}}" max="8" min="0" oninput="this.setCustomValidity('')"
                                     oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')"
                                     name="children_tickets" value="{{ item.children_tickets }}"
                                     data-item_id="{{ item.trip.id }}">
