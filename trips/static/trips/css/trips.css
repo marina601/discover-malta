@@ -100,6 +100,56 @@
     padding: 8px 0px;
 }
 
+/****************Date Picker*/
+
+.ui-datepicker-days-cell-over  > .ui-state-default {
+    border: 1px solid #000000 !important;
+    background-color: #da8925 !important;
+    color: #000000 !important;
+}
+
+
+.ui-datepicker-header {
+    border: 1px solid #fafafa !important;
+    background: #000000 !important;
+    color: #fafafa !important;
+    font-weight: bold;
+}
+
+.ui-datepicker-header a {
+    background-color: #fafafa;
+}
+
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active,
+.ui-button:active,
+.ui-button.ui-state-active:hover {
+    border: 1px solid #000000 !important;
+    background: #2576da !important;
+}
+
+.update-link {
+    background-color: #039b2b;
+    padding: 3px;
+    border-radius: 5%;
+    color: #fafafa !important;
+}
+
+.remove-item {
+    background-color: #ef1018;
+    padding: 3px;
+    border-radius: 5%;
+    color: #fafafa !important;
+}
+
+.remove-item:hover,
+.update-link:hover {
+    background-color: #000000;
+    color: #fafafa;
+}
+
 /* -------------------------------- Media Queries */
 
 @media (max-width: 1200px) {
