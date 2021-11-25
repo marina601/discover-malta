@@ -72,10 +72,14 @@
 }
 
 /*************Pagination*/
+.pagination-nav {
+    background-color: transparent;
+}
+
 .pagination {
-    background-color: #fafafa;
     font-size: 1rem;
     margin-top: 2rem;
+    background-color: transparent;
 }
 
 .page-link {
@@ -92,6 +96,8 @@
 
 .list-group-item {
     border: none;
+    background-color: transparent;
+    padding: 8px 0px;
 }
 
 /* -------------------------------- Media Queries */
