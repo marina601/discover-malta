@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row mt-5">
             <div class="col mt-3 text-center">
-                <h2>Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
+                <h2 class="mt-5">Welcome {{ user.first_name|capfirst }} to your profile page!</h2>
             </div>
         </div>
         <div class="row">
@@ -20,25 +20,25 @@
         </div>
         <!--Profile Links-->
         <div class="row m-1">
-            <div class="col-md-4 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="#order-history">View Order History</a>
+            <div class="col-md-4 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="#order-history">View Order History</a>
             </div>
-            <div class="col-md-4 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="{% url 'edit_profile' %}">Edit Your Profile</a>
+            <div class="col-md-4 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="{% url 'edit_profile' %}">Edit Your Profile</a>
             </div>
-            <div class="col-md-4 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="{% url 'favourites' %}">View Favourites</a>
+            <div class="col-md-4 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="{% url 'favourites' %}">View Favourites</a>
             </div>
             {% if user.is_superadmin %}
-            <div class="col-md-4 offset-md-2 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
+            <div class="col-md-4 offset-md-2 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="{% url 'view_reviews' %}">Manage Reviews</a>
             </div>
-            <div class="col-md-4 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="{% url 'add_trip' %}">Add Trip</a>
+            <div class="col-md-4 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="{% url 'add_trip' %}">Add Trip</a>
             </div>
             {% else %}
-            <div class="col-md-4 offset-md-4 col-sm-12 text-center">
-                <a class="btn btn-dropdown w-100" href="{% url 'view_reviews' %}">Mange Reviews</a>
+            <div class="col-md-4 offset-md-4 col-sm-12 text-center profile">
+                <a class="btn btn-dropdown" href="{% url 'view_reviews' %}">Mange Reviews</a>
             </div>
             {% endif %}
         </div>
@@ -47,7 +47,7 @@
 <hr>
 <!--Order History-->
 <section>
-    <div class="container m-0">
+    <div class="container mt-0">
         <div class="row">
             {% if orders %}
             <div class="col-12" id="order-history">
