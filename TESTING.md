@@ -205,7 +205,7 @@
 
     - The site has been designed with user experience and a mobile-first approach in mind. The site has adopted a fully responsive design across all screen sizes.
 
-
+##### back to [content](#table-of-content)
 
 #### Returning User 
 
@@ -279,7 +279,7 @@
     - The user will be able to view this information in their profile
     - - The user will have their saved information pre-populated next time they use a checkout form or a contact form.
 
-
+##### back to [content](#table-of-content)
 
 #### Frequent User
 
@@ -345,6 +345,8 @@
     - A subject option "Collaboration" has been created especially for this in mind. 
     - Once the message is  received a relevant person from the team will be in touch
 
+##### back to [content](#table-of-content)
+
 ### Business goals
 
 1.	As a business owner, I want to provide a platform for users where they explore what Malta has to offer and book their trips during their stay on the island.
@@ -406,6 +408,8 @@
      - Users may search the site using a search bar
      - Users may filter the trips by category
      - Users may sort the trips by a condition
+
+##### back to [content](#table-of-content)
 
 ## Manual Testing
 
@@ -886,7 +890,7 @@
 
 ##### back to [content](#table-of-content)
 
-## Registration
+## Registration Page
 
   - Go to the Registration page, confirm the form is displayed correctly.
   - Placeholders are present for each input field and  * indicates all the required fields
@@ -1159,21 +1163,52 @@
 ## Google Lighthouse Testing
 
 - To get an accurate report all the pages have been viewed using an incognito window.
+## Home Page 
+
+![lighthouse-report](readme-files/lighthouse/lighthouse-homepage.jpg)
+
+## Login Page
+
+![login-page](readme-files/lighthouse/lighthouse-login.jpg)
+
+## About Page
+
+![about-page](readme-files/lighthouse/lighthouse-about.jpg)
+
+## Profile Page
+
+![profile-page](readme-files/lighthouse/lighthouse-profile.jpg)
 
 ## All Trips
+
+### Pagination
+
   - Pagination next and previous buttons did not have any screen reader accessibility
   - Added `<span class="sr-only">next button</span>`
   - The same issue was detected on the search icon
   - The button "More Info" does not have very descriptive text, I have decided not to fix this issue at this point
 
-## Datepicker
+### Datepicker
   - Datepicker input field did not have any associated label, therefore I have added the label on the "Trip Detail" and the "Bag" pages.
 
-## Modals 
+### Modals 
   - The trigger button for all modals was using `<a>` element which resulted in the uncrawlable link, updated the element to a `button`
 
-## General Images
-  - Have compressed all the images to reduce speeding loading time using [TinyPing](https://tinypng.com/)
+## Bag
+
+### Labels
+  - Input fields did not have assosiated labels, fixed by adding the labels.
+
+
+## Trip Detail
+
+![trip-detail](readme-files/lighthouse/lighthouse-trip-details.jpg)
+
+## View Reviews
+
+![view-reviews](readme-files/lighthouse/lighthouse-view-reviews.jpg)
+
+- Magiority of performance issues is due to the image files being large, i have compressed all the images to reduce loading time using [TinyPing](https://tinypng.com/)
 
 ### Cross-Browser Compatibility Table 
 
