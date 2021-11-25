@@ -532,6 +532,10 @@ a.ui-button:active,
     object-fit: cover;
 }
 
+.profile a {
+    width: 90%;
+}
+
 /**********************Footer*/
 
 footer {
@@ -598,6 +602,7 @@ footer {
     width: 10rem;
     height: 10rem;
     margin: 1rem auto;
+    object-fit: cover;
 }
 
 /* -------------------------------- Media Queries */
