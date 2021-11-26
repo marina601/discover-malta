@@ -50,6 +50,7 @@ h6 {
     border: 1px solid #000000 !important;
     border-radius: 5px;
     box-shadow: -3px 8px 27px -2px rgba(0, 0, 0, 0.51);
+    background-color: #fafafa;
 }
 
 /*************************Navigation*/
@@ -234,6 +235,11 @@ header,
     position: absolute;
     background-color: #000000;
     opacity: 1 !important;
+    top: 6%;
+    left: 79%;
+    width: 10rem;
+    font-size: 1.8rem;
+    z-index: 1;
 }
 
 .btn-favourite {
@@ -247,6 +253,32 @@ header,
 .btn-submit {
     background-color: #039b2b;
 }
+
+.btn-close {
+    background-color: #fafafa;
+}
+
+.btn-left {
+    position: absolute;
+    left: 4%;
+}
+
+.btn-right {
+    position: absolute;
+    right: 5%;
+}
+
+.trip-link {
+    text-decoration: none;
+    color: #000000;
+}
+
+.trip-link h4:hover,
+.trip-link h5:hover {
+    color: #fafafa;
+}
+
+/*****************Modals*/
 
 .modal-btn {
     width: 100%;
@@ -281,28 +313,10 @@ header,
     color: #fafafa;
 }
 
-.btn-close {
-    background-color: #fafafa;
-}
-
-.btn-left {
-    position: absolute;
-    left: 4%;
-}
-
-.btn-right {
-    position: absolute;
-    right: 5%;
-}
-
-.trip-link {
-    text-decoration: none;
-    color: #000000;
-}
-
-.trip-link h4:hover,
-.trip-link h5:hover {
-    color: #fafafa;
+.modal-footer a {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px;
 }
 
 /**********************Icons*/
@@ -452,39 +466,9 @@ header,
     color: #fafafa;
 }
 
-/* ***************Date Picker
-
-.ui-datepicker-days-cell-over  > .ui-state-default {
-    border: 1px solid #000000 !important;
-    background-color: #da8925 !important;
-    color: #000000 !important;
-}
-
-
-.ui-datepicker-header {
-    border: 1px solid #fafafa !important;
-    background: #000000 !important;
-    color: #fafafa !important;
-    font-weight: bold;
-}
-
-.ui-datepicker-header a {
-    background-color: #fafafa;
-}
-
-.ui-state-active,
-.ui-widget-content .ui-state-active,
-.ui-widget-header .ui-state-active,
-a.ui-button:active,
-.ui-button:active,
-.ui-button.ui-state-active:hover {
-    border: 1px solid #000000 !important;
-    background: #2576da !important;
-}
-
 .update-link {
     background-color: #039b2b;
-    padding: 3px;
+    padding: 5px;
     border-radius: 5%;
     color: #fafafa !important;
 }
@@ -540,8 +524,6 @@ footer {
     background: #000000;
     flex-shrink: 0;
 }
-
-
 
 .footer-link {
     text-decoration: none;
@@ -612,6 +594,15 @@ footer {
         font-size: 0.9rem;
     }
 
+    .btn-book {
+        top: 14%;
+        left: 80%;
+    }
+
+    .btn-sold {
+        left: 82%;
+    }
+
 }
 
 @media (max-width: 320px) {
@@ -629,16 +620,17 @@ footer {
         top: 34% !important;
     }
 
-    .btn-dropdown {
-        width: auto;
-    }
-
     .mobile-icon-menu li {
         padding-left: 10px;
     }
 
     .main-nav {
         width: auto !important;
+    }
+
+    .btn-book {
+        left: 65% !important;
+        top: 35% !important;
     }
 }
 
@@ -690,11 +682,23 @@ footer {
         position: relative;
     }
 
-    .btn-book {
-        left: 70% !important;
+    .btn-sold {
+        left: 68% !important;
+        top: 4.7% !important;
         width: 7rem;
         font-size: 1rem;
-        top: 25% !important;
+    }
+
+    .btn-book {
+        left: 67% !important;
+        width: 7rem;
+        font-size: 1rem;
+        top: 30% !important;
+    }
+
+    .btn-group {
+        display: flex;
+        justify-content: center;
     }
 
     .cancel-btn,
@@ -708,6 +712,16 @@ footer {
 
     .form-group {
         width: 12rem;
+    }
+
+    .btn-book {
+        top: 20%;
+        left: 75%;
+    }
+
+    .btn-sold {
+        top: 6%;
+        left: 76%;
     }
 
     .error-500 {
