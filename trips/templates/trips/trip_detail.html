@@ -21,19 +21,19 @@
             <div class="col">
                  <!--Add to favourite link-->
                 {% if user.is_authenticated %}
-                {% if favourites %}
-                <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip from favourites">
-                    <i class="fas fa-trash" aria-hidden="true"></i>
-                    <span class="sr-only">remove from favourites</span>
-                </a>
-                {% else %}
-                <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
-                    data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                    <span class="sr-only">add to favourites</span>
-                </a>
-                {% endif %}
+                    {% if favourites %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Remove this trip from favourites">
+                        <i class="fas fa-trash" aria-hidden="true"></i>
+                        <span class="sr-only">remove from favourites</span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn btn-lg btn-favourite add-to-favourites"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">add to favourites</span>
+                    </a>
+                    {% endif %}
                 {% else %}
                 <a href="{% url 'login' %}" class="btn btn-lg btn-favourite add-to-favourites" data-bs-toggle="tooltip" data-bs-placement="top"
                     title="Please login to add this trip to your favourites">
@@ -41,8 +41,93 @@
                     <span class="sr-only">login to add this trip to favourites</span>
                 </a>
                 {% endif %}
+                {% if trip.num_tickets == 0 %}
+                <div class="ml-auto">
+                    <button type="button" class="btn btn-md btn-next btn-sold ml-auto">Sold Out</button>
+                 </div>
+                {% else %}
+                 <!--Booking Modal-->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-md btn-next btn-book" data-bs-toggle="modal"
+                        data-bs-target="#exampleModal">
+                        Book Now
+                    </button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content review-form">
+                                <!--form-->
+                                <form action="{% url 'add_to_bag' trip.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel-{{trip.id}}">{{ trip.name }}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-lg-4">
+                                                <label for="total_adults"><strong>Number of Adults:</strong></label>
+                                                <i class="fas fa-user-friends"></i>
+                                                <input type="number" id="total_adults" class="from-control"
+                                                    name="adult_tickets" min="1" max="8" value="0"
+                                                    oninput="this.setCustomValidity('')"
+                                                    oninvalid="this.setCustomValidity('Please select the number of tickets for this trip between 1 and 8')"
+                                                    required>
+                                                <p> @ <i class="fas fa-euro-sign"></i> {{ trip.adult_price }} <span
+                                                        class="text-muted "> per person</span></p>
+                                            </div>
+                                            {% if trip.family_friendly %}
+                                            <div class="col-lg-4">
+                                                <label for="children_tickets"><strong>Number of Children:</strong></label>
+                                                <i class="fas fa-child"></i>
+                                                <input type="number" id="children_tickets" class="from-control"
+                                                    name="children_tickets" value="0" min="0" max="8"
+                                                    oninput="this.setCustomValidity('')"
+                                                    oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')">
+                                                <p> @ <i class="fas fa-euro-sign"></i> {{ trip.child_price }} <span
+                                                        class="text-muted ">per child</span></p>
+                                            </div>
+                                            {% else %}
+                                            <div class="col-lg-4 d-none">
+                                                <label for="children_tickets">Select Number of Children:</label>
+                                                <input type="number" id="children_tickets" class="from-control"
+                                                    name="children_tickets" value="0" min="0" max="9">
+                                            </div>
+                                            {% endif %}
+                                            <div class="col-lg-4">
+                                                <p><strong>Select the Date: </strong><i class="far fa-calendar-alt"></i>
+                                                    <label for="datepicker"></label>
+                                                    <input type="text" class="calendar form-control" name="booking_date"
+                                                        id="datepicker" oninput="this.setCustomValidity('')"
+                                                        oninvalid="this.setCustomValidity('Please select the date for your trip')"
+                                                        required>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="row">
+                                            <div class="col modal-btn">
+                                                <button type="button" class="btn btn-lg btn-secondary"
+                                                    data-bs-dismiss="modal">
+                                                    <i class="fas fa-times"></i> Close</button>
+                                                <button type="submit" class="btn btn-lg add-booking-btn">
+                                                    Add to <i class="fas fa-suitcase-rolling"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
                 <!--Trip Image-->
-                <img src="{{ trip.images.url }}" class="card-img-top" alt="{{ trip.name }}">
+                <img src="{{ trip.images.url }}" class="card-img-top trip-image img-fluid" alt="{{ trip.name }}">
             </div>
         </div>
     </div>
@@ -120,91 +205,6 @@
                     {% endif %}
                 </ul>
             </div>
-            {% if trip.num_tickets == 0 %}
-            <button type="button" class="btn btn-md btn-next btn-sold" disabled>
-                Sold Out
-            </button>
-            {% else %}
-            <!--Booking Modal-->
-            <div class="col-lg-6 col-md-6 col-sm-12">
-                <!-- Button trigger modal -->
-                <button type="button" class="btn btn-md btn-next btn-book" data-bs-toggle="modal"
-                    data-bs-target="#exampleModal">
-                    Book Now
-                </button>
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content review-form">
-                            <!--form-->
-                            <form action="{% url 'add_to_bag' trip.id %}" method="POST">
-                                {% csrf_token %}
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel-{{trip.id}}">{{ trip.name }}</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="row">
-                                        <div class="col-lg-4">
-                                            <label for="total_adults"><strong>Number of Adults:</strong></label>
-                                            <i class="fas fa-user-friends"></i>
-                                            <input type="number" id="total_adults" class="from-control"
-                                                name="adult_tickets" min="1" max="8" value="0"
-                                                oninput="this.setCustomValidity('')"
-                                                oninvalid="this.setCustomValidity('Please select the number of tickets for this trip between 1 and 8')"
-                                                required>
-                                            <p> @ <i class="fas fa-euro-sign"></i> {{ trip.adult_price }} <span
-                                                    class="text-muted "> per person</span></p>
-                                        </div>
-                                        {% if trip.family_friendly %}
-                                        <div class="col-lg-4">
-                                            <label for="children_tickets"><strong>Number of Children:</strong></label>
-                                            <i class="fas fa-child"></i>
-                                            <input type="number" id="children_tickets" class="from-control"
-                                                name="children_tickets" value="0" min="0" max="8"
-                                                oninput="this.setCustomValidity('')"
-                                                oninvalid="this.setCustomValidity('Maximum number of tickets can be selected is 8')">
-                                            <p> @ <i class="fas fa-euro-sign"></i> {{ trip.child_price }} <span
-                                                    class="text-muted ">per child</span></p>
-                                        </div>
-                                        {% else %}
-                                        <div class="col-lg-4 d-none">
-                                            <label for="children_tickets">Select Number of Children:</label>
-                                            <input type="number" id="children_tickets" class="from-control"
-                                                name="children_tickets" value="0" min="0" max="9">
-                                        </div>
-                                        {% endif %}
-                                        <div class="col-lg-4">
-                                            <p><strong>Select the Date: </strong><i class="far fa-calendar-alt"></i>
-                                                <label for="datepicker"></label>
-                                                <input type="text" class="calendar form-control" name="booking_date"
-                                                    id="datepicker" oninput="this.setCustomValidity('')"
-                                                    oninvalid="this.setCustomValidity('Please select the date for your trip')"
-                                                    required>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <div class="row">
-                                        <div class="col modal-btn">
-                                            <button type="button" class="btn btn-lg btn-secondary"
-                                                data-bs-dismiss="modal">
-                                                <i class="fas fa-times"></i> Close</button>
-                                            <button type="submit" class="btn btn-lg add-booking-btn">
-                                                Add to <i class="fas fa-suitcase-rolling"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
         </div>
         <!--Full Description-->
         <div class="row mt-2">
