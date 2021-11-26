@@ -91,6 +91,10 @@
     font-size: 1.3rem;
 }
 
+.stretched-link::after {
+    top: 40%;
+}
+
 /* -------------------------------- Media Queries */
 @media (max-width: 420px) {
     .category-heading {
