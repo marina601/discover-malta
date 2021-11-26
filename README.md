@@ -1,6 +1,6 @@
 # Discover Malta
 
-![Discover Malta](readme-files/images/responsive-img.png "Am I Responsive Image")
+![Discover Malta](readme-files/images/responsive-img.jpg "Am I Responsive Image")
 
 [View the deployed project here](https://discover-malta.herokuapp.com/)
 
@@ -216,7 +216,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ##### back to [content](#table-of-content)
 
 
-### A Potential Client
+### Potential Client
 1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 2.	As a potential client I want to learn what benefits are available to me
 3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
@@ -276,7 +276,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ### Colour Scheme 
 ![Color Pallete](readme-files/images/luzzu-boat.png)
 
--	The colour palette inspiration has come from Luzzu, they date back to the time of the ancient Phoenicians. This gives the site an authentic look and feel
+-	The colour palette inspiration has come from Luzzu, they date back to the time of the ancient Phoenicians. This gives the site an authentic look and feel.
 -   The colour codes used on the site:
 
 | Colour:  | Blue    | Orange  | Red     | Green   | White    | Black   |
@@ -422,7 +422,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 #### Database Choices 
 
-- As a framework, Django works with SQL databases. During development on my local machine, I worked with the standard <em>sqlite3</em> database installed with Django.
+- As a framework, Django works with SQLite database. During development on my local machine, I worked with the standard <em>sqlite3</em> database installed with Django.
 - On deployment, all the database has been migrated to <em>PostgresSQL</em> provided by Heroku.
 
 #### Data Modals
@@ -467,8 +467,8 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 - Add to the favourite field is related to the Account modal and accepts multiple values in the form of the user email address 
     '`add_to_favourites = models.ManyToManyField(Account, related_name='favourites', default=None, blank=True)`
 
-- Default values are set for both adult_price and child_price fields 
-- Image field is uploaded to the `media/trips` folder in the AWS S3 bucket
+- Default values are set for both adult_price and child_price fields.
+- Image field is uploaded to the `media/trips` folder in the AWS S3 bucket.
 
 - `num_tickets` field accepts a positive integer value, which stores the total number of tickets available for each trip. This number updates when the user is adding a trip to their basket or deletes a trip from their basket.
 
@@ -478,13 +478,13 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 - Trip modal also tracks when the trip was first created and when/if the trip details have been modified, for easier data and sales analysis in the future.
 
-- `slug` field accepts a unique number and is used together with the `category_slug` field to generate a user-friendly URL for "Trip Details Page"
+- `slug` field accepts a unique number and is used together with the `category_slug` field to generate a user-friendly URL for "Trip Details Page".
 
 
 #### ReviewRating model
 
-- This model has a direct relation to the Trip modal and Account modal using a ForegainKey field
-- This model accepts trip reviews and calculates the total number of reviews
+- This model has a direct relation to the Trip modal and Account modal using a ForegainKey field.
+- This model accepts trip reviews and calculates the total number of reviews.
 - This model also accepts trip rating and calculates the average rating. I have used a FloatField to accept half star values for reviews
     - `rating = models.FloatField(blank=False, validators=[MinValueValidator(0.5), MaxValueValidator(5.0)])`
 - Status field is accepting a boolean value, the review is only displayed if the status is True, however, admin may set this value to false not to display the review for a specific trip inside their admin panel
@@ -502,7 +502,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 #### OrderTicketItem Model
 
-- This model has a direct relationship to the Order model and the Trip model using a ForegainKey field
+- This model has a direct relationship to the Order model and the Trip model using a ForegainKey field.
 - It stores an instance of each trip added to the bag, together with the booking date, number of tickets, price, quantity.
 - Ticketitem_total which updates the price in the checkout.
 
@@ -553,7 +553,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
     - About 
 - Also call to action “Follow Us” with social media icons displayed at the bottom of the page. 
 - Social icons are linked to social platforms as an external link.
-- The footer features the copyright information for Discover Malta, which is generated and updated automatically using JavaScript 
+- The footer features the copyright information for Discover Malta, which is generated and updated automatically using JavaScript.
 
 
 #### General Features
@@ -618,7 +618,7 @@ I have used (Django extensions)[https://medium.com/@yathomasi1/1-using-django-ex
 
 ### Home Page
 
-![Index.html](readme-files/images/index.html-image.png)
+![Index.html](readme-files/images/responsive-img-2.jpg)
 
 #### Hero Image
 
@@ -1596,7 +1596,7 @@ You can find testing information in [TESTING.md](TESTING.md)
 
 - Core logic for bag and checkout apps was sorced from [Boutique Ado](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+FSF_102+Q1_2020/courseware/4201818c00aa4ba3a0dae243725f6e32/d3188bf68530497aa5fba55d07a9d7d7/) project walkthrough tutorial. This Code Institute tutorial was instrumental in the creation of e-commerce logic during this project.
 
-- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use default django.auth functionality to challenge me and understand the core logic and functionality.
+- Udemy course [Django Ecommerce Project](https://www.udemy.com/course/django-ecommerce-project-based-course-python-django-web-development/) has helped to implement and understand account user functionality, how to generate links to reset the password, verify new accounts. I have oped to learn the basics, rather than use default django.auth functionality to challenge myself and understand the core logic.
 
 - Both of the courses have helped me and assisted me in understanding the core concepts of Django.
 
@@ -1617,8 +1617,6 @@ You can find testing information in [TESTING.md](TESTING.md)
 - I would like to thank Slack Community at Code Institute for  their valuable advice and support during the duration of my studies
 
 - I would like to thank Tutor Support @Code Institute, for their patience and guidance through this project and my time at Code Institute. Especially jo_ci, who went above and beyond the call of duty on several occasions and helped me throughout this project.
-
-- I would like to thank Code Intitute Slack Community who have supported and helped me trouble shoot my code on many occassions.
 
 - I would like to thank my husband, who has supported me every step of the way.
 
