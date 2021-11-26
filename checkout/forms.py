@@ -1,11 +1,12 @@
 from django import forms
+from django.core.validators import MaxLengthValidator, MinLengthValidator
 from .models import Order
 
 
 class OrderForm(forms.ModelForm):
     """Order Form"""
 
-    phone_number = forms.IntegerField(max_value=20, min_value=5)
+    phone_number = forms.IntegerField()
 
     class Meta:
         """Order Form Fields"""
