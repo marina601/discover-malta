@@ -1181,6 +1181,8 @@
 
 ## All Trips
 
+![all-trips](readme-files/lighthouse/lighthouse-trip.jpg)
+
 ### Pagination
 
   - Pagination next and previous buttons did not have any screen reader accessibility
@@ -1196,13 +1198,23 @@
 
 ## Bag
 
+![bag](readme-files/lighthouse/lighthouse-bag.jpg)
+
 ### Labels
   - Input fields did not have assosiated labels, fixed by adding the labels.
 
 
 ## Trip Detail
 
-![trip-detail](readme-files/lighthouse/lighthouse-trip-details.jpg)
+![trip-detail](readme-files/lighthouse/lighthouse-trip.jpg)
+
+## Checkout
+
+![checkout](readme-files/lighthouse/lighthouse-checkout.jpg)
+
+## Checkout Complete
+
+![checkout-complete](readme-files/lighthouse/lighthouse-checkout-complete.jpg)
 
 ## View Reviews
 
