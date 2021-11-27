@@ -1,9 +1,7 @@
 from django.test import TestCase
 
-# Create your tests here.
 
-
-class TestHomeView(TestCase):
+class TestContactView(TestCase):
 
     def test_contact_view(self):
         """Test HTTP of contact view response"""
