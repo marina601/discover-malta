@@ -26,7 +26,7 @@
     let instance = $(this).data("datepicker");
     let date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, updatedDate, instance.settings);
   
-    if (date < tomorrow) {
+    if (date < today) {
         alert("You must pick a date in the future");
         $(this).datepicker("setDate", tomorrow);
     }
