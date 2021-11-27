@@ -14,6 +14,7 @@
         - [**Frequent User**](#frequent-user)
         - [**Potential Client**](#potential-client)
         - [**Business Goals**](#business-goals)
+   -[**Automated Testing**](#automated-testing)
    - [**Manual Testing**](#manual-testing)
       - [**Device Compatibility Table**](#device-compatibility-table)
       - [**Elements on Every Page**](#elements-on-every-page)
@@ -410,6 +411,29 @@
      - Users may sort the trips by a condition
 
 ##### back to [content](#table-of-content)
+
+## Automated Testing
+
+- Due to the lack of time and the deadline approching, I did not manage to comple a full project unit testing. I have focused heavily on full manual testing to ensure every test case was tried and tested.
+
+- Nevertheless, I have chosen a Trip and Contact app where I have performed partial automated unit testing in Python. 
+
+- In order to run the report and view my unit testing coverage, I have installed `coverage` with `pip3 install coverage`
+      1. Inside the terminal `coverage run --source={app_name} manage.py test`
+      2. `coverage report`
+      3. `coverage html`
+      4. `python3 -m http.server`
+- Now by clicking on the coverage file, you may view the percentage of code which has been tested.
+
+- Inside the Contac App I have tested the view which return the correct template.
+
+- Inside the Trip All, I have tested Category and Trip Modal, forms.py and some of the main features of the views.py file. 
+
+- I am looking forward to learning more about unit testing, and perform full automated testing in my next application.
+
+
+##### back to [content](#table-of-content)
+
 
 ## Manual Testing
 
@@ -1268,6 +1292,8 @@
    - During testing noticed that the user is able to modify the date manually in the input field
    - Fixed it by adding an alert and setting the min date to the input field if modified date is in the past.
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
+   - Removed custom validation originally implemented due to a bug, when submitting the form without a date, raising the custom validaiton. Then when selecting the date, the custom validation was still raised and not submitting a form.
+
 
 ### Bag.html
    - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 manually.
@@ -1275,7 +1301,6 @@
 
 ### Registraion Page
   - During testing I have come across a unique constraint that failed during generating a username, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
-  - Pagination not working during search and sort function
 
 ### Edit Profile Page
   - During testing I have across a phone number input field that was accepting characters instead of numbers, due to the model field being saved as a `CharField`, I have solved this is issue by adding a validation check in forms.py and converting the `phone_number` field into `integer` and displaying validation errors to the user.
@@ -1288,3 +1313,9 @@
   - During testing, I have struggled to get the pagination working on search and filter query sets. I have spent some time with @John_ci and have managed to solve these issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s) for both queries. 
   - The issue I have also encountered was when the sort functionality was set in descending order for the family_friendly field. To solve this issue quickly, I have created a custom function with the query set.
   - Sorting float field values was also tricky. I have managed to find a solution by importing an "F" function from Django, which accepts null values.
+
+
+### Unfixed Bugs
+  - Paggination yeid may be inconsistant, warning inside the terminal. This was left unfix due to the amount of date is quite small at the moment, when the site grows I am looking to implement this feature in the future. I have already looked into this issue and this will invole into setting custom `cache control`
+  
+  - When adding items to the bag, at this moment in time the user is not able to add the same trip with a different date to the bag items, however when updating the same trip and the already selected date the trip updates succesfully.  I do not think the user will want to select the same trip on multiple different dates during a single purchase, to solve this error required a lot of refactoring of the code, which I will do in the future.
