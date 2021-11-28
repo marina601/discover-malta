@@ -1271,7 +1271,9 @@
 
 ![view-reviews](readme-files/lighthouse/lighthouse-view-reviews.jpg)
 
-- Majority of performance issues is due to the image files being large, I  have compressed all the images to reduce loading time using [TinyPing](https://tinypng.com/)
+- Majority of performance issues is due to the image files being large, I  have compressed all the images to reduce loading time using [TinyPing](https://tinypng.com/).
+
+- Also one of the main issues for slow loading is the amount of css and js files, I have tried to separate static files as much as I could reduce the loading speed.
 
 ### Cross-Browser Compatibility Table 
 
