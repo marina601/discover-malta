@@ -35,7 +35,6 @@ body {
     padding: 1rem;
 }
 
-
 h1,
 h2,
 h3,
@@ -424,7 +423,6 @@ header,
     z-index: 0 !important;
 }
 
-
 /*****************Add_to_bag*/
 
 .cancel-btn {
@@ -606,6 +604,11 @@ footer {
         right: 2%
     }
 
+    .add-div button,
+    .cancel-div a {
+        width: 9rem;
+    }
+
 }
 
 @media (max-width: 320px) {
@@ -629,6 +632,11 @@ footer {
 
     .main-nav {
         width: auto !important;
+    }
+
+    .add-div button,
+    .cancel-div a {
+        width: auto;
     }
 }
 
