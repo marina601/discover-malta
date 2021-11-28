@@ -31,7 +31,6 @@
     flex-direction: unset;
 }
 
-
 .short-description {
     height: 10rem;
     overflow: auto;
@@ -49,7 +48,6 @@
     font-size: 1rem;
     margin-bottom: 0px;
 }
-
 
 .card-body a {
     color: #000000;
@@ -108,7 +106,6 @@
     background-color: #da8925 !important;
     color: #000000 !important;
 }
-
 
 .ui-datepicker-header {
     border: 1px solid #fafafa !important;
