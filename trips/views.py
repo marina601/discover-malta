@@ -20,7 +20,7 @@ def all_trips(request, category_slug=None):
     """
     Display all trips
     Sort Trips by Categories
-    Show Trip cound upon query results
+    Show Trip count upon query results
     """
     categories = None
     trips = Trip.objects.all()
@@ -62,7 +62,7 @@ def trip_detail(request, category_slug, trip_slug):
         trip = Trip.objects.get(category__slug=category_slug,
                                 slug=trip_slug)
     except Exception as e:
-        messages.error(request, 'Error has occured processing your request,'
+        messages.error(request, 'Error has occurred processing your request,'
                                 ' please try again')
         raise e
 
@@ -138,8 +138,6 @@ def search(request):
         'direction': direction
 
     }
-    print(sortkey)
-    print(direction)
     return render(request, 'trips/trips.html', context)
 
 
@@ -149,7 +147,8 @@ def sort_rating(request):
     trips = None
     result_count = 0
 
-    trips = Trip.objects.order_by(F('reviewrating__rating').desc(nulls_last=True))
+    trips = Trip.objects.order_by(F('reviewrating__rating')
+                                  .desc(nulls_last=True))
     # pagination
     paginator = Paginator(trips, 8)
     page = request.GET.get('page')
@@ -213,7 +212,7 @@ def add_trip(request):
                                ' all the required fields are completed!')
         else:
             messages.error(request, "You do not have admin "
-                           "previlieges to add a new trip")
+                           "privileges to add a new trip")
     else:
         form = TripForm()
 
@@ -247,7 +246,7 @@ def update_trip(request, trip_id):
                                    f' Please ensure the form is valid.'
                                    )
             else:
-                messages.error(request, "You do not have admin previlieges"
+                messages.error(request, "You do not have admin privileges"
                                " to update this trip")
         else:
             form = TripForm(instance=trip)
@@ -270,7 +269,7 @@ def delete_trip(request, trip_id):
         trip.delete()
         messages.success(request, f"You have successfully deleted {trip.name}")
     else:
-        messages.error(request, "You do not have admin previlieges"
+        messages.error(request, "You do not have admin privileges"
                        " to delete this trip")
 
     return redirect('trips')
