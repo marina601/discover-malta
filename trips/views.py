@@ -313,7 +313,7 @@ def submit_review(request, trip_id, user_id):
                     data.user = user
                     data.save()
                     messages.success(request, 'Thank you, your review has'
-                                              'been submited')
+                                              ' been submited')
                     return redirect(url)
         else:
             messages.error(request, "You must purchase the trip befor"

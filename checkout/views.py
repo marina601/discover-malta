@@ -184,10 +184,10 @@ def checkout_complete(request, order_number):
             if profile_form.is_valid():
                 profile_form.save()
 
-    messages.success(request, f'Your order has been successfuly prcessed! \
-                              Your ticket number is {order_number}. \
-                                   A confirmation \
-                              email will be sent to {order.email}.')
+    messages.success(request, f'Your order has been successfuly prcessed!'
+                              f' Your ticket number is {order_number}.'
+                              f' A confirmation'
+                              f' email will be sent to {order.email}.')
     # delete the shopping bag from this session
     if 'bag' in request.session:
         del request.session['bag']
