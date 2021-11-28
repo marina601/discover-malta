@@ -122,6 +122,8 @@
    |*Trips* |   &check; | no errors  |
    |*custom_storages.py* |   &check; | no errors  |
 
+   - Final Check has been completed, all the custom code has shown no errors
+
 - [Extendclass](https://extendsclass.com/python-tester.html)
 
    | Apps    |       Validation      |  Errors        |
@@ -418,7 +420,7 @@
 
 - Due to the lack of time and the deadline approaching, I did not manage to complete a full project unit testing. I have focused heavily on full manual testing to ensure every test case was tried and tested.
 
-- Nevertheless, I have chosen a Trip and Contact app where I have performed partially automated unit testing in Python. 
+- Nevertheless, I have chosen a Trip, Home and Contact app where I have performed automated unit testing in Python. A total of 25 tests have been written.
 
 - In order to run the report and view my unit testing coverage, I have installed `coverage` with 
   - `pip3 install coverage`
@@ -428,6 +430,10 @@
       - `coverage html`
       - `python3 -m http.server`
 - Now by clicking on the coverage file, you may view the percentage of code which has been tested.
+
+- Inside the Home App I have tested the view which returns the correct template.
+
+![home-all](readme-files/unit-testing/home-app-coverage-report.jpg)
 
 - Inside the Contact App I have tested the view which returns the correct template.
 
