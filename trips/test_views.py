@@ -1,11 +1,13 @@
 # pylint: disable=no-member
 from django.test import TestCase
 from django.urls import resolve
-from .models import Trip, Category
+
 from accounts.models import Account
+from .models import Trip, Category
 
 
 class TestTripView(TestCase):
+    """Test Trip App views"""
 
     def test_all_trips_view(self):
         """Test all_trips HTTP Response"""
@@ -55,7 +57,7 @@ class TestTripView(TestCase):
         response = self.client.get('/trips/', {'q': ''})
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "trips/trips.html")
-    
+
     def test_get_category(self):
         """Test returning all products in a category"""
         category = Category.objects.create(category_name='Test Category',
@@ -80,7 +82,7 @@ class TestTripView(TestCase):
         self.assertEqual(found.url_name, "update_trip")
         response = self.client.get(f'/trips/update_trip/{trip.id}/')
         self.assertEqual(response.status_code, 302)
-    
+
     def test_delete_trip(self):
         """Test: delete a trip"""
         category = Category.objects.create(category_name='Test Category',
