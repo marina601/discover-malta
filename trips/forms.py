@@ -19,28 +19,32 @@ class TripForm(forms.ModelForm):
         # Create cutom placeholders
         placeholders = {
             'name': 'Please enter trip name',
-            'category': 'Please choose category',
-            'short_description': 'Enter a short description max 300 characters',
+            'short_description': 'Enter a short description '
+                                 'max 300 characters',
             'full_description': 'Enter a full description max 800 characters',
             'included': 'Enter what is included in the trip',
             'what_to_bring': 'Enter what the user should bring to this trip',
             'duration': 'How long will this trip last',
-            'start_time': 'What time will  this trip start',
             'departure_location': 'Please enter a departure/pick-up location',
             'adult_price': 'Adult ticket price',
             'child_price': 'If family friendly, child ticket price',
-            'num_tickets': 'Please enter the number of tickets available for sale',
+            'num_tickets': 'Please enter the number of tickets'
+                           ' available for sale',
             'family_friendly': 'Are children allowed on this trip?',
-            'images': 'Please upload an image'
         }
 
         for field in self.fields:
-            if self.fields[field].required:
-                placeholder = f'{placeholders[field]} *'
-            else:
-                placeholder = placeholders[field]
-            # Setting placeholder to the values above
-            self.fields[field].widget.attrs['placeholder'] = placeholder
+            if field != 'category':
+                if field != 'images':
+                    if field != 'start_time':
+                        if self.fields[field].required:
+                            placeholder = f'{placeholders[field]} *'
+                        else:
+                            placeholder = placeholders[field]
+                        # Setting placeholder to the values above
+                        self.fields[field].widget.attrs['placeholder'] = (
+                                                                    placeholder
+                                                                    )
             # Add classes to the form fields
             self.fields[field].widget.attrs['class'] = 'form-control'
             self.fields['adult_price'].widget.attrs['min'] = 0.0
