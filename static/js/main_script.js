@@ -20,5 +20,5 @@ toastElList.map(function (toastEl) {
 // Sets copyright date in footer to current year
 function getCurrentYear() {
     return new Date().getFullYear();
-};
+}
 document.getElementById("copyright-year").innerHTML = getCurrentYear();
