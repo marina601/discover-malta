@@ -491,7 +491,7 @@ header,
 .update-link:hover {
     background-color: #000000;
     color: #fafafa;
-} */
+}
 
 /****************Login Page*/
 
@@ -720,7 +720,7 @@ footer {
         position: unset;
         width: 100%;
     }
-    
+
     #children_tickets,
     #total_adults {
         width: 5rem;
