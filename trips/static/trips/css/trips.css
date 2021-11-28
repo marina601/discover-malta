@@ -103,7 +103,7 @@
 
 /****************Date Picker*/
 
-.ui-datepicker-days-cell-over  > .ui-state-default {
+.ui-datepicker-days-cell-over>.ui-state-default {
     border: 1px solid #000000 !important;
     background-color: #da8925 !important;
     color: #000000 !important;
