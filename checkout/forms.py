@@ -1,5 +1,4 @@
 from django import forms
-from django.core.validators import MaxLengthValidator, MinLengthValidator
 from .models import Order
 
 
