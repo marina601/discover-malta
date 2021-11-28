@@ -8,7 +8,7 @@ class TestContactView(TestCase):
         response = self.client.get('/contact/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'contact/contact.html')
-    
+
     def test_about_view(self):
         """Test HTTP of about view response"""
         response = self.client.get('/contact/about/')
