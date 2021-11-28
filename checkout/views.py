@@ -83,7 +83,7 @@ def checkout(request):
                 except Trip.DoesNotExist:
                     # If the trip does not exists
                     messages.error(request, "One of the trips in your suitcase"
-                                   " was not found in out database."
+                                   " was not found in our database."
                                    "Please contact"
                                    " us for assistance")
                     order.delete()
@@ -108,7 +108,7 @@ def checkout(request):
                                     args=[order.order_number]))
         else:
             # if form is not valid
-            messages.error(request, "There was an error with your form"
+            messages.error(request, "There was an error with your form. "
                                     "Please double check our information")
     else:
         # if the bag is empty
