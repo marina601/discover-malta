@@ -1,10 +1,5 @@
 from django.test import TestCase
 from .forms import ReviewForm, TripForm
-from django.shortcuts import get_object_or_404
-
-from .models import Category
-
-# Create your tests here.
 
 
 class TestTripForm(TestCase):
@@ -47,26 +42,6 @@ class TestTripForm(TestCase):
         self.assertIn('num_tickets', form.errors.keys())
         self.assertEqual(form.errors['num_tickets'][0],
                          'This field is required.')
-
-    # def test_field_is_not_required(self):
-    #     """Test Fields are not required"""
-    #     form = TripForm({
-    #                     'name': 'Cuba',
-    #                     'category': 'fishing',
-    #                     'short_description': 'This is a test',
-    #                     'full_description': 'This is a long test',
-    #                     'included': 'nothing',
-    #                     'what_to_bring': 'money',
-    #                     'duration': '5',
-    #                     'start_time': '08:00',
-    #                     'departure_location': 'Valetta',
-    #                     'family_friendly': True,
-    #                     'adult_price': '12.0',
-    #                     'child_price': '0.0',
-    #                     'images': 'media/trips/image.png',
-    #                     'num_tickets': '10',
-    #                     })
-    #     self.assertTrue(form.is_valid())
 
     def test_fields_are_explicit_in_form_metaclass(self):
         """Test the form fields match"""
