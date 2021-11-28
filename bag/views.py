@@ -76,7 +76,7 @@ def update_bag(request, trip_id):
     """
     Update ticket quantity and booking date
     Update the total number of tickets for a trip in the db
-    If adult ticket quantity is less then 0
+    If adult ticket quantity is less than 0
     Delete trip from the bag
     """
     adult_tickets = int(request.POST.get('adult_tickets'))
