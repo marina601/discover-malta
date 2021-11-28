@@ -119,7 +119,6 @@ class StripeWH_Handler:
                         adult_quantity=bag_dict[key]['adult_tickets'],
                         booking_date=bag_dict[key]['booking_date'],
                         quantity=bag_dict[key]['quantity'],
-                        values=values,
                     )
                     order_ticket_item.save()
             except Exception as e:
