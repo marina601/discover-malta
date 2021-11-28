@@ -51,7 +51,7 @@ def contact(request):
         send_email = EmailMessage(mail_subject, message, to=[to_email])
         send_email.send()
         messages.success(request, f"Thank you {full_name} for your message,"
-                         "Somebody from our team will get in touch shortly")
+                         " Somebody from our team will get in touch shortly")
         return redirect('home')
 
     context = {
