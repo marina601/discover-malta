@@ -14,7 +14,7 @@
         - [**Frequent User**](#frequent-user)
         - [**Potential Client**](#potential-client)
         - [**Business Goals**](#business-goals)
-   -[**Automated Testing**](#automated-testing)
+   - [**Automated Testing**](#automated-testing)
    - [**Manual Testing**](#manual-testing)
       - [**Device Compatibility Table**](#device-compatibility-table)
       - [**Elements on Every Page**](#elements-on-every-page)
@@ -42,6 +42,8 @@
    - [**Google Lighthouse Testing**](#google-lighthouse-testing)
    - [**Cross Browser Compatibility Table**](#cross-browser-compatibility-table)
    - [**Bugs**](#bugs)
+   - [**Unfixed Bugs**](#unfixed-bugs)
+   - [**Insidents**](#insidents)
 
 ## Validation Results
 
@@ -312,16 +314,16 @@
 
 5.	As a frequent user, I want to be able to contact the site owners if I have an enquire.
        
-        - Any user may click on the contact link located in the footer of the site.
-        - It will take them to the *contact.html*, if the user is logged in they will have their information pre-filled for a quicker form submission
-        - Otherwise, the user will be asked to fill in the form and choose a subject from the dropdown menu
-        - The user is redirected to the *home page* and a message will appear on the screen letting them know they should have received a confirmation email
-        - A user will receive an automated email letting them know the site owners have received their enquire and will be in touch shortly.
-        - An email will be generated to the admin user, with client enquiries and client details.
+    - Any user may click on the contact link located in the footer of the site.
+    - It will take them to the *contact.html*, if the user is logged in they will have their information pre-filled for a quicker form submission
+    - Otherwise, the user will be asked to fill in the form and choose a subject from the dropdown menu
+    - The user is redirected to the *home page* and a message will appear on the screen letting them know they should have received a confirmation email
+    - A user will receive an automated email letting them know the site owners have received their enquire and will be in touch shortly.
+    - An email will be generated to the admin user, with client enquiries and client details
 
 6.  As a frequent user, I want to the explore latest deals
         
-        - Last minute deals category is positioned in the category dropdown menu, if there are any trips under this category the user will be able to view a list of trips by clicking on this category link.
+    - Last minute deals category is positioned in the category dropdown menu, if there are any trips under this category the user will be able to view a list of trips by clicking on this category link.
 
 
 
@@ -330,21 +332,21 @@
 ### Potential Client
 1.	As a potential client I want to see a sample of trips to get an overview of what my product might look like
 
-     - A potential client may browse through the site to get the feel of the design and style of the site
-     - Each trip has the same style and design, therefore a potential client may have a good overview of what their product may 
+  - A potential client may browse through the site to get the feel of the design and style of the site
+  - Each trip has the same style and design, therefore a potential client may have a good overview of what their product may 
      look like on the site
 
 2.	As a potential client I want to learn what benefits are available to me
     
-    - A potential client may navigate to *About Page*
-    - The information presented here is to let the user know about the core mission of the site and what benefits are available to the potential clients
-    - Call to action button, prompts the potential client to get in touch and request more information.
+  - A potential client may navigate to *About Page*
+  - The information presented here is to let the user know about the core mission of the site and what benefits are available to the potential clients
+  - Call to action button, prompts the potential client to get in touch and request more information.
 
 3.	As a potential client I want to easily get in touch with the site owners to request further information or book a call
 
-    - A potential client may get in touch with the site owners by completing a contact form 
-    - A subject option "Collaboration" has been created especially for this in mind. 
-    - Once the message is  received a relevant person from the team will be in touch
+  - A potential client may get in touch with the site owners by completing a contact form 
+  - A subject option "Collaboration" has been created especially for this in mind. 
+  - Once the message is  received a relevant person from the team will be in touch
 
 ##### back to [content](#table-of-content)
 
@@ -352,22 +354,22 @@
 
 1.	As a business owner, I want to provide a platform for users where they explore what Malta has to offer and book their trips during their stay on the island.
 
-    - The site has been designed to showcase what Malta has to offer
-    - Provide the user with the range of activities
-    - Enable the user to easily narrow down their search specific to their requirements
+  - The site has been designed to showcase what Malta has to offer
+  - Provide the user with the range of activities
+  - Enable the user to easily narrow down their search specific to their requirements
 
 2.	As a business owner, I want the user to be able to register with secure login details.
 
-    - Discover Malta has been designed to simplify the registration process for the user and ensure the user details are stored securely.
-    - For the user to register they have to provide their full name, telephone number, email address and password.
-    - A secure link is generated and sent to the user upon their registration
-    - Once the link is clicked from the user email address the user is activated
-    - User details and hashed password is stored in the database.
-    - User can reset their password by clicking on the `click here to reset your password` link 
-    - In that case, another email is generated and sent to the user email address to create a new password
-    - The user can log in when two conditions are met, user email address and password
-    - The site owner who will have access to the database, will be able to see the username, however, will not be able to see the user password which is stored securely.
-    - The user may choose to update their details on their profile page by clicking on the link `edit your profile`
+  - Discover Malta has been designed to simplify the registration process for the user and ensure the user details are stored securely.
+  - For the user to register they have to provide their full name, telephone number, email address and password.
+  - A secure link is generated and sent to the user upon their registration
+  - Once the link is clicked from the user email address the user is activated
+  - User details and hashed password is stored in the database.
+  - User can reset their password by clicking on the `click here to reset your password` link 
+  - In that case, another email is generated and sent to the user email address to create a new password
+  - The user can log in when two conditions are met, user email address and password
+  - The site owner who will have access to the database, will be able to see the username, however, will not be able to see the user password which is stored securely.
+  - The user may choose to update their details on their profile page by clicking on the link `edit your profile`
  
 3.	As a business owner, I want the user to be able to use the site easily on any device.
 
@@ -414,23 +416,30 @@
 
 ## Automated Testing
 
-- Due to the lack of time and the deadline approching, I did not manage to comple a full project unit testing. I have focused heavily on full manual testing to ensure every test case was tried and tested.
+- Due to the lack of time and the deadline approaching, I did not manage to complete a full project unit testing. I have focused heavily on full manual testing to ensure every test case was tried and tested.
 
-- Nevertheless, I have chosen a Trip and Contact app where I have performed partial automated unit testing in Python. 
+- Nevertheless, I have chosen a Trip and Contact app where I have performed partially automated unit testing in Python. 
 
-- In order to run the report and view my unit testing coverage, I have installed `coverage` with `pip3 install coverage`
-      1. Inside the terminal `coverage run --source={app_name} manage.py test`
-      2. `coverage report`
-      3. `coverage html`
-      4. `python3 -m http.server`
+- In order to run the report and view my unit testing coverage, I have installed `coverage` with 
+  - `pip3 install coverage`
+      1. Inside the terminal:
+      - `coverage run --source={app_name} manage.py test`
+      - `coverage report`
+      - `coverage html`
+      - `python3 -m http.server`
 - Now by clicking on the coverage file, you may view the percentage of code which has been tested.
 
-- Inside the Contac App I have tested the view which return the correct template.
+- Inside the Contact App I have tested the view which returns the correct template.
+
+![contact-app](readme-files/unit-testing/contact-coverage-report.png)
 
 - Inside the Trip All, I have tested Category and Trip Modal, forms.py and some of the main features of the views.py file. 
 
-- I am looking forward to learning more about unit testing, and perform full automated testing in my next application.
+![trips-app](readme-files/unit-testing/trips-coverage-report.png)
 
+- I am looking forward to learning more about unit testing and performing full automated testing in my next application.
+
+![terminal-tests-report](readme-files/unit-testing/automated-tests.png)
 
 ##### back to [content](#table-of-content)
 
@@ -584,18 +593,27 @@
    - Hover over each card and confirm the box-shadow property is changing, making each card-trip stand out to the user
    - Hover over the heart icon, confirm the background colour changes as expected. 
    - For not logged in user:
-            - Tooltip displays the message "Login to add this trip to your favourites".
-            - Click on the heart icon, confirm that it redirects the user to the login page.
+        - Tooltip displays the message "Login to add this trip to your favourites".
+        - Click on the heart icon, confirm that it redirects the user to the login page.
    - If the user is logged in:
-            - Hover over the heart icon, a tooltip displays the message "Add to favourites"
-            - Click on the icon, confirm the icon disappears and instead the trash icon appears.
-            - Hover over the trash icon, a tooltip displays the message "Remove from favourites".
-            - Heart icon in the navbar changes colour to red and displays the number of trips added to the favourite list.
-            - Toast message notifies the user which trip they have added to their favourites
-            - Click on the trash icon, confirm the number of trips in the navbar updates
-            - If no trips in the favourite list the heart icon displays 0 and the background colour goes back to the default white.
-            - The trip's heart icon which has been removed from the favourites list reverts to its original state.
-            - Toast message notifies the user which trip they have removed from their favourites
+        
+        - Hover over the heart icon, a tooltip displays the message "Add to favourites"
+        
+        - Click on the icon, confirm the icon disappears and instead the trash icon appears.
+        
+        - Hover over the trash icon, a tooltip displays the message "Remove from favourites".
+        
+        - Heart icon in the navbar changes colour to red and displays the number of trips added to the favourite list.
+        
+        - Toast message notifies the user which trip they have added to their favourites
+        
+        - Click on the trash icon, confirm the number of trips in the navbar updates
+        
+        - If no trips in the favourite list the heart icon displays 0 and the background colour goes back to the default white.
+        
+        - The trip's heart icon which has been removed from the favourites list reverts to its original state.
+        
+        - Toast message notifies the user which trip they have removed from their favourite
 
    ![favourites](readme-files/images/trips-favourites.png)
 
@@ -605,21 +623,21 @@
    - Click on the trip name, confirm it takes the user to the "Trip Detail Page".
    -- Trip card contains a short description of the trip, if the text length is longer than the height property set to the card, it displays the `overflow: auto;` property set in the CSS file.
    - 4 icons at the middle of the card set out the most important information the user might look out for:
-            - Duration
-            - Price
-            - Rating
-            - Family Friendly
+          - Duration
+          - Price
+          - Rating
+          - Family Friendly
     - If the trip has a star rating, the star icon changes colour to yellow and display the average star rating for the trip calculated in the trips.models.py using the Avg function from Django:
 
-              - `def averageRating(self):
-              -      """Calculate average trip review"""
-              -      reviews = ReviewRating.objects.filter(trip=self,
-              -                                           status=True).aggregate(
-              -                                               average=Avg('rating'))
-              -     avg = 0
-              -      if reviews['average'] is not None:
-              -          avg = float(reviews['average'])
-              -     return avg`
+           - `def averageRating(self):
+           -      """Calculate average trip review"""
+           -      reviews = ReviewRating.objects.filter(trip=self,
+           -                                           status=True).aggregate(
+           -                                               average=Avg('rating'))
+           -     avg = 0
+           -      if reviews['average'] is not None:
+           -          avg = float(reviews['average'])
+           -     return avg`
     - If there is no star rating for this trip, the star icon is set to default black colour and the message displays there is "no rating yet"
     - If the trip is family-friendly a child icon is displayed, if the trip is not set to be family-friendly no icon is displayed.
     - Call to action button "More Info", on hover changes colour and when clicked directs the user to trip details page.
@@ -674,15 +692,14 @@
 
    3. Datepicker
 
-            - Click on the input field to select the date, confirm datepicker is displayed.
-            - Confirm the first available date is available is tomorrow, the user will not be able to book a trip for the current or past date.
-            - Confirm tomorrow's date is highlighted.
-            - Click on any disabled dates, confirm they cannot be selected.
-            - Click on the Next button, next to the current month, confirm the month is changing, the current year is displayed.
-            - Select any date in the future and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
-            - Open the datepicker again, confirm the datepicker highlights the date selected.
-            - Try to modify the date in the input field to past date, confirm the alert message is displayed telling the user they need to pick a date in the future and input field set to the first available date(tomorrow).
-    
+       - Click on the input field to select the date, confirm datepicker is displayed.
+       - Confirm the first available date is available is tomorrow, the user will not be able to book a trip for the current or past date.
+       - Confirm tomorrow's date is highlighted.
+       - Click on any disabled dates, confirm they cannot be selected.
+       - Click on the Next button, next to the current month, confirm the month is changing, the current year is displayed.
+       - Select any date in the future and confirm the datepicker is closing once the date is selected, the date selected is displayed inside the input field.
+       - Open the datepicker again, confirm the datepicker highlights the date selected.
+       - Try to modify the date in the input field to past date, confirm the alert message is displayed telling the user they need to pick a date in the future and input field set to the first available date(tomorrow)   
     - Add the trip to the bag with children tickets set to 0, confirm the operation did display any errors, as the children tickets are allowed not to be selected
     - Once all the input fields are valid. Click "Add to suitcase" to confirm the toast notification is displayed telling the user which trip they have added to their bag.
     - Every time the user is adding tickets to their bag, the total number of tickets is adjusted in the database.
@@ -716,6 +733,10 @@
    - Once the user is logged in, navigation to any "Trip Detail" page will display a form where the user can submit their review
    - Press submit button without filling out the review form, confirm message is displayed asking them to rate the trip
    - Rate the trip and press the submit button again, confirm message is displayed asking the  user give a title to their review
+   - Rating will accept half rating as well as a full rating.
+   - Hover over the stars and confirm the background colour changes as expected.
+   - Select a star rating and confirm the background colour of the stars have changed as expected.
+   - Hover over the stars again and confirm the current star rating is still selected and the background colour is displayed in slightly darker yellow colour, to let the user know their first selection.
    - Fill out all the required fields and press the submit button again, confirm the toast notification is displayed telling the user their review has been submitted.
    - Confirm the average rating and review fields are updated
    - Under the "Customer Reviews" title, the total number of reviews is displayed
@@ -1019,16 +1040,16 @@
 - Confirm a welcome message is displayed including the user's first name for authentication.
 - User default avatar or custom avatar image is displayed in the middle of the page
 - Confirm the user is presented with 4 options in the form of the button:
-        - View Order History
-        - Edit Your Profile
-        - View Favourites
-        - Manage Reviews
+    - View Order History
+    - Edit Your Profile
+    - View Favourites
+    - Manage Reviews
 
 - If the user is `superadmin` an additional link -Add Trip is displayed, confirm this is not displayed for a regular user.
 - View Order History is an anchor link that brings the user to the bottom of the page, where the order history is located in ascending order.
 - Hover over the order number, confirm the background changes, as expected.
 - Click on the order number, confirm the toast notification tells the user they are viewing past order and the date when the confirmation email has been sent.
-- If the user does not have a order history yet, the massage will let the user know they have not placed any orders yet.
+- If the user does not have an order history yet, the message will let the user know they have not placed any orders yet.
 - Hover over each link and confirm the background colour changes as expected.
 - Click on each link and confirm they all lead to the relevant page.
 - Log out and try to modify the URL to go to the profile page, confirm the user is being re-directed to the "Login Page".
@@ -1043,7 +1064,7 @@
 - Edit Profile form consists of 2 forms, one is the `user_form` which takes all the information upon the registration and the other one is the `profile_form`.
 - Delete all the information from the form and click the "Update My Profile" button, confirm toast error notification is displayed to the user and no information is updated.
 - Confirm the placeholders display the information required for the form to be submitted
-- Try to type incorrect email address, confirm validation message is displayed telling the user what is missing
+- Try to type an incorrect email address, confirm validation message is displayed telling the user what is missing
 - Try to type letters into the phone_number field and submit the form, confirm the form validation message tells the user to enter a valid phone number
 ![phone-number-validation](readme-files/images/phone-number-error.jpg)
 - Try to update the profile picture, upload a non-image file, confirm the form validation has failed, the toast notification and form validation error is displayed to the user.
@@ -1225,7 +1246,7 @@
 ![bag](readme-files/lighthouse/lighthouse-bag.jpg)
 
 ### Labels
-  - Input fields did not have assosiated labels, fixed by adding the labels.
+  - Input fields did not have associated labels, fixed by adding the labels.
 
 
 ## Trip Detail
@@ -1244,7 +1265,7 @@
 
 ![view-reviews](readme-files/lighthouse/lighthouse-view-reviews.jpg)
 
-- Magiority of performance issues is due to the image files being large, i have compressed all the images to reduce loading time using [TinyPing](https://tinypng.com/)
+- Majority of performance issues is due to the image files being large, I  have compressed all the images to reduce loading time using [TinyPing](https://tinypng.com/)
 
 ### Cross-Browser Compatibility Table 
 
@@ -1289,17 +1310,17 @@
    - Fix: by adding a condition to check if the element exists in `modal.js`
 
 ### DatePicker
-   - During testing noticed that the user is able to modify the date manually in the input field
+   - During testing noticed that the user can modify the date manually in the input field
    - Fixed it by adding an alert and setting the min date to the input field if modified date is in the past.
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
-   - Removed custom validation originally implemented due to a bug, when submitting the form without a date, raising the custom validaiton. Then when selecting the date, the custom validation was still raised and not submitting a form.
+   - Removed custom validation originally implemented due to a bug, when submitting the form without a date, raising the custom validation. Then when selecting the date, the custom validation was still raised and not submitting a form.
 
 
 ### Bag.html
    - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 manually.
    - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
 
-### Registraion Page
+### Registration Page
   - During testing I have come across a unique constraint that failed during generating a username, therefore I have fixed it by `username = email.split("@")[0] + last_name`. To ensure the condition is always met.
 
 ### Edit Profile Page
@@ -1314,8 +1335,15 @@
   - The issue I have also encountered was when the sort functionality was set in descending order for the family_friendly field. To solve this issue quickly, I have created a custom function with the query set.
   - Sorting float field values was also tricky. I have managed to find a solution by importing an "F" function from Django, which accepts null values.
 
+##### back to [content](#table-of-content)
 
-### Unfixed Bugs
-  - Paggination yeid may be inconsistant, warning inside the terminal. This was left unfix due to the amount of date is quite small at the moment, when the site grows I am looking to implement this feature in the future. I have already looked into this issue and this will invole into setting custom `cache control`
+## Unfixed Bugs
+  - Pagination yield may be inconsistent, warning inside the terminal. This was left unfixed due to the amount of data being quite small at the moment, when the site grows I am looking to implement this feature in the future. I have already looked into this issue and this will involve setting custom `cache control`.
   
-  - When adding items to the bag, at this moment in time the user is not able to add the same trip with a different date to the bag items, however when updating the same trip and the already selected date the trip updates succesfully.  I do not think the user will want to select the same trip on multiple different dates during a single purchase, to solve this error required a lot of refactoring of the code, which I will do in the future.
+  - When adding items to the bag, at this moment in time the user is not able to add the same trip with a different date to the bag items, however when updating the same trip and the already selected date the trip updates successfully.  I do not think the user will want to select the same trip on multiple different dates during a single purchase, to solve this error required a lot of refactoring of the code, which I will do in the future.
+
+##### back to [content](#table-of-content)
+
+## Insidents 
+  
+ - By mistake, I have committed a `SECRET KEY` to my GitHub respiratory on the first commit after the project has been set up. I have immediately generated a new variable and set the new `SECRET KEY` in the `env.py` file and a separate one in `Heroku`.
