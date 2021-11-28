@@ -114,7 +114,6 @@ class UserForm(forms.ModelForm):
             self.fields[field].widget.attrs['placeholder'] = placeholder
             # set auto focus
             self.fields['first_name'].widget.attrs['autofocus'] = True
-            self.fields['phone_number'].widget.attrs['type'] = 'number'
             # set bootstrap class to input fields
             self.fields[field].widget.attrs['class'] = 'form-control'
 
