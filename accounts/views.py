@@ -99,7 +99,7 @@ def login(request):
         else:
             messages.error(request, "Invalid login details, please try again!")
             return redirect('login')
-    
+
     if request.user.is_authenticated:
         messages.info(request, "You have are already logged in!")
         return redirect('profile')
@@ -293,7 +293,7 @@ def add_to_favourite(request, trip_id):
     else:
         trip.add_to_favourites.add(request.user)
         messages.success(request, f"We have added {trip.name}"
-                         "to your favourites")
+                         " to your favourites")
         return redirect(url)
 
 
@@ -358,7 +358,5 @@ def edit_review(request, review_id):
         'form': form,
         'review': review,
     }
-
-    print(review.updated_at)
 
     return render(request, template, context)
