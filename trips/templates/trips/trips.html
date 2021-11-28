@@ -4,7 +4,7 @@
 {% block extra_title %} Trips {% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'trips/css/trips.css' %}">
+<link rel="stylesheet" href="{% static 'trips/css/trips.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -112,19 +112,19 @@
                 <div class="card card-trip">
                     <!--Add to favourites-->
                     {% if user.is_authenticated %}
-                        {% if trip in fav_trips %}
-                        <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="remove from favourites">
-                            <i class="fas fa-trash" aria-hidden="true"></i>
-                            <span class="sr-only">remove from favourites</span>
-                        </a>
-                        {% else %}
-                        <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
-                            data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
-                            <i class="fas fa-heart" aria-hidden="true"></i>
-                            <span class="sr-only">add to favourites</span>
-                        </a>
-                        {% endif %}
+                    {% if trip in fav_trips %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="remove from favourites">
+                        <i class="fas fa-trash" aria-hidden="true"></i>
+                        <span class="sr-only">remove from favourites</span>
+                    </a>
+                    {% else %}
+                    <a href="{% url 'add_to_favourite' trip.id %}" class="btn add-to-favourites add"
+                        data-bs-toggle="tooltip" data-bs-placement="top" title="Add to favourites">
+                        <i class="fas fa-heart" aria-hidden="true"></i>
+                        <span class="sr-only">add to favourites</span>
+                    </a>
+                    {% endif %}
                     {% else %}
                     <a href="{% url 'login' %}" class="btn add-to-favourites" data-bs-toggle="tooltip"
                         data-bs-placement="top" title="Login to add this trip to favourites">
@@ -215,8 +215,6 @@
             {% endfor %}
         </div>
     </div>
-</section>
-<section>
     <div class="container">
         <!--Pagination-->
         <div class="row mt-3">
@@ -227,7 +225,9 @@
                     <ul class="pagination justify-content-center">
                         {% if trips.has_previous %}
                         <li class="page-item">
-                            <a class="page-link" href="?{% if keyword %}q={{keyword}}&{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.previous_page_number }}" aria-label="Previous">
+                            <a class="page-link"
+                                href="?{% if keyword %}q={{keyword}}&{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.previous_page_number }}"
+                                aria-label="Previous">
                                 <span aria-hidden="true">&laquo;</span>
                                 <span class="sr-only">Previous page</span>
                             </a>
@@ -245,13 +245,17 @@
                         {% if trips.number == i %}
                         <li class="page-item active"><a class="page-link" href="#">{{i}}</a></li>
                         {% else %}
-                        <li class="page-item"><a class="page-link" href="?{% if keyword %}q={{keyword}}{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}&{% endif %}&page={{ i }}">{{ i }}</a></li>
+                        <li class="page-item"><a class="page-link"
+                                href="?{% if keyword %}q={{keyword}}{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}&{% endif %}&page={{ i }}">{{ i }}</a>
+                        </li>
                         {% endif %}
                         {% endfor %}
                         <!--Dynamic next button -->
                         {% if trips.has_next %}
                         <li class="page-item">
-                            <a class="page-link" href="?{% if keyword %}q={{keyword}}{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.next_page_number }}" aria-label="Next">
+                            <a class="page-link"
+                                href="?{% if keyword %}q={{keyword}}{% elif sortkey %}sort={{ sortkey }}&direction={{ direction }}{% endif %}&page={{ trips.next_page_number }}"
+                                aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
                                 <span class="sr-only">Next page</span>
                             </a>
@@ -271,5 +275,5 @@
         </div>
     </div>
 </section>
-    
+
 {% endblock %}
