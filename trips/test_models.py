@@ -33,6 +33,7 @@ class TestTripModels(TestCase):
                                    images='image.jpg')
         self.assertEqual(str(trip), 'Test Trip')
 
+
 class TestCategoryModel(TestCase):
     """Test Category Model"""
 
@@ -41,10 +42,9 @@ class TestCategoryModel(TestCase):
         category = Category.objects.create(category_name='Test Category',
                                            slug='test-category')
         self.assertFalse(category.cat_image)
-    
+
     def test_category_string_method_returns_name(self):
         """Test category string method"""
         category = Category.objects.create(category_name='Test Category',
                                            slug='test-category')
         self.assertEqual(str(category), 'Test Category')
-        
