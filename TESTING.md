@@ -33,7 +33,7 @@
       - [**Profile**](#profile)
       - [**Edit Profile**](#edit-profile)
       - [**Favourites**](#favourites)
-      - [**View Review**](#view-review)
+      - [**View Reviews**](#view-reviews)
       - [**Edit Review**](#edit-review)
       - [**Add Trip**](#add-trip)
       - [**Update Trip**](#update-trip) 
@@ -1188,7 +1188,7 @@
 
 ##### back to [content](#table-of-content)
 
-## 404.html
+## 404 Page
 
 - Starting at the desktop view, typed some random characters after the URL and custom 404 page is displayed.
 - Hover over the button which leads to the home page and the colour has changed. 
@@ -1200,7 +1200,7 @@
 
 ##### back to [content](#table-of-content)
 
-## 500.html
+## 500 Page
 
 - Custom server error page has been designed to provide feedback to the user
 - The page is identical to 404.html and also provides the link for the user to return to the home page
@@ -1214,7 +1214,7 @@
 
 ##### back to [content](#table-of-content)
 
-## Stripe Webhook Handler
+### Stripe Webhook Handler
 
 - The following tests have been run on the Stripe webhook handler:
 
@@ -1290,7 +1290,9 @@
 
 - Also one of the main issues for slow loading is the amount of css and js files, I have tried to separate static files as much as I could reduce the loading speed.
 
-### Cross-Browser Compatibility Table 
+##### back to [content](#table-of-content)
+
+## Cross-Browser Compatibility Table 
 
 | Pages    | **Google Chrome** | **Edge**  | **Safari**| **Firefox**
 |----------|:-----------------:|-----------:|---------:|-----------:|
@@ -1372,3 +1374,5 @@
 ## Insidents 
   
  - By mistake, I have committed a `SECRET KEY` to my GitHub respiratory on the first commit after the project has been set up. I have immediately generated a new variable and set the new `SECRET KEY` in the `env.py` file and a separate one in `Heroku`.
+
+ ##### back to [content](#table-of-content)

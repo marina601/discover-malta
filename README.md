@@ -42,14 +42,14 @@ The main objective of this site is to support local tour operators by reducing t
 
 6 [**Wireframes and Data Modal**](#wireframes-and-data-modal)
    - [**Wireframes**](#wireframes)
-   - [**Database modal**](#database-modal)
+   - [**Database**](#database)
       - [**Database Choices**](#database-choices)
       - [**Data Models**](#data-models)
 
 7 [**Features**](#features)
    - [**All Pages**](#all-pages)
    - [**Home Page**](#home-page)
-   - [**All Trips Page**](#all-page)
+   - [**All Trips Page**](#all-trips-page)
    - [**Trip Details Page**](#trip-details-page)
    - [**Add Trip Page**](#add-trip-page)
    - [**Update Trip Page**](#update-trip-page)
@@ -61,7 +61,7 @@ The main objective of this site is to support local tour operators by reducing t
    - [**Logout**](#logout)
    - [**Profile Page**](#profile-page)
    - [**Edit Profile Page**](#edit-profile-page)
-   - [**View Review Page**](#view-review-page)
+   - [**View Reviews Page**](#view-reviews-page)
    - [**Edit Review Page**](#edit-review-page)
    - [**Favourites Page**](#favourites-page) 
    - [**View Bag Page**](#view-bag-page) 
@@ -73,8 +73,8 @@ The main objective of this site is to support local tour operators by reducing t
    - [**500 Error Page**](#500-error-page)
    - [**Features Left to Implement**](#features-left-to-implement)
 
-8 [**Technology Used**](#technology-used)
-   - [**Languages Used**](#language-used)
+8 [**Technologies Used**](#technologies-used)
+   - [**Languages Used**](#languages-used)
    - [**Frameworks and Libraries**](#frameworks-and-libraries)
    - [**Tools**](#tools) 
 
@@ -332,7 +332,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
    - Stand up paddle board yoga [by Trex7875](https://pixabay.com/photos/yoga-on-water-lake-woman-1362019/)
    - Kayak Gozo and Camino [by dimitrisvetsikas1969](https://pixabay.com/photos/canoe-kayak-sport-water-sport-1405961/)
 
-#### About Page:
+#### About Page Images:
    
    - Speed Boat [by eyeImage](https://pixabay.com/photos/speedboat-water-boat-ocean-speed-823229/)
    - Sea Caves [by Margaret King](https://pixabay.com/photos/sea-cove-holiday-summer-island-4890410/)
@@ -411,7 +411,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ##### back to [content](#table-of-content)
 
 
-### Database Modals
+### Database
 
 - I have used [Django extensions](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16) to generate a database model diagram
 
@@ -713,7 +713,7 @@ A potential client which chooses to collaborate with Discover Malta might want t
 ##### back to [content](#table-of-content)
 
 
-### Trips Detail Page
+### Trip Details Page
 
 ![trip_details](readme-files/images/trip-details-image.png)
 
