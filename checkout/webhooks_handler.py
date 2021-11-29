@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 
 from trips.models import Trip
-from accounts.models import UserProfile
+from accounts.models import UserProfile, Account
 from .models import Order, OrderTicketItem
 
 
@@ -46,9 +46,10 @@ class StripeWH_Handler:
         profile = None
         username = intent.metadata.username
         if username != 'AnonymousUser':
-            profile = UserProfile.objects.get(user__username=username)
+            user = Account.objects.get(email=username)
+            profile = UserProfile.objects.get(user=user)
             if save_info:
-                profile.username_phone_number = billing_details.phone
+                user.phone_number = billing_details.phone
                 profile.country = billing_details.address.country
                 profile.postcode = billing_details.address.postal_code
                 profile.town_or_city = billing_details.address.city
@@ -56,6 +57,7 @@ class StripeWH_Handler:
                 profile.street_address2 = billing_details.address.line2
                 profile.county = billing_details.address.state
                 profile.save()
+                user.save()
 
         # If does not exist, get all the details from the form
         order_exists = False
