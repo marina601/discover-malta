@@ -39,6 +39,7 @@
       - [**Update Trip**](#update-trip) 
       - [**404 Page**](#404-page)
       - [**500 Page**](#500-page)
+      - [**Stripe Webhook Handler**](#stripe-webhook-handler)
    - [**Google Lighthouse Testing**](#google-lighthouse-testing)
    - [**Cross Browser Compatibility Table**](#cross-browser-compatibility-table)
    - [**Bugs**](#bugs)
@@ -123,6 +124,8 @@
    |*custom_storages.py* |   &check; | no errors  |
 
    - Final Check has been completed, all the custom code has shown no errors
+
+   - *Note*: Flake pylinter is showing an indintation error in *webhook_handler.py* on lines: 92, 135, 131. When indenting the code to Flake pylinter compliance PEP8 is throwing an error, therefore the code is indented according to *PEP8* compliance.
 
 - [Extendclass](https://extendsclass.com/python-tester.html)
 
@@ -1199,8 +1202,6 @@
 
 ## 500.html
 
-##### back to [content](#table-of-content)
-
 - Custom server error page has been designed to provide feedback to the user
 - The page is identical to 404.html and also provides the link for the user to return to the home page
 - To test this page I had to take the following steps
@@ -1210,6 +1211,20 @@
   - I have used the above code to test my custom 500.html, then removed it upon successful testing.
 
 ![500-tablet](readme-files/images/500.html-tablet.png) | ![500-mobile](readme-files/images/500.html-mobile.png)
+
+##### back to [content](#table-of-content)
+
+## Stripe Webhook Handler
+
+- The following tests have been run on the Stripe webhook handler:
+
+- Checkout a purchase successfully, and check the Stripe Webhook panel. The Response is shown as 200 OK and the webhook has correctly returned SUCCESS: Verified order already in database.
+- Comment out Payment Form submission in checkout.js to simulate a form submission error, and checkout a purchase. Within the Stripe Webhook panel, the Response is shown as 200 OK and the webhook has correctly returned SUCCESS: Created order in webhook. 
+- The database was also checked to confirm that the Order has been added correctly by the webhook.
+
+![webhook-handler](readme-files/images/webhook.jpg)
+
+##### back to [content](#table-of-content)
 
 ## Google Lighthouse Testing
 
@@ -1247,13 +1262,13 @@
 ### Modals 
   - The trigger button for all modals was using `<a>` element which resulted in the uncrawlable link, updated the element to a `button`
 
+
 ## Bag
 
 ![bag](readme-files/lighthouse/lighthouse-bag.jpg)
 
 ### Labels
   - Input fields did not have associated labels, fixed by adding the labels.
-
 
 ## Trip Detail
 
@@ -1323,7 +1338,6 @@
    - Solution from this found on [stack overflow](https://stackoverflow.com/questions/8356358/jquery-date-picker-disable-past-dates)
    - Removed custom validation originally implemented due to a bug, when submitting the form without a date, raising the custom validation. Then when selecting the date, the custom validation was still raised and not submitting a form.
 
-
 ### Bag.html
    - Quantity input - during testing noticed that the user can modify the number of tickets to more than 8 manually.
    - Fixed it using the same approach as a datepicker, using a function on change to check the input field value and set the maximum value accepted.
@@ -1342,6 +1356,9 @@
   - During testing, I have struggled to get the pagination working on search and filter query sets. I have spent some time with @John_ci and have managed to solve these issues using logic from this [YouTube tutorial](https://www.youtube.com/watch?v=YlMxfqcw77s) for both queries. 
   - The issue I have also encountered was when the sort functionality was set in descending order for the family_friendly field. To solve this issue quickly, I have created a custom function with the query set.
   - Sorting float field values was also tricky. I have managed to find a solution by importing an "F" function from Django, which accepts null values.
+
+## Webhook Handler
+   - During testing noticed the success webhook handler was failing when the user was authenticated. I have fixed it by explicitly getting the user from the Account model, assigning the value to the user profile and if the 'save info' checkbox was checked, updating both account and profile models.
 
 ##### back to [content](#table-of-content)
 
